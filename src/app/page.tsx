@@ -92,7 +92,7 @@ export default async function Home() {
               Ver todo en el mapa →
             </Link>
           </div>
-          <ul className="-mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 [scrollbar-width:none] sm:mx-0 sm:px-0 xl:grid xl:grid-cols-6 xl:overflow-visible">
+          <ul className="-mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 scroll-pl-4 [scrollbar-width:none] sm:mx-0 sm:px-0 sm:scroll-pl-0 xl:grid xl:grid-cols-6 xl:overflow-visible">
             {tonight.events.map((e) => (
               <li key={e.id} className="w-[200px] shrink-0 snap-start xl:w-auto">
                 <Link href={`/evento/${e.id}`} className="tap group block overflow-hidden rounded-2xl">
