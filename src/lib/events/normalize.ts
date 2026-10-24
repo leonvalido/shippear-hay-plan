@@ -56,6 +56,47 @@ export function titleSimilarity(a: string, b: string): number {
 
 const FOOTER = "\n\nFuentes: ";
 const MAX_DESCRIPTION = 2000;
+const MAX_LINKS = 6;
+
+export type Link = { label: string; url: string };
+
+/** Lower = more official/specific. Decides which record's sourceUrl survives a merge. */
+const SOURCE_RANK: Record<RawEvent["sourceType"], number> = {
+  ticketing: 0, platform: 1, manual: 2, municipal: 3, press: 4, instagram: 5, tiktok: 5, flyer: 6,
+};
+const SOURCE_LABEL: Record<RawEvent["sourceType"], string> = {
+  ticketing: "Entradas", platform: "Página del evento", manual: "Página del organizador", municipal: "Agenda municipal",
+  press: "Nota de prensa", instagram: "Ver en Instagram", tiktok: "Ver en TikTok", flyer: "Flyer",
+};
+
+export function sourceRank(t: RawEvent["sourceType"]): number {
+  return SOURCE_RANK[t] ?? 9;
+}
+export function linkLabel(t: RawEvent["sourceType"]): string {
+  return SOURCE_LABEL[t] ?? "Más info";
+}
+
+/** Every link a record carries: its sourceUrl (labelled by source type), its links, and legacy footer URLs. */
+function linksOf(e: RawEvent): Link[] {
+  const out: Link[] = [];
+  if (e.sourceUrl) out.push({ label: linkLabel(e.sourceType), url: e.sourceUrl });
+  for (const l of e.links ?? []) out.push(l);
+  for (const url of splitFooter(e.description).urls) out.push({ label: "Fuente", url });
+  return out;
+}
+
+/** Deduplicated by URL, primary excluded, at most MAX_LINKS. */
+export function dedupeLinks(links: Link[], exclude?: string): Link[] | undefined {
+  const seen = new Set<string>(exclude ? [exclude] : []);
+  const out: Link[] = [];
+  for (const l of links) {
+    if (!l.url || seen.has(l.url)) continue;
+    seen.add(l.url);
+    out.push({ label: l.label.slice(0, 40), url: l.url });
+    if (out.length === MAX_LINKS) break;
+  }
+  return out.length ? out : undefined;
+}
 
 function splitFooter(description?: string): { body: string; urls: string[] } {
   if (!description) return { body: "", urls: [] };
@@ -81,10 +122,13 @@ function richer<T>(a: T | undefined, b: T | undefined): T | undefined {
 export function mergeEvents<T extends RawEvent>(a: T, b: T): T {
   const fa = splitFooter(a.description);
   const fb = splitFooter(b.description);
-  const body = (richer(fa.body, fb.body) ?? "").trim();
-  const urls = [...new Set([...fa.urls, ...fb.urls, a.sourceUrl, b.sourceUrl].filter((u): u is string => !!u))];
-  let description = urls.length ? `${body}${FOOTER}${urls.join(", ")}`.trim() : body;
+  let description = (richer(fa.body, fb.body) ?? "").trim();
   if (description.length > MAX_DESCRIPTION) description = description.slice(0, MAX_DESCRIPTION);
+
+  // the most official record (ticketing > platform > organizer > municipal > press > social) owns sourceUrl/sourceType/sourceName
+  const primary = sourceRank(b.sourceType) < sourceRank(a.sourceType) ? b : a;
+  const secondary = primary === a ? b : a;
+  const links = dedupeLinks([...linksOf(primary), ...linksOf(secondary)].slice(1), primary.sourceUrl);
 
   const price =
     a.price && b.price
@@ -113,8 +157,10 @@ export function mergeEvents<T extends RawEvent>(a: T, b: T): T {
     barrio: richer(a.barrio, b.barrio),
     category: a.category !== "otro" ? a.category : b.category,
     price,
-    sourceName: richer(a.sourceName, b.sourceName),
-    sourceUrl: a.sourceUrl ?? b.sourceUrl,
+    sourceType: primary.sourceUrl ? primary.sourceType : (a.sourceUrl ? a.sourceType : b.sourceUrl ? b.sourceType : a.sourceType),
+    sourceName: primary.sourceName ?? secondary.sourceName,
+    sourceUrl: primary.sourceUrl ?? secondary.sourceUrl,
+    links,
     imageUrl: a.imageUrl ?? b.imageUrl,
     metrics: mergeMetrics(a.metrics, b.metrics),
   };

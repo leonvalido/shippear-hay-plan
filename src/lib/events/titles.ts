@@ -17,7 +17,9 @@ export const MAX_SHORT = 40;
 export const MIN_DESCRIPTION = 80;
 const MAX_DESCRIPTION = 400;
 const BATCH = 40;
-export type TitleEntry = { shortTitle: string; description?: string };
+/** Bump when the prompt changes so every title regenerates on the next run. */
+export const TITLE_VERSION = 2;
+export type TitleEntry = { v?: number; shortTitle: string; description?: string };
 export type TitleCache = Record<string, TitleEntry | string>;
 
 const ResultSchema = z.object({
@@ -37,8 +39,9 @@ function needsDescription(e: RawEvent): boolean {
   return !isMockMode() && splitDescription(e.description).body.trim().length < MIN_DESCRIPTION;
 }
 
+/** Only entries written by the current prompt version count as hits. */
 function entryOf(v: TitleEntry | string | undefined): TitleEntry | undefined {
-  return v === undefined ? undefined : typeof v === "string" ? { shortTitle: v } : v;
+  return v !== undefined && typeof v === "object" && v.v === TITLE_VERSION ? v : undefined;
 }
 
 function applyDescription(e: RawEvent, description: string) {
@@ -85,7 +88,7 @@ export async function fillShortTitles<T extends RawEvent>(events: T[], cache: Ti
       const entry = entries[idx] ?? { shortTitle: truncateTitle(e.title) };
       if (!e.shortTitle) e.shortTitle = entry.shortTitle;
       if (entry.description && needsDescription(e)) applyDescription(e, entry.description);
-      cache[fingerprint(e)] = { shortTitle: e.shortTitle ?? entry.shortTitle, ...(entry.description ? { description: entry.description } : {}) };
+      cache[fingerprint(e)] = { v: TITLE_VERSION, shortTitle: e.shortTitle ?? entry.shortTitle, ...(entry.description ? { description: entry.description } : {}) };
     });
     opts.onBatch?.(Math.min(i + BATCH, todo.length), todo.length);
   }
