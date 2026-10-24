@@ -20,17 +20,19 @@ Versión corta para favicon/stores: **Hay plan en Rosario.**
 
 ## Tono de voz
 
+Todas las líneas de abajo pasaron por el editor rioplatense de Cuentas Claras (`antigravity/.claude/agents/editor-rioplatense.md`) el 2026-10-24. Cualquier texto nuevo en español pasa por ahí antes de salir.
+
 1. **Rioplatense, con voseo y sin vergüenza.** "Mirá", "tenés", "dale". Nunca "usted", nunca "haz click".
-   - Nav: `Mapa` · `Hoy` · `Finde` · `Preguntale` · `Guardados`
+   - Nav: `Mapa` · `Hoy` · `Finde` · `Preguntá` · `Guardados`
 2. **Corto, como un mensaje de WhatsApp.** Una idea por línea; el usuario está en la calle con una mano ocupada.
-   - Estado vacío (sin eventos en el filtro): *"Nada por acá todavía. Probá otro día o sacá un filtro."*
-   - Estado vacío (sin guardados): *"Todavía no guardaste nada. Tocá el pin para guardarlo."*
+   - Estado vacío (sin eventos en el filtro): *"No hay nada con esos filtros. Sacá uno o probá otro día."*
+   - Estado vacío (sin guardados): *"Todavía no guardaste nada. Tocá el pin de un evento y queda acá."*
 3. **Concreto, con datos reales.** Siempre hora, lugar y precio si existen. Nunca inventa un evento; si no sabe, dice que no sabe.
-   - Saludo del concierge: *"Hola. Soy HayPlan. Decime qué tenés ganas de hacer (o a qué hora salís) y te armo el plan con lo que hay hoy en Rosario."*
-   - Concierge sin resultados: *"Para eso hoy no encontré nada. ¿Te tiro algo parecido o probamos mañana?"*
+   - Saludo del concierge: *"Hola, soy HayPlan. Decime qué tenés ganas de hacer o a qué hora salís y te armo algo con lo que hay hoy en Rosario."*
+   - Concierge sin resultados: *"Para eso hoy no encontré nada. Si querés te paso algo parecido, o buscamos para mañana."*
 4. **Amable con el error, nunca cómplice del pánico.** Se dice qué pasó y qué hacer, sin códigos ni culpa.
-   - Sin conexión: *"Sin señal. El mapa que ya cargaste sigue ahí; lo nuevo aparece cuando vuelva."*
-   - Error del concierge: *"Se me trabó. Mandá el mensaje de nuevo, por favor."*
+   - Sin conexión: *"Sin conexión. El mapa que ya cargaste sigue ahí y lo nuevo aparece cuando vuelva."*
+   - Error del concierge: *"Se me trabó. Mandá el mensaje de nuevo."*
    - Fuente caída: *"La agenda municipal no responde. Te muestro el resto mientras tanto."*
 5. **Entusiasmo medido.** Un signo de exclamación por pantalla como máximo. Sin emojis en la interfaz (los pines ya son el color). Sin "¡increíble!", sin "¡no te lo pierdas!".
    - Botón principal: `Ver en el mapa` · secundario: `Cómo llegar` · guardar: `Guardar` / `Guardado`
@@ -105,7 +107,7 @@ La referencia visual es la sobriedad de Apple, no su azul. Cinco reglas:
 2. **Titulares grandes y apretados.** Semibold o bold, `letter-spacing: -0.02em`, `line-height: 1.05`. El titular dice una cosa. El párrafo de abajo es gris (`--muted-foreground`) y corto.
 3. **Aire.** Secciones separadas por mucho espacio (80 a 120 px en desktop, 48 en móvil), no por líneas ni cajas. Si dudás, sacá un borde.
 4. **Vidrio, no sombras.** Paneles flotantes (barra de búsqueda, chat del concierge, tarjeta del pin) con fondo translúcido y `backdrop-filter: blur(20px)`, borde de 1 px al 10 %. Esquinas grandes (`--radius` 14 px; 24 px en tarjetas grandes).
-5. **El mapa es la foto.** Como Apple deja que el producto haga el trabajo, acá el mapa de Rosario de noche es la imagen de marca. Nada de ilustraciones ni stock.
+5. **El mapa es la imagen.** Como Apple deja que el producto haga el trabajo, acá el mapa de Rosario de noche es la imagen de marca. Nada de ilustraciones ni stock.
 
 ## Tipografía
 
