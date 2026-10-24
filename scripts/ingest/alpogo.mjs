@@ -3,16 +3,71 @@
  * title, "Sábado 07/11, 16:30 hs", venue ("Teatro Nuevo Monumental, Rosario"),
  * image, "Comprar desde $25000" and the event link. Venues are geocoded by name
  * (no address on the cards; venue pages are 404 for anonymous visitors).
+ * When the coordinator saved event pages under data/private/html/alpogo, those are
+ * used instead: they carry the address, coordinates, exact time and description.
  */
 import * as cheerio from "cheerio";
 import { fetchText, geocode, parseSpanishDate, inWindow, guessCategory, normalizeEvent, dedupe, writeRaw, clean } from "./lib.mjs";
+import { savedPages } from "./saved.mjs";
 
 const SEARCH_URLS = [
   "https://alpogo.com/buscar?busqueda=Rosario",
   "https://alpogo.com/buscar?busqueda=Rosario&provincia_id=21",
 ];
 
+function fromSavedPage(p, now, cardDates) {
+  const $ = cheerio.load(p.text);
+  const title = clean($('meta[property="og:title"]').attr("content") ?? "").replace(/\s*\|\s*Alpogo\.com$/i, "");
+  // multi-function events have no #fecha block; the search card still shows the next date
+  const when = clean($("#fecha").text()) || cardDates.get(p.url) || "";
+  const startsAt = parseSpanishDate(when, now);
+  const place = $("#lugar .lugar-link");
+  const placeText = clean(place.find(".nombre").text());
+  if (!title || !startsAt || !/rosario/i.test(`${placeText} ${clean(place.text())}`)) return null;
+  const lat = Number(p.text.match(/\blat\s*=\s*(-?\d+\.\d+)/)?.[1]);
+  const lng = Number(p.text.match(/\blon(?:g)?\s*=\s*(-?\d+\.\d+)/)?.[1]);
+  const price = clean($(".btn-compra-evento").text()).match(/\$\s?([\d.]+)/);
+  const min = price ? Number(price[1].replace(/\./g, "")) : undefined;
+  const end = when.match(/hasta\s+(\d{1,2}[:.]\d{2})/);
+  return {
+    title,
+    description: clean($('meta[property="og:description"]').attr("content")) || undefined,
+    startsAt,
+    venueName: placeText.replace(/,\s*rosario.*$/i, "").replace(/\.$/, ""),
+    address: clean(place.find("div span").last().text()) || undefined,
+    lat, lng,
+    category: guessCategory(`${title} ${placeText}`, "musica"),
+    price: min != null ? { free: min === 0, min, currency: "ARS" } : undefined,
+    sourceType: "ticketing",
+    sourceName: "Alpogo",
+    sourceUrl: p.url,
+    imageUrl: $('meta[property="og:image"]').attr("content"),
+    endsAtHint: end?.[1],
+  };
+}
+
 export async function run(now = new Date()) {
+  const saved = savedPages("alpogo");
+  if (saved) {
+    const events = [];
+    const cardDates = new Map();
+    for (const p of saved.filter((p) => /\/buscar/.test(p.url))) {
+      const $ = cheerio.load(p.text);
+      $(".evento").each((_, card) => {
+        const link = $(card).find('a[href*="/evento/"]').first().attr("href");
+        if (link) cardDates.set(link, clean($(card).find("p.fecha").first().text()));
+      });
+    }
+    for (const p of saved.filter((p) => /\/evento\//.test(p.url))) {
+      const c = fromSavedPage(p, now, cardDates);
+      if (!c || !inWindow(c.startsAt, now)) continue;
+      delete c.endsAtHint;
+      const ev = normalizeEvent(c);
+      if (ev) events.push(ev);
+    }
+    console.log(`alpogo: ${events.length} events from ${saved.length} saved pages`);
+    return dedupe(events);
+  }
   const seen = new Set();
   const events = [];
   for (const url of SEARCH_URLS) {
