@@ -167,6 +167,12 @@ async function main() {
   }
 
   console.log("3. Geocodificando con Georef…");
+  // An image shared by several events is a source's article collage, not the event's picture.
+  {
+    const uses = new Map<string, number>();
+    for (const e of all) if (e.imageUrl) uses.set(e.imageUrl, (uses.get(e.imageUrl) ?? 0) + 1);
+    for (const e of all) if (e.imageUrl && (uses.get(e.imageUrl) ?? 0) > 2) delete e.imageUrl;
+  }
   await geocodeMissing(all);
   console.log(`  ${counts.geocoded} resueltas, ${counts.geocodeMiss} sin resolver`);
 
