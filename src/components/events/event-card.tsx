@@ -56,12 +56,6 @@ export function EventCard({ event, selected, onSelect, showDate = true, from, cl
           {showDate && event.imageUrl ? `${formatDate(event.startsAt)}, ` : ""}
           {showDate || event.imageUrl ? `${formatTime(event.startsAt)} · ` : ""}
           {event.venueName}
-          {mins != null && (
-            <span className="text-foreground">
-              {" "}
-              · 🚶 a {mins >= 90 ? `${Math.round(mins / 60)} h` : `${mins} min`} caminando
-            </span>
-          )}
         </p>
         <div className="flex flex-wrap items-center gap-1.5">
           {selected && (
@@ -73,6 +67,11 @@ export function EventCard({ event, selected, onSelect, showDate = true, from, cl
             </Link>
           )}
           <Badge variant={event.price?.free ? "success" : "secondary"}>{formatPrice(event.price)}</Badge>
+          {mins != null && (
+            <Badge variant="outline" className="gap-1">
+              <span aria-hidden>🚶</span> a {mins >= 90 ? `${Math.round(mins / 60)} h` : `${mins} min`} caminando
+            </Badge>
+          )}
           <Badge variant="outline" style={{ borderColor: color, color }}>
             {CATEGORY_LABELS[event.category]}
           </Badge>
