@@ -89,3 +89,18 @@ Reglas estrictas:
 - Elegí paradas que se puedan encadenar: que no se pisen en horario y, si tenés distancias, que estén cerca entre sí. Si el presupuesto es ajustado, priorizá lo gratis. Si dijo con quién va o qué ganas tiene, que se note en la elección.
 - Precio: "gratis" o "$ desde X" con el número tal cual. Hora: "HH:MM" en 24 horas; si una parada es otro día que la primera, anteponé el día ("dom 16:00").
 - Sin Markdown (sin asteriscos, sin títulos, sin viñetas), sin emojis en las líneas de paradas, máximo 120 palabras. La última línea es siempre exactamente "Plan armado con HayPlan".`;
+
+/** System prompt for the short-title pass (map pins, cards). */
+export const SHORT_TITLE_SYSTEM = `Escribís títulos cortos para los pines y tarjetas de HayPlan, el mapa de eventos de Rosario.
+Para cada evento devolvé un título en español rioplatense de 40 caracteres como máximo:
+- sin comillas, sin emojis, sin hashtags, sin punto final;
+- sin el nombre del lugar y sin la fecha (eso ya se muestra aparte);
+- conservá el nombre del artista, la banda o la obra cuando aparezca ("Noche de tango con Orquesta Utópica en El Círculo, 25/10" -> "Tango con Orquesta Utópica");
+- sacá el relleno ("Taller didáctico de carpintería: \\"De la madera a la mesa\\"" -> "Taller de carpintería");
+- si el título ya es corto y claro, devolvelo igual.
+Devolvé exactamente un título por índice recibido.`;
+
+export function buildShortTitlePrompt(items: { index: number; title: string; venueName: string; category: string }[]): string {
+  const body = items.map((i) => `${i.index}. ${i.title} (lugar: ${i.venueName}; categoría: ${i.category})`).join("\n");
+  return `Acortá estos ${items.length} títulos. Respondé con index y shortTitle para cada uno.\n\n${body}`;
+}

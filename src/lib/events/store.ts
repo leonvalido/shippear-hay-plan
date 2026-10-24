@@ -1,7 +1,7 @@
 import { getStore, type SqliteDatabase } from "../db";
 import { EventSchema, RawEventSchema, type Event, type EventsQuery, type RawEvent } from "./schema";
 import { fingerprint, mergeEvents, normalizeText, titleSimilarity } from "./normalize";
-import { addDays, epochMs, parseInstant, toRosarioISO } from "./time";
+import { addDays, epochMs, isMidnight, parseInstant, toRosarioISO } from "./time";
 import seed from "../../../data/events.json";
 
 /**
@@ -30,6 +30,7 @@ type Row = {
   price_max: number | null; source_type: string; source_name: string | null; source_url: string | null;
   image_url: string | null; status: string; fingerprint: string; created_at: string; search: string;
   metrics_views: number | null; metrics_likes: number | null;
+  short_title: string | null; time_unknown: number | null;
 };
 
 const DDL = `
@@ -58,7 +59,9 @@ CREATE TABLE IF NOT EXISTS events (
   created_at TEXT NOT NULL,
   search TEXT NOT NULL,
   metrics_views INTEGER,
-  metrics_likes INTEGER
+  metrics_likes INTEGER,
+  short_title TEXT,
+  time_unknown INTEGER
 );
 CREATE INDEX IF NOT EXISTS events_starts_at ON events (starts_at);
 CREATE INDEX IF NOT EXISTS events_starts_ms ON events (starts_ms);
@@ -67,10 +70,15 @@ CREATE INDEX IF NOT EXISTS events_category ON events (category);
 CREATE INDEX IF NOT EXISTS events_fingerprint ON events (fingerprint);
 `;
 /** Columns added after the first deploy; applied one by one on tables that predate them. */
-const MIGRATIONS = ["ALTER TABLE events ADD COLUMN metrics_views INTEGER", "ALTER TABLE events ADD COLUMN metrics_likes INTEGER"];
+const MIGRATIONS = [
+  "ALTER TABLE events ADD COLUMN metrics_views INTEGER",
+  "ALTER TABLE events ADD COLUMN metrics_likes INTEGER",
+  "ALTER TABLE events ADD COLUMN short_title TEXT",
+  "ALTER TABLE events ADD COLUMN time_unknown INTEGER",
+];
 
 const COLUMNS =
-  "id,title,description,starts_at,starts_ms,ends_at,venue_name,address,lat,lng,barrio,category,price_free,price_min,price_max,source_type,source_name,source_url,image_url,status,fingerprint,created_at,search,metrics_views,metrics_likes";
+  "id,title,description,starts_at,starts_ms,ends_at,venue_name,address,lat,lng,barrio,category,price_free,price_min,price_max,source_type,source_name,source_url,image_url,status,fingerprint,created_at,search,metrics_views,metrics_likes,short_title,time_unknown";
 
 function searchText(e: Pick<Event, "title" | "venueName">) {
   return normalizeText(`${e.title} ${e.venueName}`);
@@ -89,6 +97,7 @@ function toRow(e: Event): unknown[] {
     f.price ? (f.price.free ? 1 : 0) : null, f.price?.min ?? null, f.price?.max ?? null,
     f.sourceType, f.sourceName ?? null, f.sourceUrl ?? null, f.imageUrl ?? null, f.status, f.fingerprint,
     f.createdAt, searchText(f), f.metrics?.views ?? null, f.metrics?.likes ?? null,
+    f.shortTitle ?? null, f.timeUnknown === undefined ? null : f.timeUnknown ? 1 : 0,
   ];
 }
 
@@ -111,6 +120,8 @@ function fromRow(r: Row): Event {
   if (r.source_name) e.sourceName = r.source_name;
   if (r.source_url) e.sourceUrl = r.source_url;
   if (r.image_url) e.imageUrl = r.image_url;
+  if (r.short_title) e.shortTitle = r.short_title;
+  if (r.time_unknown !== null) e.timeUnknown = r.time_unknown === 1;
   if (r.metrics_views !== null || r.metrics_likes !== null) {
     e.metrics = { ...(r.metrics_views !== null ? { views: r.metrics_views } : {}), ...(r.metrics_likes !== null ? { likes: r.metrics_likes } : {}) };
   }
@@ -313,7 +324,7 @@ export type IngestResult = { inserted: number; merged: number; skipped: number }
 
 /** Turn a RawEvent into a stored Event (new id, status, timestamps). */
 export function toEvent(raw: RawEvent, id: string, status: Event["status"]): Event {
-  return withFingerprint({ ...raw, id, status, createdAt: toRosarioISO(new Date()) });
+  return withFingerprint({ ...raw, timeUnknown: raw.timeUnknown ?? (isMidnight(raw.startsAt) || undefined), id, status, createdAt: toRosarioISO(new Date()) });
 }
 
 /**

@@ -96,9 +96,14 @@ export function mergeEvents<T extends RawEvent>(a: T, b: T): T {
         }
       : (a.price ?? b.price);
 
+  // a known time beats a midnight placeholder on the same date
+  const takeTimeFromB = a.timeUnknown && !b.timeUnknown && dateOf(a.startsAt) === dateOf(b.startsAt);
   return {
     ...b,
     ...a,
+    startsAt: takeTimeFromB ? b.startsAt : a.startsAt,
+    timeUnknown: takeTimeFromB ? b.timeUnknown : (a.timeUnknown ?? b.timeUnknown),
+    shortTitle: a.shortTitle ?? b.shortTitle,
     title: richer(a.title, b.title) ?? a.title,
     description: description || undefined,
     endsAt: richer(a.endsAt, b.endsAt),
