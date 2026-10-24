@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import { fetchEvents } from "@/app/_lib/api";
+import { apiBase, fetchEvents } from "@/app/_lib/api";
 import { HeroMap } from "@/components/layout/hero-map";
 import { PhoneFrame } from "@/components/layout/phone-frame";
-import { CategoryIcon } from "@/components/events/category-icon";
 import { CATEGORY_COLORS, CATEGORY_LABELS, dayRange, displayTitle, formatTime, humanizeTitle, timeLabel } from "@/components/events/format";
+import type { EventCategory } from "@/lib/events/schema";
 import { Button } from "@/components/ui/button";
 import type { Event } from "@/lib/events/schema";
 
@@ -20,10 +20,39 @@ function pickTonight(today: Event[], week: Event[]): { title: string; events: Ev
   return { title: evening.length >= 3 ? "Esta noche en Rosario" : "Hoy en Rosario", events };
 }
 
+/** "el Centro", "la Costanera", "Pichincha": barrios that read with an article in Rosario. */
+function withArticle(barrio: string): string {
+  if (["Centro", "Macrocentro", "Parque", "Sur", "Norte", "Oeste"].includes(barrio)) return `el ${barrio}`;
+  if (barrio === "Costanera") return `la ${barrio}`;
+  return barrio;
+}
+
+type Stats = { total: number; byBarrio: { barrio: string; count: number }[]; byCategory: { category: string; count: number }[] };
+
+/** One quiet line of real numbers for the week: total, busiest barrio, most common category. */
+async function fetchStatsLine(): Promise<string | null> {
+  try {
+    const qs = new URLSearchParams(dayRange("semana") as Record<string, string>).toString();
+    const res = await fetch(`${await apiBase()}/api/events/stats?${qs}`, { cache: "no-store" });
+    if (!res.ok) return null;
+    const s = (await res.json()) as Stats;
+    if (!s.total) return null;
+    const parts = [`${s.total} eventos esta semana`];
+    const barrio = s.byBarrio[0];
+    if (barrio) parts.push(`${barrio.count} en ${withArticle(barrio.barrio)}`);
+    const cat = s.byCategory[0];
+    if (cat) parts.push(`${cat.count} de ${CATEGORY_LABELS[cat.category as EventCategory]?.toLowerCase() ?? cat.category}`);
+    return parts.join(" · ");
+  } catch {
+    return null;
+  }
+}
+
 export default async function Home() {
-  const [week, today] = await Promise.all([
+  const [week, today, statsLine] = await Promise.all([
     fetchEvents({ ...dayRange("semana"), limit: "500" } as Record<string, string>),
     fetchEvents({ ...dayRange("hoy"), limit: "500" } as Record<string, string>),
+    fetchStatsLine(),
   ]);
   const count = week.length;
   const tonight = pickTonight(today, week);
@@ -46,16 +75,6 @@ export default async function Home() {
             <p className="mx-auto max-w-xl text-base text-muted-foreground sm:text-lg xl:mx-0">
               Ves en un mapa los recitales, las ferias, el teatro y las fiestas de hoy, con hora, lugar y precio de la entrada.
             </p>
-            <ul className="flex flex-wrap justify-center gap-2 xl:justify-start" aria-label="Categorías">
-              {(["musica", "fiesta", "feria"] as const).map((c) => (
-                <li key={c}>
-                  <Link href={`/mapa?category=${c}`} className="glass tap inline-flex h-11 items-center gap-2 rounded-full px-4 text-sm font-medium">
-                    <CategoryIcon category={c} className="size-3.5" style={{ color: CATEGORY_COLORS[c] }} />
-                    {CATEGORY_LABELS[c]}
-                  </Link>
-                </li>
-              ))}
-            </ul>
             <div className="flex flex-col justify-center gap-3 sm:flex-row xl:justify-start">
               <Button asChild size="lg" className="tap h-12 w-full rounded-full px-8 text-base font-semibold sm:w-auto">
                 <Link href="/mapa">Abrir el mapa</Link>
@@ -108,6 +127,7 @@ export default async function Home() {
               </li>
             ))}
           </ul>
+          {statsLine && <p className="mt-6 text-[13px] text-tertiary sm:mt-8">{statsLine}</p>}
         </section>
       )}
 
