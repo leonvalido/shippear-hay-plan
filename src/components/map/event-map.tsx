@@ -226,7 +226,7 @@ export function EventMap({
       seen.add(v.key);
       let m = markers.get(v.key);
       if (!m) {
-        m = L.marker([v.lat, v.lng], { icon: iconFor(L, map, v, false, explore), venueKey: v.key, riseOnHover: true });
+        m = L.marker([v.lat, v.lng], { icon: iconFor(L, map, v, false, explore), venueKey: v.key, riseOnHover: true, title: `${humanizeTitle(v.name)}: ${v.events.length} evento${v.events.length === 1 ? "" : "s"}`, alt: humanizeTitle(v.name) });
         m.bindTooltip(tooltipHtml(v), { direction: "top", offset: [0, -14], className: "hp-tooltip" });
         m.on("click", () => {
           // At city zoom a lone bubble behaves like a cluster: zoom in to pin mode first.

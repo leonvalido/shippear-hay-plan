@@ -60,7 +60,7 @@ export default async function Home() {
                 <Link href="/mapa">Abrir el mapa</Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="tap h-12 w-full rounded-full px-8 text-base sm:w-auto">
-                <Link href="/hoy">Preguntale al concierge</Link>
+                <Link href="/mapa?concierge=1">Preguntale al concierge</Link>
               </Button>
             </div>
           </div>
