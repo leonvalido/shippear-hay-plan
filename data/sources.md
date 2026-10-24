@@ -4,14 +4,15 @@ Produced by `npm run ingest` (`scripts/ingest/all.mjs`), which runs every source
 (one request per second per host), writes `data/private/raw/<source>.json` as `RawEvent[]` and a
 `data/private/raw/_summary.json` with counts and errors. Everything under `data/private/` is
 git-ignored. Only events dated today … today + 15 days are kept; coordinates outside
-`ROSARIO_BBOX` are dropped (the event is kept without them).
+`ROSARIO_BBOX` (Gran Rosario since the 12:30 merge of main) are dropped (the event is kept without them).
+Geocoding takes a `localidad` (Funes, San Lorenzo, Granadero Baigorria…); the press parser detects the town named in a paragraph.
 
 Sites that block plain fetches (Venti, Ticketek, Passline, and Alpogo event pages) are parsed from
 pages the coordinator saves from a residential connection under `data/private/html/<site>/`
 (`index.json` + `<n>.html` / `api-<n>.json`, main checkout; from a worktree the folder is found three
 levels up, or set `HAYPLAN_HTML_DIR`). The runner only includes those sources when the folder exists.
 
-Last run: 2026-10-24 12:26 (Rosario), 208 s, 211 events, 0 errors (municipal 129, press 50, alpogo 7, venti 6, entradauno 6, eventbrite 6, ticketek 5, meetup 2, luma 0, passline 0).
+Last run: 2026-10-24 12:38 (Rosario), 189 s, 212 events (194 with coordinates), 0 errors (municipal 130, press 50, alpogo 7, venti 6, entradauno 6, eventbrite 6, ticketek 5, meetup 2, towns 0, luma 0, passline 0).
 
 | Source | Script | sourceType | What it gives | Quirks | Last count |
 |---|---|---|---|---|---|
@@ -21,6 +22,7 @@ Last run: 2026-10-24 12:26 (Rosario), 208 s, 211 events, 0 errors (municipal 129
 | Venti (saved pages: public events API `api-<n>.json` + event pages) | `venti.mjs` | `ticketing` | Nightlife and electronic music (Switch Club, Zeta Club, Taura…): exact time, venue coordinates from the API, ARS prices and descriptions from the event pages' JSON-LD | Saved-only. ~350 events country-wide in the API dump; filtered by venue coordinates / "Rosario" in the address. Prices only for events whose page was saved. | 6 |
 | Ticketek Argentina (saved pages: search by city = Rosario + show pages) | `ticketek.mjs` | `ticketing` | Big theatre and concerts (Teatro El Círculo, Astengo, City Center): one JSON-LD MusicEvent per function with date-time, venue, street address and "desde" price | Saved-only. Pages without "Rosario" in the text are ignored. Addresses geocoded via Georef. | 5 |
 | Passline (saved pages) | `passline.mjs` | `ticketing` | Would parse JSON-LD events from real listing pages | Saved-only. All saved pages so far are Cloudflare "Just a moment…" challenges, counted and skipped. | 0 |
+| Towns around Rosario (Funes news, Granadero Baigorria WordPress `eventos` + news) | `towns.mjs` | `municipal` | Event-like posts (feria, festival, fiesta, show, taller…) that name an upcoming date; venue geocoded in the right town, else the town centre with the address flagged as approximate | None of the eight town sites publishes a dated agenda. Funes: 8 news items, latest dated event is Ambientar on 27 Nov. Baigorria: `eventos` type last updated May 2025; news are vaccination and waste schedules. San Lorenzo: only ordinances and treasury balances in WordPress; Pérez: static pages, last post 2024; Capitán Bermúdez: Joomla news from 2024; Arroyo Seco: static PHP site; Roldán and Villa Gobernador Gálvez: sites unreachable (connection refused). Posts older than 21 days are skipped; "este viernes" is resolved against the publish date. | 0 |
 | Entradauno / TurboEntrada | `entradauno.mjs` | `ticketing` | Big shows (Metropolitano, Alto Shopping, Autódromo…): title, next function date-time, venue + address + coordinates (from the venue's Google Maps embed), image, link to the ticket landing | Two public JSON endpoints (`/v2/Cartelera`, `/v2/EspectaculosCartel`, ~4 MB). No prices in the payload. One event per show (next function only). | 6 |
 | Eventbrite (eventbrite.com.ar, Rosario city page) | `eventbrite.mjs` | `platform` | Title, exact start/end, venue + coordinates, image, ARS price (from the event page JSON-LD) | Listing JSON-LD has date only; 1 extra request per event for the time. Online events are dropped; foreign-currency prices ignored. | 6 (5 geocoded) |
 | Meetup (meetup.com/find, Rosario) | `meetup.mjs` | `platform` | In-person community events: title, date-time, venue + address, group, image; free unless fee | Apollo cache inside `__NEXT_DATA__`; mostly online events in Rosario, only 2 physical in the window. Addresses geocoded via Georef then Nominatim (cached in `data/private/geocache.json`). | 2 |

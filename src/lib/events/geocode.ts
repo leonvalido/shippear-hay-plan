@@ -1,4 +1,4 @@
-import { ROSARIO_BBOX } from "./schema";
+import { ROSARIO_BBOX, ROSARIO_CENTER } from "./schema";
 import { normalizeText } from "./normalize";
 
 /**
@@ -112,6 +112,40 @@ export async function geocodeVenue(
     const point = hit ? { lat: Number(hit.lat), lng: Number(hit.lon) } : undefined;
     cache[key] = point && inRosario(point) ? point : null;
     return cache[key] ?? undefined;
+  } catch {
+    return undefined;
+  }
+}
+
+/**
+ * Google Places (New) text search, used when GOOGLE_PLACES_KEY is set: the most reliable way to
+ * place a venue by name. Biased to Gran Rosario, result checked against the bounding box, cached.
+ */
+export async function geocodePlaces(
+  query: string,
+  cache: GeoCache = {},
+  fetchImpl: typeof fetch = fetch,
+): Promise<LatLng | undefined> {
+  const key = process.env.GOOGLE_PLACES_KEY;
+  if (!key) return undefined;
+  const ck = "places:" + normalizeText(query);
+  if (ck in cache) return cache[ck] ?? undefined;
+  try {
+    const res = await fetchImpl("https://places.googleapis.com/v1/places:searchText", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "X-Goog-Api-Key": key, "X-Goog-FieldMask": "places.location,places.formattedAddress" },
+      body: JSON.stringify({
+        textQuery: `${query}, Rosario, Santa Fe`,
+        languageCode: "es",
+        locationBias: { circle: { center: { latitude: ROSARIO_CENTER.lat, longitude: ROSARIO_CENTER.lng }, radius: 30000 } },
+      }),
+    });
+    if (!res.ok) return undefined;
+    const data = (await res.json()) as { places?: Array<{ location?: { latitude: number; longitude: number } }> };
+    const loc = data.places?.[0]?.location;
+    const point = loc ? { lat: loc.latitude, lng: loc.longitude } : undefined;
+    cache[ck] = point && inRosario(point) ? point : null;
+    return cache[ck] ?? undefined;
   } catch {
     return undefined;
   }

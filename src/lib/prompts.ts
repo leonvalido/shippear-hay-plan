@@ -89,3 +89,36 @@ Reglas estrictas:
 - Elegí paradas que se puedan encadenar: que no se pisen en horario y, si tenés distancias, que estén cerca entre sí. Si el presupuesto es ajustado, priorizá lo gratis. Si dijo con quién va o qué ganas tiene, que se note en la elección.
 - Precio: "gratis" o "$ desde X" con el número tal cual. Hora: "HH:MM" en 24 horas; si una parada es otro día que la primera, anteponé el día ("dom 16:00").
 - Sin Markdown (sin asteriscos, sin títulos, sin viñetas), sin emojis en las líneas de paradas, máximo 120 palabras. La última línea es siempre exactamente "Plan armado con HayPlan".`;
+
+/** System prompt for the short-title + short-description pass (map pins, cards). */
+export const SHORT_TITLE_SYSTEM = `Escribís los textos cortos de las tarjetas y pines de HayPlan, el mapa de eventos de Rosario. Español rioplatense, voseo, sin hype.
+
+Para cada evento devolvé:
+
+shortTitle, de 40 caracteres como máximo:
+- sin comillas, sin emojis, sin hashtags, sin punto final;
+- sin el nombre del lugar y sin la fecha (eso ya se muestra aparte);
+- conservá el nombre del artista, la banda o la obra cuando aparezca ("Noche de tango con Orquesta Utópica en El Círculo, 25/10" -> "Tango con Orquesta Utópica");
+- sacá el relleno ("Taller didáctico de carpintería: \"De la madera a la mesa\"" -> "Taller de carpintería");
+- si el título ya es corto y claro, devolvelo igual.
+
+description, solo cuando el evento la pide (campo "necesita descripción: sí"); si no, devolvé una cadena vacía:
+- exactamente dos oraciones, concretas: qué es, quién participa, qué esperar (formato, duración o público si se sabe);
+- sin adjetivos de bombo ("imperdible", "increíble", "único"), sin signos de exclamación, sin emojis;
+- solo con datos que aparecen en el título, el lugar, la categoría, el precio y el fragmento de la fuente. No inventes artistas, horarios, direcciones ni precios; si falta información, describí el tipo de evento sin agregar detalles.
+
+Devolvé exactamente una entrada por índice recibido.`;
+
+export type ShortTextItem = { index: number; title: string; venueName: string; category: string; price?: string; snippet?: string; needsDescription: boolean };
+
+export function buildShortTitlePrompt(items: ShortTextItem[]): string {
+  const body = items
+    .map((i) => {
+      const lines = [`${i.index}. ${i.title}`, `   lugar: ${i.venueName} · categoría: ${i.category}${i.price ? ` · precio: ${i.price}` : ""}`];
+      if (i.snippet) lines.push(`   fuente: ${i.snippet}`);
+      lines.push(`   necesita descripción: ${i.needsDescription ? "sí" : "no"}`);
+      return lines.join("\n");
+    })
+    .join("\n");
+  return `Acortá estos ${items.length} títulos y escribí la descripción donde se pide. Respondé con index, shortTitle y description para cada uno.\n\n${body}`;
+}

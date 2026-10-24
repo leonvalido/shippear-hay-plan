@@ -222,20 +222,21 @@ function saveCache() {
  * Nominatim as fallback. Results (including misses) are cached in data/private/geocache.json.
  * @param {string} venueName
  * @param {string} [address]
+ * @param {string} [localidad] town for Georef/Nominatim (default Rosario; e.g. "Funes", "San Lorenzo")
  * @returns {Promise<{ lat: number, lng: number } | null>}
  */
-export async function geocode(venueName, address) {
+export async function geocode(venueName, address, localidad = "Rosario") {
   const cache = loadCache();
   const query = clean(address) || clean(venueName);
   if (!query) return null;
-  const key = stripAccents(query.toLowerCase());
+  const key = stripAccents(`${query}${localidad === "Rosario" ? "" : ` @${localidad}`}`.toLowerCase());
   if (key in cache) return cache[key];
 
   /** @type {{ lat: number, lng: number } | null} */
   let result = null;
   if (address) {
     try {
-      const u = `https://apis.datos.gob.ar/georef/api/direcciones?direccion=${encodeURIComponent(address)}&localidad=Rosario&provincia=Santa%20Fe&max=1`;
+      const u = `https://apis.datos.gob.ar/georef/api/direcciones?direccion=${encodeURIComponent(address)}&localidad=${encodeURIComponent(localidad)}&provincia=Santa%20Fe&max=1`;
       const j = await fetchJson(u);
       const u0 = j.direcciones?.[0]?.ubicacion;
       if (u0 && inRosario(u0.lat, u0.lon)) result = { lat: u0.lat, lng: u0.lon };
@@ -245,15 +246,15 @@ export async function geocode(venueName, address) {
   }
   if (!result) {
     // a one-word venue name ("Casona", "Switch") is too generic to look up on its own
-    const nameQuery = /\s/.test(clean(venueName)) ? `${venueName}, Rosario, Argentina` : null;
-    const queries = [address && `${address}, Rosario, Santa Fe, Argentina`, nameQuery].filter(Boolean);
+    const nameQuery = /\s/.test(clean(venueName)) ? `${venueName}, ${localidad}, Argentina` : null;
+    const queries = [address && `${address}, ${localidad}, Santa Fe, Argentina`, nameQuery].filter(Boolean);
     for (const q of /** @type {string[]} */ (queries)) {
       try {
         const u = `https://nominatim.openstreetmap.org/search?format=json&limit=1&q=${encodeURIComponent(q)}`;
         const j = await fetchJson(u);
         const hit = j[0];
         // a bare venue name must resolve to a place, not to a street or a whole district
-        const plausible = hit && (q !== `${venueName}, Rosario, Argentina` || !/^(highway|boundary|place)$/.test(hit.class));
+        const plausible = hit && (q !== nameQuery || !/^(highway|boundary|place)$/.test(hit.class));
         if (plausible && inRosario(Number(hit.lat), Number(hit.lon))) { result = { lat: Number(hit.lat), lng: Number(hit.lon) }; break; }
       } catch (e) {
         console.warn(`  nominatim failed for "${q}": ${/** @type {Error} */ (e).message}`);
@@ -263,6 +264,22 @@ export async function geocode(venueName, address) {
   cache[key] = result;
   saveCache();
   return result;
+}
+
+/** Towns of Gran Rosario that sources may name; value = how Georef/Nominatim know them. */
+export const TOWNS = {
+  funes: "Funes", roldan: "Roldán", "villa gobernador galvez": "Villa Gobernador Gálvez", vgg: "Villa Gobernador Gálvez",
+  "granadero baigorria": "Granadero Baigorria", baigorria: "Granadero Baigorria", "capitan bermudez": "Capitán Bermúdez",
+  "san lorenzo": "San Lorenzo", perez: "Pérez", "arroyo seco": "Arroyo Seco", "fray luis beltran": "Fray Luis Beltrán",
+  "puerto general san martin": "Puerto General San Martín", ibarlucea: "Ibarlucea", alvear: "Alvear", "pueblo esther": "Pueblo Esther",
+};
+/** The Gran Rosario town a text names, or "Rosario". "San Lorenzo 1329" (a Rosario street) does not count. */
+export function townOf(text) {
+  const t = stripAccents(text.toLowerCase());
+  for (const [k, v] of Object.entries(TOWNS)) {
+    if (k === "san lorenzo" ? /\bsan lorenzo\b(?!\s*\d)/.test(t) && /\b(ciudad de|en|de) san lorenzo\b(?!\s*\d)/.test(t) : new RegExp(`\\b${k}\\b`).test(t)) return v;
+  }
+  return "Rosario";
 }
 
 // ---------- normalization + output ----------

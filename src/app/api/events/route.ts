@@ -1,18 +1,23 @@
 import { NextRequest } from "next/server";
 import { EventsQuerySchema, RawEventSchema } from "@/lib/events/schema";
-import { getEventStore, toEvent } from "@/lib/events/store";
+import { getEventStore, toCard, toEvent } from "@/lib/events/store";
 import { fingerprint, shortHash } from "@/lib/events/normalize";
-import { jsonError, readJson } from "@/lib/http";
+import { cachedJson, jsonError, readJson } from "@/lib/http";
 
 export const runtime = "nodejs";
 
-/** GET /api/events?from&to&category&q&bbox&status&limit -> { events: Event[] } */
+/**
+ * GET /api/events?from&to&category&q&bbox&status&limit -> { events: EventCard[] }
+ * Card shape only (no description/sourceUrl: those live on /api/events/:id).
+ * Published lists are CDN-cached for 5 minutes; pending/rejected are not.
+ */
 export async function GET(req: NextRequest) {
   const parsed = EventsQuerySchema.safeParse(Object.fromEntries(req.nextUrl.searchParams));
   if (!parsed.success) return jsonError("events", 400, parsed.error.issues[0]?.message ?? "Consulta inválida");
   try {
     const store = await getEventStore();
-    return Response.json({ events: store.queryEvents(parsed.data) });
+    const events = store.queryEvents(parsed.data).map(toCard);
+    return cachedJson({ events }, parsed.data.status === "published");
   } catch (err) {
     return jsonError("events", 500, "No se pudieron leer los eventos", err);
   }
