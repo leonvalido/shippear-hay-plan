@@ -39,7 +39,7 @@ import { ConciergeBar, type Budget } from "./concierge-bar";
 import { TileCache } from "./tile-cache";
 import { Logo } from "@/components/layout/logo";
 import { CategoryIcon, STACK_ICON_PATH } from "@/components/events/category-icon";
-import { EventMap } from "./event-map";
+import { EventMap } from "@/components/map-gl/map-switch";
 import { FilterChips } from "./filter-chips";
 
 const DAY_CHIPS = (Object.keys(DAY_LABELS) as DayFilter[]).map((value) => ({ value, label: DAY_LABELS[value] }));
