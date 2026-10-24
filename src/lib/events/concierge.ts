@@ -75,7 +75,7 @@ export function hourLabel(iso: string): string {
   return `${DAYS_ES[local.getUTCDay()]} ${hh}:${mm}`;
 }
 
-export function buildConciergePrompt(ranked: Ranked[], input: ConciergeInput, win: Window): string {
+export function buildConciergePrompt(ranked: Ranked[], input: ConciergeInput, win: Window, now = new Date()): string {
   const list = ranked.length
     ? ranked
         .map(({ event: e, km }, i) => {
@@ -88,6 +88,7 @@ export function buildConciergePrompt(ranked: Ranked[], input: ConciergeInput, wi
     : "(no hay eventos en ese rango)";
   const near = input.lat !== undefined ? "cerca de su ubicación" : `por el centro (${ROSARIO_CENTER.lat}, ${ROSARIO_CENTER.lng})`;
   return [
+    `Ahora en Rosario: ${hourLabel(now.toISOString())}.`,
     `Eventos disponibles para ${win.label}, ordenados por cercanía:`,
     list,
     "",

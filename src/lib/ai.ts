@@ -83,7 +83,7 @@ export async function completeJSON<T extends z.ZodType>(opts: {
   mock: z.infer<T>;
   system?: string;
   maxTokens?: number;
-  /** Optional image sent before the prompt (flyer reading). */
+  /** Optional image sent before the prompt. */
   image?: ImageInput;
 }): Promise<z.infer<T>> {
   if (isMockMode()) {

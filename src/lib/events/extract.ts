@@ -2,7 +2,8 @@ import { z } from "zod";
 import { completeJSON, isMockMode } from "../ai";
 import { EXTRACT_SYSTEM, buildCaptionPrompt, type CaptionForPrompt } from "../prompts";
 import { EventCategory, RawEventSchema, type RawEvent } from "./schema";
-import { rosarioDate } from "./time";
+import { epochMs, rosarioDate } from "./time";
+import { fingerprint } from "./normalize";
 
 /**
  * Turn social-media captions (TikTok / Instagram export from radar) into RawEvent[]
@@ -41,7 +42,10 @@ const ExtractedEventSchema = z.object({
   barrio: z.string().optional(),
   category: EventCategory,
   price: z.object({ free: z.boolean(), min: z.number().optional(), max: z.number().optional() }).optional(),
+  confidence: z.number(),
 });
+const MIN_CONFIDENCE = 0.4;
+const MAX_DAYS_AHEAD = 120;
 const ExtractionSchema = z.object({ events: z.array(ExtractedEventSchema) });
 type Extracted = z.infer<typeof ExtractedEventSchema>;
 
@@ -111,13 +115,25 @@ async function extractBatch(batch: SocialPost[], today: string): Promise<RawEven
     maxTokens: 16000,
   });
   const out: RawEvent[] = [];
+  const seen = new Set<string>();
   for (const e of result.events) {
     const post = batch[e.postIndex];
-    if (!post) continue;
+    if (!post || e.confidence < MIN_CONFIDENCE) continue;
     const raw = toRaw(e, post);
-    if (raw) out.push(raw);
+    if (!raw || !plausibleDate(raw.startsAt, today)) continue;
+    const fp = fingerprint(raw);
+    if (seen.has(fp)) continue;
+    seen.add(fp);
+    out.push(raw);
   }
   return out;
+}
+
+/** Not in the past, not absurdly far ahead (guards against mis-resolved years). */
+function plausibleDate(startsAt: string, today: string): boolean {
+  const ms = epochMs(startsAt);
+  const todayMs = epochMs(today);
+  return !Number.isNaN(ms) && ms >= todayMs && ms <= todayMs + MAX_DAYS_AHEAD * 86_400_000;
 }
 
 /** Mock: one plausible event for the first post of the batch (so the pipeline is testable offline). */
@@ -133,6 +149,7 @@ function mockExtraction(batch: SocialPost[], today: string): z.infer<typeof Extr
         venueName: poiOf(batch[0]!) ?? "Bar de Pichincha",
         category: "musica",
         price: { free: true },
+        confidence: 0.9,
       },
     ],
   };
