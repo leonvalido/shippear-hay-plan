@@ -9,7 +9,7 @@ import { join } from "node:path";
 import { RAW_DIR, writeRaw } from "./lib.mjs";
 import { savedDir } from "./saved.mjs";
 
-const LIVE_SOURCES = ["municipal", "press", "towns", "entradauno", "alpogo", "eventbrite", "meetup", "luma"];
+const LIVE_SOURCES = ["municipal", "press", "towns", "entradauno", "alpogo", "boliches", "eventbrite", "meetup", "luma"];
 /** Sites that block plain fetches: parsed from pages saved under data/private/html/<site>/ when present. */
 const SAVED_SOURCES = ["venti", "ticketek", "passline"].filter((s) => savedDir(s));
 const SOURCES = [...LIVE_SOURCES, ...SAVED_SOURCES];
