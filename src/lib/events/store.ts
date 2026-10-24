@@ -31,7 +31,7 @@ type Row = {
   image_url: string | null; status: string; fingerprint: string; created_at: string; search: string;
   metrics_views: number | null; metrics_likes: number | null;
   short_title: string | null; time_unknown: number | null; links: string | null;
-  recurring: number | null; rating_value: number | null; rating_count: number | null;
+  recurring: number | null; rating_value: number | null; rating_count: number | null; vibe: string | null;
 };
 
 const DDL = `
@@ -66,7 +66,8 @@ CREATE TABLE IF NOT EXISTS events (
   links TEXT,
   recurring INTEGER,
   rating_value REAL,
-  rating_count INTEGER
+  rating_count INTEGER,
+  vibe TEXT
 );
 CREATE INDEX IF NOT EXISTS events_starts_at ON events (starts_at);
 CREATE INDEX IF NOT EXISTS events_starts_ms ON events (starts_ms);
@@ -84,10 +85,11 @@ const MIGRATIONS = [
   "ALTER TABLE events ADD COLUMN recurring INTEGER",
   "ALTER TABLE events ADD COLUMN rating_value REAL",
   "ALTER TABLE events ADD COLUMN rating_count INTEGER",
+  "ALTER TABLE events ADD COLUMN vibe TEXT",
 ];
 
 const COLUMNS =
-  "id,title,description,starts_at,starts_ms,ends_at,venue_name,address,lat,lng,barrio,category,price_free,price_min,price_max,source_type,source_name,source_url,image_url,status,fingerprint,created_at,search,metrics_views,metrics_likes,short_title,time_unknown,links,recurring,rating_value,rating_count";
+  "id,title,description,starts_at,starts_ms,ends_at,venue_name,address,lat,lng,barrio,category,price_free,price_min,price_max,source_type,source_name,source_url,image_url,status,fingerprint,created_at,search,metrics_views,metrics_likes,short_title,time_unknown,links,recurring,rating_value,rating_count,vibe";
 
 function searchText(e: Pick<Event, "title" | "venueName">) {
   return normalizeText(`${e.title} ${e.venueName}`);
@@ -109,6 +111,7 @@ function toRow(e: Event): unknown[] {
     f.shortTitle ?? null, f.timeUnknown === undefined ? null : f.timeUnknown ? 1 : 0,
     f.links?.length ? JSON.stringify(f.links) : null,
     f.recurring === undefined ? null : f.recurring ? 1 : 0, f.rating?.value ?? null, f.rating?.count ?? null,
+    f.vibe ? JSON.stringify(f.vibe) : null,
   ];
 }
 
@@ -137,6 +140,9 @@ function fromRow(r: Row): Event {
     try { e.links = JSON.parse(r.links); } catch { /* ignore a corrupt cell */ }
   }
   if (r.recurring === 1) e.recurring = true;
+  if (r.vibe) {
+    try { e.vibe = JSON.parse(r.vibe); } catch { /* ignore a corrupt cell */ }
+  }
   if (r.rating_value !== null) e.rating = { value: r.rating_value, count: r.rating_count ?? 0 };
   if (r.metrics_views !== null || r.metrics_likes !== null) {
     e.metrics = { ...(r.metrics_views !== null ? { views: r.metrics_views } : {}), ...(r.metrics_likes !== null ? { likes: r.metrics_likes } : {}) };

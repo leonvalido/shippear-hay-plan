@@ -191,7 +191,8 @@ export function mergeEvents<T extends RawEvent>(a: T, b: T): T {
     timeUnknown: timeOwner.timeUnknown,
     recurring: a.recurring ?? b.recurring,
     rating: a.rating ?? b.rating,
-    context: richer(a.context, b.context),
+    vibe: a.vibe && b.vibe ? { ...b.vibe, ...a.vibe } : (a.vibe ?? b.vibe),
+    context: joinContext(a.context, b.context),
     shortTitle: a.shortTitle ?? b.shortTitle,
     title: richer(a.title, b.title) ?? a.title,
     description: description || undefined,
@@ -216,6 +217,20 @@ function mergeMetrics(a?: RawEvent["metrics"], b?: RawEvent["metrics"]): RawEven
   const views = maxDefined(a.views, b.views);
   const likes = maxDefined(a.likes, b.likes);
   return { ...(views !== undefined ? { views } : {}), ...(likes !== undefined ? { likes } : {}) };
+}
+
+/** Append a labelled snippet to an event's transient context (max 4000 chars). */
+export function addContext(e: { context?: string }, label: string, text?: string | null): void {
+  const t = text?.replace(/\s+/g, " ").trim();
+  if (!t) return;
+  const piece = `${label}: ${t}`;
+  if (e.context?.includes(piece.slice(0, 80))) return;
+  e.context = `${e.context ? `${e.context}\n` : ""}${piece}`.slice(0, 4000);
+}
+function joinContext(a?: string, b?: string): string | undefined {
+  if (!a) return b;
+  if (!b || a.includes(b)) return a;
+  return `${a}\n${b}`.slice(0, 4000);
 }
 
 function minDefined(a?: number, b?: number) {
