@@ -64,6 +64,8 @@ export function EventMap({
   const cb = useRef({ onSelectVenue, onSelectCluster, onLocate });
   cb.current = { onSelectVenue, onSelectCluster, onLocate };
   const [ready, setReady] = useState(false);
+  /** First frame with the basemap drawn: the "Cargando mapa…" overlay goes away here, before data layers are added. */
+  const [styled, setStyled] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [locating, setLocating] = useState(false);
 
@@ -117,6 +119,7 @@ export function EventMap({
         mapRef.current = map;
         // Debug handle for QA scripts (pinch/zoom checks in emulated browsers); not used by the app.
         (window as unknown as { __hpMap?: GLMap }).__hpMap = map;
+        map.on("style.load", () => map.once("render", () => !cancelled && setStyled(true)));
         map.on("load", async () => {
           try {
             await loadImages(map);
@@ -190,7 +193,7 @@ export function EventMap({
           </svg>
         </button>
       )}
-      {!ready && !error && (
+      {!styled && !error && (
         <div className="absolute inset-0 flex items-center justify-center text-sm text-muted-foreground" aria-busy>
           Cargando mapa…
         </div>
