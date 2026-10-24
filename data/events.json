@@ -18,7 +18,7 @@
   "id": "municipal-2bfdc3b4",
   "status": "published",
   "fingerprint": "experimental museo ciencias movimiento|2026-10-24|complejo",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Primavera en La Isla de los Inventos",
@@ -43,7 +43,7 @@
   "id": "municipal-cd9a020b",
   "status": "published",
   "fingerprint": "primavera isla inventos|2026-10-24|la",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Red de Mujeres del Sur",
@@ -64,7 +64,7 @@
   "id": "municipal-1ff91fa3",
   "status": "published",
   "fingerprint": "red mujeres sur|2026-10-24|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Laboratorio creativo de tango y música",
@@ -89,7 +89,7 @@
   "id": "municipal-3befbf7b",
   "status": "published",
   "fingerprint": "laboratorio creativo tango musica|2026-10-24|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Taller: ¿Qué nos dice la arcilla?",
@@ -110,7 +110,7 @@
   "id": "municipal-52cec26d",
   "status": "published",
   "fingerprint": "taller nos dice arcilla|2026-10-24|casa",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Festival Bandera",
@@ -129,7 +129,7 @@
   "id": "press-7085c401",
   "status": "published",
   "fingerprint": "festival bandera|2026-10-24|parque",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Monteverde Te Escucha Noroeste",
@@ -152,7 +152,7 @@
   "id": "tiktok-6ceb01f7",
   "status": "published",
   "fingerprint": "monteverde te escucha noroeste|2026-10-24|club",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Monteverde te escucha: encuentro en el Noroeste",
@@ -175,7 +175,7 @@
   "id": "tiktok-6e4b9cee",
   "status": "published",
   "fingerprint": "monteverde te escucha encuentro noroeste|2026-10-24|club",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Jornada holística en Parque Urquiza",
@@ -197,7 +197,7 @@
   "id": "tiktok-5738f190",
   "status": "published",
   "fingerprint": "jornada holistica parque urquiza|2026-10-24|parque",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Muestra Siestario",
@@ -222,7 +222,7 @@
   "id": "municipal-972c45c9",
   "status": "published",
   "fingerprint": "muestra siestario|2026-10-24|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Bebés en bibliotecas",
@@ -247,7 +247,7 @@
   "id": "municipal-0771b7e0",
   "status": "published",
   "fingerprint": "bebes bibliotecas|2026-10-24|biblioteca",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Ito",
@@ -266,7 +266,7 @@
   "id": "press-86e6dfd1",
   "status": "published",
   "fingerprint": "ito|2026-10-24|orilla",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "¿Cómo viste la luna?",
@@ -285,11 +285,11 @@
   "id": "press-4389cf76",
   "status": "published",
   "fingerprint": "como viste luna|2026-10-24|teatro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Inconformistas",
-  "description": "Ideas que valen la pena ser difundidas.",
+  "description": "Función de Inconformistas en el Teatro Actor Aldo Braga, con entrada gratuita. La propuesta se presenta como un espacio de ideas que valen la pena ser difundidas.",
   "startsAt": "2026-10-24T17:00:00-03:00",
   "endsAt": "2026-10-24T21:00:00-03:00",
   "venueName": "Teatro Actor Aldo Braga",
@@ -312,7 +312,7 @@
   "id": "platform-36557d52",
   "status": "published",
   "fingerprint": "inconformistas|2026-10-24|teatro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Tertulias Tangueras",
@@ -337,7 +337,7 @@
   "id": "municipal-edd11aa6",
   "status": "published",
   "fingerprint": "tertulias tangueras|2026-10-24|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Halloween en Show Park",
@@ -359,7 +359,7 @@
   "id": "tiktok-84fcaeda",
   "status": "published",
   "fingerprint": "halloween park|2026-10-24|show",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Seminario de cumbia para iniciales en Club Excélsior",
@@ -388,7 +388,7 @@
   "id": "tiktok-404d8507",
   "status": "published",
   "fingerprint": "seminario cumbia iniciales club excelsior|2026-10-24|club",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Semana del Planetario 2026",
@@ -413,7 +413,7 @@
   "id": "municipal-6777b087",
   "status": "published",
   "fingerprint": "semana planetario 2026|2026-10-24|complejo",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Ajedrez para personas adultas",
@@ -433,7 +433,7 @@
   "id": "municipal-5f7e47ea",
   "status": "published",
   "fingerprint": "ajedrez personas adultas|2026-10-24|biblioteca",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "La espera",
@@ -456,7 +456,7 @@
   "id": "press-31f35575",
   "status": "published",
   "fingerprint": "espera|2026-10-24|cine",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Festival Tercerescena con música en vivo de la orquesta de salsa La Frankicia",
@@ -479,7 +479,7 @@
   "id": "press-1d36f706",
   "status": "published",
   "fingerprint": "festival tercerescena musica orquesta salsa frankicia|2026-10-24|escuela",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Huellas que cambiaron la historia",
@@ -497,7 +497,7 @@
   "id": "press-e63ddfde",
   "status": "published",
   "fingerprint": "huellas cambiaron historia|2026-10-24|planetario",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Función de Marathon",
@@ -521,7 +521,7 @@
   "id": "municipal-39b6823c",
   "status": "published",
   "fingerprint": "funcion marathon|2026-10-24|casa",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Lambé-Lambé",
@@ -539,7 +539,7 @@
   "id": "press-88c866dc",
   "status": "published",
   "fingerprint": "lambe lambe|2026-10-24|escuela",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Observaciones en el cielo",
@@ -560,7 +560,7 @@
   "id": "municipal-06cd0210",
   "status": "published",
   "fingerprint": "observaciones cielo|2026-10-24|complejo",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Adolescencia, sexo y muerte en Camp Miasma",
@@ -582,7 +582,7 @@
   "id": "press-3177ac1a",
   "status": "published",
   "fingerprint": "adolescencia sexo muerte camp miasma|2026-10-24|cine",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Mati RJ se presentará en vivo con su nuevo tour",
@@ -600,7 +600,7 @@
   "id": "press-fd026644",
   "status": "published",
   "fingerprint": "mati rj presentara nuevo tour|2026-10-24|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Amor, amor, amor, amor",
@@ -619,7 +619,7 @@
   "id": "press-7366c1e3",
   "status": "published",
   "fingerprint": "amor amor amor amor|2026-10-24|museo",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "La moribunda",
@@ -638,7 +638,7 @@
   "id": "press-806590b9",
   "status": "published",
   "fingerprint": "moribunda|2026-10-24|tunel",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Lo demás es cotillón",
@@ -656,7 +656,7 @@
   "id": "press-ee20618d",
   "status": "published",
   "fingerprint": "demas cotillon|2026-10-24|tandava",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Función de Hervidero en Espacio Bravo",
@@ -677,7 +677,7 @@
   "id": "municipal-bfa770fe",
   "status": "published",
   "fingerprint": "funcion hervidero espacio bravo|2026-10-24|espacio",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Funciones de La Chunga en Teatro La Morada",
@@ -698,7 +698,7 @@
   "id": "municipal-7fa6a9d2",
   "status": "published",
   "fingerprint": "funciones chunga teatro morada|2026-10-24|teatro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Los Nocheros presentarán su espectáculo por los 40 años de trayectoria",
@@ -716,7 +716,7 @@
   "id": "press-5df04799",
   "status": "published",
   "fingerprint": "nocheros presentaran espectaculo 40 anos trayectoria|2026-10-24|segunda",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Escenas de la vida conyugal",
@@ -734,7 +734,7 @@
   "id": "press-7fccffb7",
   "status": "published",
   "fingerprint": "escenas vida conyugal|2026-10-24|teatro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Despertar de primavera",
@@ -752,7 +752,7 @@
   "id": "press-e3aa4098",
   "status": "published",
   "fingerprint": "despertar primavera|2026-10-24|teatro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "La sombra de la botella",
@@ -770,7 +770,7 @@
   "id": "press-e911ac31",
   "status": "published",
   "fingerprint": "sombra botella|2026-10-24|mateo",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Piccolino",
@@ -789,7 +789,7 @@
   "id": "press-60ab6405",
   "status": "published",
   "fingerprint": "piccolino|2026-10-24|sala",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Inocencia trágica",
@@ -808,7 +808,7 @@
   "id": "press-840ab4b3",
   "status": "published",
   "fingerprint": "inocencia tragica|2026-10-24|platea",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Nones Circo",
@@ -826,7 +826,7 @@
   "id": "press-99662841",
   "status": "published",
   "fingerprint": "nones circo|2026-10-24|escuela",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Marcelo San Juan ofrecerá un concierto que recorrerá canciones de tango",
@@ -844,7 +844,7 @@
   "id": "press-ca6853b5",
   "status": "published",
   "fingerprint": "marcelo san juan ofrecera concierto recorrera canciones tango|2026-10-24|aserradero",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Quemarlo todo",
@@ -862,7 +862,7 @@
   "id": "press-f9f0e0eb",
   "status": "published",
   "fingerprint": "quemarlo todo|2026-10-24|teatro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "La función de los invisibles",
@@ -880,7 +880,7 @@
   "id": "press-ff181681",
   "status": "published",
   "fingerprint": "funcion invisibles|2026-10-24|orilla",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Hervidero",
@@ -898,7 +898,7 @@
   "id": "press-47774b52",
   "status": "published",
   "fingerprint": "hervidero|2026-10-24|espacio",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "El viaje del tambor",
@@ -917,7 +917,7 @@
   "id": "press-ff2398d6",
   "status": "published",
   "fingerprint": "viaje tambor|2026-10-24|cultural",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Matar al diván",
@@ -935,7 +935,7 @@
   "id": "press-4aa3709e",
   "status": "published",
   "fingerprint": "matar divan|2026-10-24|sala",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Jazz Cartoons",
@@ -954,7 +954,7 @@
   "id": "press-ebd29a01",
   "status": "published",
   "fingerprint": "jazz cartoons|2026-10-24|plataforma",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Continuarán las funciones de Microteatro",
@@ -972,11 +972,11 @@
   "id": "press-ac826bbb",
   "status": "published",
   "fingerprint": "continuaran funciones microteatro|2026-10-24|san",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Leandro Gambetta en La Chunga",
-  "description": "Función de Leandro Gambetta en La Chunga.",
+  "description": "Función de Leandro Gambetta en La Chunga. Es un espectáculo escénico en sala.",
   "startsAt": "2026-10-24T21:00:00-03:00",
   "venueName": "La Chunga",
   "address": "San Martín 771",
@@ -995,11 +995,11 @@
   "id": "tiktok-3641134f",
   "status": "published",
   "fingerprint": "leandro gambetta chunga|2026-10-24|la",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Ricardo Darín y Andrea Pietra en Escenas de la vida conyugal",
-  "description": "Ricardo Darín y Andrea Pietra presentan la obra Escenas de la vida conyugal.",
+  "description": "Ricardo Darín y Andrea Pietra presentan la obra Escenas de la vida conyugal. La función es en el Teatro Astengo.",
   "startsAt": "2026-10-24T21:00:00-03:00",
   "venueName": "Teatro Astengo",
   "category": "teatro",
@@ -1017,7 +1017,7 @@
   "id": "tiktok-5c115ed9",
   "status": "published",
   "fingerprint": "ricardo darin andrea pietra escenas vida conyugal|2026-10-24|teatro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Ivan Menna open to close en Switch",
@@ -1039,7 +1039,7 @@
   "id": "instagram-f72dcca8",
   "status": "published",
   "fingerprint": "ivan menna open to close switch|2026-10-24|switch",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Kevin Di Serna",
@@ -1054,15 +1054,16 @@
   "sourceUrl": "https://www.turboentrada.com/landing/kevinn-di-serna?idEspectaculoCartel=17469&cHashValidacion=bc7d71814ae6faf48cf927332ced42a289550193",
   "imageUrl": "https://contenidos.entradauno.com/cache/imagenes/productos/img_3945_1bb20b37-70e0-4e1d-8931-ac507880e9e6.jpeg",
   "shortTitle": "Kevin Di Serna",
+  "description": "Presentación musical de Kevin Di Serna en Alto Shopping Rosario. Es un show en vivo dentro del shopping.",
   "barrio": "Macrocentro",
   "id": "ticketing-d3bf27bd",
   "status": "published",
   "fingerprint": "kevin di serna|2026-10-24|alto",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Fiesta Elite",
-  "description": "Fiesta Elite se presentará en City Center el día 24/10/2026 a las 22:00hs.",
+  "description": "Fiesta Elite en City Center a partir de las 22 hs. Las entradas cuestan desde $17100.",
   "startsAt": "2026-10-24T22:00:00-03:00",
   "venueName": "City Center",
   "address": "Bv. Oroño y Av. Circunvalación",
@@ -1083,7 +1084,7 @@
   "id": "ticketing-67e6715c",
   "status": "published",
   "fingerprint": "elite|2026-10-24|city",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Martin Huergo protagonizará una noche de música electrónica",
@@ -1102,7 +1103,7 @@
   "id": "press-b59e59be",
   "status": "published",
   "fingerprint": "martin huergo protagonizara musica electronica|2026-10-24|complejo",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Aliento de Perro y Violacion Auditiva en Floyd Rosario",
@@ -1127,7 +1128,7 @@
   "id": "ticketing-21305e68",
   "status": "published",
   "fingerprint": "aliento perro violacion auditiva floyd rosario|2026-10-24|floyd",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Cumbión del Paraná",
@@ -1145,7 +1146,7 @@
   "id": "press-151ef595",
   "status": "published",
   "fingerprint": "cumbion parana|2026-10-24|segunda",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "IVAN MENNA OPEN TO CLOSE @ SWITCH CLUB",
@@ -1167,11 +1168,12 @@
   "sourceUrl": "https://venti.live/evento/ivan-menna-open-to-close",
   "imageUrl": "https://images.venti.live/user-images/1790261571481-lg.jpg",
   "shortTitle": "Ivan Menna open to close",
+  "description": "Ivan Menna toca un set open to close en Switch Club, de la apertura al cierre. La entrada cuesta $14000.",
   "barrio": "Pichincha",
   "id": "ticketing-882e2efa",
   "status": "published",
   "fingerprint": "ivan menna open to close switch club|2026-10-24|switch",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Sobre Ruedas Rosas",
@@ -1192,7 +1194,7 @@
   "id": "municipal-12a3aeac",
   "status": "published",
   "fingerprint": "ruedas rosas|2026-10-25|complejo",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Los abrazos en Cine Lumière",
@@ -1213,7 +1215,7 @@
   "id": "municipal-e1a36e4c",
   "status": "published",
   "fingerprint": "abrazos cine lumiere|2026-10-25|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Organismos estables presentan: Mozart y otros compositores",
@@ -1238,7 +1240,7 @@
   "id": "municipal-cd42533c",
   "status": "published",
   "fingerprint": "organismos estables presentan mozart otros compositores|2026-10-25|teatro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Show de Santiago Molina",
@@ -1259,7 +1261,7 @@
   "id": "municipal-35c81dc6",
   "status": "published",
   "fingerprint": "santiago molina|2026-10-25|complejo",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Calle Recreativa",
@@ -1280,7 +1282,7 @@
   "id": "municipal-b3361f51",
   "status": "published",
   "fingerprint": "calle recreativa|2026-10-25|calle",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Tango en Calle",
@@ -1301,7 +1303,7 @@
   "id": "municipal-c644f762",
   "status": "published",
   "fingerprint": "tango calle|2026-10-25|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Pañuelos al Viento",
@@ -1323,11 +1325,11 @@
   "id": "press-48fe5fe0",
   "status": "published",
   "fingerprint": "panuelos viento|2026-10-25|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Turismo Carretera en el Autódromo de Rosario",
-  "description": "Fecha del Turismo Carretera en el Autódromo de Rosario.",
+  "description": "Fecha del Turismo Carretera en el Autódromo de Rosario. Es una competencia de automovilismo en pista.",
   "startsAt": "2026-10-25T10:00:00-03:00",
   "venueName": "Autódromo de Rosario",
   "category": "deporte",
@@ -1345,7 +1347,7 @@
   "id": "tiktok-81c42fb4",
   "status": "published",
   "fingerprint": "turismo carretera autodromo rosario|2026-10-25|autodromo",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "El Festival Tercerescena ofrecerá el taller “El cuerpo cómico y la voz”",
@@ -1364,7 +1366,7 @@
   "id": "press-c50a8f7a",
   "status": "published",
   "fingerprint": "festival tercerescena ofrecera taller cuerpo comico voz|2026-10-25|plataforma",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Intensivo de danza de octubre ORGN: Acro Contempo y Contempo Fusión",
@@ -1387,7 +1389,7 @@
   "id": "instagram-510d88ad",
   "status": "published",
   "fingerprint": "intensivo danza octubre orgn acro contempo contempo fusion|2026-10-25|punto",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Rosario Car Show",
@@ -1405,7 +1407,7 @@
   "id": "press-4466871e",
   "status": "published",
   "fingerprint": "rosario car|2026-10-25|portal",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Pre Cosquín 2027",
@@ -1428,7 +1430,7 @@
   "id": "press-82c02f06",
   "status": "published",
   "fingerprint": "pre cosquin 2027|2026-10-25|galpon",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Samba al aire libre en el Playón Tecnóteca",
@@ -1450,7 +1452,7 @@
   "id": "instagram-3c37d09e",
   "status": "published",
   "fingerprint": "samba aire playon tecnoteca|2026-10-25|playon",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Funciones y proyecciones fulldome en la Sala Planetario",
@@ -1470,7 +1472,7 @@
   "id": "municipal-3a22480d",
   "status": "published",
   "fingerprint": "funciones proyecciones fulldome sala planetario|2026-10-25|complejo",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Un paseo por el Sistema Solar",
@@ -1488,7 +1490,7 @@
   "id": "press-48a173a9",
   "status": "published",
   "fingerprint": "paseo sistema solar|2026-10-25|planetario",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Halloween en Show Park",
@@ -1510,7 +1512,7 @@
   "id": "tiktok-4a17b41b",
   "status": "published",
   "fingerprint": "halloween park|2026-10-25|show",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Bajo las banderas",
@@ -1532,11 +1534,11 @@
   "id": "press-47e9ff6f",
   "status": "published",
   "fingerprint": "bajo banderas|2026-10-25|paraguay",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Masterclass de alisados en La Fábrica de las Rubias",
-  "description": "Masterclass de técnicas de alisado en la peluquería La Fábrica de las Rubias.",
+  "description": "Masterclass de técnicas de alisado en la peluquería La Fábrica de las Rubias. Está pensada para quienes quieran aprender o perfeccionar estas técnicas.",
   "startsAt": "2026-10-25T18:00:00-03:00",
   "venueName": "Peluquería La Fábrica de las Rubias",
   "address": "Laprida 5283, Rosario",
@@ -1555,7 +1557,7 @@
   "id": "tiktok-aee2de6e",
   "status": "published",
   "fingerprint": "masterclass alisados fabrica rubias|2026-10-25|peluqueria",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Mujeres que dejan huella",
@@ -1575,7 +1577,7 @@
   "id": "municipal-ea80f7ae",
   "status": "published",
   "fingerprint": "mujeres dejan huella|2026-10-25|teatro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Mujeres que dejan huellas - Ballet Español de Rosario",
@@ -1598,7 +1600,7 @@
   "id": "instagram-3eb7afe2",
   "status": "published",
   "fingerprint": "mujeres dejan huellas ballet espanol rosario|2026-10-25|teatro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Un hueco",
@@ -1617,11 +1619,11 @@
   "id": "press-39cea064",
   "status": "published",
   "fingerprint": "hueco|2026-10-25|teatro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Macbeth",
-  "description": "Macbeth se presentará en Teatro El Círculo el día 25/10/2026 a las 19:00hs.",
+  "description": "Función de Macbeth en el Teatro El Círculo a las 19 hs. Las entradas cuestan desde $40600.",
   "startsAt": "2026-10-25T19:00:00-03:00",
   "venueName": "Teatro El Círculo",
   "address": "Laprida 1223",
@@ -1641,7 +1643,7 @@
   "id": "ticketing-36a96f0e",
   "status": "published",
   "fingerprint": "macbeth|2026-10-25|teatro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Macbeth de Verdi",
@@ -1663,7 +1665,7 @@
   "id": "instagram-54b8e92d",
   "status": "published",
   "fingerprint": "macbeth verdi|2026-10-25|ballet",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Caballito de batalla",
@@ -1688,7 +1690,7 @@
   "id": "ticketing-01d7af88",
   "status": "published",
   "fingerprint": "caballito batalla|2026-10-25|teatro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Los abrazos",
@@ -1710,7 +1712,7 @@
   "id": "press-42998fae",
   "status": "published",
   "fingerprint": "abrazos|2026-10-25|cine",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Cada vez otra vez",
@@ -1728,7 +1730,7 @@
   "id": "press-d3bc29b8",
   "status": "published",
   "fingerprint": "cada vez otra vez|2026-10-25|espacio",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Sin fronteras",
@@ -1750,7 +1752,7 @@
   "id": "press-08927bb0",
   "status": "published",
   "fingerprint": "fronteras|2026-10-25|plataforma",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Las escenas secundarias",
@@ -1768,7 +1770,7 @@
   "id": "press-f58758c9",
   "status": "published",
   "fingerprint": "escenas secundarias|2026-10-25|espacio",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Escenas de la vida conyugal",
@@ -1786,7 +1788,7 @@
   "id": "press-f2db6b72",
   "status": "published",
   "fingerprint": "escenas vida conyugal|2026-10-25|teatro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Desde un nuevo lugar",
@@ -1805,7 +1807,7 @@
   "id": "press-cf8b33ae",
   "status": "published",
   "fingerprint": "nuevo lugar|2026-10-25|complejo",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Para anormales",
@@ -1824,7 +1826,7 @@
   "id": "press-a81637eb",
   "status": "published",
   "fingerprint": "anormales|2026-10-25|cultural",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Para anormales, comedia en Cultural de Abajo",
@@ -1852,7 +1854,7 @@
   "id": "instagram-8eb5f76c",
   "status": "published",
   "fingerprint": "anormales comedia cultural abajo|2026-10-25|cultural",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Despertar de primavera",
@@ -1870,11 +1872,11 @@
   "id": "press-88d27975",
   "status": "published",
   "fingerprint": "despertar primavera|2026-10-25|teatro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Ricardo Darín y Andrea Pietra en Escenas de la vida conyugal",
-  "description": "Ricardo Darín y Andrea Pietra presentan la obra Escenas de la vida conyugal.",
+  "description": "Ricardo Darín y Andrea Pietra presentan la obra Escenas de la vida conyugal. La función es en el Teatro Astengo.",
   "startsAt": "2026-10-25T21:00:00-03:00",
   "venueName": "Teatro Astengo",
   "category": "teatro",
@@ -1892,7 +1894,7 @@
   "id": "tiktok-da726d3c",
   "status": "published",
   "fingerprint": "ricardo darin andrea pietra escenas vida conyugal|2026-10-25|teatro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "El cine El Cairo ofrecerá una nueva edición de “La Random”",
@@ -1910,7 +1912,7 @@
   "id": "press-b43520d7",
   "status": "published",
   "fingerprint": "cine cairo ofrecera nueva random|2026-10-25|cairo",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Bienestar y actividad física en San Martín A",
@@ -1931,7 +1933,7 @@
   "id": "municipal-7c1ebf37",
   "status": "published",
   "fingerprint": "bienestar actividad fisica san martin|2026-10-26|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Activá tu busqueda laboral en el Distrito Sudoeste",
@@ -1956,7 +1958,7 @@
   "id": "municipal-ab11f767",
   "status": "published",
   "fingerprint": "activa tu busqueda laboral distrito sudoeste|2026-10-26|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Caminata rápida adultos en el sudoeste",
@@ -1977,7 +1979,7 @@
   "id": "municipal-e17dce6a",
   "status": "published",
   "fingerprint": "caminata rapida adultos sudoeste|2026-10-26|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Caminata adultos mayores en el sudoeste",
@@ -1998,7 +2000,7 @@
   "id": "municipal-dfc2e447",
   "status": "published",
   "fingerprint": "caminata adultos mayores sudoeste|2026-10-26|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Yoga para adultos",
@@ -2019,7 +2021,7 @@
   "id": "municipal-6145cd53",
   "status": "published",
   "fingerprint": "yoga adultos|2026-10-26|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Hockey para niños y preadolescentes en el Distrito Sudoeste",
@@ -2040,7 +2042,7 @@
   "id": "municipal-5390f53c",
   "status": "published",
   "fingerprint": "hockey ninos preadolescentes distrito sudoeste|2026-10-26|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Ajedrez para las infancias",
@@ -2061,7 +2063,7 @@
   "id": "municipal-a294ccd9",
   "status": "published",
   "fingerprint": "ajedrez infancias|2026-10-26|biblioteca",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Voley adolescentes en el distrito sudoeste",
@@ -2082,7 +2084,7 @@
   "id": "municipal-39c6a2ba",
   "status": "published",
   "fingerprint": "voley adolescentes distrito sudoeste|2026-10-26|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Animadores Juveniles en el Distrito Sudoeste",
@@ -2103,7 +2105,7 @@
   "id": "municipal-51b7acc1",
   "status": "published",
   "fingerprint": "animadores juveniles distrito sudoeste|2026-10-26|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Ajedrez: nivel intermedio-avanzados",
@@ -2124,7 +2126,7 @@
   "id": "municipal-ab357820",
   "status": "published",
   "fingerprint": "ajedrez nivel intermedio avanzados|2026-10-26|biblioteca",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Odisea, de Homero a Christopher Nolan",
@@ -2144,7 +2146,7 @@
   "id": "municipal-02bc6f4a",
   "status": "published",
   "fingerprint": "odisea homero christopher nolan|2026-10-26|biblioteca",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Mis primeros pasos",
@@ -2169,7 +2171,7 @@
   "id": "municipal-819d828b",
   "status": "published",
   "fingerprint": "mis primeros pasos|2026-10-26|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Taller de actuación Cuerpos Crudos en Sala Tandava",
@@ -2190,7 +2192,7 @@
   "id": "municipal-3c7141f7",
   "status": "published",
   "fingerprint": "taller actuacion cuerpos crudos sala tandava|2026-10-26|sala",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Taller: “Borges, el lector exquisito”",
@@ -2211,7 +2213,7 @@
   "id": "municipal-bf8471b7",
   "status": "published",
   "fingerprint": "taller borges lector exquisito|2026-10-27|biblioteca",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Huerta primavera-verano",
@@ -2233,7 +2235,7 @@
   "id": "municipal-79b75154",
   "status": "published",
   "fingerprint": "huerta primavera verano|2026-10-27|escuela",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Bienestar y actividad física en Puente Gallego",
@@ -2254,7 +2256,7 @@
   "id": "municipal-fbc8a05d",
   "status": "published",
   "fingerprint": "bienestar actividad fisica puente gallego|2026-10-27|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Gimnasia adultos en el sudoeste",
@@ -2275,7 +2277,7 @@
   "id": "municipal-9cd8b731",
   "status": "published",
   "fingerprint": "gimnasia adultos sudoeste|2026-10-27|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Visitas Guiadas Biblioteca Estrada",
@@ -2296,7 +2298,7 @@
   "id": "municipal-bbf3f2f4",
   "status": "published",
   "fingerprint": "visitas guiadas biblioteca estrada|2026-10-27|biblioteca",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Estaciones de Alfabetización para alumnos de segundo ciclo.",
@@ -2317,7 +2319,7 @@
   "id": "municipal-3c12afc8",
   "status": "published",
   "fingerprint": "estaciones alfabetizacion alumnos segundo ciclo|2026-10-27|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Gimnasia adultos mayores en el sudoeste",
@@ -2338,7 +2340,7 @@
   "id": "municipal-b0e4dd41",
   "status": "published",
   "fingerprint": "gimnasia adultos mayores sudoeste|2026-10-27|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Espacio de vida saludable: Cardio Nutri Dance",
@@ -2359,7 +2361,7 @@
   "id": "municipal-673b8414",
   "status": "published",
   "fingerprint": "espacio vida saludable cardio nutri dance|2026-10-27|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Basquet niños y adolescentes en distrito sudoeste",
@@ -2380,7 +2382,7 @@
   "id": "municipal-1503a120",
   "status": "published",
   "fingerprint": "basquet ninos adolescentes distrito sudoeste|2026-10-27|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Consejo de Niñas y Niños en Casa de Cultura Barrio Alvear",
@@ -2401,7 +2403,7 @@
   "id": "municipal-0abee8c8",
   "status": "published",
   "fingerprint": "consejo ninas ninos casa cultura barrio alvear|2026-10-27|casa",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Fútbol niños y adolescentes en playón Tio Rolo",
@@ -2422,7 +2424,7 @@
   "id": "municipal-792acf3c",
   "status": "published",
   "fingerprint": "futbol ninos adolescentes playon tio rolo|2026-10-27|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Taller de lectura y conversación",
@@ -2443,7 +2445,7 @@
   "id": "municipal-caf6a8b5",
   "status": "published",
   "fingerprint": "taller lectura conversacion|2026-10-27|biblioteca",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Día Mundial de la Medicina Tradicional en el Sudoeste",
@@ -2464,7 +2466,7 @@
   "id": "municipal-083b3bed",
   "status": "published",
   "fingerprint": "dia mundial medicina tradicional sudoeste|2026-10-28|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Balcones y terrazas verdes",
@@ -2486,7 +2488,7 @@
   "id": "municipal-d9bc6a00",
   "status": "published",
   "fingerprint": "balcones terrazas verdes|2026-10-28|escuela",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Educación financiera para jóvenes",
@@ -2507,7 +2509,7 @@
   "id": "municipal-316f96b0",
   "status": "published",
   "fingerprint": "educacion financiera jovenes|2026-10-28|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Charlas sobre Ermete De Lorenzi en Casa Vanzo Wernicke",
@@ -2528,7 +2530,7 @@
   "id": "municipal-0ea993bd",
   "status": "published",
   "fingerprint": "charlas ermete lorenzi casa vanzo wernicke|2026-10-28|casa",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Conversaciones en la biblioteca: entrevista al fotógrafo Alejandro Lamas",
@@ -2549,7 +2551,7 @@
   "id": "municipal-a532f754",
   "status": "published",
   "fingerprint": "conversaciones biblioteca entrevista fotografo alejandro lamas|2026-10-28|biblioteca",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "JORNADA PROFESIONAL OCT - \"SALUD, SEGURIDAD Y BIENESTAR LABORAL 2026\"",
@@ -2575,7 +2577,7 @@
   "id": "platform-f69f7009",
   "status": "published",
   "fingerprint": "jornada profesional oct salud seguridad bienestar laboral 2026|2026-10-28|instituto",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Taller de uso de celulares para adultos mayores en el Oeste",
@@ -2596,7 +2598,7 @@
   "id": "municipal-b3d1e24c",
   "status": "published",
   "fingerprint": "taller uso celulares adultos mayores oeste|2026-10-28|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Taller de literatura experimental: pluma salvaje",
@@ -2616,7 +2618,7 @@
   "id": "municipal-4b7cd900",
   "status": "published",
   "fingerprint": "taller literatura experimental pluma salvaje|2026-10-28|biblioteca",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Entrenamiento y Ensayo para bailarines de tango",
@@ -2637,7 +2639,7 @@
   "id": "municipal-45bc68d0",
   "status": "published",
   "fingerprint": "entrenamiento ensayo bailarines tango|2026-10-28|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Taller de Redes Sociales para Adultos Mayores en el Sudoeste",
@@ -2658,7 +2660,7 @@
   "id": "municipal-14269ba5",
   "status": "published",
   "fingerprint": "taller redes sociales adultos mayores sudoeste|2026-10-28|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Coresetería Victoriana Beskope",
@@ -2678,7 +2680,7 @@
   "id": "municipal-665d78f8",
   "status": "published",
   "fingerprint": "coreseteria victoriana beskope|2026-10-28|museo",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Taller de Técnicas de Danza y Composición Instantánea",
@@ -2699,7 +2701,7 @@
   "id": "municipal-1e539d20",
   "status": "published",
   "fingerprint": "taller tecnicas danza composicion instantanea|2026-10-28|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Vamos a conversar sobre cuestiones relativas al trabajo.",
@@ -2722,7 +2724,7 @@
   "id": "platform-6e62ab65",
   "status": "published",
   "fingerprint": "vamos conversar cuestiones relativas trabajo|2026-10-28|cordoba",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Talleres anuales de Tango Danza",
@@ -2743,7 +2745,7 @@
   "id": "municipal-85532623",
   "status": "published",
   "fingerprint": "talleres anuales tango danza|2026-10-28|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "J. S. Bach: Cantatas para Alto y concierto para tres violines y orquesta",
@@ -2767,7 +2769,7 @@
   "id": "municipal-97f35903",
   "status": "published",
   "fingerprint": "bach cantatas alto concierto tres violines orquesta|2026-10-28|teatro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Taller \"Aprendé a manejar tu celular\"",
@@ -2788,7 +2790,7 @@
   "id": "municipal-c20074bf",
   "status": "published",
   "fingerprint": "taller aprende manejar tu celular|2026-10-29|biblioteca",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Proyección de Un cabo suelto en Cine Lumière",
@@ -2813,7 +2815,7 @@
   "id": "municipal-889f0fb6",
   "status": "published",
   "fingerprint": "proyeccion cabo suelto cine lumiere|2026-10-29|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Ciclo de Teatro +65: Babilonia",
@@ -2834,7 +2836,7 @@
   "id": "municipal-29298dcd",
   "status": "published",
   "fingerprint": "ciclo teatro 65 babilonia|2026-10-29|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Muestra: La Canción del barrio",
@@ -2855,7 +2857,7 @@
   "id": "municipal-c8fceadf",
   "status": "published",
   "fingerprint": "muestra cancion barrio|2026-10-29|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Circuito Interbarrial de teatro “Babilonia”",
@@ -2876,7 +2878,7 @@
   "id": "municipal-628804b1",
   "status": "published",
   "fingerprint": "circuito interbarrial teatro babilonia|2026-10-29|area",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Café Literario",
@@ -2897,7 +2899,7 @@
   "id": "municipal-449613e3",
   "status": "published",
   "fingerprint": "cafe literario|2026-10-29|facultad",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Un Maldito Policía en Cine Lumière",
@@ -2922,7 +2924,7 @@
   "id": "municipal-77d300c5",
   "status": "published",
   "fingerprint": "maldito policia cine lumiere|2026-10-29|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Muestra de fin de año de la Escuela de Danzas",
@@ -2944,7 +2946,7 @@
   "id": "municipal-8398695b",
   "status": "published",
   "fingerprint": "muestra fin ano escuela danzas|2026-10-29|teatro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Literatura para jardines. Lecturas entre amantes de la naturaleza",
@@ -2969,7 +2971,7 @@
   "id": "municipal-87b10615",
   "status": "published",
   "fingerprint": "literatura jardines lecturas amantes naturaleza|2026-10-29|biblioteca",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Taller de literatura con adolescentes en la Biblioteca Argentina",
@@ -2989,7 +2991,7 @@
   "id": "municipal-64540013",
   "status": "published",
   "fingerprint": "taller literatura adolescentes biblioteca argentina|2026-10-29|biblioteca",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Pre Congreso sobre la Democracia Rosario En Común. Día 1",
@@ -3008,7 +3010,7 @@
   "id": "municipal-837490c4",
   "status": "published",
   "fingerprint": "pre congreso democracia rosario comun dia|2026-10-29|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Memorias del Exilio: \"Zurcir voces hasta volverlas familiares\"",
@@ -3033,7 +3035,7 @@
   "id": "municipal-80b7b953",
   "status": "published",
   "fingerprint": "memorias exilio zurcir voces volverlas familiares|2026-10-29|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "¿Querés que te cuente un cuento?",
@@ -3053,7 +3055,7 @@
   "id": "municipal-43acaa93",
   "status": "published",
   "fingerprint": "queres te cuente cuento|2026-10-29|biblioteca",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "ProductTank Rosario 1.0",
@@ -3077,11 +3079,11 @@
   "id": "platform-051077d7",
   "status": "published",
   "fingerprint": "producttank rosario|2026-10-29|tecnoteca",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Macbeth",
-  "description": "Macbeth se presentará en Teatro El Círculo el día 29/10/2026 a las 20:00hs.",
+  "description": "Función de Macbeth en el Teatro El Círculo a las 20 hs. Las entradas cuestan desde $40600.",
   "startsAt": "2026-10-29T20:00:00-03:00",
   "venueName": "Teatro El Círculo",
   "address": "Laprida 1223",
@@ -3101,11 +3103,11 @@
   "id": "ticketing-3cddcc0a",
   "status": "published",
   "fingerprint": "macbeth|2026-10-29|teatro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Macbeth de Verdi (función abono)",
-  "description": "Ópera de Giuseppe Verdi, primera vez en Rosario. Función de abono.",
+  "description": "Ópera Macbeth de Giuseppe Verdi, que se presenta por primera vez en Rosario. Se trata de una función de abono.",
   "startsAt": "2026-10-29T20:00:00-03:00",
   "venueName": "Ballet Ruso de Rosario",
   "category": "teatro",
@@ -3123,7 +3125,7 @@
   "id": "instagram-e928026a",
   "status": "published",
   "fingerprint": "macbeth verdi funcion abono|2026-10-29|ballet",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Piedra y camino. Cantata a la Luna en el CAM",
@@ -3147,7 +3149,7 @@
   "id": "municipal-95b1f8c7",
   "status": "published",
   "fingerprint": "piedra camino cantata luna cam|2026-10-29|complejo",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Jornada de recepción de residuos informáticos",
@@ -3169,7 +3171,7 @@
   "id": "municipal-0273b5af",
   "status": "published",
   "fingerprint": "jornada recepcion residuos informaticos|2026-10-30|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Taller didáctico de carpintería: \"De la madera a la mesa\"",
@@ -3190,7 +3192,7 @@
   "id": "municipal-0767381e",
   "status": "published",
   "fingerprint": "taller didactico carpinteria madera mesa|2026-10-30|mercado",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Propuesta para profesorados: \"Experiencia Imaginada\"",
@@ -3211,7 +3213,7 @@
   "id": "municipal-6f2809e1",
   "status": "published",
   "fingerprint": "propuesta profesorados experiencia imaginada|2026-10-30|biblioteca",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Reconocimiento a Mujeres que educan en el Noroeste",
@@ -3232,7 +3234,7 @@
   "id": "municipal-feb617b2",
   "status": "published",
   "fingerprint": "reconocimiento mujeres educan noroeste|2026-10-30|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "La Biblioteca Argentina en la Noche de Museos Abiertos",
@@ -3252,7 +3254,7 @@
   "id": "municipal-56b479f9",
   "status": "published",
   "fingerprint": "biblioteca argentina museos abiertos|2026-10-30|biblioteca",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Ciclo de Teatro +65: El Club de la Risa",
@@ -3274,7 +3276,7 @@
   "id": "municipal-5b9a5251",
   "status": "published",
   "fingerprint": "ciclo teatro 65 club risa|2026-10-30|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Una casa y tres protagonistas | Noche de Museos Abiertos en Casa Vanzo Wernicke",
@@ -3295,7 +3297,7 @@
   "id": "municipal-1fc0c8f2",
   "status": "published",
   "fingerprint": "casa tres protagonistas museos abiertos casa vanzo wernicke|2026-10-30|casa",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Micelia 360º | Arte, tecnología y creación inmersiva en el Complejo Astronómico",
@@ -3321,7 +3323,7 @@
   "id": "municipal-d7790c57",
   "status": "published",
   "fingerprint": "micelia 360 arte tecnologia creacion inmersiva complejo astronomico|2026-10-30|complejo",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Un cielo de seis cuerdas",
@@ -3342,7 +3344,7 @@
   "id": "municipal-e03b5143",
   "status": "published",
   "fingerprint": "cielo seis cuerdas|2026-10-30|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Terror en VHS en Cine Lumière",
@@ -3363,7 +3365,7 @@
   "id": "municipal-97092cd1",
   "status": "published",
   "fingerprint": "terror vhs cine lumiere|2026-10-30|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "El bingo musical de Veto y Fer",
@@ -3384,7 +3386,7 @@
   "id": "municipal-27c096ec",
   "status": "published",
   "fingerprint": "bingo musical veto fer|2026-10-30|complejo",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Halloween en Show Park",
@@ -3406,7 +3408,7 @@
   "id": "tiktok-9e3488c1",
   "status": "published",
   "fingerprint": "halloween park|2026-10-30|show",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Laboratorio de Análisis Cultural: Identidades en tensión. Migraciones, tecnologías y cultura popular en Rosario",
@@ -3426,7 +3428,7 @@
   "id": "municipal-1e84355d",
   "status": "published",
   "fingerprint": "laboratorio analisis cultural identidades tension migraciones tecnologias cultura popular rosario|2026-10-30|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "III Jornada Taller de tesistas en Humanidades y Artes",
@@ -3449,7 +3451,7 @@
   "id": "instagram-8cf15fcb",
   "status": "published",
   "fingerprint": "iii jornada taller tesistas humanidades artes|2026-10-30|facultad",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "La Tardecita en The Wine Bar (fecha reprogramada)",
@@ -3471,7 +3473,7 @@
   "id": "instagram-10cf9999",
   "status": "published",
   "fingerprint": "tardecita wine bar fecha reprogramada|2026-10-30|the",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Pre Congreso sobre la Democracia Rosario En Común. Día 2",
@@ -3490,7 +3492,7 @@
   "id": "municipal-f4bab666",
   "status": "published",
   "fingerprint": "pre congreso democracia rosario comun dia|2026-10-30|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Muestra/talleres Colegas",
@@ -3515,7 +3517,7 @@
   "id": "municipal-30e900b3",
   "status": "published",
   "fingerprint": "muestra talleres colegas|2026-10-30|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Función del CIT: Los Disfrazados",
@@ -3535,7 +3537,7 @@
   "id": "municipal-c4bb49b6",
   "status": "published",
   "fingerprint": "funcion cit disfrazados|2026-10-30|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Ciclo de Teatro + 65: Función de Los Disfrazados en el CMD Noroeste",
@@ -3555,11 +3557,11 @@
   "id": "municipal-329ec1ad",
   "status": "published",
   "fingerprint": "ciclo teatro 65 funcion disfrazados cmd noroeste|2026-10-30|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "🌇 SUNSET CRISTAL CLUB/ ZETA CLUB 🌇",
-  "description": "LINE UP 🎧 SYXTA B2B VYKA 🎧LUCIAWINE 🎧EMANUEL FABBRI",
+  "description": "Fiesta sunset con entrada gratuita en Güemes 2607. El line up incluye a Syxta b2b Vyka, Luciawine y Emanuel Fabbri.",
   "startsAt": "2026-10-30T19:00:00-03:00",
   "endsAt": "2026-10-30T23:59:00-03:00",
   "venueName": "Güemes 2607",
@@ -3582,7 +3584,7 @@
   "id": "ticketing-4c454943",
   "status": "published",
   "fingerprint": "sunset cristal club zeta club|2026-10-30|guemes",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Ciclo de Teatro +65: Función de Historias Nuestras en el marco de La Noche de Las Peatonales",
@@ -3602,7 +3604,7 @@
   "id": "municipal-9eb769c0",
   "status": "published",
   "fingerprint": "ciclo teatro 65 funcion historias nuestras marco peatonales|2026-10-30|biblioteca",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "COMO MIRAR FIJO AL SOL",
@@ -3627,7 +3629,7 @@
   "id": "ticketing-ec47deab",
   "status": "published",
   "fingerprint": "como mirar fijo sol|2026-10-30|casona",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Turbio Especial Halloween: Terror en el Shopping",
@@ -3654,7 +3656,7 @@
   "id": "platform-e46505a7",
   "status": "published",
   "fingerprint": "turbio especial halloween terror shopping|2026-10-30|pres",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Camilo",
@@ -3669,11 +3671,12 @@
   "sourceUrl": "https://www.turboentrada.com/landing/16627-camilo?idEspectaculoCartel=16627&cHashValidacion=1bd8390caed96437e615ac95087e3c06082f3f5a",
   "imageUrl": "https://contenidos.entradauno.com/cache/imagenes/productos/camilo_720x405_4bd10183-1386-4192-af1a-67609b115687.jpg",
   "shortTitle": "Camilo",
+  "description": "Concierto de Camilo en el Metropolitano Rosario. Es un show en vivo del cantante en el estadio cubierto.",
   "barrio": "Macrocentro",
   "id": "ticketing-778a354d",
   "status": "published",
   "fingerprint": "camilo|2026-10-30|metropolitano",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Gatita Pre Halloween: fiesta de disfraces",
@@ -3695,7 +3698,7 @@
   "id": "instagram-4e10a73f",
   "status": "published",
   "fingerprint": "gatita pre halloween disfraces|2026-10-30|congo",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "DISCIP",
@@ -3710,11 +3713,12 @@
   "sourceUrl": "https://www.turboentrada.com/landing/discip?idEspectaculoCartel=17493&cHashValidacion=bef8da3f26a1393e0b3d267e555eb8486ceabed7",
   "imageUrl": "https://contenidos.entradauno.com/cache/imagenes/productos/destacada-720x405.jpg-(13)_5c4ba8e1-4f8b-449d-9916-3ffb053393f2.jpeg",
   "shortTitle": "DISCIP",
+  "description": "Presentación musical de DISCIP en Alto Shopping Rosario. Es un show en vivo dentro del shopping.",
   "barrio": "Macrocentro",
   "id": "ticketing-6135aea5",
   "status": "published",
   "fingerprint": "discip|2026-10-30|alto",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "MASQUERADE PARTY BY ZETA CLUB🫦",
@@ -3741,7 +3745,7 @@
   "id": "ticketing-25cf7bb4",
   "status": "published",
   "fingerprint": "masquerade party by zeta club|2026-10-30|guemes",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Club de Cuenteras y Cuenteros en la Biblioteca Argentina",
@@ -3763,7 +3767,7 @@
   "id": "municipal-da904b81",
   "status": "published",
   "fingerprint": "club cuenteras cuenteros biblioteca argentina|2026-10-31|biblioteca",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "LASSIE. Una nueva aventura en Cine Lumière (SUBTITULADA)",
@@ -3788,7 +3792,7 @@
   "id": "municipal-7acbe617",
   "status": "published",
   "fingerprint": "lassie nueva aventura cine lumiere subtitulada|2026-10-31|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Muestra: Efervescencia cromática. Anomalía de un universo en expansión",
@@ -3809,7 +3813,7 @@
   "id": "municipal-53b162dc",
   "status": "published",
   "fingerprint": "muestra efervescencia cromatica anomalia universo expansion|2026-10-31|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Pre Congreso sobre la Democracia Rosario En Común. Día 3",
@@ -3828,7 +3832,7 @@
   "id": "municipal-17111b23",
   "status": "published",
   "fingerprint": "pre congreso democracia rosario comun dia|2026-10-31|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Halloween en Show Park",
@@ -3850,7 +3854,7 @@
   "id": "tiktok-8c190e58",
   "status": "published",
   "fingerprint": "halloween park|2026-10-31|show",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Seminario de tango Cumbia Cruzada para iniciales",
@@ -3879,7 +3883,7 @@
   "id": "tiktok-df2099d6",
   "status": "published",
   "fingerprint": "seminario tango cumbia cruzada iniciales|2026-10-31|club",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Seminario de cumbia para iniciales en Club Excélsior",
@@ -3908,7 +3912,7 @@
   "id": "tiktok-ded26689",
   "status": "published",
   "fingerprint": "seminario cumbia iniciales club excelsior|2026-10-31|club",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "III Jornada Taller de tesistas en Humanidades y Artes (día 2)",
@@ -3931,7 +3935,7 @@
   "id": "instagram-cd283248",
   "status": "published",
   "fingerprint": "iii jornada taller tesistas humanidades artes dia|2026-10-31|facultad",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Festival de Stand Up en el Fontanarrosa",
@@ -3955,11 +3959,11 @@
   "id": "municipal-800d514b",
   "status": "published",
   "fingerprint": "festival stand up fontanarrosa|2026-10-31|cultural",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Macbeth",
-  "description": "Macbeth se presentará en Teatro El Círculo el día 31/10/2026 a las 20:00hs.",
+  "description": "Función de Macbeth en el Teatro El Círculo a las 20 hs. Las entradas cuestan desde $40600.",
   "startsAt": "2026-10-31T20:00:00-03:00",
   "venueName": "Teatro El Círculo",
   "address": "Laprida 1223",
@@ -3979,7 +3983,7 @@
   "id": "ticketing-b2f9ab29",
   "status": "published",
   "fingerprint": "macbeth|2026-10-31|teatro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Macbeth de Verdi",
@@ -4001,7 +4005,7 @@
   "id": "instagram-18b6d56a",
   "status": "published",
   "fingerprint": "macbeth verdi|2026-10-31|ballet",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Prisma + invitados en García Bar",
@@ -4023,7 +4027,7 @@
   "id": "instagram-19a82ff8",
   "status": "published",
   "fingerprint": "prisma invitados garcia bar|2026-10-31|garcia",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Un Poco de Ruido",
@@ -4038,15 +4042,16 @@
   "sourceUrl": "https://www.turboentrada.com/landing/un-poco-de-ruido?idEspectaculoCartel=17259&cHashValidacion=705fa88aa2bea8d5c9a2b4e9018ab8c5b0e7329c",
   "imageUrl": "https://contenidos.entradauno.com/cache/imagenes/productos/updr_rosario_720x405-(1)_ac54c48f-c3af-4de4-8426-80837bce64f4.jpg",
   "shortTitle": "Un Poco de Ruido",
+  "description": "Show de Un Poco de Ruido en el Metropolitano Rosario. Es un recital en vivo del grupo musical.",
   "barrio": "Macrocentro",
   "id": "ticketing-69bc09a1",
   "status": "published",
   "fingerprint": "poco ruido|2026-10-31|metropolitano",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Leandro Gambetta en La Chunga",
-  "description": "Función de Leandro Gambetta en La Chunga.",
+  "description": "Función de Leandro Gambetta en La Chunga. Es un espectáculo escénico en sala.",
   "startsAt": "2026-10-31T21:00:00-03:00",
   "venueName": "La Chunga",
   "address": "San Martín 771",
@@ -4065,7 +4070,7 @@
   "id": "tiktok-83b10f55",
   "status": "published",
   "fingerprint": "leandro gambetta chunga|2026-10-31|la",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "JXXXO + TOMI ALMADA / ANIVERSARIO PAAK @ SWITCH",
@@ -4087,11 +4092,12 @@
   "sourceUrl": "https://venti.live/evento/jxxoo-tomi-almada-aniversaio-paak-switch",
   "imageUrl": "https://images.venti.live/user-images/1790630055457-lg.jpg",
   "shortTitle": "JXXXO y Tomi Almada: aniversario Paak",
+  "description": "Fiesta aniversario de Paak en Switch Club con JXXXO y Tomi Almada. La entrada cuesta $10000.",
   "barrio": "Pichincha",
   "id": "ticketing-13a87d26",
   "status": "published",
   "fingerprint": "jxxxo tomi almada aniversario paak switch|2026-10-31|switch",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Border, el musical",
@@ -4114,7 +4120,7 @@
   "id": "instagram-290f9f09",
   "status": "published",
   "fingerprint": "border musical|2026-11-01|complejo",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Dubai cumple 13 años: fiesta aniversario",
@@ -4136,7 +4142,7 @@
   "id": "instagram-b7099018",
   "status": "published",
   "fingerprint": "dubai cumple 13 anos aniversario|2026-11-03|dubai",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Escala Summit",
@@ -4163,7 +4169,7 @@
   "id": "platform-5f0bb499",
   "status": "published",
   "fingerprint": "escala summit|2026-11-04|universidad",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "II Congreso Internacional de Geriatría y Gerontología del Interior (día 1)",
@@ -4185,7 +4191,7 @@
   "id": "instagram-f739f8e6",
   "status": "published",
   "fingerprint": "ii congreso internacional geriatria gerontologia interior dia|2026-11-05|circulo",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Border, el musical",
@@ -4208,7 +4214,7 @@
   "id": "instagram-2803fd05",
   "status": "published",
   "fingerprint": "border musical|2026-11-05|complejo",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Gauchos of the Pampa con Rya y Zapatea Lechuza",
@@ -4230,7 +4236,7 @@
   "id": "instagram-6602238d",
   "status": "published",
   "fingerprint": "gauchos pampa rya zapatea lechuza|2026-11-05|casa",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Fiesta de las Colectividades 2026",
@@ -4254,7 +4260,7 @@
   "id": "instagram-d65c4372",
   "status": "published",
   "fingerprint": "colectividades 2026|2026-11-06|parque",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "II Congreso Internacional de Geriatría y Gerontología del Interior (día 2)",
@@ -4276,7 +4282,7 @@
   "id": "instagram-4481f52f",
   "status": "published",
   "fingerprint": "ii congreso internacional geriatria gerontologia interior dia|2026-11-06|circulo",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Mathame",
@@ -4291,11 +4297,12 @@
   "sourceUrl": "https://www.turboentrada.com/landing/mathame?idEspectaculoCartel=17460&cHashValidacion=f551e571fef286a11c0a1c12e5263fe7bc239abd",
   "imageUrl": "https://contenidos.entradauno.com/cache/imagenes/productos/mathame-dest_0a56f0a3-7550-4dd6-a681-1d10fa5a2cb6.jpeg",
   "shortTitle": "Mathame",
+  "description": "Presentación de Mathame en el Metropolitano Rosario. Es una fecha de música en vivo con el proyecto.",
   "barrio": "Macrocentro",
   "id": "ticketing-3c82b207",
   "status": "published",
   "fingerprint": "mathame|2026-11-06|metropolitano",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "FIEBRE FIESTA en TAURA ROSARIO 6/11",
@@ -4322,7 +4329,7 @@
   "id": "ticketing-1d6b0fc7",
   "status": "published",
   "fingerprint": "fiebre taura rosario 11|2026-11-06|taura",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Sunset&Deco",
@@ -4337,12 +4344,13 @@
   "sourceUrl": "https://www.eventbrite.com.ar/e/sunsetdeco-tickets-2002062825806",
   "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1194098499%2F3015046254487%2F1%2Foriginal.20260922-132721?crop=focalpoint&fit=crop&w=450&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=2108c0125e3916da9f945e599c638c34",
   "shortTitle": "Sunset&Deco",
+  "description": "Encuentro Sunset&Deco en Ibarlucea. Es una propuesta al atardecer cuyo formato no está detallado en la fuente.",
   "barrio": "Funes",
   "timeUnknown": true,
   "id": "platform-ee7f9779",
   "status": "published",
   "fingerprint": "sunset deco|2026-11-07|ibarlucea",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Interstellar por Cápsula Producciones",
@@ -4367,7 +4375,7 @@
   "id": "ticketing-7361f59b",
   "status": "published",
   "fingerprint": "interstellar capsula producciones|2026-11-07|teatro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Seminario de cumbia para iniciales en Club Excélsior",
@@ -4396,7 +4404,7 @@
   "id": "tiktok-fd3f5cdd",
   "status": "published",
   "fingerprint": "seminario cumbia iniciales club excelsior|2026-11-07|club",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Connie Ballarini",
@@ -4421,7 +4429,7 @@
   "id": "ticketing-856a23cd",
   "status": "published",
   "fingerprint": "connie ballarini|2026-11-07|teatro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "La Peña de Demi Carabajal",
@@ -4446,7 +4454,7 @@
   "id": "ticketing-d8a3d463",
   "status": "published",
   "fingerprint": "pena demi carabajal|2026-11-07|asociacion",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "LOLA SANCHEZ",
@@ -4471,7 +4479,7 @@
   "id": "ticketing-c26791ff",
   "status": "published",
   "fingerprint": "lola sanchez|2026-11-07|casona",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "El Viaje De Chihiro por Cápsula Producciones",
@@ -4496,11 +4504,11 @@
   "id": "ticketing-b53e459d",
   "status": "published",
   "fingerprint": "viaje chihiro capsula producciones|2026-11-07|teatro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Dramer open to close en Capi Club",
-  "description": "Set open to close de Dramer en Capi Club. Tickets en la bio de @dramer.music.",
+  "description": "Dramer toca un set open to close en Capi Club, de la apertura al cierre. Las entradas se consiguen en la bio de @dramer.music.",
   "startsAt": "2026-11-07T21:00:00-03:00",
   "venueName": "Capi Club",
   "barrio": "Centro",
@@ -4518,7 +4526,7 @@
   "id": "tiktok-76d08f44",
   "status": "published",
   "fingerprint": "dramer open to close capi club|2026-11-07|capi",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "LA CINTIA @ SWITCH CLUB",
@@ -4540,11 +4548,12 @@
   "sourceUrl": "https://venti.live/evento/la-cintia-switch-club",
   "imageUrl": "https://images.venti.live/user-images/1792684837163-lg.jpg",
   "shortTitle": "La Cintia",
+  "description": "Fiesta con La Cintia en Switch Club. La entrada cuesta $10000.",
   "barrio": "Pichincha",
   "id": "ticketing-23702c0c",
   "status": "published",
   "fingerprint": "cintia switch club|2026-11-07|switch",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Ronnie Wood en Rosario",
@@ -4566,7 +4575,7 @@
   "id": "tiktok-309448b3",
   "status": "published",
   "fingerprint": "ronnie wood rosario|2026-11-08|metropolitano",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Chapitas, Tormentas y Anomalía en García Bar",
@@ -4593,7 +4602,7 @@
   "id": "instagram-014eb58c",
   "status": "published",
   "fingerprint": "chapitas tormentas anomalia garcia bar|2026-11-13|garcia",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Rompela, Tormentas y Anomalía en García Bar",
@@ -4621,7 +4630,7 @@
   "id": "instagram-e9837527",
   "status": "published",
   "fingerprint": "rompela tormentas anomalia garcia bar|2026-11-13|garcia",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Homenaje a Charly García con músicos rosarinos",
@@ -4643,7 +4652,7 @@
   "id": "instagram-10d22386",
   "status": "published",
   "fingerprint": "homenaje charly garcia musicos rosarinos|2026-11-13|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Seminario de cumbia para iniciales en Club Excélsior",
@@ -4672,7 +4681,7 @@
   "id": "tiktok-c81cda51",
   "status": "published",
   "fingerprint": "seminario cumbia iniciales club excelsior|2026-11-14|club",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Horifest décima edición",
@@ -4695,7 +4704,7 @@
   "id": "instagram-a1d995dd",
   "status": "published",
   "fingerprint": "horifest decima|2026-11-14|club",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Horifest décima edición con The Room",
@@ -4718,11 +4727,11 @@
   "id": "instagram-9fdd6432",
   "status": "published",
   "fingerprint": "horifest decima room|2026-11-14|club",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Festival de patín artístico del Centro Asturiano",
-  "description": "Show anual de patín artístico del Centro Asturiano de Rosario.",
+  "description": "Show anual de patín artístico del Centro Asturiano de Rosario. Participan patinadores de la institución.",
   "startsAt": "2026-11-14T20:00:00-03:00",
   "venueName": "Centro Asturiano de Rosario",
   "address": "Wilde 550",
@@ -4741,7 +4750,7 @@
   "id": "instagram-aea97b2a",
   "status": "published",
   "fingerprint": "festival patin artistico centro asturiano|2026-11-14|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Horifest en Club Atlético Horizonte",
@@ -4764,7 +4773,7 @@
   "id": "instagram-875389f5",
   "status": "published",
   "fingerprint": "horifest club atletico horizonte|2026-11-14|club",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Seminario de cumbia para iniciales en Club Excélsior",
@@ -4793,11 +4802,11 @@
   "id": "tiktok-c343f7bd",
   "status": "published",
   "fingerprint": "seminario cumbia iniciales club excelsior|2026-11-21|club",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Gusti Rabago y Kelo Ar en Groove Connection",
-  "description": "Noche de club con Gusti Rabago y Kelo Ar dentro del ciclo Groove Connection.",
+  "description": "Noche de club con Gusti Rabago y Kelo Ar dentro del ciclo Groove Connection. Es una fiesta con DJs en Groove Connection Rosario.",
   "startsAt": "2026-11-21T23:00:00-03:00",
   "venueName": "Groove Connection Rosario",
   "category": "fiesta",
@@ -4815,11 +4824,11 @@
   "id": "instagram-6b927934",
   "status": "published",
   "fingerprint": "gusti rabago kelo ar groove connection|2026-11-21|groove",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Benja Torres en el Centro Cultural Güemes",
-  "description": "Benja Torres vuelve a Rosario con un show en el Centro Cultural Güemes.\n\nFuentes: https://www.tiktok.com/@benjatorressss/video/7688473395679350037, https://www.tiktok.com/@benjatorressss/video/7688166046359932180",
+  "description": "Benja Torres vuelve a Rosario con un show en el Centro Cultural Güemes. Es un recital en vivo.\n\nFuentes: https://www.tiktok.com/@benjatorressss/video/7688473395679350037, https://www.tiktok.com/@benjatorressss/video/7688166046359932180",
   "startsAt": "2026-11-23T21:00:00-03:00",
   "venueName": "Centro Cultural Güemes",
   "category": "musica",
@@ -4837,7 +4846,7 @@
   "id": "tiktok-4976698b",
   "status": "published",
   "fingerprint": "benja torres centro cultural guemes|2026-11-23|centro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Seminario de cumbia para iniciales en Club Excélsior",
@@ -4866,7 +4875,7 @@
   "id": "tiktok-0cd09ef8",
   "status": "published",
   "fingerprint": "seminario cumbia iniciales club excelsior|2026-11-28|club",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Sunset + Night en Rooftop Rosario",
@@ -4889,7 +4898,7 @@
   "id": "instagram-7d9d6612",
   "status": "published",
   "fingerprint": "sunset night rooftop rosario|2026-12-05|rooftop",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Gux Jimenez y Jerry Chiu: Droid9 Showcase",
@@ -4911,11 +4920,11 @@
   "id": "instagram-e8286b6a",
   "status": "published",
   "fingerprint": "gux jimenez jerry chiu droid9 showcase|2026-12-05|groove",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Fénix, muestra anual del Studio Flavio Mendoza Rosario",
-  "description": "Muestra anual 2026 del Studio Flavio Mendoza Rosario. Entradas ya disponibles.",
+  "description": "Muestra anual 2026 del Studio Flavio Mendoza Rosario, titulada Fénix, en el Teatro Astengo. Las entradas ya están disponibles.",
   "startsAt": "2026-12-14T20:00:00-03:00",
   "venueName": "Teatro Astengo",
   "category": "cultura",
@@ -4933,12 +4942,12 @@
   "id": "instagram-68f17262",
   "status": "published",
   "fingerprint": "fenix muestra anual studio flavio mendoza rosario|2026-12-14|teatro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Julián Bellese: show de cierre de año",
   "shortTitle": "Julián Bellese: cierre de año",
-  "description": "Show especial para cerrar el año. Tickets en el link de la bio.\n\nFuentes: https://www.tiktok.com/@julianbellese/video/7695930350047923477",
+  "description": "Julián Bellese presenta un show especial para cerrar el año en el Teatro Ópera. Las entradas están en el link de su bio.\n\nFuentes: https://www.tiktok.com/@julianbellese/video/7695930350047923477",
   "startsAt": "2026-12-19T21:00:00-03:00",
   "venueName": "Teatro Ópera",
   "address": "Laprida 1223, Rosario",
@@ -4956,7 +4965,7 @@
   "id": "tiktok-ddd3338a",
   "status": "published",
   "fingerprint": "julian bellese cierre ano|2026-12-19|teatro",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Festival de Navidad en el Autódromo",
@@ -4978,11 +4987,11 @@
   "id": "instagram-612f4f7c",
   "status": "published",
   "fingerprint": "festival navidad autodromo|2026-12-25|autodromo",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Miss Monique en el Autódromo de Rosario",
-  "description": "Fecha de música electrónica con Miss Monique de 22 a 05 hs. Entradas por Bombo.",
+  "description": "Fecha de música electrónica con Miss Monique en el Autódromo de Rosario, de 22 a 05 hs. Las entradas se venden por Bombo.",
   "startsAt": "2026-12-26T22:00:00-03:00",
   "endsAt": "2026-12-27T05:00:00-03:00",
   "venueName": "Autódromo de Rosario",
@@ -5001,7 +5010,7 @@
   "id": "tiktok-759cf9e1",
   "status": "published",
   "fingerprint": "miss monique autodromo rosario|2026-12-26|autodromo",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  },
  {
   "title": "Año Nuevo con Kamilo Sanclemente en Forest Open Air",
@@ -5024,6 +5033,6 @@
   "id": "instagram-007c1ec7",
   "status": "published",
   "fingerprint": "ano nuevo kamilo sanclemente forest open air|2026-12-31|complejo",
-  "createdAt": "2026-10-24T13:46:53-03:00"
+  "createdAt": "2026-10-24T13:50:52-03:00"
  }
 ]
