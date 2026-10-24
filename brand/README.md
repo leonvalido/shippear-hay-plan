@@ -54,8 +54,8 @@ Base: violeta nocturno. Un solo color de marca (`--primary`); los diez colores d
 | Token | Claro | Hex | Oscuro | Hex |
 |---|---|---|---|---|
 | `--primary` | `oklch(0.55 0.24 320)` | `#aa24c5` | `oklch(0.72 0.20 320)` | `#da74f1` |
-| `--background` | `oklch(0.99 0.005 300)` | `#fcfbfd` | `oklch(0.16 0.02 300)` | `#0f0b15` |
-| `--foreground` | `oklch(0.18 0.02 300)` | `#19141f` | `oklch(0.97 0.01 300)` | `#f6f3f9` |
+| `--background` | `oklch(0.99 0.005 300)` | `#fcfbff` | `oklch(0.16 0.02 300)` | `#0f0b15` |
+| `--foreground` | `oklch(0.18 0.02 300)` | `#131019` | `oklch(0.97 0.01 300)` | `#f6f4fb` |
 
 Reglas:
 - El violeta `--primary` va en: botón principal, enlaces, foco, el mark del logo. No va en fondos grandes (cansa en la calle).
@@ -87,11 +87,25 @@ Otros contrastes que importan:
 |---|---|
 | `--primary` claro `#aa24c5` sobre blanco (texto de enlace) | 5.55 |
 | blanco sobre `--primary` claro (botón) | 5.55 |
-| `--primary-foreground` oscuro `#0f0b15` sobre `--primary` oscuro `#da74f1` | 7.73 |
+| `--primary-foreground` oscuro `#0f0b15` sobre `--primary` oscuro `#da74f1` | 7.16 |
+| `--primary` oscuro `#da74f1` sobre fondo oscuro (enlace) | 7.16 |
+| `--muted-foreground` claro `#65616d` sobre fondo claro | 5.86 |
+| `--muted-foreground` oscuro `#a6a2b0` sobre fondo oscuro | 7.80 |
+| blanco sobre `--destructive` claro `#d40924` | 5.44 |
 | `--foreground` oscuro sobre `--background` oscuro | 17.80 |
-| `--foreground` claro sobre `--background` claro | 16.9 |
+| `--foreground` claro sobre `--background` claro | 18.31 |
 
 Los colores de categoría son los mismos en claro y oscuro: sobre `#0f0b15` el pin se lee por el borde blanco de 2 px que lleva siempre (ver `preview.html`).
+
+## Principios de diseño (inspiración: Apple)
+
+La referencia visual es la sobriedad de Apple, no su azul. Cinco reglas:
+
+1. **Un lienzo, un acento.** Fondo casi negro (o casi blanco de día), texto casi negro/blanco, y un solo color para la acción: el violeta. Nada más compite.
+2. **Titulares grandes y apretados.** Semibold o bold, `letter-spacing: -0.02em`, `line-height: 1.05`. El titular dice una cosa. El párrafo de abajo es gris (`--muted-foreground`) y corto.
+3. **Aire.** Secciones separadas por mucho espacio (80 a 120 px en desktop, 48 en móvil), no por líneas ni cajas. Si dudás, sacá un borde.
+4. **Vidrio, no sombras.** Paneles flotantes (barra de búsqueda, chat del concierge, tarjeta del pin) con fondo translúcido y `backdrop-filter: blur(20px)`, borde de 1 px al 10 %. Esquinas grandes (`--radius` 14 px; 24 px en tarjetas grandes).
+5. **El mapa es la foto.** Como Apple deja que el producto haga el trabajo, acá el mapa de Rosario de noche es la imagen de marca. Nada de ilustraciones ni stock.
 
 ## Tipografía
 
