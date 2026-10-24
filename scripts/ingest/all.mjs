@@ -8,7 +8,7 @@ import { writeFileSync, mkdirSync } from "node:fs";
 import { join } from "node:path";
 import { RAW_DIR, writeRaw } from "./lib.mjs";
 
-const SOURCES = ["municipal", "entradauno", "eventbrite", "meetup", "luma"];
+const SOURCES = ["municipal", "press", "entradauno", "alpogo", "eventbrite", "meetup", "luma"];
 const wanted = process.argv.slice(2).filter((s) => SOURCES.includes(s));
 const sources = wanted.length ? wanted : SOURCES;
 
