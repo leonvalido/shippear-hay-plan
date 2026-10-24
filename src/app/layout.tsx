@@ -5,7 +5,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: { default: "HayPlan · Qué hacer en Rosario", template: "%s · HayPlan" },
-  description: "Todo lo que pasa en Rosario, en un mapa. Eventos de fuentes públicas, redes y flyers, con recomendaciones.",
+  description: "Todo lo que pasa en Rosario, en un mapa. Eventos de fuentes públicas, redes sociales, con recomendaciones.",
 };
 
 export const viewport: Viewport = {

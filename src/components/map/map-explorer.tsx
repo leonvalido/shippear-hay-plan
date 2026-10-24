@@ -79,7 +79,7 @@ export function MapExplorer() {
       {status === "done" && events.length === 0 && (
         <div className="rounded-xl border border-dashed p-6 text-center text-sm text-muted-foreground">
           <p className="font-medium text-foreground">No hay eventos con esos filtros.</p>
-          <p>Probá con otro día o categoría, o subí un flyer.</p>
+          <p>Probá con otro día o categoría.</p>
         </div>
       )}
       {events.map((e) => (

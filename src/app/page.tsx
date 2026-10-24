@@ -8,7 +8,7 @@ export const dynamic = "force-dynamic";
 
 const STEPS = [
   { icon: "🏛️", title: "Fuentes públicas", desc: "Agenda municipal, ticketeras y prensa, en un solo lugar y actualizadas." },
-  { icon: "📸", title: "Redes y flyers", desc: "Sacale una foto a un flyer y Claude lo lee, lo deduplica y lo sube al mapa." },
+  { icon: "📱", title: "Redes sociales", desc: "Lo que se mueve en TikTok e Instagram, leído por Claude y sin duplicados." },
   { icon: "✨", title: "Recomendaciones", desc: "Decinos cuándo y cuánto querés gastar, y te armamos el plan." },
 ];
 
@@ -27,7 +27,7 @@ export default async function Home() {
           Todo lo que pasa en Rosario, en un mapa.
         </h1>
         <p className="mx-auto max-w-xl text-lg text-muted-foreground">
-          Recitales, ferias, teatro y fiestas de fuentes públicas, redes y flyers, con un concierge que te dice qué hacer hoy.
+          Recitales, ferias, teatro y fiestas de fuentes públicas y redes sociales, con un concierge que te dice qué hacer hoy.
         </p>
         <div className="flex flex-col justify-center gap-3 sm:flex-row">
           <Button asChild size="lg" className="h-12 px-8 text-base">
