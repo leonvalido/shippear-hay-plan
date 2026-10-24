@@ -90,7 +90,8 @@ export default async function Home() {
                         src={e.imageUrl}
                         alt=""
                         fill
-                        sizes="(min-width: 1280px) 190px, 200px"
+                        sizes="(min-width: 1280px) 380px, 400px"
+                        quality={85}
                         loading="lazy"
                         className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
                       />

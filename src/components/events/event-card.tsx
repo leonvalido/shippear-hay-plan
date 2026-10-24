@@ -93,12 +93,17 @@ function Thumb({ event }: { event: Event }) {
         <Image
           src={event.imageUrl}
           alt=""
-          width={64}
-          height={64}
-          sizes="64px"
+          width={128}
+          height={128}
+          quality={85}
           loading="lazy"
           className="relative h-full w-full object-cover"
           onError={() => setBroken(true)}
+          onLoad={(e) => {
+            // The optimizer never upscales: a tiny source comes back tiny. Show the category tile instead of a blur.
+            const img = e.currentTarget;
+            if (Math.min(img.naturalWidth, img.naturalHeight) < 120) setBroken(true);
+          }}
         />
       )}
     </div>
