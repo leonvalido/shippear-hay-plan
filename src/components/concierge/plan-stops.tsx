@@ -12,7 +12,7 @@ const LINE = /^\s*(?:[-*•]\s*|\d+[.)]\s*)?\**(\d{1,2}:\d{2})\**(?:\s*hs?\.?)?\
 /** One price wording across the app: unknown prices read "Precio a confirmar", free ones "Gratis". */
 function tidyPrice(p?: string): string | undefined {
   if (!p) return undefined;
-  if (/no informado|consultar|a confirmar|sin dato|\?/i.test(p)) return "Precio a confirmar";
+  if (/no informado|consultar|a confirmar|sin dato|\?/i.test(p)) return undefined;
   if (/gratis|libre|gratuit/i.test(p)) return "Gratis";
   return p;
 }

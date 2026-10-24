@@ -2,26 +2,26 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { fetchEvent, fetchEvents } from "@/app/_lib/api";
-import { EventCard } from "@/components/events/event-card";
+import { CategoryIcon } from "@/components/events/category-icon";
 import {
   CATEGORY_COLORS,
   CATEGORY_LABELS,
   displayTitle,
-  formatViews,
   formatPrice,
   formatTime,
+  formatViews,
   formatWhen,
+  formatWhenLong,
+  hasPrice,
   haversineMeters,
   humanizeTitle,
   rosarioDayStart,
   sourceLabel,
+  timeLabel,
 } from "@/components/events/format";
-import { CategoryIcon } from "@/components/events/category-icon";
 import { ShareButton } from "@/components/events/share-button";
 import { WalkingHint } from "@/components/events/walking-hint";
 import { EventMap } from "@/components/map/event-map";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import type { Event } from "@/lib/events/schema";
 
 type Props = { params: Promise<{ id: string }> };
@@ -38,78 +38,45 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-/** Titles sometimes come in ALL CAPS: title-case them as a fallback. */
-function tidyTitle(t: string): string {
-  const letters = t.replace(/[^\p{L}]/gu, "");
-  if (letters.length < 4 || letters !== letters.toUpperCase()) return t;
-  return t.toLowerCase().replace(/(^|[\s(¡¿"-])(\p{L})/gu, (_, a: string, b: string) => a + b.toUpperCase());
-}
-
 function directionsUrl(e: Event): string {
   const dest = e.lat != null && e.lng != null ? `${e.lat},${e.lng}` : `${e.address ?? e.venueName}, Rosario`;
   return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(dest)}&travelmode=transit`;
 }
 
 function primaryLabel(e: Event): string {
-  if (e.sourceType === "ticketing") return "Comprar entradas";
+  if (e.sourceType === "ticketing") return "Entradas";
   if (e.sourceType === "tiktok") return "Ver en TikTok";
   if (e.sourceType === "instagram") return "Ver en Instagram";
-  return "Ver fuente oficial";
+  return "Ver fuente";
 }
 
-/** An .ics file as a data URL: opens the calendar on phones, downloads on desktop. */
-function calendarHref(e: Event, url: string): string {
-  const stamp = (iso: string) => new Date(iso).toISOString().replace(/[-:]/g, "").replace(/\.\d{3}Z$/, "Z");
-  const start = new Date(e.startsAt);
-  const end = e.endsAt ? new Date(e.endsAt) : new Date(start.getTime() + 2 * 60 * 60 * 1000);
-  const esc = (s: string) => s.replace(/\\/g, "\\\\").replace(/\n/g, "\\n").replace(/[,;]/g, (c) => `\\${c}`);
-  const lines = [
-    "BEGIN:VCALENDAR",
-    "VERSION:2.0",
-    "PRODID:-//HayPlan//ES",
-    "BEGIN:VEVENT",
-    `UID:${e.id}@hayplan`,
-    `DTSTAMP:${stamp(new Date().toISOString())}`,
-    `DTSTART:${stamp(start.toISOString())}`,
-    `DTEND:${stamp(end.toISOString())}`,
-    `SUMMARY:${esc(displayTitle(e))}`,
-    `LOCATION:${esc([humanizeTitle(e.venueName), e.address && humanizeTitle(e.address), "Rosario"].filter(Boolean).join(", "))}`,
-    `DESCRIPTION:${esc((e.description ?? "").slice(0, 500))}\\n${esc(url)}`,
-    `URL:${url}`,
-    "END:VEVENT",
-    "END:VCALENDAR",
-  ];
-  return `data:text/calendar;charset=utf-8,${encodeURIComponent(lines.join("\r\n"))}`;
-}
-
-function durationLabel(e: Event): string | null {
-  if (!e.endsAt || e.timeUnknown) return null;
-  const mins = Math.round((new Date(e.endsAt).getTime() - new Date(e.startsAt).getTime()) / 60000);
-  if (!Number.isFinite(mins) || mins <= 0 || mins > 24 * 60) return null;
-  if (mins < 60) return `${mins} min`;
-  const h = Math.floor(mins / 60);
-  const m = mins % 60;
-  return m ? `${h} h ${m} min` : `${h} h`;
-}
-
-function audienceLabel(desc?: string): string | null {
-  if (!desc) return null;
-  const d = desc.toLowerCase();
-  if (/\batp\b|todo p[úu]blico|apto para todo/.test(d)) return "Para todo público";
-  if (/\+\s?18|mayores de 18|solo mayores/.test(d)) return "Solo mayores de 18";
-  const m = d.match(/mayores de (\d{1,2})/);
-  if (m) return `Mayores de ${m[1]}`;
-  if (/ni[ñn]os|ni[ñn]as|infantil|familia|chicos/.test(d)) return "Para ir con chicos";
-  return null;
+/** Category gradient for events without an image (brand mockup: light tone top-left to dark surface). */
+function heroGradient(category: Event["category"]): string {
+  const c = CATEGORY_COLORS[category];
+  return `linear-gradient(160deg, color-mix(in oklch, ${c} 85%, white) 0%, ${c} 45%, oklch(0.22 0.05 280) 100%)`;
 }
 
 const norm = (s: string) =>
   s
     .toLowerCase()
     .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[̀-ͯ]/g, "")
     .replace(/[^a-z0-9]+/g, " ")
     .trim();
+
+/** Compact card for the horizontal strips (brand mockup "more"). */
+function MiniCard({ e }: { e: Event }) {
+  return (
+    <Link href={`/evento/${e.id}`} className="surface tap block w-[200px] shrink-0 snap-start p-3">
+      <span className="block text-[12px] font-semibold text-primary">{formatWhen(e)}</span>
+      <span className="no-caps mt-1 line-clamp-2 block text-[14px] font-semibold leading-snug">{displayTitle(e)}</span>
+      <span className="mt-1 flex items-center gap-1.5 truncate text-[12px] text-muted-foreground">
+        <CategoryIcon category={e.category} className="size-3 shrink-0" style={{ color: CATEGORY_COLORS[e.category] }} />
+        {CATEGORY_LABELS[e.category]} · {humanizeTitle(e.venueName)}
+      </span>
+    </Link>
+  );
+}
 
 export default async function EventoPage({ params }: Props) {
   const { id } = await params;
@@ -117,11 +84,10 @@ export default async function EventoPage({ params }: Props) {
   if (!event) notFound();
 
   const hasCoords = event.lat != null && event.lng != null;
-  const showFull = !!event.shortTitle && event.shortTitle.trim() !== event.title;
-  const site = process.env.NEXT_PUBLIC_SITE_URL ?? (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "https://shippear-starter.vercel.app");
-  const url = `${site}/evento/${event.id}`;
+  const social = event.sourceType === "tiktok" || event.sourceType === "instagram";
+  const color = CATEGORY_COLORS[event.category];
+  const titleKey = norm(displayTitle(event));
 
-  // Related: same venue, and nearby on the same day.
   const dayStart = rosarioDayStart(0, new Date(event.startsAt));
   const dayEnd = rosarioDayStart(1, new Date(event.startsAt));
   const [atVenueRaw, sameDay] = await Promise.all([
@@ -129,7 +95,8 @@ export default async function EventoPage({ params }: Props) {
     fetchEvents({ from: dayStart.toISOString(), to: dayEnd.toISOString(), limit: "500" }),
   ]);
   const venueKey = norm(event.venueName);
-  const atVenue = atVenueRaw.filter((e) => e.id !== event.id && norm(e.venueName) === venueKey).slice(0, 6);
+  // Same venue, but not the same recurring event on another date.
+  const atVenue = atVenueRaw.filter((e) => e.id !== event.id && norm(e.venueName) === venueKey && norm(displayTitle(e)) !== titleKey).slice(0, 6);
   const nearby = hasCoords
     ? sameDay
         .filter((e) => e.id !== event.id && norm(e.venueName) !== venueKey && e.lat != null && e.lng != null)
@@ -140,171 +107,181 @@ export default async function EventoPage({ params }: Props) {
         .map((x) => x.e)
     : [];
 
-  const facts: { k: string; v: string }[] = [
-    { k: "Categoría", v: CATEGORY_LABELS[event.category] },
-    ...(durationLabel(event) ? [{ k: "Duración", v: durationLabel(event)! }] : []),
-    ...(audienceLabel(event.description) ? [{ k: "Público", v: audienceLabel(event.description)! }] : []),
-    ...(event.sourceName && event.sourceName !== "sample" ? [{ k: "Organiza / fuente", v: humanizeTitle(sourceLabel(event)) }] : []),
-    { k: "Entrada", v: formatPrice(event.price) + (event.price && !event.price.free && event.price.max && event.price.max !== event.price.min ? " (según sector)" : "") },
-  ];
-
   return (
-    <article className="mx-auto w-full max-w-3xl px-4 py-6 sm:py-10">
-      <Link href="/mapa" className="tap inline-flex h-11 items-center text-sm text-muted-foreground hover:text-foreground">
-        ← Ver en el mapa
-      </Link>
-
-      {event.imageUrl && (
-        <div className="mt-4 aspect-[4/3] w-full overflow-hidden rounded-2xl bg-muted sm:aspect-[2/1]">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={event.imageUrl} alt="" className="h-full w-full object-cover" />
-        </div>
-      )}
-
-      {/* Hero */}
-      <header className="mt-4 space-y-3">
-        <div className="flex flex-wrap items-center gap-2">
-          <Badge variant="secondary" className="gap-1.5">
-            <CategoryIcon category={event.category} className="size-3.5" style={{ color: CATEGORY_COLORS[event.category] }} />
-            {CATEGORY_LABELS[event.category]}
-          </Badge>
-          {(event.sourceType === "tiktok" || event.sourceType === "instagram") && (
-            <Badge variant="outline" className="gap-1">
-              Visto en {event.sourceType === "tiktok" ? "TikTok" : "Instagram"}
-              {event.sourceName && <span className="text-tertiary">· {event.sourceName}</span>}
-              {event.metrics?.views ? <span className="font-semibold text-foreground">· {formatViews(event.metrics.views)} vistas</span> : null}
-            </Badge>
-          )}
-          {event.status === "pending" && <Badge variant="warning">pendiente de revisión</Badge>}
-        </div>
-        <h1 className="line-clamp-3 break-words font-display text-3xl font-semibold leading-tight">{tidyTitle(displayTitle(event))}</h1>
-        <p className="flex flex-wrap items-center gap-x-3 gap-y-1 text-lg font-medium">
-          <span>
-            {formatWhen(event)}
-            {!event.timeUnknown && event.endsAt && <span className="text-muted-foreground"> – {formatTime(event.endsAt)}</span>}
-          </span>
-          <a
-            href={calendarHref(event, url)}
-            download={`hayplan-${event.id}.ics`}
-            className="tap inline-flex h-8 items-center gap-1.5 rounded-full border border-white/8 bg-white/5 px-3 text-[13px] font-medium text-foreground"
-          >
-            <svg viewBox="0 0 24 24" className="size-3.5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden>
-              <rect x="3" y="5" width="18" height="16" rx="2" />
-              <path d="M3 10h18M8 3v4M16 3v4M12 13v5M9.5 15.5h5" />
+    <article className="pb-28">
+      {/* Editorial hero: full-bleed image or category gradient, title overlaid, back button on top. */}
+      <header
+        className="relative flex h-[360px] w-full flex-col justify-end overflow-hidden sm:h-[420px]"
+        style={event.imageUrl ? undefined : { background: heroGradient(event.category) }}
+      >
+        {event.imageUrl && (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={event.imageUrl} alt="" className="absolute inset-0 h-full w-full object-cover" />
+        )}
+        {!event.imageUrl && (
+          <CategoryIcon category={event.category} className="absolute right-7 top-24 size-32 text-white/90 sm:right-[calc(50%-320px)]" />
+        )}
+        <div aria-hidden className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.25)_0%,transparent_35%,rgba(15,11,21,0.6)_70%,var(--background)_100%)]" />
+        <div className="absolute inset-x-0 top-0 z-10 mx-auto flex w-full max-w-[720px] items-center justify-between px-4 pt-4">
+          <Link href="/mapa" aria-label="Volver al mapa" className="glass tap flex size-11 items-center justify-center rounded-full text-foreground">
+            <svg viewBox="0 0 24 24" className="size-5" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+              <path d="M15 18l-6-6 6-6" />
             </svg>
-            Agregar al calendario
-          </a>
-        </p>
-        <p className="break-words text-base text-muted-foreground">
-          {humanizeTitle(event.venueName)}
-          {event.address && ` · ${humanizeTitle(event.address)}`}
-          {event.barrio && ` · ${event.barrio}`}
-          <WalkingHint lat={event.lat} lng={event.lng} />
-        </p>
-        <div className="flex flex-wrap items-center gap-2">
-          <Badge variant={event.price?.free ? "success" : "secondary"} className="h-7 px-3 text-[13px]">
-            {formatPrice(event.price)}
-          </Badge>
-          {event.price && !event.price.free && event.price.min != null && event.price.max != null && event.price.max !== event.price.min && (
-            <span className="text-[13px] text-tertiary">según sector</span>
-          )}
+          </Link>
+        </div>
+        <div className="relative z-10 mx-auto w-full max-w-[720px] px-5 pb-5">
+          <p className="mb-2 flex items-center gap-2 text-[14px] font-bold text-white">
+            <span aria-hidden className="size-1.5 rounded-full bg-primary" />
+            {formatWhen(event)}
+            {!event.timeUnknown && event.endsAt && <span className="font-semibold text-white/70">– {formatTime(event.endsAt)}</span>}
+          </p>
+          <h1 className="no-caps text-[28px] font-extrabold leading-[1.15] tracking-[-0.01em] text-white [text-shadow:0_2px_12px_rgba(0,0,0,0.35)] sm:text-[34px]">
+            {displayTitle(event)}
+          </h1>
         </div>
       </header>
 
-      {/* Actions */}
-      <div className="mt-6 flex gap-2">
-        {event.sourceUrl && (
-          <Button asChild className="tap h-12 min-w-0 flex-1 rounded-full px-3 text-base font-semibold">
-            <a href={event.sourceUrl} target="_blank" rel="noopener noreferrer">
+      <div className="mx-auto flex w-full max-w-[720px] flex-col gap-[22px] px-5 pt-4">
+        {/* Chips */}
+        <div className="flex flex-wrap gap-2">
+          <span className="inline-flex h-7 items-center gap-1.5 rounded-full px-2.5 text-[12px] font-semibold text-white" style={{ background: color }}>
+            <CategoryIcon category={event.category} className="size-3.5" />
+            {CATEGORY_LABELS[event.category]}
+          </span>
+          {social ? (
+            <span className="inline-flex h-7 items-center gap-1.5 rounded-full bg-white/8 px-2.5 text-[12px] font-semibold text-foreground">
+              {event.sourceType === "tiktok" ? (
+                <svg viewBox="0 0 24 24" className="size-3" fill="currentColor" aria-hidden>
+                  <path d="M16 2c.4 2.6 2 4.3 4.5 4.6V10c-1.7 0-3.2-.5-4.5-1.4V15a6 6 0 1 1-6-6v3.5a2.5 2.5 0 1 0 2.5 2.5V2z" />
+                </svg>
+              ) : (
+                <svg viewBox="0 0 24 24" className="size-3" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+                  <rect x="3" y="3" width="18" height="18" rx="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
+                </svg>
+              )}
+              {event.sourceName}
+              {event.metrics?.views ? ` · ${formatViews(event.metrics.views)} vistas` : ""}
+            </span>
+          ) : (
+            event.sourceName && event.sourceName !== "sample" && (
+              <span className="inline-flex h-7 items-center rounded-full bg-white/8 px-2.5 text-[12px] font-semibold text-muted-foreground">{humanizeTitle(sourceLabel(event))}</span>
+            )
+          )}
+          {hasPrice(event.price) && (
+            <span className={`inline-flex h-7 items-center rounded-full px-2.5 text-[12px] font-semibold ${event.price?.free ? "bg-emerald-400/15 text-emerald-300" : "bg-white/8 text-foreground"}`}>
+              {formatPrice(event.price)}
+            </span>
+          )}
+        </div>
+
+        {event.description && <p className="whitespace-pre-line text-[15px] leading-[1.55] text-muted-foreground">{event.description}</p>}
+
+        {/* Facts: only what we really know */}
+        <dl className="flex flex-col">
+          <Fact k="Cuándo">
+            <b className="font-semibold">{formatWhenLong(event)}</b>
+            {!event.timeUnknown && event.endsAt && <span className="text-muted-foreground"> – {formatTime(event.endsAt)}</span>}
+          </Fact>
+          <Fact k="Dónde">
+            <b className="font-semibold">{humanizeTitle(event.venueName)}</b>
+            {(event.address || event.barrio) && (
+              <span className="block text-muted-foreground">
+                {[event.address && humanizeTitle(event.address), event.barrio].filter(Boolean).join(", ")}
+              </span>
+            )}
+            {hasCoords && <WalkingHint lat={event.lat} lng={event.lng} className="mt-1 inline-block rounded-lg bg-accent px-2 py-0.5 text-[12px] font-semibold text-accent-foreground" />}
+          </Fact>
+          {event.sourceName && event.sourceName !== "sample" && (
+            <Fact k="Fuente">
+              <b className="font-semibold">
+                {social ? `${event.sourceType === "tiktok" ? "TikTok" : "Instagram"} · ${event.sourceName}` : humanizeTitle(sourceLabel(event))}
+              </b>
+            </Fact>
+          )}
+          {hasPrice(event.price) && (
+            <Fact k="Entrada">
+              <b className="font-semibold">{formatPrice(event.price)}</b>
+              {event.price && !event.price.free && event.price.min != null && event.price.max != null && event.price.max !== event.price.min && (
+                <span className="text-muted-foreground"> · según sector</span>
+              )}
+            </Fact>
+          )}
+          {event.timeUnknown && (
+            <Fact k="Horario">
+              <b className="font-semibold">{timeLabel(event)}</b>
+            </Fact>
+          )}
+        </dl>
+
+        {/* Map */}
+        {hasCoords && (
+          <div className="relative h-[180px] overflow-hidden rounded-[18px] border border-white/8 bg-[#141020]">
+            <EventMap events={[event]} center={{ lat: event.lat!, lng: event.lng! }} zoom={15} interactive={false} />
+            <div className="glass absolute bottom-3 left-3 rounded-xl px-3 py-2 text-[12px] font-semibold leading-tight">
+              {humanizeTitle(event.venueName)}
+              {event.barrio && <small className="block font-normal text-muted-foreground">{event.barrio}</small>}
+            </div>
+          </div>
+        )}
+
+        {atVenue.length > 0 && (
+          <section>
+            <h2 className="mb-3 text-[13px] font-bold uppercase tracking-[0.06em] text-muted-foreground">Más en este lugar</h2>
+            <div className="-mx-5 flex snap-x gap-3 overflow-x-auto px-5 pb-1 [scrollbar-width:none]">
+              {atVenue.map((e) => (
+                <MiniCard key={e.id} e={e} />
+              ))}
+            </div>
+          </section>
+        )}
+
+        {nearby.length > 0 && (
+          <section>
+            <h2 className="mb-3 text-[13px] font-bold uppercase tracking-[0.06em] text-muted-foreground">Cerca y a la misma hora</h2>
+            <div className="-mx-5 flex snap-x gap-3 overflow-x-auto px-5 pb-1 [scrollbar-width:none]">
+              {nearby.map((e) => (
+                <MiniCard key={e.id} e={e} />
+              ))}
+            </div>
+          </section>
+        )}
+      </div>
+
+      {/* Sticky action bar */}
+      <div className="glass fixed inset-x-0 bottom-0 z-40 border-t border-white/8 pb-[max(12px,env(safe-area-inset-bottom))] pt-3">
+        <div className="mx-auto flex w-full max-w-[720px] items-center gap-2.5 px-4">
+          {event.sourceUrl && (
+            <a
+              href={event.sourceUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="tap flex h-12 flex-1 items-center justify-center rounded-full bg-primary px-5 text-[15px] font-bold text-white"
+            >
               {primaryLabel(event)}
             </a>
-          </Button>
-        )}
-        <Button asChild variant={event.sourceUrl ? "outline" : "default"} className="tap h-12 min-w-0 flex-1 rounded-full px-3 text-base font-semibold">
-          <a href={directionsUrl(event)} target="_blank" rel="noopener noreferrer">
+          )}
+          <a
+            href={directionsUrl(event)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`tap flex h-12 flex-1 items-center justify-center rounded-full px-5 text-[15px] font-bold ${event.sourceUrl ? "border border-white/8 bg-white/8 text-foreground" : "bg-primary text-white"}`}
+          >
             Cómo llegar
           </a>
-        </Button>
-        <ShareButton iconOnly title={displayTitle(event)} text={`${formatWhen(event)} · ${event.venueName}`} path={`/evento/${event.id}`} className="tap size-12 shrink-0 rounded-full" />
+          <ShareButton iconOnly title={displayTitle(event)} text={`${formatWhen(event)} · ${event.venueName}`} path={`/evento/${event.id}`} className="tap size-11 shrink-0 rounded-full border-white/8 bg-white/8" />
+        </div>
       </div>
-      {event.links && event.links.length > 0 && (
-        <ul className="mt-3 flex flex-wrap gap-2" aria-label="Más links">
-          {event.links.map((l) => (
-            <li key={l.url}>
-              <a
-                href={l.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="tap inline-flex h-8 items-center rounded-full border border-white/8 bg-white/5 px-3 text-[13px] font-medium text-foreground hover:bg-white/10"
-              >
-                {l.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      )}
-
-      {/* AI description */}
-      {event.description && (
-        <section className="mt-8">
-          <h2 className="sr-only">Descripción</h2>
-          <p className="whitespace-pre-line text-base leading-[1.45]">{event.description}</p>
-        </section>
-      )}
-
-      {/* Facts */}
-      <section className="mt-8">
-        <h2 className="text-lg font-semibold">Lo que tenés que saber</h2>
-        <dl className="mt-3 divide-y divide-white/8 rounded-xl border border-white/8">
-          {facts.map((f) => (
-            <div key={f.k} className="flex items-baseline justify-between gap-4 px-4 py-3">
-              <dt className="text-[13px] text-muted-foreground">{f.k}</dt>
-              <dd className="text-right text-[15px] font-medium">{f.v}</dd>
-            </div>
-          ))}
-        </dl>
-      </section>
-
-      {/* Map */}
-      {hasCoords && (
-        <section className="mt-8">
-          <h2 className="sr-only">Ubicación</h2>
-          <div className="h-40 overflow-hidden rounded-xl border border-white/8">
-            <EventMap events={[event]} center={{ lat: event.lat!, lng: event.lng! }} zoom={15} interactive={false} />
-          </div>
-        </section>
-      )}
-
-      {/* Same venue */}
-      {atVenue.length > 0 && (
-        <section className="mt-8">
-          <h2 className="text-lg font-semibold">Más en este lugar</h2>
-          <div className="mt-3 space-y-3">
-            {atVenue.map((e, i) => (
-              <EventCard key={e.id} event={e} index={i} />
-            ))}
-          </div>
-        </section>
-      )}
-
-      {/* Nearby, same day */}
-      {nearby.length > 0 && (
-        <section className="mt-8">
-          <h2 className="text-lg font-semibold">Cerca y a la misma hora</h2>
-          <p className="mt-0.5 text-[13px] text-muted-foreground">A menos de un kilómetro, el mismo día.</p>
-          <div className="mt-3 space-y-3">
-            {nearby.map((e, i) => (
-              <EventCard key={e.id} event={e} index={i} />
-            ))}
-          </div>
-        </section>
-      )}
-
-      {showFull && (
-        <p className="mt-10 text-xs text-tertiary">
-          Nombre original: <span className="no-caps">{tidyTitle(event.title)}</span>
-        </p>
-      )}
     </article>
+  );
+}
+
+function Fact({ k, children }: { k: string; children: React.ReactNode }) {
+  return (
+    <div className="flex items-start gap-3 border-t border-white/8 py-3 text-[14px] leading-[1.4] first:border-t-0">
+      <dt className="w-[88px] shrink-0 pt-px text-[13px] text-muted-foreground">{k}</dt>
+      <dd className="min-w-0 flex-1">{children}</dd>
+    </div>
   );
 }

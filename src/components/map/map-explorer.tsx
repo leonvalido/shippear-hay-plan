@@ -15,6 +15,7 @@ import {
   displayTitle,
   formatPrice,
   formatWhen,
+  hasPrice,
   humanizeTitle,
   distanceLabel,
   walkMinutes,
@@ -37,7 +38,7 @@ import { BarrioStrip } from "./barrio-strip";
 import { ConciergeBar, type Budget } from "./concierge-bar";
 import { TileCache } from "./tile-cache";
 import { Logo } from "@/components/layout/logo";
-import { CategoryIcon } from "@/components/events/category-icon";
+import { CategoryIcon, STACK_ICON_PATH } from "@/components/events/category-icon";
 import { EventMap } from "./event-map";
 import { FilterChips } from "./filter-chips";
 
@@ -273,7 +274,7 @@ export function MapExplorer({ initialEvents }: { initialEvents?: Event[] }) {
                   <span className="no-caps line-clamp-2 block text-[15px] font-semibold leading-snug">{displayTitle(e)}</span>
                   <span className="block truncate text-[13px] text-muted-foreground">{humanizeTitle(venue.name)}</span>
                   <span className="flex items-center gap-1.5 pt-0.5">
-                    <Badge variant={e.price?.free ? "success" : "secondary"}>{formatPrice(e.price)}</Badge>
+                    {hasPrice(e.price) && <Badge variant={e.price?.free ? "success" : "secondary"}>{formatPrice(e.price)}</Badge>}
                     <Badge variant="outline" className="gap-1.5">
                       <CategoryIcon category={e.category} className="size-3.5" style={{ color: CATEGORY_COLORS[e.category] }} />
                       {CATEGORY_LABELS[e.category]}
@@ -303,7 +304,13 @@ export function MapExplorer({ initialEvents }: { initialEvents?: Event[] }) {
               onClick={() => openVenue(v)}
               className="surface tap row-in flex w-full items-center gap-3 p-3 text-left"
             >
-              <CategoryIcon category={v.category} className="size-4 shrink-0" style={{ color: CATEGORY_COLORS[v.category] }} />
+              {v.mixed ? (
+                <svg viewBox="0 0 24 24" className="size-4 shrink-0 text-primary" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                  <path d={STACK_ICON_PATH} />
+                </svg>
+              ) : (
+                <CategoryIcon category={v.category} className="size-4 shrink-0" style={{ color: CATEGORY_COLORS[v.category] }} />
+              )}
               <span className="min-w-0 flex-1">
                 <span className="block truncate text-sm font-semibold">{humanizeTitle(v.name)}</span>
                 <span className="block truncate text-xs text-muted-foreground">
@@ -466,9 +473,9 @@ export function MapExplorer({ initialEvents }: { initialEvents?: Event[] }) {
           <Link
             href="/"
             aria-label="HayPlan, inicio"
-            className="glass tap absolute left-3 top-3 z-[1001] flex h-9 items-center rounded-full px-3 text-foreground"
+            className="tap absolute left-4 top-4 z-[1001] flex items-center text-white [filter:drop-shadow(0_1px_8px_rgba(0,0,0,0.6))]"
           >
-            <Logo className="h-5 w-auto" />
+            <Logo className="h-7 w-auto" />
           </Link>
         )}
         <ConciergeBar
@@ -482,7 +489,7 @@ export function MapExplorer({ initialEvents }: { initialEvents?: Event[] }) {
           busy={ai.status === "loading" || ai.status === "streaming"}
           autoFocus={focusBar}
           onSubmit={askConcierge}
-          className={cn("absolute left-3 right-3 z-[1000] md:top-16 md:mx-auto md:max-w-xl", embed ? "top-3" : "top-14")}
+          className={cn("absolute left-3 right-3 z-[1000] md:top-16 md:mx-auto md:max-w-[880px]", embed ? "top-3" : "top-14")}
         />
         <BarrioStrip
           events={shown}

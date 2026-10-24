@@ -121,6 +121,24 @@ export function formatDateTime(iso: string): string {
 
 const fmtARS = new Intl.NumberFormat("es-AR", { maximumFractionDigits: 0 });
 
+/** True when we actually know something about the price (free, or a number). */
+export function hasPrice(price: Event["price"]): boolean {
+  return !!price && (price.free || price.min != null || price.max != null);
+}
+
+/** "Hoy, viernes 24 · 17:00" for the facts list. */
+export function formatWhenLong(e: { startsAt: string; timeUnknown?: boolean }, now = new Date()): string {
+  const d = new Date(e.startsAt);
+  if (Number.isNaN(d.getTime())) return "";
+  const rel = relativeDayLabel(e.startsAt, now);
+  const weekday = new Intl.DateTimeFormat("es-AR", { timeZone: TZ, weekday: "long" }).format(d);
+  const day = fmtDay.format(d);
+  const month = clean(fmtMonth.format(d));
+  const t = timeLabel(e);
+  const date = rel === "Hoy" || rel === "Mañana" ? `${rel}, ${weekday} ${day}` : `${weekday} ${day} ${month}`;
+  return `${date} · ${t}`;
+}
+
 export function formatPrice(price: Event["price"]): string {
   if (!price) return "Precio a confirmar";
   if (price.free) return "Gratis";
