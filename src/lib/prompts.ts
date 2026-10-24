@@ -178,7 +178,7 @@ Reglas:
 - Si el presupuesto es ajustado, priorizá lo gratis. Si dijo con quién va o qué ganas tiene, que se note en la elección y en el porqué.
 - intro: una frase corta con onda que mencione el momento (y el ánimo si lo dijo). why: una sola frase concreta por parada, por qué va con lo que pidió. outro: una frase de cierre con un consejo práctico (cómo moverse entre paradas, qué llevar). Nada de Markdown.`;
 
-export function buildConciergeJsonPrompt(candidates: string, when: string, nowLabel: string, budget?: number, mood?: string, near?: string): string {
+export function buildConciergeJsonPrompt(candidates: string, when: string, nowLabel: string, budget?: number, mood?: string, near?: string, intentLabel?: string): string {
   return [
     `Ahora en Rosario: ${nowLabel}.`,
     `Eventos disponibles para ${when}, ordenados por cercanía (id · título · lugar · cuándo · precio · categoría · distancia):`,
@@ -187,6 +187,8 @@ export function buildConciergeJsonPrompt(candidates: string, when: string, nowLa
     `El usuario busca planes para ${when}${near ? `, ${near}` : ""}.`,
     `Presupuesto: ${budget !== undefined ? `hasta $ ${budget.toLocaleString("es-AR")}` : "no dijo"}.`,
     `Ánimo o ganas: ${mood?.trim() || "no dijo"}.`,
+    intentLabel ? `Lo que busca, detectado: ${intentLabel}. La lista ya está filtrada a eso: nunca propongas algo de otro tipo, y si la lista está vacía decí que no encontraste eso.` : "",
+    "En cada why, si la parada trae \"onda\" (música, público), nombrala: es lo que la persona quiere saber.",
     "Devolvé el plan con intro, stops (eventId + why) y outro.",
   ].join("\n");
 }
