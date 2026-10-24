@@ -28,6 +28,10 @@ export const PriceSchema = z.object({
 export const EventSchema = z.object({
   id: z.string(),
   title: z.string().min(2).max(160),
+  /** AI-written short title for pins, tooltips and cards (<= 40 chars, rioplatense). Full title stays in `title`. */
+  shortTitle: z.string().max(48).optional(),
+  /** True when the source gave a date but no time of day; UI shows "horario a confirmar" instead of 00:00. */
+  timeUnknown: z.boolean().optional(),
   description: z.string().max(2000).optional(),
   startsAt: z.string(), // "2026-10-25T21:00:00-03:00"
   endsAt: z.string().optional(),
