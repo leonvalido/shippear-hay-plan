@@ -68,5 +68,6 @@ export const EventsQuerySchema = z.object({
 export type EventsQuery = z.infer<typeof EventsQuerySchema>;
 
 /** Rough bounding box of Gran Rosario, for sanity checks. */
-export const ROSARIO_BBOX = { minLng: -60.85, minLat: -33.1, maxLng: -60.55, maxLat: -32.8 } as const;
+/** Gran Rosario: Rosario plus Funes, Roldán, V. G. Gálvez, Baigorria, Capitán Bermúdez, San Lorenzo, Pérez, Arroyo Seco. */
+export const ROSARIO_BBOX = { minLng: -61.0, minLat: -33.2, maxLng: -60.5, maxLat: -32.65 } as const;
 export const ROSARIO_CENTER = { lat: -32.9468, lng: -60.6393 } as const;

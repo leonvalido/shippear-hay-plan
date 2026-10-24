@@ -64,6 +64,15 @@ export async function geocodeAddress(address: string, cache: GeoCache = {}, fetc
  * Boxes are approximate on purpose: they feed a count strip, not an address.
  */
 export function barrioFromCoords(lat: number, lng: number): string {
+  // Nearby towns first (Gran Rosario), then Rosario's zones.
+  if (lat < -33.05 && lng > -60.6) return "Arroyo Seco";
+  if (lat < -33.0 && lng > -60.68) return "Villa G. Gálvez";
+  if (lat < -32.99 && lng < -60.72) return "Pérez";
+  if (lng < -60.84) return lat > -32.93 ? "Roldán" : "Funes";
+  if (lng < -60.77 && lat > -32.95) return "Funes";
+  if (lat > -32.74) return "San Lorenzo";
+  if (lat > -32.8) return "Capitán Bermúdez";
+  if (lat > -32.86 && lng > -60.75) return "Granadero Baigorria";
   if (lat > -32.905) return "Norte";
   if (lat < -32.985) return "Sur";
   if (lng < -60.695) return "Oeste";
