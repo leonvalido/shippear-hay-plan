@@ -42,6 +42,8 @@ export const EventSchema = z.object({
   sourceName: z.string().optional(), // "Passline", "Municipalidad de Rosario", "@handle"
   sourceUrl: z.string().url().optional(),
   imageUrl: z.string().url().optional(),
+  /** Social-media signal for events that came from TikTok/Instagram captions. */
+  metrics: z.object({ views: z.number().nonnegative().optional(), likes: z.number().nonnegative().optional() }).optional(),
   status: EventStatus.default("published"),
   fingerprint: z.string().optional(), // normalized title|date|venue, used for dedupe
   createdAt: z.string(),
