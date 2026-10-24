@@ -16,9 +16,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const event = await fetchEvent(id);
   if (!event) return { title: "Evento" };
   return {
-    title: event.title,
+    title: displayTitle(event),
     description: `${formatWhen(event)} · ${event.venueName}`,
-    openGraph: { title: event.title, images: event.imageUrl ? [event.imageUrl] : undefined },
+    openGraph: { title: displayTitle(event), images: event.imageUrl ? [event.imageUrl] : undefined },
   };
 }
 
@@ -67,7 +67,6 @@ export default async function EventoPage({ params }: Props) {
           )}
         </div>
         <h1 className="line-clamp-3 break-words font-display text-3xl font-semibold leading-tight">{tidyTitle(displayTitle(event))}</h1>
-        {showFull && <p className="line-clamp-2 break-words text-base text-muted-foreground">{tidyTitle(event.title)}</p>}
         <p className="text-lg font-medium">
           {formatWhen(event)}
           {!event.timeUnknown && event.endsAt && <span className="text-muted-foreground"> – {formatTime(event.endsAt)}</span>}
@@ -89,7 +88,7 @@ export default async function EventoPage({ params }: Props) {
           </a>
         </Button>
         <ShareButton
-          title={event.title}
+          title={displayTitle(event)}
           text={`${formatWhen(event)} · ${event.venueName}`}
           path={`/evento/${event.id}`}
           className="tap h-11 min-w-0 flex-1 rounded-full px-3 text-base"
@@ -122,6 +121,11 @@ export default async function EventoPage({ params }: Props) {
             <EventMap events={[event]} center={{ lat: event.lat!, lng: event.lng! }} zoom={15} interactive={false} />
           </div>
         </section>
+      )}
+      {showFull && (
+        <p className="mt-8 text-xs text-tertiary">
+          Nombre original: <span className="no-caps">{tidyTitle(event.title)}</span>
+        </p>
       )}
     </article>
   );
