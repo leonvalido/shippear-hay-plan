@@ -8,7 +8,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import type { Event } from "@/lib/events/schema";
 import { cn } from "@/lib/utils";
 import { CategoryIcon } from "./category-icon";
-import { CATEGORY_COLORS, CATEGORY_LABELS, displayTitle, displayVenue, distanceLabel, formatPrice, formatTime, formatWhen, hasPrice, humanizeTitle, type LatLng } from "./format";
+import { CATEGORY_COLORS, CATEGORY_LABELS, displayTitle, displayVenue, distanceLabel, formatPrice, formatTime, formatViews, formatWhen, hasPrice, humanizeTitle, type LatLng } from "./format";
 
 type Props = {
   event: Event;
@@ -105,7 +105,7 @@ export function categoryGradient(category: Event["category"]): string {
  * Editorial card (list option 3): 16:9 image or category gradient, title overlaid at the bottom,
  * GRATIS tag on the image, then "HH:MM · venue" and the category under it. The whole card is the link.
  */
-export function EventCardEditorial({ event, selected, onSelect, index = 0, showTime = true, className }: Props & { showTime?: boolean }) {
+export function EventCardEditorial({ event, selected, onSelect, index = 0, showTime = true, showViews = false, className }: Props & { showTime?: boolean; showViews?: boolean }) {
   const color = CATEGORY_COLORS[event.category];
   const [broken, setBroken] = useState(false);
   const free = !!event.price?.free;
@@ -156,9 +156,20 @@ export function EventCardEditorial({ event, selected, onSelect, index = 0, showT
           </span>
           {paid && <span className="text-muted-foreground"> · {formatPrice(event.price)}</span>}
         </span>
-        <span className="flex shrink-0 items-center gap-1.5 text-muted-foreground">
-          <CategoryIcon category={event.category} className="size-3" style={{ color }} />
-          {CATEGORY_LABELS[event.category]}
+        <span className="flex shrink-0 items-center gap-2 text-muted-foreground">
+          <span className="flex items-center gap-1.5">
+            <CategoryIcon category={event.category} className="size-3" style={{ color }} />
+            {CATEGORY_LABELS[event.category]}
+          </span>
+          {showViews && event.metrics?.views ? (
+            <span className="flex items-center gap-1 rounded-full bg-white/8 px-2 py-0.5 text-[11px] font-semibold text-foreground">
+              <svg viewBox="0 0 24 24" className="size-3" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6z" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+              {formatViews(event.metrics.views)}
+            </span>
+          ) : null}
         </span>
       </div>
     </Link>

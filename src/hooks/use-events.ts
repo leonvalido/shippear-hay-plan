@@ -31,6 +31,7 @@ export function useEvents(filter: EventsFilter, initial?: Event[]) {
     if (f.to) params.set("to", f.to);
     if (f.category) params.set("category", f.category);
     if (f.q?.trim()) params.set("q", f.q.trim().slice(0, 100));
+    params.set("limit", "500"); // the API caps at 200 by default; the map must show the whole window
     const ac = new AbortController();
     setStatus("loading");
     setError(null);

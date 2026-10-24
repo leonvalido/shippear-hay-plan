@@ -429,7 +429,7 @@ export function MapExplorer({ initialEvents }: { initialEvents?: Event[] }) {
             {sort === "views" ? (
               <div className="space-y-2 pt-1">
                 {g.events.map((e, i) => (
-                  <EventCardEditorial key={e.id} event={e} index={i} selected={e.id === selectedId} onSelect={selectFromList} />
+                  <EventCardEditorial key={e.id} event={e} index={i} selected={e.id === selectedId} onSelect={selectFromList} showViews />
                 ))}
               </div>
             ) : (

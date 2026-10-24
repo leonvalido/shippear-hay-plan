@@ -14,7 +14,7 @@ const MAPLIBRE = "https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/4.7.1";
 
 export default async function MapaPage() {
   // First paint comes with the default list (next 14 days) already in the HTML; the client only refetches on filter changes.
-  const initialEvents = await fetchEvents();
+  const initialEvents = await fetchEvents({ limit: "500" });
   return (
     <>
       <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="" />
