@@ -114,7 +114,7 @@ function dedupe(events: RawEvent[]): RawEvent[] {
 async function shortTitles(events: RawEvent[]): Promise<void> {
   const cache: TitleCache = fs.existsSync(TITLES_FILE) ? ((readJson(TITLES_FILE) as TitleCache) ?? {}) : {};
   const before = Object.keys(cache).length;
-  await fillShortTitles(events, cache, { onBatch: (done, total) => console.log(`  ${done}/${total} títulos`) });
+  await fillShortTitles(events, cache, { onBatch: (done, total) => console.log(`  ${done}/${total} títulos y descripciones`) });
   counts.titled = Object.keys(cache).length - before;
   fs.mkdirSync(PRIVATE, { recursive: true });
   fs.writeFileSync(TITLES_FILE, JSON.stringify(cache, null, 1));
@@ -171,7 +171,7 @@ async function main() {
   console.log(`  ${counts.geocoded} resueltas, ${counts.geocodeMiss} sin resolver`);
 
   const deduped = dedupe(all);
-  console.log(`4. Títulos cortos${isMockMode() ? " (mock: recorte a 40 caracteres)" : ""}…`);
+  console.log(`4. Títulos cortos y descripciones${isMockMode() ? " (mock: recorte a 40 caracteres, descripciones sin tocar)" : ""}…`);
   await shortTitles(deduped);
   console.log(`  ${counts.titled} nuevos, resto desde data/private/titles-cache.json`);
 
