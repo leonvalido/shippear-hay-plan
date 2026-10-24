@@ -1,4 +1,6 @@
-# shippear-starter
+# shippear-hay-plan (HayPlan)
+
+Repo: https://github.com/leonvalido/shippear-hay-plan · Live: https://hayplan.vercel.app
 
 Hackathon boilerplate for Shippear #3 (Rosario, 24 Oct 2026).
 **Next.js 16 (App Router) · TypeScript · Tailwind v4 · shadcn/ui · Anthropic SDK (streaming) · SQLite built into Node.**
