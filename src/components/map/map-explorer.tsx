@@ -29,6 +29,8 @@ import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import { AIResult } from "@/components/ai-result";
 import { PlanStops, parseStops } from "@/components/concierge/plan-stops";
+import { parsePlan } from "@/components/concierge/plan-stream";
+import { PlanView } from "@/components/concierge/plan-view";
 import { WhatsAppButton } from "@/components/concierge/whatsapp-button";
 import { useStream } from "@/hooks/use-stream";
 import { BarrioStrip } from "./barrio-strip";
@@ -401,12 +403,30 @@ export function MapExplorer({ initialEvents }: { initialEvents?: Event[] }) {
   );
 
 
-  const stops = ai.status === "done" ? parseStops(ai.text) : [];
+  const parsed = parsePlan(ai.text, ai.status === "done");
+  const stops = ai.status === "done" && parsed.mode === "text" ? parseStops(ai.text) : [];
+  const resolveStop = (s: { eventId?: string; shortTitle: string; venueName: string }) => {
+    const hit = (s.eventId && events.find((e) => e.id === s.eventId)) || events.find((e) => norm(displayTitle(e)) === norm(s.shortTitle));
+    return hit ? { id: hit.id, category: hit.category } : undefined;
+  };
   const planPanel = (
     <div className="space-y-3">
       <button type="button" onClick={backToList} className="flex h-11 items-center text-sm text-muted-foreground hover:underline">
         ← Todos los eventos
       </button>
+      {parsed.mode !== "text" ? (
+        <>
+          <div className="flex items-center justify-between">
+            <h2 className="text-lg font-semibold">Tu plan</h2>
+            {ai.mode === "mock" && <Badge variant="warning">mock</Badge>}
+          </div>
+          {ai.status === "error" ? (
+            <AIResult title="Tu plan" status={ai.status} text="" error={ai.error} mode={ai.mode} onRetry={() => ai.run({ when: day ?? "hoy", lat: me?.lat, lng: me?.lng, budget: budget ?? undefined })} />
+          ) : (
+            <PlanView plan={parsed} status={ai.status} resolve={resolveStop} onPick={(s) => showStopOnMap({ title: s.shortTitle, venue: s.venueName })} />
+          )}
+        </>
+      ) : (
       <AIResult
         title="Tu plan"
         status={ai.status}
@@ -416,8 +436,9 @@ export function MapExplorer({ initialEvents }: { initialEvents?: Event[] }) {
         onRetry={() => ai.run({ when: day ?? "hoy", lat: me?.lat, lng: me?.lng, budget: budget ?? undefined })}
         className="min-h-32"
       />
-      {stops.length > 0 && <PlanStops stops={stops} onPick={showStopOnMap} />}
-      {ai.status === "done" && ai.text.trim() && <WhatsAppButton text={ai.text} className="w-full" />}
+      )}
+      {parsed.mode === "text" && stops.length > 0 && <PlanStops stops={stops} onPick={showStopOnMap} />}
+      {parsed.mode === "text" && ai.status === "done" && ai.text.trim() && <WhatsAppButton text={ai.text} className="w-full" />}
     </div>
   );
 
