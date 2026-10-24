@@ -9,3 +9,6 @@ data/*.db-journal
 *.tsbuildinfo
 next-env.d.ts
 .DS_Store
+
+# private raw data (scraped captions, exports): never committed
+data/private/
