@@ -2,7 +2,7 @@ import { NextRequest } from "next/server";
 import { z } from "zod";
 import { describeError, isMockMode, streamText } from "@/lib/ai";
 import { CONCIERGE_SYSTEM } from "@/lib/prompts";
-import { buildConciergePrompt, mockConcierge, rankEvents, resolveWindow } from "@/lib/events/concierge";
+import { buildConciergePrompt, detectIntent, mockConcierge, rankEvents, resolveWindow } from "@/lib/events/concierge";
 import { getEventStore } from "@/lib/events/store";
 import { toRosarioISO } from "@/lib/events/time";
 import { buildPlan, type PlanLine } from "@/lib/events/plan";
@@ -60,14 +60,15 @@ export async function POST(req: NextRequest) {
   const headers = { "Cache-Control": "no-store", "x-ai-mode": isMockMode() ? "mock" : "live" };
 
   try {
-    const win = resolveWindow(input.when);
+    const intent = detectIntent(input.mood, input.when);
+    const win = resolveWindow(input.when, new Date(), !!intent.night);
     const store = await getEventStore();
-    const events = store.queryEvents({ from: toRosarioISO(win.from), to: toRosarioISO(win.to), status: "published", limit: 200 });
-    const ranked = rankEvents(events, input);
+    const events = store.queryEvents({ from: toRosarioISO(win.from), to: toRosarioISO(win.to), status: "published", limit: 300 });
+    const ranked = rankEvents(events, input, 12, intent);
 
     if (!wantsText) {
       const mapUrl = `${req.nextUrl.origin}/mapa`;
-      const lines = await buildPlan(ranked, input, win, mapUrl);
+      const lines = await buildPlan(ranked, input, win, mapUrl, new Date(), intent);
       return new Response(ndjson(lines), {
         headers: { ...headers, "Content-Type": "application/x-ndjson; charset=utf-8", "x-candidates": String(ranked.length) },
       });
@@ -75,7 +76,7 @@ export async function POST(req: NextRequest) {
 
     const stream = streamText({
       system: CONCIERGE_SYSTEM,
-      prompt: buildConciergePrompt(ranked, input, win),
+      prompt: buildConciergePrompt(ranked, input, win, new Date(), intent),
       mock: mockConcierge(ranked, win),
       maxTokens: MAX_TOKENS,
       signal: req.signal,

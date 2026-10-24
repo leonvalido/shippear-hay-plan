@@ -2,7 +2,7 @@ import { z } from "zod";
 import { completeJSON, isMockMode } from "../ai";
 import { CONCIERGE_JSON_SYSTEM, buildConciergeJsonPrompt } from "../prompts";
 import type { Event } from "./schema";
-import { hourLabel, priceLabel, whenLabel, type ConciergeInput, type Ranked, type Window } from "./concierge";
+import { detectIntent, hourLabel, priceLabel, vibeLabel, whenLabel, type ConciergeInput, type Intent, type Ranked, type Window } from "./concierge";
 
 /**
  * Structured plan for POST /api/concierge (NDJSON). Claude picks event ids and
@@ -25,7 +25,8 @@ export type PlanStop = {
   title: string;
   venueName: string;
   barrio?: string;
-  price: string;
+  price?: string; // absent when the source gave no price (no pill)
+  vibe?: string; // "electrónica y house · público 25-35"
   why: string;
   walkMinutes?: number;
   lat?: number;
@@ -51,7 +52,8 @@ function stopFrom(e: Event, why: string, km?: number, firstDay?: string): PlanSt
     title: e.title,
     venueName: e.venueName,
     ...(e.barrio ? { barrio: e.barrio } : {}),
-    price: priceLabel(e),
+    ...(e.price ? { price: priceLabel(e) } : {}),
+    ...(vibeLabel(e) ? { vibe: vibeLabel(e) } : {}),
     why: why.trim(),
     ...(km !== undefined ? { walkMinutes: Math.max(1, Math.round((km * 1000) / WALK_M_PER_MIN)) } : {}),
     ...(e.lat !== undefined ? { lat: e.lat } : {}),
@@ -60,7 +62,7 @@ function stopFrom(e: Event, why: string, km?: number, firstDay?: string): PlanSt
 }
 
 export function shareText(intro: string, stops: PlanStop[], outro: string, mapUrl: string): string {
-  const lines = stops.map((s) => `${s.time} · ${s.shortTitle} · ${s.venueName} · ${s.price}`);
+  const lines = stops.map((s) => `${s.time} · ${s.shortTitle} · ${s.venueName}${s.price ? ` · ${s.price}` : ""}`);
   return [intro, "", ...lines, "", outro, `${FOOTER} · ${mapUrl}`].filter((l, i, a) => !(l === "" && a[i - 1] === "")).join("\n");
 }
 
@@ -70,6 +72,9 @@ function candidatesText(ranked: Ranked[]): string {
       const parts = [e.id, e.shortTitle ?? e.title, `${e.venueName}${e.barrio ? ` (${e.barrio})` : ""}`, whenLabel(e), priceLabel(e), e.category];
       if (km !== undefined) parts.push(km < 1 ? `${Math.round(km * 1000)} m` : `${km.toFixed(1)} km`);
       if (e.recurring) parts.push("noche fija");
+      if (e.rating) parts.push(`puntaje ${e.rating.value}`);
+      const vibe = vibeLabel(e);
+      if (vibe) parts.push(`onda: ${vibe}`);
       return `- ${parts.join(" · ")}`;
     })
     .join("\n");
@@ -80,7 +85,7 @@ function mockPlan(ranked: Ranked[], win: Window): z.infer<typeof PlanSchema> {
   const picks = distinctByTitle(ranked).slice(0, 3).sort((a, b) => a.event.startsAt.localeCompare(b.event.startsAt));
   return {
     intro: `Plan para ${win.label} (modo demo, sin API key):`,
-    stops: picks.map(({ event: e }) => ({ eventId: e.id, why: `Va bien si querés algo de ${e.category}.` })),
+    stops: picks.map(({ event: e }) => ({ eventId: e.id, why: vibeLabel(e) ? `${vibeLabel(e)}: va con lo que pediste.` : `Va bien si querés algo de ${e.category}.` })),
     outro: "Entre parada y parada, a pata o en bici: todo queda cerca.",
   };
 }
@@ -95,11 +100,11 @@ function distinctByTitle(ranked: Ranked[]): Ranked[] {
 }
 
 /** Builds the plan lines. Stops that do not match a candidate id or repeat a title are dropped. */
-export async function buildPlan(ranked: Ranked[], input: ConciergeInput, win: Window, mapUrl: string, now = new Date()): Promise<PlanLine[]> {
+export async function buildPlan(ranked: Ranked[], input: ConciergeInput, win: Window, mapUrl: string, now = new Date(), intent: Intent = detectIntent(input.mood, input.when)): Promise<PlanLine[]> {
   const near = input.lat !== undefined ? "cerca de su ubicación" : undefined;
   const plan = await completeJSON({
     system: CONCIERGE_JSON_SYSTEM,
-    prompt: buildConciergeJsonPrompt(candidatesText(ranked), win.label, hourLabel(now.toISOString()), input.budget, input.mood, near),
+    prompt: buildConciergeJsonPrompt(candidatesText(ranked), win.label, hourLabel(now.toISOString()), input.budget, input.mood, near, intent.label),
     schema: PlanSchema,
     mock: mockPlan(ranked, win),
     maxTokens: 1200,
