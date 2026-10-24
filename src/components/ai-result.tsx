@@ -30,7 +30,7 @@ export function AIResult({ status, text, error, mode, onRetry, title = "Resultad
         <CardTitle>{title}</CardTitle>
         <div className="flex items-center gap-2">
           {mode === "mock" && <Badge variant="warning">mock</Badge>}
-          {mode === "live" && <Badge variant="success">live</Badge>}
+          {mode === "live" && <Badge variant="secondary">con IA en vivo</Badge>}
           {status === "streaming" && <Badge variant="secondary">generando…</Badge>}
         </div>
       </CardHeader>
