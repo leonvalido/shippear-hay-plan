@@ -5,15 +5,24 @@
  */
 import { fetchJson, toIso, inWindow, inRosario, guessCategory, normalizeEvent, dedupe, writeRaw, clean } from "./lib.mjs";
 
-const API = "https://api-ecommerce-live-entradauno.entradauno.com/v1/api/v2/Cartelera";
+const BASE = "https://api-ecommerce-live-entradauno.entradauno.com/v1/api";
+const API = `${BASE}/v2/Cartelera`;
+const SHOWS = `${BASE}/v2/EspectaculosCartel`; // same shows, with images
 const TYPE_CATEGORY = { 1: "teatro", 2: "musica", 4: "cultura", 5: "cultura", 7: "deporte", 8: "infantil" };
 
 const stripHtml = (s) => clean(decodeURIComponent(s ?? "").replace(/<[^>]+>/g, " ").replace(/&nbsp;/g, " ").replace(/&quot;/g, '"'));
 
 export async function run(now = new Date()) {
-  const data = await fetchJson(API, { headers: { Origin: "https://www.entradauno.com", Referer: "https://www.entradauno.com/" } });
+  const headers = { Origin: "https://www.entradauno.com", Referer: "https://www.entradauno.com/" };
+  const data = await fetchJson(API, { headers });
   const cartelera = data?.oData?.oCartelera;
   if (!cartelera) throw new Error("unexpected Cartelera payload");
+  const images = new Map();
+  try {
+    for (const s of (await fetchJson(SHOWS, { headers }))?.oData?.listaEspectaculoCartel ?? []) images.set(s.idEspectaculoCartel, s.listaImagenes ?? []);
+  } catch (e) {
+    console.warn(`  entradauno images unavailable: ${e.message}`);
+  }
 
   const venues = new Map();
   for (const v of cartelera.listaEstablecimiento ?? []) {
@@ -31,7 +40,8 @@ export async function run(now = new Date()) {
     const venue = venues.get(venueId);
     const startsAt = toIso(f.nFuncionAnio, f.nFuncionMes, f.nFuncionDia, show.oFuncionMenor.bIncluyeHora ? f.nFuncionHora : 0, show.oFuncionMenor.bIncluyeHora ? f.nFuncionMinuto : 0);
     if (!inWindow(startsAt, now)) continue;
-    const img = (show.listaImagenes ?? []).find((i) => i.listaEtiquetas?.includes("WEB_DESTACADO")) ?? show.listaImagenes?.[0];
+    const imgs = show.listaImagenes ?? images.get(show.idEspectaculoCartel) ?? [];
+    const img = imgs.find((i) => i.listaEtiquetas?.includes("WEB_DESTACADO")) ?? imgs[0];
     const ev = normalizeEvent({
       title: show.cNombre,
       description: stripHtml(show.cDescripcion).slice(0, 2000) || undefined,
