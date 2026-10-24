@@ -46,7 +46,9 @@ export function MapExplorer({ initialEvents }: { initialEvents?: Event[] }) {
   const [query, setQuery] = useState("");
   const [q, setQ] = useState("");
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  /** Phones: the sheet is an overlay; closed = map and hero bar only. Desktop keeps the side list. */
   const [expanded, setExpanded] = useState(false);
+  const [embed, setEmbed] = useState(false);
   const [sort, setSort] = useState<"hora" | "views">("hora");
   const [me, setMe] = useState<LatLng | null>(null);
   /** What the sheet shows: the full list, one venue, or the venues of a cluster that cannot be split. */
@@ -109,10 +111,7 @@ export function MapExplorer({ initialEvents }: { initialEvents?: Event[] }) {
     if (dragStart.current == null) return;
     const dy = e.clientY - dragStart.current;
     dragStart.current = null;
-    if (dy < -30) setExpanded(true);
-    else if (dy > 30) setExpanded(false);
-    else return; // a tap: the click handler toggles
-    setTimeout(() => window.dispatchEvent(new Event("resize")), 320);
+    if (dy > 30) setExpanded(false);
   }
 
   useEffect(() => {
@@ -126,6 +125,10 @@ export function MapExplorer({ initialEvents }: { initialEvents?: Event[] }) {
     const cat = params.get("category");
     if (cat && (CATEGORIES as string[]).includes(cat)) setCategory(cat as EventCategory);
     if (params.get("concierge")) setFocusBar(true);
+    if (params.get("embed")) {
+      setEmbed(true);
+      document.body.classList.add("embed");
+    }
     const initial = params.get("q");
     if (initial) {
       setQuery(initial);
@@ -173,7 +176,7 @@ export function MapExplorer({ initialEvents }: { initialEvents?: Event[] }) {
   function openVenue(venue: Venue) {
     setMode({ kind: "venue", venue });
     setSelectedId(venue.events[0]?.id ?? null);
-    setExpanded(false);
+    setExpanded(true);
   }
 
   function backToList() {
@@ -394,17 +397,17 @@ export function MapExplorer({ initialEvents }: { initialEvents?: Event[] }) {
     mode.kind === "venue" ? venuePanel(mode.venue) : mode.kind === "venues" ? venuesPanel(mode.venues) : mode.kind === "plan" ? planPanel : list;
 
   return (
-    <div className="relative flex flex-col md:flex-row">
+    <div className="relative flex flex-col overflow-hidden md:flex-row">
       <TileCache />
-      {/* Map */}
-      <div className={cn("relative shrink-0 transition-[height] duration-[320ms] [transition-timing-function:cubic-bezier(0.32,0.72,0,1)]", expanded ? "h-[15dvh]" : "h-[50dvh]", "md:h-[calc(100dvh-3.5rem)] md:flex-1")}>
+      {/* Map: the whole viewport on phones; the sheet slides over it. */}
+      <div className={cn("relative shrink-0 md:flex-1", embed ? "h-dvh" : "h-[calc(100dvh-3.5rem)]")}>
         <EventMap
           events={shown}
           selectedId={selectedId}
           onSelectVenue={openVenue}
           onSelectCluster={(vs) => {
             setMode({ kind: "venues", venues: vs });
-            setExpanded(false);
+            setExpanded(true);
           }}
           fit={status === "done" && mode.kind === "list"}
           explore
@@ -441,31 +444,63 @@ export function MapExplorer({ initialEvents }: { initialEvents?: Event[] }) {
         <div className="relative min-h-0 flex-1 overflow-y-auto p-3">{body}</div>
       </aside>
 
-      {/* Mobile bottom sheet */}
-      <section
-        aria-label="Lista de eventos"
-        className={cn(
-          "glass flex min-h-0 flex-col rounded-t-[20px] shadow-[0_-8px_32px_rgba(0,0,0,0.35)] transition-[height] duration-[320ms] [transition-timing-function:cubic-bezier(0.32,0.72,0,1)] md:hidden",
-          expanded ? "h-[calc(85dvh-3.5rem)]" : "h-[calc(50dvh-3.5rem)]",
-        )}
-      >
+      {/* Phones: pill that opens the list */}
+      {!embed && (
         <button
           type="button"
           onClick={() => {
-            setExpanded((v) => !v);
-            setTimeout(() => window.dispatchEvent(new Event("resize")), 320);
+            setMode({ kind: "list" });
+            setExpanded(true);
           }}
-          onPointerDown={onHandlePointerDown}
-          onPointerUp={onHandlePointerUp}
-          onPointerCancel={() => (dragStart.current = null)}
           aria-expanded={expanded}
-          className="flex w-full touch-none select-none flex-col items-center gap-1 pb-1 pt-2"
+          aria-controls="hp-sheet"
+          className={cn(
+            "tap absolute bottom-6 left-1/2 z-[1050] flex h-12 -translate-x-1/2 items-center gap-2 rounded-full bg-foreground px-5 text-[15px] font-semibold text-background shadow-[0_8px_24px_rgba(0,0,0,0.45)] transition-[opacity,transform] duration-200 md:hidden",
+            expanded && "pointer-events-none translate-y-4 opacity-0",
+          )}
         >
-          <span aria-hidden className="h-1.5 w-10 rounded-full bg-white/25" />
-          <span className="text-xs text-muted-foreground">{expanded ? "Ver mapa" : "Ver lista"}</span>
+          <svg viewBox="0 0 24 24" className="size-5" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden>
+            <path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" />
+          </svg>
+          {status === "done" ? `Ver ${shown.length} evento${shown.length === 1 ? "" : "s"}` : "Ver eventos"}
         </button>
+      )}
+
+      {/* Phones: bottom sheet overlay (85%), swipe down or X closes */}
+      <section
+        id="hp-sheet"
+        aria-label="Lista de eventos"
+        aria-hidden={!expanded}
+        className={cn(
+          "glass absolute inset-x-0 bottom-0 z-[1100] flex h-[85%] min-h-0 flex-col rounded-t-[20px] shadow-[0_-8px_32px_rgba(0,0,0,0.35)] transition-transform duration-[320ms] [transition-timing-function:cubic-bezier(0.32,0.72,0,1)] md:hidden",
+          expanded ? "translate-y-0" : "translate-y-full",
+        )}
+      >
+        <div className="relative flex shrink-0 items-center justify-center pb-1 pt-2">
+          <button
+            type="button"
+            onClick={() => setExpanded(false)}
+            onPointerDown={onHandlePointerDown}
+            onPointerUp={onHandlePointerUp}
+            onPointerCancel={() => (dragStart.current = null)}
+            aria-label="Cerrar la lista"
+            className="flex h-8 w-24 touch-none select-none items-center justify-center"
+          >
+            <span aria-hidden className="h-1.5 w-10 rounded-full bg-white/25" />
+          </button>
+          <button
+            type="button"
+            onClick={() => setExpanded(false)}
+            aria-label="Cerrar"
+            className="tap absolute right-3 top-2 flex size-9 items-center justify-center rounded-full bg-white/8 text-foreground"
+          >
+            <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden>
+              <path d="M6 6l12 12M18 6L6 18" />
+            </svg>
+          </button>
+        </div>
         {mode.kind === "list" && <div className="space-y-2 px-3 pb-2">{filters}</div>}
-        <div className="relative min-h-0 flex-1 overflow-y-auto px-3 pb-4">{body}</div>
+        <div className="relative min-h-0 flex-1 overflow-y-auto px-3 pb-6">{body}</div>
       </section>
     </div>
   );

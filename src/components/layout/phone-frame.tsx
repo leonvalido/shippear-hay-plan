@@ -29,12 +29,16 @@ export function PhoneFrame({ src, className }: { src: string; className?: string
       <div className="relative h-full w-full overflow-hidden rounded-[36px] bg-background">
         <div aria-hidden className="absolute left-1/2 top-2 z-10 h-5 w-20 -translate-x-1/2 rounded-full bg-black/80" />
         {mount ? (
+          // A real 390x844 phone viewport, scaled to the frame: the app renders at its true size.
           <iframe
             src={src}
             title="Mapa de HayPlan"
-            className="h-full w-full border-0"
+            width={390}
+            height={844}
             loading="lazy"
-            sandbox="allow-scripts allow-same-origin allow-popups"
+            sandbox="allow-scripts allow-same-origin"
+            className="pointer-events-none border-0"
+            style={{ width: 390, height: 844, transform: `scale(${280 / 390})`, transformOrigin: "top left" }}
           />
         ) : (
           <div className="skeleton-shimmer h-full w-full" />

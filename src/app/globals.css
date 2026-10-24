@@ -320,3 +320,11 @@
 @media (prefers-reduced-motion: reduce) {
   .hp-glow { animation: none; box-shadow: 0 0 0 1px color-mix(in oklch, var(--primary) 40%, transparent), 0 0 32px color-mix(in oklch, var(--primary) 35%, transparent); }
 }
+
+/* Embedded preview (landing phone frame): just the map and the hero bar. */
+body.embed header,
+body.embed footer,
+body.embed .leaflet-control-container,
+body.embed nextjs-portal {
+  display: none !important;
+}

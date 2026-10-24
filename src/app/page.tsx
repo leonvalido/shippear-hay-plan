@@ -64,7 +64,7 @@ export default async function Home() {
               </Button>
             </div>
           </div>
-          <PhoneFrame src="/mapa" className="hidden justify-self-end xl:block" />
+          <PhoneFrame src="/mapa?embed=1" className="hidden justify-self-end xl:block" />
         </div>
       </section>
 
