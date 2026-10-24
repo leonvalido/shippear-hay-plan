@@ -1,118 +1,5 @@
 [
  {
-  "title": "EXPERIMENTAL. Museo de Ciencias en Movimiento",
-  "description": "DEL 30 AL 31 DE Octubre Viernes De 14 a 18 horas · Experimental es una invitación a recorrer los territorios de las ciencias, mundos inacabados, interactivos y dinámicos, de fronteras borrosas, envueltos en procesos de incesante construcción, diálogo, posicionamiento y validación. Es ciencia en juego, exploración que sale al encuentro de la filosofía, las tecnologías y las artes; donde los aprendizajes tienen a la curiosidad como brújula y nos llevan por los caminos del tiempo, recuperando el asombro de otras épocas y promoviendo la fascinación ante los nuevos descubrimientos. Es ciencia para participar, para diseñar nuevas formas de habitar los espacios urbanos; ciencia que se involucra en nuestra vida cotidiana y nos convoca a crear colaborativamente soluciones ciudadanas.",
-  "startsAt": "2026-10-24T14:00:00-03:00",
-  "endsAt": "2026-10-31T23:59:00-03:00",
-  "venueName": "Complejo Astronómico Municipal",
-  "address": "DIARIO LA CAPITAL 1602",
-  "lat": -32.959016776,
-  "lng": -60.624232668,
-  "category": "cultura",
-  "sourceType": "municipal",
-  "sourceName": "Municipalidad de Rosario",
-  "sourceUrl": "https://www.rosario.gob.ar/inicio/experimental.-museo-de-ciencias-en-movimiento",
-  "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-02/WhatsApp%20Image%202026-02-03%20at%2012.58.02.jpeg.webp?itok=CAnjIf8p",
-  "shortTitle": "Experimental, ciencias en movimiento",
-  "barrio": "Costanera",
-  "id": "municipal-2bfdc3b4",
-  "status": "published",
-  "fingerprint": "experimental museo ciencias movimiento|2026-10-24|complejo",
-  "createdAt": "2026-10-24T13:50:52-03:00"
- },
- {
-  "title": "Primavera en La Isla de los Inventos",
-  "description": "DEL 24 DE Octubre AL 29 DE Noviembre Domingo, Viernes y Sábado De 14 a 19 horas · Un lugar para investigar, explorar y aprender. Un espacio en el cruce entre las ciencias, las artes y la tecnología a través de diseños, medios y formatos. Un punto de encuentro entre chicos y grandes. Una antigua estación de trenes convertida en juego y movimiento. Junto a La Granja de la Infancia y El Jardín de los Niños, integra el proyecto Tríptico de la Infancia. Entrada general: $1.000 y menores de 4 años gratis.",
-  "startsAt": "2026-10-24T14:00:00-03:00",
-  "endsAt": "2026-11-29T23:59:00-03:00",
-  "venueName": "La Isla de los Inventos",
-  "address": "WHEELWRIGHT GUILLERMO 1402",
-  "lat": -32.937234376,
-  "lng": -60.640313908,
-  "category": "infantil",
-  "price": {
-   "free": true,
-   "currency": "ARS"
-  },
-  "sourceType": "municipal",
-  "sourceName": "Municipalidad de Rosario",
-  "sourceUrl": "https://www.rosario.gob.ar/inicio/primavera-en-la-isla-de-los-inventos",
-  "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-09/a-isla.jpg.webp?itok=Mt2n0n-j",
-  "shortTitle": "Primavera en la Isla de los Inventos",
-  "barrio": "Pichincha",
-  "id": "municipal-cd9a020b",
-  "status": "published",
-  "fingerprint": "primavera isla inventos|2026-10-24|la",
-  "createdAt": "2026-10-24T13:50:52-03:00"
- },
- {
-  "title": "Red de Mujeres del Sur",
-  "description": "DEL 28 DE Octubre AL 31 DE Diciembre Miércoles De 14 a 15 horas · Centro Municipal de Distrito Sur \"Rosa Ziperovich\" Centro Municipal de Distrito Sur \"Rosa Ziperovich\" Este espacio tiene como objetivo verbalizar las diversas violencias a las que se encuentran sometidas las mujeres de los barrios de la zona sur mediante talleres referidos a la prevención y sensibilización de esta temática. También, se concientiza sobre los derechos sexuales y reproductivos.",
-  "startsAt": "2026-10-24T14:00:00-03:00",
-  "endsAt": "2026-12-30T23:59:00-03:00",
-  "venueName": "Centro Municipal de Distrito Sur \"Rosa Ziperovich\"",
-  "address": "URIBURU PTE. JOSE EVARIST 637",
-  "lat": -32.990745318,
-  "lng": -60.642577946,
-  "category": "cultura",
-  "sourceType": "municipal",
-  "sourceName": "Municipalidad de Rosario",
-  "sourceUrl": "https://www.rosario.gob.ar/inicio/red-de-mujeres-del-sur-0",
-  "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2024-10/red%20de%20mujeres%20del%20sur-rosario-g%C3%A9nero.jpg.webp?itok=9kW7ji5P",
-  "shortTitle": "Red de Mujeres del Sur",
-  "barrio": "Sur",
-  "id": "municipal-1ff91fa3",
-  "status": "published",
-  "fingerprint": "red mujeres sur|2026-10-24|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
- },
- {
-  "title": "Laboratorio creativo de tango y música",
-  "description": "DEL 30 DE Octubre AL 27 DE Noviembre Viernes De 14 a 15:30 horas · Laboratorio creativo de TANGO Y MUSICAAbordaje de los elementos de la música y su relación con la danza: Dirigido a participantes con distintos niveles de experiencia o conocimientos. Modalidad cuatrimestral: viernes de agosto, septiembre, octubre y noviembre, de 14 a 15.30 h. Gratis. Sin inscripción.",
-  "startsAt": "2026-10-24T14:00:00-03:00",
-  "endsAt": "2026-11-27T23:59:00-03:00",
-  "venueName": "Centro Cultural La Casa del Tango",
-  "address": "ILLIA PTE. ARTURO U. 1750",
-  "lat": -32.934351493,
-  "lng": -60.644470209,
-  "category": "teatro",
-  "price": {
-   "free": true,
-   "currency": "ARS"
-  },
-  "sourceType": "municipal",
-  "sourceName": "Municipalidad de Rosario",
-  "sourceUrl": "https://www.rosario.gob.ar/inicio/laboratorio-creativo-de-tango-y-musica",
-  "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-07/Laboratorio%20creativo%20de%20TANGO%20Y%20MUSICA.jpg.webp?itok=VGb1t2HT",
-  "shortTitle": "Laboratorio de tango y música",
-  "barrio": "Pichincha",
-  "id": "municipal-3befbf7b",
-  "status": "published",
-  "fingerprint": "laboratorio creativo tango musica|2026-10-24|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
- },
- {
-  "title": "Taller: ¿Qué nos dice la arcilla?",
-  "description": "DEL 30 DE Octubre AL 20 DE Noviembre Viernes De 14 a 16 horas · Un espacio para experimentar y trabajar la cerámica y a partir de otro ritmo, observar, esperar y disfrutar de los procesos. A cargo de Luciana Prado. Para infancias de 7 a 12 años. Viernes de 14 a 16h (8 encuentros) Inicio: 2 de octubre | Con inscripción previa en este formulario.",
-  "startsAt": "2026-10-24T14:00:00-03:00",
-  "endsAt": "2026-11-20T23:59:00-03:00",
-  "venueName": "Casa de Cultura Barrio Alvear",
-  "address": "LETT FRANCISCO N 4253",
-  "lat": -32.980833682,
-  "lng": -60.680251346,
-  "category": "infantil",
-  "sourceType": "municipal",
-  "sourceName": "Municipalidad de Rosario",
-  "sourceUrl": "https://www.rosario.gob.ar/inicio/taller-que-nos-dice-la-arcilla",
-  "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-09/arcilla.jpg.webp?itok=ygUQYKVP",
-  "shortTitle": "Taller de arcilla",
-  "barrio": "Macrocentro",
-  "id": "municipal-52cec26d",
-  "status": "published",
-  "fingerprint": "taller nos dice arcilla|2026-10-24|casa",
-  "createdAt": "2026-10-24T13:50:52-03:00"
- },
- {
   "title": "Festival Bandera",
   "description": "Este sábado desde las 14.30, se realizará la séptima edición del Festival Bandera en el Parque Estación Central Córdoba (27 de Febrero y Buenos Aires). Con cuatro escenarios y una extensa programación, se destacan La Vela Puerca, Las Pastillas del Abuelo, Guasones, Dillom, YSY A, El Mató a un Policía Motorizado, Peces Raros, Bandalos Chinos, El Zar, Aterciopelados, Zoe Gotusso, Marilina Bertoldi, Lisandro Aristimuño, Javiera Mena y Mi Amigo Invencible, entre muchos otros artistas.",
   "startsAt": "2026-10-24T14:30:00-03:00",
@@ -124,12 +11,12 @@
   "sourceType": "press",
   "sourceName": "Rosario3",
   "sourceUrl": "https://www.rosario3.com/ocio/que-hacemos-este-fin-de-semana-en-rosario-festival-bandera-ricardo-darin-angela-torres-los-nocheros-y-mas-20261023-0001.html",
-  "shortTitle": "Festival Bandera",
+  "shortTitle": "Festival Bandera, rock en vivo",
   "barrio": "Macrocentro",
   "id": "press-7085c401",
   "status": "published",
   "fingerprint": "festival bandera|2026-10-24|parque",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Monteverde Te Escucha Noroeste",
@@ -148,11 +35,11 @@
    "views": 156,
    "likes": 13
   },
-  "shortTitle": "Monteverde Te Escucha Noroeste",
+  "shortTitle": "Monteverde te escucha, encuentro vecinal",
   "id": "tiktok-6ceb01f7",
   "status": "published",
   "fingerprint": "monteverde te escucha noroeste|2026-10-24|club",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Monteverde te escucha: encuentro en el Noroeste",
@@ -171,11 +58,11 @@
    "views": 752,
    "likes": 57
   },
-  "shortTitle": "Monteverde te escucha en el Noroeste",
+  "shortTitle": "Monteverde te escucha, encuentro vecinal",
   "id": "tiktok-6e4b9cee",
   "status": "published",
   "fingerprint": "monteverde te escucha encuentro noroeste|2026-10-24|club",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Jornada holística en Parque Urquiza",
@@ -193,11 +80,11 @@
   },
   "lat": -32.9579285,
   "lng": -60.6240935,
-  "shortTitle": "Jornada holística",
+  "shortTitle": "Jornada de terapias holísticas",
   "id": "tiktok-5738f190",
   "status": "published",
   "fingerprint": "jornada holistica parque urquiza|2026-10-24|parque",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Muestra Siestario",
@@ -217,12 +104,12 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/muestra-siestario",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-08/b_siestario.jpg.webp?itok=lKnS79XP",
-  "shortTitle": "Muestra Siestario",
+  "shortTitle": "Siestario, muestra de arquitectura",
   "barrio": "Pichincha",
   "id": "municipal-972c45c9",
   "status": "published",
   "fingerprint": "muestra siestario|2026-10-24|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Bebés en bibliotecas",
@@ -242,12 +129,12 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/bebes-en-bibliotecas",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-09/Beb%C3%A9s-en-Bibliotecas-en-la-Casa-Imaginada-de-la-Biblioteca-Argentina-Dr.-Juan-%C3%81lvarez.png.webp?itok=2sTn3YDN",
-  "shortTitle": "Bebés en bibliotecas",
+  "shortTitle": "Bebés en bibliotecas, lectura para bebés",
   "barrio": "Centro",
   "id": "municipal-0771b7e0",
   "status": "published",
   "fingerprint": "bebes bibliotecas|2026-10-24|biblioteca",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Ito",
@@ -261,12 +148,12 @@
   "sourceType": "press",
   "sourceName": "Rosario3",
   "sourceUrl": "https://www.rosario3.com/ocio/que-hacemos-este-fin-de-semana-en-rosario-festival-bandera-ricardo-darin-angela-torres-los-nocheros-y-mas-20261023-0001.html",
-  "shortTitle": "Ito",
+  "shortTitle": "Ito, teatro para bebés",
   "barrio": "Macrocentro",
   "id": "press-86e6dfd1",
   "status": "published",
   "fingerprint": "ito|2026-10-24|orilla",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "¿Cómo viste la luna?",
@@ -280,16 +167,16 @@
   "sourceType": "press",
   "sourceName": "Rosario3",
   "sourceUrl": "https://www.rosario3.com/ocio/que-hacemos-este-fin-de-semana-en-rosario-festival-bandera-ricardo-darin-angela-torres-los-nocheros-y-mas-20261023-0001.html",
-  "shortTitle": "¿Cómo viste la luna?",
+  "shortTitle": "¿Cómo viste la luna?, teatro infantil",
   "barrio": "Centro",
   "id": "press-4389cf76",
   "status": "published",
   "fingerprint": "como viste luna|2026-10-24|teatro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Inconformistas",
-  "description": "Función de Inconformistas en el Teatro Actor Aldo Braga, con entrada gratuita. La propuesta se presenta como un espacio de ideas que valen la pena ser difundidas.",
+  "description": "Encuentro con charlas que proponen ideas que valen la pena ser difundidas. La entrada es gratuita.",
   "startsAt": "2026-10-24T17:00:00-03:00",
   "endsAt": "2026-10-24T21:00:00-03:00",
   "venueName": "Teatro Actor Aldo Braga",
@@ -307,12 +194,12 @@
   "sourceName": "Eventbrite",
   "sourceUrl": "https://www.eventbrite.com.ar/e/inconformistas-tickets-2000057922085",
   "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1192917317%2F2956606522001%2F1%2Foriginal.20260907-215949?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=464d8953271495ca15600264990055b1",
-  "shortTitle": "Inconformistas",
+  "shortTitle": "Inconformistas, charlas de ideas",
   "barrio": "Capitán Bermúdez",
   "id": "platform-36557d52",
   "status": "published",
   "fingerprint": "inconformistas|2026-10-24|teatro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Tertulias Tangueras",
@@ -332,12 +219,12 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/index.php/tertulias-tangueras-1",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2024-02/Tertulia%20tanguera.jpeg.webp?itok=V1Ga3yXN",
-  "shortTitle": "Tertulias Tangueras",
+  "shortTitle": "Tertulias tangueras, charla",
   "barrio": "Pichincha",
   "id": "municipal-edd11aa6",
   "status": "published",
   "fingerprint": "tertulias tangueras|2026-10-24|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Halloween en Show Park",
@@ -354,12 +241,12 @@
   },
   "lat": -33.014706499999996,
   "lng": -60.62207910000001,
-  "shortTitle": "Halloween infantil",
+  "shortTitle": "Halloween en Show Park, parque temático",
   "barrio": "Villa G. Gálvez",
   "id": "tiktok-84fcaeda",
   "status": "published",
   "fingerprint": "halloween park|2026-10-24|show",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Seminario de cumbia para iniciales en Club Excélsior",
@@ -388,7 +275,7 @@
   "id": "tiktok-404d8507",
   "status": "published",
   "fingerprint": "seminario cumbia iniciales club excelsior|2026-10-24|club",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Semana del Planetario 2026",
@@ -408,12 +295,12 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/semana-del-planetario-2026",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-10/DSC09285.jpg.webp?itok=C8a39v9Q",
-  "shortTitle": "Semana del Planetario",
+  "shortTitle": "Semana del Planetario, charlas",
   "barrio": "Costanera",
   "id": "municipal-6777b087",
   "status": "published",
   "fingerprint": "semana planetario 2026|2026-10-24|complejo",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Ajedrez para personas adultas",
@@ -428,12 +315,12 @@
   "sourceType": "municipal",
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/ajedrez-para-personas-adultas-0",
-  "shortTitle": "Ajedrez para personas adultas",
+  "shortTitle": "Taller de ajedrez para adultos",
   "barrio": "Centro",
   "id": "municipal-5f7e47ea",
   "status": "published",
   "fingerprint": "ajedrez personas adultas|2026-10-24|biblioteca",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "La espera",
@@ -451,12 +338,12 @@
   "sourceType": "press",
   "sourceName": "Rosario3",
   "sourceUrl": "https://www.rosario3.com/ocio/que-hacemos-este-fin-de-semana-en-rosario-festival-bandera-ricardo-darin-angela-torres-los-nocheros-y-mas-20261023-0001.html",
-  "shortTitle": "La espera",
+  "shortTitle": "La espera, documental",
   "barrio": "Centro",
   "id": "press-31f35575",
   "status": "published",
   "fingerprint": "espera|2026-10-24|cine",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Festival Tercerescena con música en vivo de la orquesta de salsa La Frankicia",
@@ -474,12 +361,12 @@
   "sourceType": "press",
   "sourceName": "Rosario3",
   "sourceUrl": "https://www.rosario3.com/ocio/que-hacemos-este-fin-de-semana-en-rosario-festival-bandera-ricardo-darin-angela-torres-los-nocheros-y-mas-20261023-0001.html",
-  "shortTitle": "Tercerescena con La Frankicia",
+  "shortTitle": "Festival Tercerescena con La Frankicia",
   "barrio": "Centro",
   "id": "press-1d36f706",
   "status": "published",
   "fingerprint": "festival tercerescena musica orquesta salsa frankicia|2026-10-24|escuela",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Huellas que cambiaron la historia",
@@ -497,7 +384,7 @@
   "id": "press-e63ddfde",
   "status": "published",
   "fingerprint": "huellas cambiaron historia|2026-10-24|planetario",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Función de Marathon",
@@ -516,12 +403,12 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/funcion-de-marathon",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-10/Marathon.jpg.webp?itok=Ny5uV5k2",
-  "shortTitle": "Marathon",
+  "shortTitle": "Marathon, obra de teatro",
   "barrio": "Macrocentro",
   "id": "municipal-39b6823c",
   "status": "published",
   "fingerprint": "funcion marathon|2026-10-24|casa",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Lambé-Lambé",
@@ -534,12 +421,12 @@
   "sourceType": "press",
   "sourceName": "Rosario3",
   "sourceUrl": "https://www.rosario3.com/ocio/que-hacemos-este-fin-de-semana-en-rosario-festival-bandera-ricardo-darin-angela-torres-los-nocheros-y-mas-20261023-0001.html",
-  "shortTitle": "Lambé-Lambé",
+  "shortTitle": "Lambé-Lambé, teatro en miniatura",
   "barrio": "Centro",
   "id": "press-88c866dc",
   "status": "published",
   "fingerprint": "lambe lambe|2026-10-24|escuela",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Observaciones en el cielo",
@@ -555,12 +442,12 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/observaciones-en-el-cielo",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-08/IMG-20260117-WA0013.jpg.webp?itok=w1BWgqJx",
-  "shortTitle": "Observaciones en el cielo",
+  "shortTitle": "Observación del cielo con telescopio",
   "barrio": "Costanera",
   "id": "municipal-06cd0210",
   "status": "published",
   "fingerprint": "observaciones cielo|2026-10-24|complejo",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Adolescencia, sexo y muerte en Camp Miasma",
@@ -577,12 +464,12 @@
   "sourceType": "press",
   "sourceName": "Rosario3",
   "sourceUrl": "https://www.rosario3.com/ocio/que-hacemos-este-fin-de-semana-en-rosario-festival-bandera-ricardo-darin-angela-torres-los-nocheros-y-mas-20261023-0001.html",
-  "shortTitle": "Adolescencia, sexo y muerte en Camp",
+  "shortTitle": "Camp Miasma, película de terror",
   "barrio": "Macrocentro",
   "id": "press-3177ac1a",
   "status": "published",
   "fingerprint": "adolescencia sexo muerte camp miasma|2026-10-24|cine",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Mati RJ se presentará en vivo con su nuevo tour",
@@ -595,12 +482,12 @@
   "sourceUrl": "https://www.rosario3.com/ocio/que-hacemos-este-fin-de-semana-en-rosario-festival-bandera-ricardo-darin-angela-torres-los-nocheros-y-mas-20261023-0001.html",
   "lat": -32.931649,
   "lng": -60.658896899999995,
-  "shortTitle": "Mati RJ en vivo con su nuevo tour",
+  "shortTitle": "Mati RJ, show en vivo",
   "barrio": "Pichincha",
   "id": "press-fd026644",
   "status": "published",
   "fingerprint": "mati rj presentara nuevo tour|2026-10-24|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Amor, amor, amor, amor",
@@ -614,12 +501,12 @@
   "sourceType": "press",
   "sourceName": "Rosario3",
   "sourceUrl": "https://www.rosario3.com/ocio/que-hacemos-este-fin-de-semana-en-rosario-festival-bandera-ricardo-darin-angela-torres-los-nocheros-y-mas-20261023-0001.html",
-  "shortTitle": "Amor, amor, amor, amor",
+  "shortTitle": "Amor, amor, amor, amor, unipersonal",
   "barrio": "Centro",
   "id": "press-7366c1e3",
   "status": "published",
   "fingerprint": "amor amor amor amor|2026-10-24|museo",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "La moribunda",
@@ -633,12 +520,12 @@
   "sourceType": "press",
   "sourceName": "Rosario3",
   "sourceUrl": "https://www.rosario3.com/ocio/que-hacemos-este-fin-de-semana-en-rosario-festival-bandera-ricardo-darin-angela-torres-los-nocheros-y-mas-20261023-0001.html",
-  "shortTitle": "La moribunda",
+  "shortTitle": "La moribunda, comedia de Urdapilleta",
   "barrio": "Centro",
   "id": "press-806590b9",
   "status": "published",
   "fingerprint": "moribunda|2026-10-24|tunel",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Lo demás es cotillón",
@@ -651,12 +538,12 @@
   "sourceUrl": "https://www.rosario3.com/ocio/que-hacemos-este-fin-de-semana-en-rosario-festival-bandera-ricardo-darin-angela-torres-los-nocheros-y-mas-20261023-0001.html",
   "lat": -32.9546309,
   "lng": -60.6353171,
-  "shortTitle": "Lo demás es cotillón",
+  "shortTitle": "Lo demás es cotillón, grotesco criollo",
   "barrio": "Centro",
   "id": "press-ee20618d",
   "status": "published",
   "fingerprint": "demas cotillon|2026-10-24|tandava",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Función de Hervidero en Espacio Bravo",
@@ -672,12 +559,12 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/funcion-de-hervidero-en-espacio-bravo",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-05/hervidero.jpg.webp?itok=jHbK7Y-v",
-  "shortTitle": "Hervidero",
+  "shortTitle": "Hervidero, obra de teatro",
   "barrio": "Macrocentro",
   "id": "municipal-bfa770fe",
   "status": "published",
   "fingerprint": "funcion hervidero espacio bravo|2026-10-24|espacio",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Funciones de La Chunga en Teatro La Morada",
@@ -693,12 +580,12 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/funciones-de-la-chunga-en-teatro-la-morada",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-09/La%20Chunga%20obra.png.webp?itok=8Jro29Ii",
-  "shortTitle": "La Chunga",
+  "shortTitle": "La Chunga, obra de teatro",
   "barrio": "Centro",
   "id": "municipal-7fa6a9d2",
   "status": "published",
   "fingerprint": "funciones chunga teatro morada|2026-10-24|teatro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Los Nocheros presentarán su espectáculo por los 40 años de trayectoria",
@@ -711,12 +598,12 @@
   "sourceUrl": "https://www.rosario3.com/ocio/que-hacemos-este-fin-de-semana-en-rosario-festival-bandera-ricardo-darin-angela-torres-los-nocheros-y-mas-20261023-0001.html",
   "lat": -32.9400804,
   "lng": -60.669880299999996,
-  "shortTitle": "Los Nocheros: 40 años de trayectoria",
+  "shortTitle": "Los Nocheros, show por sus 40 años",
   "barrio": "Macrocentro",
   "id": "press-5df04799",
   "status": "published",
   "fingerprint": "nocheros presentaran espectaculo 40 anos trayectoria|2026-10-24|segunda",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Escenas de la vida conyugal",
@@ -729,12 +616,12 @@
   "sourceType": "press",
   "sourceName": "Rosario3",
   "sourceUrl": "https://www.rosario3.com/ocio/que-hacemos-este-fin-de-semana-en-rosario-festival-bandera-ricardo-darin-angela-torres-los-nocheros-y-mas-20261023-0001.html",
-  "shortTitle": "Escenas de la vida conyugal",
+  "shortTitle": "Escenas de la vida conyugal, con Darín",
   "barrio": "Centro",
   "id": "press-7fccffb7",
   "status": "published",
   "fingerprint": "escenas vida conyugal|2026-10-24|teatro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Despertar de primavera",
@@ -747,12 +634,12 @@
   "sourceType": "press",
   "sourceName": "Rosario3",
   "sourceUrl": "https://www.rosario3.com/ocio/que-hacemos-este-fin-de-semana-en-rosario-festival-bandera-ricardo-darin-angela-torres-los-nocheros-y-mas-20261023-0001.html",
-  "shortTitle": "Despertar de primavera",
+  "shortTitle": "Despertar de primavera, musical",
   "barrio": "Centro",
   "id": "press-e3aa4098",
   "status": "published",
   "fingerprint": "despertar primavera|2026-10-24|teatro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "La sombra de la botella",
@@ -765,12 +652,12 @@
   "sourceUrl": "https://www.rosario3.com/ocio/que-hacemos-este-fin-de-semana-en-rosario-festival-bandera-ricardo-darin-angela-torres-los-nocheros-y-mas-20261023-0001.html",
   "lat": -32.9389725,
   "lng": -60.7542246,
-  "shortTitle": "La sombra de la botella",
+  "shortTitle": "La sombra de la botella, musical",
   "barrio": "Oeste",
   "id": "press-e911ac31",
   "status": "published",
   "fingerprint": "sombra botella|2026-10-24|mateo",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Piccolino",
@@ -784,12 +671,12 @@
   "sourceType": "press",
   "sourceName": "Rosario3",
   "sourceUrl": "https://www.rosario3.com/ocio/que-hacemos-este-fin-de-semana-en-rosario-festival-bandera-ricardo-darin-angela-torres-los-nocheros-y-mas-20261023-0001.html",
-  "shortTitle": "Piccolino",
+  "shortTitle": "Piccolino, humor para toda la familia",
   "barrio": "Macrocentro",
   "id": "press-60ab6405",
   "status": "published",
   "fingerprint": "piccolino|2026-10-24|sala",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Inocencia trágica",
@@ -803,12 +690,12 @@
   "sourceType": "press",
   "sourceName": "Rosario3",
   "sourceUrl": "https://www.rosario3.com/ocio/que-hacemos-este-fin-de-semana-en-rosario-festival-bandera-ricardo-darin-angela-torres-los-nocheros-y-mas-20261023-0001.html",
-  "shortTitle": "Inocencia trágica",
+  "shortTitle": "Inocencia trágica, obra de teatro",
   "barrio": "Pichincha",
   "id": "press-840ab4b3",
   "status": "published",
   "fingerprint": "inocencia tragica|2026-10-24|platea",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Nones Circo",
@@ -821,12 +708,12 @@
   "sourceType": "press",
   "sourceName": "Rosario3",
   "sourceUrl": "https://www.rosario3.com/ocio/que-hacemos-este-fin-de-semana-en-rosario-festival-bandera-ricardo-darin-angela-torres-los-nocheros-y-mas-20261023-0001.html",
-  "shortTitle": "Nones Circo",
+  "shortTitle": "Nones Circo, teatro, danza y malabares",
   "barrio": "Centro",
   "id": "press-99662841",
   "status": "published",
   "fingerprint": "nones circo|2026-10-24|escuela",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Marcelo San Juan ofrecerá un concierto que recorrerá canciones de tango",
@@ -839,12 +726,12 @@
   "sourceUrl": "https://www.rosario3.com/ocio/que-hacemos-este-fin-de-semana-en-rosario-festival-bandera-ricardo-darin-angela-torres-los-nocheros-y-mas-20261023-0001.html",
   "lat": -32.9550122,
   "lng": -60.646463600000004,
-  "shortTitle": "Marcelo San Juan canta tangos",
+  "shortTitle": "Marcelo San Juan, concierto",
   "barrio": "Parque",
   "id": "press-ca6853b5",
   "status": "published",
   "fingerprint": "marcelo san juan ofrecera concierto recorrera canciones tango|2026-10-24|aserradero",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Quemarlo todo",
@@ -857,12 +744,12 @@
   "sourceUrl": "https://www.rosario3.com/ocio/que-hacemos-este-fin-de-semana-en-rosario-festival-bandera-ricardo-darin-angela-torres-los-nocheros-y-mas-20261023-0001.html",
   "lat": -32.9558277,
   "lng": -60.629236899999995,
-  "shortTitle": "Quemarlo todo",
+  "shortTitle": "Quemarlo todo, obra de teatro",
   "barrio": "Macrocentro",
   "id": "press-f9f0e0eb",
   "status": "published",
   "fingerprint": "quemarlo todo|2026-10-24|teatro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "La función de los invisibles",
@@ -875,12 +762,12 @@
   "sourceUrl": "https://www.rosario3.com/ocio/que-hacemos-este-fin-de-semana-en-rosario-festival-bandera-ricardo-darin-angela-torres-los-nocheros-y-mas-20261023-0001.html",
   "lat": -32.9646617,
   "lng": -60.629805,
-  "shortTitle": "La función de los invisibles",
+  "shortTitle": "La función de los invisibles, teatro",
   "barrio": "Macrocentro",
   "id": "press-ff181681",
   "status": "published",
   "fingerprint": "funcion invisibles|2026-10-24|orilla",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Hervidero",
@@ -893,17 +780,17 @@
   "sourceUrl": "https://www.rosario3.com/ocio/que-hacemos-este-fin-de-semana-en-rosario-festival-bandera-ricardo-darin-angela-torres-los-nocheros-y-mas-20261023-0001.html",
   "lat": -32.9342766,
   "lng": -60.671192299999994,
-  "shortTitle": "Hervidero",
+  "shortTitle": "Hervidero, obra de teatro",
   "barrio": "Macrocentro",
   "id": "press-47774b52",
   "status": "published",
   "fingerprint": "hervidero|2026-10-24|espacio",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "El viaje del tambor",
   "shortTitle": "El viaje del tambor",
-  "description": "Este sábado a las 21, se presentará El viaje del tambor, propuesta de Proyecto Batel que combina música, movimiento y relatos sobre la herencia afro de la región. En Cultural de Abajo.\n\nFuentes: https://www.rosario3.com/ocio/que-hacemos-este-fin-de-semana-en-rosario-festival-bandera-ricardo-darin-angela-torres-los-nocheros-y-mas-20261023-0001.html",
+  "description": "Este sábado a las 21, se presentará El viaje del tambor, propuesta de Proyecto Batel que combina música, movimiento y relatos sobre la herencia afro de la región. En Cultural de Abajo.",
   "startsAt": "2026-10-24T21:00:00-03:00",
   "venueName": "Cultural de Abajo",
   "address": "Entre Ríos 579, Rosario",
@@ -917,7 +804,7 @@
   "id": "press-ff2398d6",
   "status": "published",
   "fingerprint": "viaje tambor|2026-10-24|cultural",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Matar al diván",
@@ -930,12 +817,12 @@
   "sourceUrl": "https://www.rosario3.com/ocio/que-hacemos-este-fin-de-semana-en-rosario-festival-bandera-ricardo-darin-angela-torres-los-nocheros-y-mas-20261023-0001.html",
   "lat": -32.953632899999995,
   "lng": -60.63523789999999,
-  "shortTitle": "Matar al diván",
+  "shortTitle": "Matar al diván, obra de teatro",
   "barrio": "Centro",
   "id": "press-4aa3709e",
   "status": "published",
   "fingerprint": "matar divan|2026-10-24|sala",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Jazz Cartoons",
@@ -949,12 +836,12 @@
   "sourceType": "press",
   "sourceName": "Rosario3",
   "sourceUrl": "https://www.rosario3.com/ocio/que-hacemos-este-fin-de-semana-en-rosario-festival-bandera-ricardo-darin-angela-torres-los-nocheros-y-mas-20261023-0001.html",
-  "shortTitle": "Jazz Cartoons",
+  "shortTitle": "Jazz Cartoons, jazz de dibujos animados",
   "barrio": "Centro",
   "id": "press-ebd29a01",
   "status": "published",
   "fingerprint": "jazz cartoons|2026-10-24|plataforma",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Continuarán las funciones de Microteatro",
@@ -967,16 +854,16 @@
   "sourceType": "press",
   "sourceName": "Rosario3",
   "sourceUrl": "https://www.rosario3.com/ocio/que-hacemos-este-fin-de-semana-en-rosario-festival-bandera-ricardo-darin-angela-torres-los-nocheros-y-mas-20261023-0001.html",
-  "shortTitle": "Funciones de Microteatro",
+  "shortTitle": "Microteatro, obras breves",
   "barrio": "Centro",
   "id": "press-ac826bbb",
   "status": "published",
   "fingerprint": "continuaran funciones microteatro|2026-10-24|san",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Leandro Gambetta en La Chunga",
-  "description": "Función de Leandro Gambetta en La Chunga. Es un espectáculo escénico en sala.",
+  "description": "Función de Leandro Gambetta en La Chunga. Es una presentación en vivo dentro de la cartelera de teatro de la sala.",
   "startsAt": "2026-10-24T21:00:00-03:00",
   "venueName": "La Chunga",
   "address": "San Martín 771",
@@ -991,11 +878,11 @@
    "views": 208,
    "likes": 1
   },
-  "shortTitle": "Leandro Gambetta",
+  "shortTitle": "Leandro Gambetta, función en vivo",
   "id": "tiktok-3641134f",
   "status": "published",
   "fingerprint": "leandro gambetta chunga|2026-10-24|la",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Ricardo Darín y Andrea Pietra en Escenas de la vida conyugal",
@@ -1012,12 +899,12 @@
   },
   "lat": -32.945553100000005,
   "lng": -60.63949149999999,
-  "shortTitle": "Darín y Pietra en Escenas conyugales",
+  "shortTitle": "Escenas de la vida conyugal, con Darín",
   "barrio": "Centro",
   "id": "tiktok-5c115ed9",
   "status": "published",
   "fingerprint": "ricardo darin andrea pietra escenas vida conyugal|2026-10-24|teatro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Ivan Menna open to close en Switch",
@@ -1034,12 +921,12 @@
   },
   "lat": -32.939125,
   "lng": -60.65062629999999,
-  "shortTitle": "Ivan Menna open to close",
+  "shortTitle": "Ivan Menna open to close, techno",
   "barrio": "Pichincha",
   "id": "instagram-f72dcca8",
   "status": "published",
   "fingerprint": "ivan menna open to close switch|2026-10-24|switch",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Kevin Di Serna",
@@ -1053,17 +940,17 @@
   "sourceName": "Entradauno",
   "sourceUrl": "https://www.turboentrada.com/landing/kevinn-di-serna?idEspectaculoCartel=17469&cHashValidacion=bc7d71814ae6faf48cf927332ced42a289550193",
   "imageUrl": "https://contenidos.entradauno.com/cache/imagenes/productos/img_3945_1bb20b37-70e0-4e1d-8931-ac507880e9e6.jpeg",
-  "shortTitle": "Kevin Di Serna",
-  "description": "Presentación musical de Kevin Di Serna en Alto Shopping Rosario. Es un show en vivo dentro del shopping.",
+  "shortTitle": "Kevin Di Serna, show en vivo",
+  "description": "Presentación musical de Kevin Di Serna en Rosario. Un show en vivo del artista.",
   "barrio": "Macrocentro",
   "id": "ticketing-d3bf27bd",
   "status": "published",
   "fingerprint": "kevin di serna|2026-10-24|alto",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Fiesta Elite",
-  "description": "Fiesta Elite en City Center a partir de las 22 hs. Las entradas cuestan desde $17100.",
+  "description": "Fiesta Elite es una noche de fiesta en City Center a partir de las 22. Las entradas arrancan desde $17100.",
   "startsAt": "2026-10-24T22:00:00-03:00",
   "venueName": "City Center",
   "address": "Bv. Oroño y Av. Circunvalación",
@@ -1079,12 +966,12 @@
   "sourceName": "Ticketek",
   "sourceUrl": "https://www.ticketek.com.ar/fiesta-elite/city-center",
   "imageUrl": "https://prod-cms-static.ticketek.com.ar/sites/default/files/images/artist/elit440.jpg",
-  "shortTitle": "Fiesta Elite",
+  "shortTitle": "Elite, fiesta",
   "barrio": "Villa G. Gálvez",
   "id": "ticketing-67e6715c",
   "status": "published",
   "fingerprint": "elite|2026-10-24|city",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Martin Huergo protagonizará una noche de música electrónica",
@@ -1098,12 +985,12 @@
   "sourceType": "press",
   "sourceName": "Rosario3",
   "sourceUrl": "https://www.rosario3.com/ocio/que-hacemos-este-fin-de-semana-en-rosario-festival-bandera-ricardo-darin-angela-torres-los-nocheros-y-mas-20261023-0001.html",
-  "shortTitle": "Martin Huergo: noche electrónica",
+  "shortTitle": "Martin Huergo, música electrónica",
   "barrio": "Macrocentro",
   "id": "press-b59e59be",
   "status": "published",
   "fingerprint": "martin huergo protagonizara musica electronica|2026-10-24|complejo",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Aliento de Perro y Violacion Auditiva en Floyd Rosario",
@@ -1128,7 +1015,7 @@
   "id": "ticketing-21305e68",
   "status": "published",
   "fingerprint": "aliento perro violacion auditiva floyd rosario|2026-10-24|floyd",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Cumbión del Paraná",
@@ -1141,12 +1028,12 @@
   "sourceUrl": "https://www.rosario3.com/ocio/que-hacemos-este-fin-de-semana-en-rosario-festival-bandera-ricardo-darin-angela-torres-los-nocheros-y-mas-20261023-0001.html",
   "lat": -32.9400804,
   "lng": -60.669880299999996,
-  "shortTitle": "Cumbión del Paraná",
+  "shortTitle": "Cumbión del Paraná, noche de cumbia",
   "barrio": "Macrocentro",
   "id": "press-151ef595",
   "status": "published",
   "fingerprint": "cumbion parana|2026-10-24|segunda",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "IVAN MENNA OPEN TO CLOSE @ SWITCH CLUB",
@@ -1167,13 +1054,13 @@
   "sourceName": "Venti",
   "sourceUrl": "https://venti.live/evento/ivan-menna-open-to-close",
   "imageUrl": "https://images.venti.live/user-images/1790261571481-lg.jpg",
-  "shortTitle": "Ivan Menna open to close",
-  "description": "Ivan Menna toca un set open to close en Switch Club, de la apertura al cierre. La entrada cuesta $14000.",
+  "shortTitle": "Ivan Menna open to close, fiesta",
+  "description": "Ivan Menna toca toda la noche, de apertura a cierre, en Switch Club. La entrada cuesta $14000.",
   "barrio": "Pichincha",
   "id": "ticketing-882e2efa",
   "status": "published",
   "fingerprint": "ivan menna open to close switch club|2026-10-24|switch",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Sobre Ruedas Rosas",
@@ -1188,13 +1075,13 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/sobre-ruedas-rosas",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-09/Sobre%20Ruedas.jpg.webp?itok=WXWrNjx4",
-  "shortTitle": "Sobre Ruedas Rosas",
+  "shortTitle": "Sobre Ruedas Rosas, muestra de autos",
   "barrio": "Costanera",
   "timeUnknown": true,
   "id": "municipal-12a3aeac",
   "status": "published",
   "fingerprint": "ruedas rosas|2026-10-25|complejo",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Los abrazos en Cine Lumière",
@@ -1209,13 +1096,13 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/los-abrazos-en-cine-lumiere",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-10/abrazos-gestor.jpg.webp?itok=ffQDxFcJ",
-  "shortTitle": "Los abrazos",
+  "shortTitle": "Los abrazos, película",
   "barrio": "Macrocentro",
   "timeUnknown": true,
   "id": "municipal-e1a36e4c",
   "status": "published",
   "fingerprint": "abrazos cine lumiere|2026-10-25|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Organismos estables presentan: Mozart y otros compositores",
@@ -1234,13 +1121,13 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/organismos-estables-presentan-mozart-y-otros-compositores",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-10/gestor_2.jpg.webp?itok=BbFkGaB7",
-  "shortTitle": "Mozart y otros compositores",
+  "shortTitle": "Mozart y otros, concierto",
   "barrio": "Centro",
   "timeUnknown": true,
   "id": "municipal-cd42533c",
   "status": "published",
   "fingerprint": "organismos estables presentan mozart otros compositores|2026-10-25|teatro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Show de Santiago Molina",
@@ -1255,13 +1142,13 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/show-de-santiago-molina",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-10/Santiago%20Molina.jpg.webp?itok=_dE2IklX",
-  "shortTitle": "Santiago Molina",
+  "shortTitle": "Santiago Molina, show de gaita",
   "barrio": "Centro",
   "timeUnknown": true,
   "id": "municipal-35c81dc6",
   "status": "published",
   "fingerprint": "santiago molina|2026-10-25|complejo",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Calle Recreativa",
@@ -1277,12 +1164,12 @@
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-10/calle_recretaiva.jpg.webp?itok=uS8FsFGk",
   "lat": -32.9317923,
   "lng": -60.6484671,
-  "shortTitle": "Calle Recreativa",
+  "shortTitle": "Calle Recreativa, actividad al aire",
   "barrio": "Pichincha",
   "id": "municipal-b3361f51",
   "status": "published",
   "fingerprint": "calle recreativa|2026-10-25|calle",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Tango en Calle",
@@ -1298,12 +1185,12 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/tango-en-calle",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2024-04/10.jpg.webp?itok=LmgpAS4Q",
-  "shortTitle": "Tango en Calle",
+  "shortTitle": "Tango en Calle, baile al aire libre",
   "barrio": "Pichincha",
   "id": "municipal-c644f762",
   "status": "published",
   "fingerprint": "tango calle|2026-10-25|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Pañuelos al Viento",
@@ -1320,16 +1207,16 @@
   "sourceType": "press",
   "sourceName": "Rosario3",
   "sourceUrl": "https://www.rosario3.com/ocio/que-hacemos-este-fin-de-semana-en-rosario-festival-bandera-ricardo-darin-angela-torres-los-nocheros-y-mas-20261023-0001.html",
-  "shortTitle": "Pañuelos al Viento",
+  "shortTitle": "Pañuelos al Viento, danza folclórica",
   "barrio": "Centro",
   "id": "press-48fe5fe0",
   "status": "published",
   "fingerprint": "panuelos viento|2026-10-25|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Turismo Carretera en el Autódromo de Rosario",
-  "description": "Fecha del Turismo Carretera en el Autódromo de Rosario. Es una competencia de automovilismo en pista.",
+  "description": "Fecha del campeonato de Turismo Carretera en el Autódromo de Rosario. Es una competencia de automovilismo para ver en las tribunas del circuito.",
   "startsAt": "2026-10-25T10:00:00-03:00",
   "venueName": "Autódromo de Rosario",
   "category": "deporte",
@@ -1342,12 +1229,12 @@
   },
   "lat": -32.9084328,
   "lng": -60.7466826,
-  "shortTitle": "Turismo Carretera",
+  "shortTitle": "Turismo Carretera, carrera",
   "barrio": "Oeste",
   "id": "tiktok-81c42fb4",
   "status": "published",
   "fingerprint": "turismo carretera autodromo rosario|2026-10-25|autodromo",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "El Festival Tercerescena ofrecerá el taller “El cuerpo cómico y la voz”",
@@ -1366,7 +1253,7 @@
   "id": "press-c50a8f7a",
   "status": "published",
   "fingerprint": "festival tercerescena ofrecera taller cuerpo comico voz|2026-10-25|plataforma",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Intensivo de danza de octubre ORGN: Acro Contempo y Contempo Fusión",
@@ -1384,12 +1271,12 @@
   },
   "lat": -32.937799,
   "lng": -60.6405797,
-  "shortTitle": "Intensivo de danza Acro Contempo",
+  "shortTitle": "Intensivo de danza contemporánea ORGN",
   "barrio": "Pichincha",
   "id": "instagram-510d88ad",
   "status": "published",
   "fingerprint": "intensivo danza octubre orgn acro contempo contempo fusion|2026-10-25|punto",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Rosario Car Show",
@@ -1402,12 +1289,12 @@
   "sourceType": "press",
   "sourceName": "Rosario3",
   "sourceUrl": "https://www.rosario3.com/ocio/que-hacemos-este-fin-de-semana-en-rosario-festival-bandera-ricardo-darin-angela-torres-los-nocheros-y-mas-20261023-0001.html",
-  "shortTitle": "Rosario Car Show",
+  "shortTitle": "Rosario Car Show, muestra de autos",
   "barrio": "Macrocentro",
   "id": "press-4466871e",
   "status": "published",
   "fingerprint": "rosario car|2026-10-25|portal",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Pre Cosquín 2027",
@@ -1425,12 +1312,12 @@
   "sourceType": "press",
   "sourceName": "Rosario3",
   "sourceUrl": "https://www.rosario3.com/ocio/que-hacemos-este-fin-de-semana-en-rosario-festival-bandera-ricardo-darin-angela-torres-los-nocheros-y-mas-20261023-0001.html",
-  "shortTitle": "Pre Cosquín 2027",
+  "shortTitle": "Pre Cosquín 2027, final y show",
   "barrio": "Centro",
   "id": "press-82c02f06",
   "status": "published",
   "fingerprint": "pre cosquin 2027|2026-10-25|galpon",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Samba al aire libre en el Playón Tecnóteca",
@@ -1447,12 +1334,12 @@
   },
   "lat": -32.944131999999996,
   "lng": -60.6304859,
-  "shortTitle": "Samba al aire libre",
+  "shortTitle": "Samba al aire libre, clase y música",
   "barrio": "Centro",
   "id": "instagram-3c37d09e",
   "status": "published",
   "fingerprint": "samba aire playon tecnoteca|2026-10-25|playon",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Funciones y proyecciones fulldome en la Sala Planetario",
@@ -1472,7 +1359,7 @@
   "id": "municipal-3a22480d",
   "status": "published",
   "fingerprint": "funciones proyecciones fulldome sala planetario|2026-10-25|complejo",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Un paseo por el Sistema Solar",
@@ -1490,7 +1377,7 @@
   "id": "press-48a173a9",
   "status": "published",
   "fingerprint": "paseo sistema solar|2026-10-25|planetario",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Halloween en Show Park",
@@ -1507,12 +1394,12 @@
   },
   "lat": -33.014706499999996,
   "lng": -60.62207910000001,
-  "shortTitle": "Halloween infantil",
+  "shortTitle": "Halloween en Show Park, parque temático",
   "barrio": "Villa G. Gálvez",
   "id": "tiktok-4a17b41b",
   "status": "published",
   "fingerprint": "halloween park|2026-10-25|show",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Bajo las banderas",
@@ -1529,16 +1416,16 @@
   "sourceUrl": "https://www.rosario3.com/ocio/que-hacemos-este-fin-de-semana-en-rosario-festival-bandera-ricardo-darin-angela-torres-los-nocheros-y-mas-20261023-0001.html",
   "lat": -32.9757786,
   "lng": -60.6514098,
-  "shortTitle": "Bajo las banderas",
+  "shortTitle": "Bajo las banderas, documental",
   "barrio": "Macrocentro",
   "id": "press-47e9ff6f",
   "status": "published",
   "fingerprint": "bajo banderas|2026-10-25|paraguay",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Masterclass de alisados en La Fábrica de las Rubias",
-  "description": "Masterclass de técnicas de alisado en la peluquería La Fábrica de las Rubias. Está pensada para quienes quieran aprender o perfeccionar estas técnicas.",
+  "description": "Masterclass de técnicas de alisado en la peluquería La Fábrica de las Rubias. Está pensada para quienes quieran aprender o perfeccionar estos tratamientos capilares.",
   "startsAt": "2026-10-25T18:00:00-03:00",
   "venueName": "Peluquería La Fábrica de las Rubias",
   "address": "Laprida 5283, Rosario",
@@ -1557,11 +1444,11 @@
   "id": "tiktok-aee2de6e",
   "status": "published",
   "fingerprint": "masterclass alisados fabrica rubias|2026-10-25|peluqueria",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Mujeres que dejan huella",
-  "description": "El domingo 25 de octubre a las 18:30 hs se presenta en el Teatro La Comedia el show de danza Mujeres que dejan huella, a cargo del Ballet Español de Rosario. Dirección general: Carina Nimitan y Marcela Delgado. Mujeres que aman y desafían aquello que les fue impuesto, mujeres que sostienen vínculos, tradiciones, familias y celebraciones; mujeres que se animan a pensar, crear, romper moldes y dejar su propia voz en la historia. No todas las mujeres dejan una huella de la misma manera. Algunas lo hacen en la historia. Otras en el arte. Otras en una familia. Otras simplemente en la vida de una persona… Una madre, una abuela, una tía, una hermana, una amiga, la maestra… “Porque dejar huella no siempre significa ser recordada por el mundo. A veces alcanza con haber cambiado para siempre el mundo de alguien.” Viajamos por la vida de esas mujeres, a través de la danza española y nuestro folclore argentino, fusionando ambos lenguajes con una mira contemporánea y poniendo el valor el legado recibido.\n\nFuentes: https://www.rosario.gob.ar/inicio/mujeres-que-dejan-huella, https://www.rosario3.com/ocio/que-hacemos-este-fin-de-semana-en-rosario-festival-bandera-ricardo-darin-angela-torres-los-nocheros-y-mas-20261023-0001.html",
+  "description": "El domingo 25 de octubre a las 18:30 hs se presenta en el Teatro La Comedia el show de danza Mujeres que dejan huella, a cargo del Ballet Español de Rosario. Dirección general: Carina Nimitan y Marcela Delgado. Mujeres que aman y desafían aquello que les fue impuesto, mujeres que sostienen vínculos, tradiciones, familias y celebraciones; mujeres que se animan a pensar, crear, romper moldes y dejar su propia voz en la historia. No todas las mujeres dejan una huella de la misma manera. Algunas lo hacen en la historia. Otras en el arte. Otras en una familia. Otras simplemente en la vida de una persona… Una madre, una abuela, una tía, una hermana, una amiga, la maestra… “Porque dejar huella no siempre significa ser recordada por el mundo. A veces alcanza con haber cambiado para siempre el mundo de alguien.” Viajamos por la vida de esas mujeres, a través de la danza española y nuestro folclore argentino, fusionando ambos lenguajes con una mira contemporánea y poniendo el valor el legado recibido.",
   "startsAt": "2026-10-25T18:30:00-03:00",
   "venueName": "Teatro Municipal La Comedia",
   "address": "MITRE GENERAL BARTOLOME 958",
@@ -1572,17 +1459,23 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/mujeres-que-dejan-huella",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-09/gestor.jpg.webp?itok=AvKFSJOf",
-  "shortTitle": "Mujeres que dejan huella",
+  "shortTitle": "Mujeres que dejan huella, show de danza",
   "barrio": "Centro",
+  "links": [
+   {
+    "label": "Nota de prensa",
+    "url": "https://www.rosario3.com/ocio/que-hacemos-este-fin-de-semana-en-rosario-festival-bandera-ricardo-darin-angela-torres-los-nocheros-y-mas-20261023-0001.html"
+   }
+  ],
   "id": "municipal-ea80f7ae",
   "status": "published",
   "fingerprint": "mujeres dejan huella|2026-10-25|teatro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Mujeres que dejan huellas - Ballet Español de Rosario",
   "shortTitle": "Mujeres que dejan huellas",
-  "description": "El Ballet Español de Rosario presenta un espectáculo de danza en homenaje a mujeres que hicieron historia. Entradas a la venta.\n\nFuentes: https://www.instagram.com/p/DeQg5Ukx88b/",
+  "description": "El Ballet Español de Rosario presenta un espectáculo de danza en homenaje a mujeres que hicieron historia. Entradas a la venta.",
   "startsAt": "2026-10-25T18:30:00-03:00",
   "venueName": "Teatro Municipal La Comedia",
   "address": "Mitre 958, Rosario",
@@ -1600,7 +1493,7 @@
   "id": "instagram-3eb7afe2",
   "status": "published",
   "fingerprint": "mujeres dejan huellas ballet espanol rosario|2026-10-25|teatro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Un hueco",
@@ -1614,16 +1507,16 @@
   "sourceType": "press",
   "sourceName": "Rosario3",
   "sourceUrl": "https://www.rosario3.com/ocio/que-hacemos-este-fin-de-semana-en-rosario-festival-bandera-ricardo-darin-angela-torres-los-nocheros-y-mas-20261023-0001.html",
-  "shortTitle": "Un hueco",
+  "shortTitle": "Un hueco, obra de teatro",
   "barrio": "Pichincha",
   "id": "press-39cea064",
   "status": "published",
   "fingerprint": "hueco|2026-10-25|teatro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Macbeth",
-  "description": "Función de Macbeth en el Teatro El Círculo a las 19 hs. Las entradas cuestan desde $40600.",
+  "description": "Función de Macbeth, la obra de Shakespeare, en el Teatro El Círculo. La función empieza a las 19 y las entradas arrancan desde $40600.",
   "startsAt": "2026-10-25T19:00:00-03:00",
   "venueName": "Teatro El Círculo",
   "address": "Laprida 1223",
@@ -1638,12 +1531,12 @@
   "sourceType": "ticketing",
   "sourceName": "Ticketek",
   "sourceUrl": "https://www.ticketek.com.ar/macbeth/teatro-el-circulo",
-  "shortTitle": "Macbeth",
+  "shortTitle": "Macbeth, obra de teatro",
   "barrio": "Centro",
   "id": "ticketing-36a96f0e",
   "status": "published",
   "fingerprint": "macbeth|2026-10-25|teatro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Macbeth de Verdi",
@@ -1660,16 +1553,16 @@
   },
   "lat": -32.944405599999996,
   "lng": -60.6412624,
-  "shortTitle": "Macbeth de Verdi",
+  "shortTitle": "Macbeth de Verdi, ópera",
   "barrio": "Centro",
   "id": "instagram-54b8e92d",
   "status": "published",
   "fingerprint": "macbeth verdi|2026-10-25|ballet",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Caballito de batalla",
-  "description": "Todos tenemos un caballito ganador que va al frente y nos rescata. Pero ¿qué sucede si un día pasa de moda? ¿Se puede sobrevivir a esa orfandad? ¿Cómo hacer casita en la intemperie cuando el paraguas que nos protegía se quiebra entre las manos? Ivi y Sebastián conviven, tienen recuerdos…\n\nFuentes: https://alpogo.com/evento/caballito-de-batalla-28543, https://www.rosario3.com/ocio/que-hacemos-este-fin-de-semana-en-rosario-festival-bandera-ricardo-darin-angela-torres-los-nocheros-y-mas-20261023-0001.html",
+  "description": "Todos tenemos un caballito ganador que va al frente y nos rescata. Pero ¿qué sucede si un día pasa de moda? ¿Se puede sobrevivir a esa orfandad? ¿Cómo hacer casita en la intemperie cuando el paraguas que nos protegía se quiebra entre las manos? Ivi y Sebastián conviven, tienen recuerdos…",
   "startsAt": "2026-10-25T20:00:00-03:00",
   "venueName": "TEATRO DE LA MANZANA",
   "address": "San Juan 1950, S2000BEH Rosario, Santa Fe, Argentina",
@@ -1677,7 +1570,7 @@
   "lng": -60.65080390000001,
   "category": "teatro",
   "sourceType": "ticketing",
-  "sourceName": "Rosario3",
+  "sourceName": "Alpogo",
   "sourceUrl": "https://alpogo.com/evento/caballito-de-batalla-28543",
   "price": {
    "free": false,
@@ -1685,12 +1578,18 @@
    "currency": "ARS"
   },
   "imageUrl": "https://imagenes.alpogo.com/eventos/96701a74-b931-4eb0-8c9a-87abcd9e683a.webp",
-  "shortTitle": "Caballito de batalla",
+  "shortTitle": "Caballito de batalla, obra de teatro",
   "barrio": "Centro",
+  "links": [
+   {
+    "label": "Nota de prensa",
+    "url": "https://www.rosario3.com/ocio/que-hacemos-este-fin-de-semana-en-rosario-festival-bandera-ricardo-darin-angela-torres-los-nocheros-y-mas-20261023-0001.html"
+   }
+  ],
   "id": "ticketing-01d7af88",
   "status": "published",
   "fingerprint": "caballito batalla|2026-10-25|teatro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Los abrazos",
@@ -1707,12 +1606,12 @@
   "sourceType": "press",
   "sourceName": "Rosario3",
   "sourceUrl": "https://www.rosario3.com/ocio/que-hacemos-este-fin-de-semana-en-rosario-festival-bandera-ricardo-darin-angela-torres-los-nocheros-y-mas-20261023-0001.html",
-  "shortTitle": "Los abrazos",
+  "shortTitle": "Los abrazos, película santafesina",
   "barrio": "Macrocentro",
   "id": "press-42998fae",
   "status": "published",
   "fingerprint": "abrazos|2026-10-25|cine",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Cada vez otra vez",
@@ -1725,12 +1624,12 @@
   "sourceUrl": "https://www.rosario3.com/ocio/que-hacemos-este-fin-de-semana-en-rosario-festival-bandera-ricardo-darin-angela-torres-los-nocheros-y-mas-20261023-0001.html",
   "lat": -32.9342766,
   "lng": -60.671192299999994,
-  "shortTitle": "Cada vez otra vez",
+  "shortTitle": "Cada vez otra vez, danza contemporánea",
   "barrio": "Macrocentro",
   "id": "press-d3bc29b8",
   "status": "published",
   "fingerprint": "cada vez otra vez|2026-10-25|espacio",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Sin fronteras",
@@ -1747,12 +1646,12 @@
   "sourceType": "press",
   "sourceName": "Rosario3",
   "sourceUrl": "https://www.rosario3.com/ocio/que-hacemos-este-fin-de-semana-en-rosario-festival-bandera-ricardo-darin-angela-torres-los-nocheros-y-mas-20261023-0001.html",
-  "shortTitle": "Sin fronteras",
+  "shortTitle": "Sin fronteras, música y clown",
   "barrio": "Centro",
   "id": "press-08927bb0",
   "status": "published",
   "fingerprint": "fronteras|2026-10-25|plataforma",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Las escenas secundarias",
@@ -1765,12 +1664,12 @@
   "sourceUrl": "https://www.rosario3.com/ocio/que-hacemos-este-fin-de-semana-en-rosario-festival-bandera-ricardo-darin-angela-torres-los-nocheros-y-mas-20261023-0001.html",
   "lat": -32.9342766,
   "lng": -60.671192299999994,
-  "shortTitle": "Las escenas secundarias",
+  "shortTitle": "Las escenas secundarias, teatro",
   "barrio": "Macrocentro",
   "id": "press-f58758c9",
   "status": "published",
   "fingerprint": "escenas secundarias|2026-10-25|espacio",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Escenas de la vida conyugal",
@@ -1783,12 +1682,12 @@
   "sourceType": "press",
   "sourceName": "Rosario3",
   "sourceUrl": "https://www.rosario3.com/ocio/que-hacemos-este-fin-de-semana-en-rosario-festival-bandera-ricardo-darin-angela-torres-los-nocheros-y-mas-20261023-0001.html",
-  "shortTitle": "Escenas de la vida conyugal",
+  "shortTitle": "Escenas de la vida conyugal, con Darín",
   "barrio": "Centro",
   "id": "press-f2db6b72",
   "status": "published",
   "fingerprint": "escenas vida conyugal|2026-10-25|teatro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Desde un nuevo lugar",
@@ -1802,17 +1701,17 @@
   "sourceType": "press",
   "sourceName": "Rosario3",
   "sourceUrl": "https://www.rosario3.com/ocio/que-hacemos-este-fin-de-semana-en-rosario-festival-bandera-ricardo-darin-angela-torres-los-nocheros-y-mas-20261023-0001.html",
-  "shortTitle": "Desde un nuevo lugar",
+  "shortTitle": "Santiago Molina, música celta y folclore",
   "barrio": "Centro",
   "id": "press-cf8b33ae",
   "status": "published",
   "fingerprint": "nuevo lugar|2026-10-25|complejo",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Para anormales",
   "shortTitle": "Para anormales",
-  "description": "Este domingo a las 20.30, se presentará Para anormales, una comedia de Matías Del Federico y Daniel Veronese sobre una reunión de padres que toma un giro inesperado. En Cultural de Abajo.\n\nFuentes: https://www.rosario3.com/ocio/que-hacemos-este-fin-de-semana-en-rosario-festival-bandera-ricardo-darin-angela-torres-los-nocheros-y-mas-20261023-0001.html",
+  "description": "Este domingo a las 20.30, se presentará Para anormales, una comedia de Matías Del Federico y Daniel Veronese sobre una reunión de padres que toma un giro inesperado. En Cultural de Abajo.",
   "startsAt": "2026-10-25T20:30:00-03:00",
   "venueName": "Cultural de Abajo",
   "address": "Entre Ríos 579, Rosario",
@@ -1826,7 +1725,7 @@
   "id": "press-a81637eb",
   "status": "published",
   "fingerprint": "anormales|2026-10-25|cultural",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Para anormales, comedia en Cultural de Abajo",
@@ -1854,7 +1753,7 @@
   "id": "instagram-8eb5f76c",
   "status": "published",
   "fingerprint": "anormales comedia cultural abajo|2026-10-25|cultural",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Despertar de primavera",
@@ -1867,12 +1766,12 @@
   "sourceType": "press",
   "sourceName": "Rosario3",
   "sourceUrl": "https://www.rosario3.com/ocio/que-hacemos-este-fin-de-semana-en-rosario-festival-bandera-ricardo-darin-angela-torres-los-nocheros-y-mas-20261023-0001.html",
-  "shortTitle": "Despertar de primavera",
+  "shortTitle": "Despertar de primavera, musical",
   "barrio": "Centro",
   "id": "press-88d27975",
   "status": "published",
   "fingerprint": "despertar primavera|2026-10-25|teatro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Ricardo Darín y Andrea Pietra en Escenas de la vida conyugal",
@@ -1889,12 +1788,12 @@
   },
   "lat": -32.945553100000005,
   "lng": -60.63949149999999,
-  "shortTitle": "Darín y Pietra en Escenas conyugales",
+  "shortTitle": "Escenas de la vida conyugal, con Darín",
   "barrio": "Centro",
   "id": "tiktok-da726d3c",
   "status": "published",
   "fingerprint": "ricardo darin andrea pietra escenas vida conyugal|2026-10-25|teatro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "El cine El Cairo ofrecerá una nueva edición de “La Random”",
@@ -1907,12 +1806,12 @@
   "sourceUrl": "https://www.rosario3.com/ocio/que-hacemos-este-fin-de-semana-en-rosario-festival-bandera-ricardo-darin-angela-torres-los-nocheros-y-mas-20261023-0001.html",
   "lat": -32.9450198,
   "lng": -60.63795760000001,
-  "shortTitle": "Nueva edición de La Random",
+  "shortTitle": "La Random, cine sorpresa",
   "barrio": "Centro",
   "id": "press-b43520d7",
   "status": "published",
   "fingerprint": "cine cairo ofrecera nueva random|2026-10-25|cairo",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Bienestar y actividad física en San Martín A",
@@ -1928,12 +1827,12 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/bienestar-y-actividad-fisica-en-san-martin",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-04/WhatsApp%20Image%202026-04-08%20at%2009.54.38.jpeg.webp?itok=fYdynhJ6",
-  "shortTitle": "Bienestar y actividad física",
+  "shortTitle": "Bienestar y actividad física grupal",
   "barrio": "Villa G. Gálvez",
   "id": "municipal-7c1ebf37",
   "status": "published",
   "fingerprint": "bienestar actividad fisica san martin|2026-10-26|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Activá tu busqueda laboral en el Distrito Sudoeste",
@@ -1953,12 +1852,12 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/activa-tu-busqueda-laboral-en-el-distrito-sudoeste",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-04/WhatsApp%20Image%202026-04-06%20at%2012.37.59.jpeg.webp?itok=8PZFqo-C",
-  "shortTitle": "Activá tu búsqueda laboral",
+  "shortTitle": "Activá tu búsqueda laboral, asesoría",
   "barrio": "Macrocentro",
   "id": "municipal-ab11f767",
   "status": "published",
   "fingerprint": "activa tu busqueda laboral distrito sudoeste|2026-10-26|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Caminata rápida adultos en el sudoeste",
@@ -1979,7 +1878,7 @@
   "id": "municipal-e17dce6a",
   "status": "published",
   "fingerprint": "caminata rapida adultos sudoeste|2026-10-26|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Caminata adultos mayores en el sudoeste",
@@ -2000,7 +1899,7 @@
   "id": "municipal-dfc2e447",
   "status": "published",
   "fingerprint": "caminata adultos mayores sudoeste|2026-10-26|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Yoga para adultos",
@@ -2021,7 +1920,7 @@
   "id": "municipal-6145cd53",
   "status": "published",
   "fingerprint": "yoga adultos|2026-10-26|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Hockey para niños y preadolescentes en el Distrito Sudoeste",
@@ -2042,7 +1941,7 @@
   "id": "municipal-5390f53c",
   "status": "published",
   "fingerprint": "hockey ninos preadolescentes distrito sudoeste|2026-10-26|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Ajedrez para las infancias",
@@ -2063,7 +1962,7 @@
   "id": "municipal-a294ccd9",
   "status": "published",
   "fingerprint": "ajedrez infancias|2026-10-26|biblioteca",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Voley adolescentes en el distrito sudoeste",
@@ -2084,7 +1983,7 @@
   "id": "municipal-39c6a2ba",
   "status": "published",
   "fingerprint": "voley adolescentes distrito sudoeste|2026-10-26|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Animadores Juveniles en el Distrito Sudoeste",
@@ -2100,12 +1999,12 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/index.php/animadores-juveniles-en-el-distrito-sudoeste",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-04/PHOTO-2024-10-15-15-46-46.jpg.webp?itok=52xHp8pu",
-  "shortTitle": "Animadores juveniles",
+  "shortTitle": "Animadores juveniles, taller",
   "barrio": "Macrocentro",
   "id": "municipal-51b7acc1",
   "status": "published",
   "fingerprint": "animadores juveniles distrito sudoeste|2026-10-26|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Ajedrez: nivel intermedio-avanzados",
@@ -2121,12 +2020,12 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/index.php/ajedrez-nivel-intermedio-avanzados",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-02/Entrada%20de%20la%20Biblioteca%20Argentina%20Doctor%20Juan%20%C3%81lvarez.%20Secretar%C3%ADa%20de%20Cultura.%20Municipalidad%20de%20Rosario..png.webp?itok=qeiMc8Kw",
-  "shortTitle": "Ajedrez intermedio-avanzado",
+  "shortTitle": "Taller de ajedrez intermedio-avanzado",
   "barrio": "Centro",
   "id": "municipal-ab357820",
   "status": "published",
   "fingerprint": "ajedrez nivel intermedio avanzados|2026-10-26|biblioteca",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Odisea, de Homero a Christopher Nolan",
@@ -2141,12 +2040,12 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/odisea-de-homero-christopher-nolan",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-09/Profesora-y-Licenciada-en-Letras-%28UNR%29-Magdalena-Aliau.-En-la-Biblioteca-Argentina-Dr.-Juan-%C3%81lvarez.png.webp?itok=oXOHNele",
-  "shortTitle": "Odisea, de Homero a Christopher Nolan",
+  "shortTitle": "Odisea, de Homero a Nolan, charlas",
   "barrio": "Centro",
   "id": "municipal-02bc6f4a",
   "status": "published",
   "fingerprint": "odisea homero christopher nolan|2026-10-26|biblioteca",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Mis primeros pasos",
@@ -2166,12 +2065,12 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/index.php/mis-primeros-pasos",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-02/WhatsApp%20Image%202026-02-05%20at%2011.02.45%20AM.jpeg.webp?itok=YbdBbn1u",
-  "shortTitle": "Mis primeros pasos",
+  "shortTitle": "Mis primeros pasos, taller de tango",
   "barrio": "Pichincha",
   "id": "municipal-819d828b",
   "status": "published",
   "fingerprint": "mis primeros pasos|2026-10-26|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Taller de actuación Cuerpos Crudos en Sala Tandava",
@@ -2187,12 +2086,12 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/taller-de-actuacion-cuerpos-crudos-en-sala-tandava",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-02/Cuerpos%20Crudos.png.webp?itok=Q2u0p1Vd",
-  "shortTitle": "Taller de actuación Cuerpos Crudos",
+  "shortTitle": "Cuerpos Crudos, taller de actuación",
   "barrio": "Centro",
   "id": "municipal-3c7141f7",
   "status": "published",
   "fingerprint": "taller actuacion cuerpos crudos sala tandava|2026-10-26|sala",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Taller: “Borges, el lector exquisito”",
@@ -2207,13 +2106,13 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/taller-borges-el-lector-exquisito",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-09/Taller-Borges%2C-el-lector-exquisito.-En-la-Biblioteca-Argentina.png.webp?itok=lxh6-GUi",
-  "shortTitle": "Taller Borges, el lector exquisito",
+  "shortTitle": "Borges, el lector exquisito, taller",
   "barrio": "Centro",
   "timeUnknown": true,
   "id": "municipal-bf8471b7",
   "status": "published",
   "fingerprint": "taller borges lector exquisito|2026-10-27|biblioteca",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Huerta primavera-verano",
@@ -2229,13 +2128,13 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/huerta-primavera-verano",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-09/huerta.jpg.webp?itok=pyR4Eg6W",
-  "shortTitle": "Huerta primavera-verano",
+  "shortTitle": "Taller de huerta primavera-verano",
   "barrio": "Parque",
   "timeUnknown": true,
   "id": "municipal-79b75154",
   "status": "published",
   "fingerprint": "huerta primavera verano|2026-10-27|escuela",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Bienestar y actividad física en Puente Gallego",
@@ -2256,7 +2155,7 @@
   "id": "municipal-fbc8a05d",
   "status": "published",
   "fingerprint": "bienestar actividad fisica puente gallego|2026-10-27|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Gimnasia adultos en el sudoeste",
@@ -2277,7 +2176,7 @@
   "id": "municipal-9cd8b731",
   "status": "published",
   "fingerprint": "gimnasia adultos sudoeste|2026-10-27|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Visitas Guiadas Biblioteca Estrada",
@@ -2298,7 +2197,7 @@
   "id": "municipal-bbf3f2f4",
   "status": "published",
   "fingerprint": "visitas guiadas biblioteca estrada|2026-10-27|biblioteca",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Estaciones de Alfabetización para alumnos de segundo ciclo.",
@@ -2314,12 +2213,12 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/estaciones-de-alfabetizacion-para-alumnos-de-segundo-ciclo.",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-04/alfabetizacion.jpg.webp?itok=magxk6hW",
-  "shortTitle": "Estaciones de alfabetización",
+  "shortTitle": "Estaciones de alfabetización, 4º a 7º",
   "barrio": "Macrocentro",
   "id": "municipal-3c12afc8",
   "status": "published",
   "fingerprint": "estaciones alfabetizacion alumnos segundo ciclo|2026-10-27|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Gimnasia adultos mayores en el sudoeste",
@@ -2340,7 +2239,7 @@
   "id": "municipal-b0e4dd41",
   "status": "published",
   "fingerprint": "gimnasia adultos mayores sudoeste|2026-10-27|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Espacio de vida saludable: Cardio Nutri Dance",
@@ -2356,12 +2255,12 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/espacio-de-vida-saludable-cardio-nutri-dance-0",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-03/Cardio1_0.jpeg.webp?itok=b8p4eTnl",
-  "shortTitle": "Cardio Nutri Dance",
+  "shortTitle": "Cardio Nutri Dance, vida saludable",
   "barrio": "Macrocentro",
   "id": "municipal-673b8414",
   "status": "published",
   "fingerprint": "espacio vida saludable cardio nutri dance|2026-10-27|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Basquet niños y adolescentes en distrito sudoeste",
@@ -2382,7 +2281,7 @@
   "id": "municipal-1503a120",
   "status": "published",
   "fingerprint": "basquet ninos adolescentes distrito sudoeste|2026-10-27|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Consejo de Niñas y Niños en Casa de Cultura Barrio Alvear",
@@ -2403,7 +2302,7 @@
   "id": "municipal-0abee8c8",
   "status": "published",
   "fingerprint": "consejo ninas ninos casa cultura barrio alvear|2026-10-27|casa",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Fútbol niños y adolescentes en playón Tio Rolo",
@@ -2424,7 +2323,7 @@
   "id": "municipal-792acf3c",
   "status": "published",
   "fingerprint": "futbol ninos adolescentes playon tio rolo|2026-10-27|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Taller de lectura y conversación",
@@ -2440,12 +2339,12 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/taller-de-lectura-y-conversacion",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-07/Taller-de-lectura-y-conversaci%C3%B3n-P%C3%A1ginas-Femeninas.-En-la-Biblioteca-Argentina.png.webp?itok=tbffuWok",
-  "shortTitle": "Taller de lectura y conversación",
+  "shortTitle": "Páginas Femeninas, taller de lectura",
   "barrio": "Centro",
   "id": "municipal-caf6a8b5",
   "status": "published",
   "fingerprint": "taller lectura conversacion|2026-10-27|biblioteca",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Día Mundial de la Medicina Tradicional en el Sudoeste",
@@ -2466,7 +2365,7 @@
   "id": "municipal-083b3bed",
   "status": "published",
   "fingerprint": "dia mundial medicina tradicional sudoeste|2026-10-28|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Balcones y terrazas verdes",
@@ -2482,13 +2381,13 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/balcones-y-terrazas-verdes",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-09/CERCOS%20VIVOS.jpg.webp?itok=kJlk2YYg",
-  "shortTitle": "Balcones y terrazas verdes",
+  "shortTitle": "Balcones y terrazas verdes, taller",
   "barrio": "Parque",
   "timeUnknown": true,
   "id": "municipal-d9bc6a00",
   "status": "published",
   "fingerprint": "balcones terrazas verdes|2026-10-28|escuela",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Educación financiera para jóvenes",
@@ -2509,7 +2408,7 @@
   "id": "municipal-316f96b0",
   "status": "published",
   "fingerprint": "educacion financiera jovenes|2026-10-28|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Charlas sobre Ermete De Lorenzi en Casa Vanzo Wernicke",
@@ -2530,7 +2429,7 @@
   "id": "municipal-0ea993bd",
   "status": "published",
   "fingerprint": "charlas ermete lorenzi casa vanzo wernicke|2026-10-28|casa",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Conversaciones en la biblioteca: entrevista al fotógrafo Alejandro Lamas",
@@ -2545,13 +2444,13 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/index.php/conversaciones-en-la-biblioteca-entrevista-al-fotografo-alejandro-lamas",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-10/Alejandro-Lamas-en-la-Biblioteca-Argentina-Dr-Juan-%C3%81lvarez.png.webp?itok=N-oRtYXU",
-  "shortTitle": "Entrevista a Alejandro Lamas",
+  "shortTitle": "Entrevista al fotógrafo Alejandro Lamas",
   "barrio": "Centro",
   "timeUnknown": true,
   "id": "municipal-a532f754",
   "status": "published",
   "fingerprint": "conversaciones biblioteca entrevista fotografo alejandro lamas|2026-10-28|biblioteca",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "JORNADA PROFESIONAL OCT - \"SALUD, SEGURIDAD Y BIENESTAR LABORAL 2026\"",
@@ -2577,7 +2476,7 @@
   "id": "platform-f69f7009",
   "status": "published",
   "fingerprint": "jornada profesional oct salud seguridad bienestar laboral 2026|2026-10-28|instituto",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Taller de uso de celulares para adultos mayores en el Oeste",
@@ -2593,12 +2492,12 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/taller-de-uso-de-celulares-para-adultos-mayores-en-el-oeste",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-06/WhatsApp%20Image%202026-06-01%20at%2012.46.50.jpeg.webp?itok=HEMwfrks",
-  "shortTitle": "Celulares para adultos mayores",
+  "shortTitle": "Taller de celular para adultos mayores",
   "barrio": "Macrocentro",
   "id": "municipal-b3d1e24c",
   "status": "published",
   "fingerprint": "taller uso celulares adultos mayores oeste|2026-10-28|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Taller de literatura experimental: pluma salvaje",
@@ -2613,12 +2512,12 @@
   "sourceType": "municipal",
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/index.php/taller-de-literatura-experimental-pluma-salvaje",
-  "shortTitle": "Literatura experimental: pluma salvaje",
+  "shortTitle": "Pluma salvaje, taller de literatura",
   "barrio": "Centro",
   "id": "municipal-4b7cd900",
   "status": "published",
   "fingerprint": "taller literatura experimental pluma salvaje|2026-10-28|biblioteca",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Entrenamiento y Ensayo para bailarines de tango",
@@ -2639,7 +2538,7 @@
   "id": "municipal-45bc68d0",
   "status": "published",
   "fingerprint": "entrenamiento ensayo bailarines tango|2026-10-28|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Taller de Redes Sociales para Adultos Mayores en el Sudoeste",
@@ -2660,7 +2559,7 @@
   "id": "municipal-14269ba5",
   "status": "published",
   "fingerprint": "taller redes sociales adultos mayores sudoeste|2026-10-28|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Coresetería Victoriana Beskope",
@@ -2675,12 +2574,12 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/coreseteria-victoriana-beskope",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-06/WhatsApp%20Image%202026-06-10%20at%2010.16.37%20AM.jpeg.webp?itok=k5oyLkZv",
-  "shortTitle": "Corsetería victoriana Beskope",
+  "shortTitle": "Corsetería victoriana, curso",
   "barrio": "Centro",
   "id": "municipal-665d78f8",
   "status": "published",
   "fingerprint": "coreseteria victoriana beskope|2026-10-28|museo",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Taller de Técnicas de Danza y Composición Instantánea",
@@ -2696,12 +2595,12 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/taller-de-tecnicas-de-danza-y-composicion-instantanea",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-07/T%C3%A9cnicas%20de%20Danza%20y%20Composici%C3%B3n.jpg.webp?itok=2qkGyGnU",
-  "shortTitle": "Danza y composición instantánea",
+  "shortTitle": "Taller de danza y composición",
   "barrio": "Pichincha",
   "id": "municipal-1e539d20",
   "status": "published",
   "fingerprint": "taller tecnicas danza composicion instantanea|2026-10-28|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Vamos a conversar sobre cuestiones relativas al trabajo.",
@@ -2719,12 +2618,12 @@
   "sourceType": "platform",
   "sourceName": "Meetup · Meetup Hablemos de trabajo",
   "sourceUrl": "https://www.meetup.com/meetup-hablemos-de-trabajo/events/316902881/",
-  "shortTitle": "Charla sobre el trabajo",
+  "shortTitle": "Charla sobre trabajo y currículum",
   "barrio": "Macrocentro",
   "id": "platform-6e62ab65",
   "status": "published",
   "fingerprint": "vamos conversar cuestiones relativas trabajo|2026-10-28|cordoba",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Talleres anuales de Tango Danza",
@@ -2745,7 +2644,7 @@
   "id": "municipal-85532623",
   "status": "published",
   "fingerprint": "talleres anuales tango danza|2026-10-28|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "J. S. Bach: Cantatas para Alto y concierto para tres violines y orquesta",
@@ -2764,12 +2663,12 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/j.-s.-bach-cantatas-para-alto-y-concierto-para-tres-violines-y-orquesta",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-10/_MG_4546.jpg.webp?itok=eVRKwINn",
-  "shortTitle": "Bach: cantatas para alto y concierto",
+  "shortTitle": "Bach, concierto de cámara",
   "barrio": "Centro",
   "id": "municipal-97f35903",
   "status": "published",
   "fingerprint": "bach cantatas alto concierto tres violines orquesta|2026-10-28|teatro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Taller \"Aprendé a manejar tu celular\"",
@@ -2784,13 +2683,13 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/taller-aprende-manejar-tu-celular",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-10/Aprende%20a%20manejar%20tu%20celular.png.webp?itok=-RTSNbuE",
-  "shortTitle": "Aprendé a manejar tu celular",
+  "shortTitle": "Aprendé a manejar tu celular, taller",
   "barrio": "Macrocentro",
   "timeUnknown": true,
   "id": "municipal-c20074bf",
   "status": "published",
   "fingerprint": "taller aprende manejar tu celular|2026-10-29|biblioteca",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Proyección de Un cabo suelto en Cine Lumière",
@@ -2809,13 +2708,13 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/proyeccion-de-un-cabo-suelto-en-cine-lumiere",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-10/cabo-suelto-gestor.jpg.webp?itok=v8BUxkwe",
-  "shortTitle": "Proyección de Un cabo suelto",
+  "shortTitle": "Un cabo suelto, película",
   "barrio": "Macrocentro",
   "timeUnknown": true,
   "id": "municipal-889f0fb6",
   "status": "published",
   "fingerprint": "proyeccion cabo suelto cine lumiere|2026-10-29|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Ciclo de Teatro +65: Babilonia",
@@ -2830,13 +2729,13 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/ciclo-de-teatro-65-babilonia",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-09/15b180c4-4a86-4da9-a4af-912ee6b50fec.jpg.webp?itok=6dKZsb8K",
-  "shortTitle": "Teatro +65: Babilonia",
+  "shortTitle": "Babilonia, teatro +65",
   "barrio": "Sur",
   "timeUnknown": true,
   "id": "municipal-29298dcd",
   "status": "published",
   "fingerprint": "ciclo teatro 65 babilonia|2026-10-29|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Muestra: La Canción del barrio",
@@ -2851,13 +2750,13 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/muestra-la-cancion-del-barrio",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-10/IMG-20261023-WA0026.jpg.webp?itok=kpgM1xsl",
-  "shortTitle": "Muestra La Canción del barrio",
+  "shortTitle": "La canción del barrio, muestra de rock",
   "barrio": "Sur",
   "timeUnknown": true,
   "id": "municipal-c8fceadf",
   "status": "published",
   "fingerprint": "muestra cancion barrio|2026-10-29|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Circuito Interbarrial de teatro “Babilonia”",
@@ -2872,13 +2771,13 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/circuito-interbarrial-de-teatro-babilonia",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-10/circuito_interbarrial_teatro%205.png.webp?itok=_OxBaasH",
-  "shortTitle": "Teatro interbarrial Babilonia",
+  "shortTitle": "Babilonia, teatro barrial",
   "barrio": "Villa G. Gálvez",
   "timeUnknown": true,
   "id": "municipal-628804b1",
   "status": "published",
   "fingerprint": "circuito interbarrial teatro babilonia|2026-10-29|area",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Café Literario",
@@ -2893,13 +2792,13 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/cafe-literario-0",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-10/DSC_0204.JPG.webp?itok=XpRvdP0n",
-  "shortTitle": "Café Literario",
+  "shortTitle": "Café Literario de los derechos",
   "barrio": "Centro",
   "timeUnknown": true,
   "id": "municipal-449613e3",
   "status": "published",
   "fingerprint": "cafe literario|2026-10-29|facultad",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Un Maldito Policía en Cine Lumière",
@@ -2918,13 +2817,13 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/un-maldito-policia-en-cine-lumiere",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-10/maldito-gestor.jpg.webp?itok=oeUuqa8B",
-  "shortTitle": "Un Maldito Policía",
+  "shortTitle": "Un maldito policía, cine",
   "barrio": "Macrocentro",
   "timeUnknown": true,
   "id": "municipal-77d300c5",
   "status": "published",
   "fingerprint": "maldito policia cine lumiere|2026-10-29|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Muestra de fin de año de la Escuela de Danzas",
@@ -2940,13 +2839,13 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/muestra-de-fin-de-ano-de-la-escuela-de-danzas",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-10/Danza-193.jpg.webp?itok=gfVQz0Uy",
-  "shortTitle": "Muestra de fin de año de la Escuela",
+  "shortTitle": "Muestra de fin de año de danzas",
   "barrio": "Centro",
   "timeUnknown": true,
   "id": "municipal-8398695b",
   "status": "published",
   "fingerprint": "muestra fin ano escuela danzas|2026-10-29|teatro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Literatura para jardines. Lecturas entre amantes de la naturaleza",
@@ -2966,12 +2865,12 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/literatura-para-jardines.-lecturas-entre-amantes-de-la-naturaleza-0",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-05/Literatura-para-jardines.-Lecturas-entre-amantes-de-la-naturaleza-en-la-Biblioteca-Argentina-Dr.-Juan-%C3%81lvarez.png.webp?itok=2ODy2oa7",
-  "shortTitle": "Literatura para jardines",
+  "shortTitle": "Literatura para jardines, taller",
   "barrio": "Centro",
   "id": "municipal-87b10615",
   "status": "published",
   "fingerprint": "literatura jardines lecturas amantes naturaleza|2026-10-29|biblioteca",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Taller de literatura con adolescentes en la Biblioteca Argentina",
@@ -2986,12 +2885,12 @@
   "sourceType": "municipal",
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/taller-de-literatura-con-adolescentes-en-la-biblioteca-argentina",
-  "shortTitle": "Taller de literatura con adolescentes",
+  "shortTitle": "Taller de literatura para adolescentes",
   "barrio": "Centro",
   "id": "municipal-64540013",
   "status": "published",
   "fingerprint": "taller literatura adolescentes biblioteca argentina|2026-10-29|biblioteca",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Pre Congreso sobre la Democracia Rosario En Común. Día 1",
@@ -3010,7 +2909,7 @@
   "id": "municipal-837490c4",
   "status": "published",
   "fingerprint": "pre congreso democracia rosario comun dia|2026-10-29|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Memorias del Exilio: \"Zurcir voces hasta volverlas familiares\"",
@@ -3030,12 +2929,12 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/index.php/memorias-del-exilio-zurcir-voces-hasta-volverlas-familiares",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-10/muestra_memorias_exilios.jpg.webp?itok=-sKBLPdj",
-  "shortTitle": "Memorias del Exilio",
+  "shortTitle": "Zurcir voces, taller sobre exilio",
   "barrio": "Pichincha",
   "id": "municipal-80b7b953",
   "status": "published",
   "fingerprint": "memorias exilio zurcir voces volverlas familiares|2026-10-29|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "¿Querés que te cuente un cuento?",
@@ -3050,12 +2949,12 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/queres-que-te-cuente-un-cuento-0",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-09/Gestor%20%20900%20x%20600%20laura%202.png.webp?itok=hreM12lT",
-  "shortTitle": "¿Querés que te cuente un cuento?",
+  "shortTitle": "Taller de lectura para chicos",
   "barrio": "Macrocentro",
   "id": "municipal-43acaa93",
   "status": "published",
   "fingerprint": "queres te cuente cuento|2026-10-29|biblioteca",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "ProductTank Rosario 1.0",
@@ -3074,16 +2973,16 @@
   "sourceName": "Meetup · ProductTank Rosario",
   "sourceUrl": "https://www.meetup.com/producttank-rosario/events/317053164/",
   "imageUrl": "https://secure.meetupstatic.com/photos/event/c/d/2/6/highres_536692518.jpeg",
-  "shortTitle": "ProductTank Rosario 1.0",
+  "shortTitle": "ProductTank, charlas de producto",
   "barrio": "Centro",
   "id": "platform-051077d7",
   "status": "published",
   "fingerprint": "producttank rosario|2026-10-29|tecnoteca",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Macbeth",
-  "description": "Función de Macbeth en el Teatro El Círculo a las 20 hs. Las entradas cuestan desde $40600.",
+  "description": "Función de Macbeth, la obra de Shakespeare, en el Teatro El Círculo. La función empieza a las 20 y las entradas arrancan desde $40600.",
   "startsAt": "2026-10-29T20:00:00-03:00",
   "venueName": "Teatro El Círculo",
   "address": "Laprida 1223",
@@ -3098,16 +2997,16 @@
   "sourceType": "ticketing",
   "sourceName": "Ticketek",
   "sourceUrl": "https://www.ticketek.com.ar/macbeth/teatro-el-circulo",
-  "shortTitle": "Macbeth",
+  "shortTitle": "Macbeth, obra de teatro",
   "barrio": "Centro",
   "id": "ticketing-3cddcc0a",
   "status": "published",
   "fingerprint": "macbeth|2026-10-29|teatro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Macbeth de Verdi (función abono)",
-  "description": "Ópera Macbeth de Giuseppe Verdi, que se presenta por primera vez en Rosario. Se trata de una función de abono.",
+  "description": "Función de abono de Macbeth, la ópera de Giuseppe Verdi, que se presenta por primera vez en Rosario. La obra está basada en la tragedia de Shakespeare.",
   "startsAt": "2026-10-29T20:00:00-03:00",
   "venueName": "Ballet Ruso de Rosario",
   "category": "teatro",
@@ -3120,12 +3019,12 @@
   },
   "lat": -32.944405599999996,
   "lng": -60.6412624,
-  "shortTitle": "Macbeth de Verdi (función abono)",
+  "shortTitle": "Macbeth de Verdi, ópera (abono)",
   "barrio": "Centro",
   "id": "instagram-e928026a",
   "status": "published",
   "fingerprint": "macbeth verdi funcion abono|2026-10-29|ballet",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Piedra y camino. Cantata a la Luna en el CAM",
@@ -3144,12 +3043,12 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/piedra-y-camino.-cantata-la-luna-en-el-cam",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-09/IMG-20260929-WA0055.jpg.jpeg.webp?itok=FW30Exvk",
-  "shortTitle": "Piedra y camino. Cantata a la Luna",
+  "shortTitle": "Piedra y camino, peña folclórica",
   "barrio": "Costanera",
   "id": "municipal-95b1f8c7",
   "status": "published",
   "fingerprint": "piedra camino cantata luna cam|2026-10-29|complejo",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Jornada de recepción de residuos informáticos",
@@ -3171,7 +3070,7 @@
   "id": "municipal-0273b5af",
   "status": "published",
   "fingerprint": "jornada recepcion residuos informaticos|2026-10-30|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Taller didáctico de carpintería: \"De la madera a la mesa\"",
@@ -3186,13 +3085,13 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/index.php/taller-didactico-de-carpinteria-de-la-madera-la-mesa",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-10/WhatsApp%20Image%202026-10-15%20at%2012.33.11%20%281%29.jpeg.webp?itok=AbkCSnbq",
-  "shortTitle": "Taller de carpintería",
+  "shortTitle": "Taller de carpintería para mayores",
   "barrio": "Macrocentro",
   "timeUnknown": true,
   "id": "municipal-0767381e",
   "status": "published",
   "fingerprint": "taller didactico carpinteria madera mesa|2026-10-30|mercado",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Propuesta para profesorados: \"Experiencia Imaginada\"",
@@ -3207,13 +3106,13 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/propuesta-para-profesorados-experiencia-imaginada",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-08/Propuesta-para-profesorados-Experiencia-Imaginada.-En-la-Biblioteca-Argentina.png.webp?itok=lb8TB3Pa",
-  "shortTitle": "Experiencia Imaginada para profesorados",
+  "shortTitle": "Experiencia Imaginada, para profesorados",
   "barrio": "Centro",
   "timeUnknown": true,
   "id": "municipal-6f2809e1",
   "status": "published",
   "fingerprint": "propuesta profesorados experiencia imaginada|2026-10-30|biblioteca",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Reconocimiento a Mujeres que educan en el Noroeste",
@@ -3228,13 +3127,13 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/reconocimiento-mujeres-que-educan-en-el-noroeste",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-08/19.jpeg.webp?itok=gjzaZ43t",
-  "shortTitle": "Reconocimiento a Mujeres que educan",
+  "shortTitle": "Reconocimiento a mujeres que educan",
   "barrio": "Oeste",
   "timeUnknown": true,
   "id": "municipal-feb617b2",
   "status": "published",
   "fingerprint": "reconocimiento mujeres educan noroeste|2026-10-30|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "La Biblioteca Argentina en la Noche de Museos Abiertos",
@@ -3254,7 +3153,7 @@
   "id": "municipal-56b479f9",
   "status": "published",
   "fingerprint": "biblioteca argentina museos abiertos|2026-10-30|biblioteca",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Ciclo de Teatro +65: El Club de la Risa",
@@ -3270,13 +3169,13 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/ciclo-de-teatro-65-el-club-de-la-risa",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-10/club_risas_rosario.jpeg.webp?itok=esn3SfRI",
-  "shortTitle": "Teatro +65: El Club de la Risa",
+  "shortTitle": "El Club de la Risa, teatro +65",
   "barrio": "Macrocentro",
   "timeUnknown": true,
   "id": "municipal-5b9a5251",
   "status": "published",
   "fingerprint": "ciclo teatro 65 club risa|2026-10-30|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Una casa y tres protagonistas | Noche de Museos Abiertos en Casa Vanzo Wernicke",
@@ -3291,13 +3190,13 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/una-casa-y-tres-protagonistas-noche-de-museos-abiertos-en-casa-vanzo-wernicke",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-10/Noche-de-Museos-Abiertos-CULTURA_0.jpg.webp?itok=yRzDYQUk",
-  "shortTitle": "Una casa y tres protagonistas",
+  "shortTitle": "Una casa y tres protagonistas, visita",
   "barrio": "Parque",
   "timeUnknown": true,
   "id": "municipal-1fc0c8f2",
   "status": "published",
   "fingerprint": "casa tres protagonistas museos abiertos casa vanzo wernicke|2026-10-30|casa",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Micelia 360º | Arte, tecnología y creación inmersiva en el Complejo Astronómico",
@@ -3317,13 +3216,13 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/index.php/micelia-360o-arte-tecnologia-y-creacion-inmersiva-en-el-complejo-astronomico",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-10/header-web-sigilos2-down-arrow%20%281%29_0.jpg.webp?itok=YPoFGbez",
-  "shortTitle": "Micelia 360º, arte inmersivo",
+  "shortTitle": "Micelia 360, arte inmersivo",
   "barrio": "Costanera",
   "timeUnknown": true,
   "id": "municipal-d7790c57",
   "status": "published",
   "fingerprint": "micelia 360 arte tecnologia creacion inmersiva complejo astronomico|2026-10-30|complejo",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Un cielo de seis cuerdas",
@@ -3338,13 +3237,13 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/un-cielo-de-seis-cuerdas",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-07/taller%20intensivo%20con%20jorge%20blengini.png.webp?itok=BboZCxjP",
-  "shortTitle": "Un cielo de seis cuerdas",
+  "shortTitle": "Un cielo de seis cuerdas, guitarra",
   "barrio": "Pichincha",
   "timeUnknown": true,
   "id": "municipal-e03b5143",
   "status": "published",
   "fingerprint": "cielo seis cuerdas|2026-10-30|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Terror en VHS en Cine Lumière",
@@ -3359,13 +3258,13 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/terror-en-vhs-en-cine-lumiere-8",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-10/VHS-plantilla-gestor.jpg.webp?itok=4wPITwVz",
-  "shortTitle": "Terror en VHS",
+  "shortTitle": "Terror en VHS, cine",
   "barrio": "Macrocentro",
   "timeUnknown": true,
   "id": "municipal-97092cd1",
   "status": "published",
   "fingerprint": "terror vhs cine lumiere|2026-10-30|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "El bingo musical de Veto y Fer",
@@ -3380,13 +3279,13 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/el-bingo-musical-de-veto-y-fer-2",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-10/El%20bingo%20musical%20de%20Veto%20y%20Fer.jpg.webp?itok=pypa8AZi",
-  "shortTitle": "El bingo musical de Veto y Fer",
+  "shortTitle": "Bingo musical de Veto y Fer",
   "barrio": "Centro",
   "timeUnknown": true,
   "id": "municipal-27c096ec",
   "status": "published",
   "fingerprint": "bingo musical veto fer|2026-10-30|complejo",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Halloween en Show Park",
@@ -3403,12 +3302,12 @@
   },
   "lat": -33.014706499999996,
   "lng": -60.62207910000001,
-  "shortTitle": "Halloween infantil",
+  "shortTitle": "Halloween en Show Park, parque temático",
   "barrio": "Villa G. Gálvez",
   "id": "tiktok-9e3488c1",
   "status": "published",
   "fingerprint": "halloween park|2026-10-30|show",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Laboratorio de Análisis Cultural: Identidades en tensión. Migraciones, tecnologías y cultura popular en Rosario",
@@ -3423,16 +3322,16 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/laboratorio-de-analisis-cultural-identidades-en-tension.-migraciones-tecnologias-y-cultura-popular",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-10/Identidad%20y%20migraciones%20web.jpeg.webp?itok=BK2Fx-Hj",
-  "shortTitle": "Laboratorio: Identidades en tensión",
+  "shortTitle": "Identidades en tensión, laboratorio",
   "barrio": "Centro",
   "id": "municipal-1e84355d",
   "status": "published",
   "fingerprint": "laboratorio analisis cultural identidades tension migraciones tecnologias cultura popular rosario|2026-10-30|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "III Jornada Taller de tesistas en Humanidades y Artes",
-  "description": "Jornada híbrida sobre prácticas de investigación y actualización bibliográfica, primer día.\n\nFuentes: https://www.instagram.com/p/DemrhaOmqdv/",
+  "description": "Jornada híbrida sobre prácticas de investigación y actualización bibliográfica, primer día.",
   "startsAt": "2026-10-30T18:00:00-03:00",
   "venueName": "Facultad de Humanidades y Artes (UNR)",
   "address": "Entre Ríos 758, Rosario",
@@ -3447,11 +3346,11 @@
    "views": 0,
    "likes": 33
   },
-  "shortTitle": "Jornada Taller de tesistas",
+  "shortTitle": "Jornada taller de tesistas",
   "id": "instagram-8cf15fcb",
   "status": "published",
   "fingerprint": "iii jornada taller tesistas humanidades artes|2026-10-30|facultad",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "La Tardecita en The Wine Bar (fecha reprogramada)",
@@ -3468,12 +3367,12 @@
   },
   "lat": -32.935530299999996,
   "lng": -60.6522231,
-  "shortTitle": "La Tardecita",
+  "shortTitle": "La Tardecita, fiesta (reprogramada)",
   "barrio": "Pichincha",
   "id": "instagram-10cf9999",
   "status": "published",
   "fingerprint": "tardecita wine bar fecha reprogramada|2026-10-30|the",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Pre Congreso sobre la Democracia Rosario En Común. Día 2",
@@ -3492,7 +3391,7 @@
   "id": "municipal-f4bab666",
   "status": "published",
   "fingerprint": "pre congreso democracia rosario comun dia|2026-10-30|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Muestra/talleres Colegas",
@@ -3512,12 +3411,12 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/muestratalleres-colegas",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-10/Muestra%20CCPE.png.webp?itok=hF4NXFC-",
-  "shortTitle": "Muestra y talleres Colegas",
+  "shortTitle": "Colegas, muestra de tejido",
   "barrio": "Pichincha",
   "id": "municipal-30e900b3",
   "status": "published",
   "fingerprint": "muestra talleres colegas|2026-10-30|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Función del CIT: Los Disfrazados",
@@ -3532,12 +3431,12 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/funcion-del-cit-los-disfrazados",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-10/0a79994a-a7e3-4dbe-b5a0-4a09fbf4a753.jpg.webp?itok=PGGQUfzi",
-  "shortTitle": "Los Disfrazados",
+  "shortTitle": "Los Disfrazados, teatro",
   "barrio": "Oeste",
   "id": "municipal-c4bb49b6",
   "status": "published",
   "fingerprint": "funcion cit disfrazados|2026-10-30|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Ciclo de Teatro + 65: Función de Los Disfrazados en el CMD Noroeste",
@@ -3552,16 +3451,16 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/ciclo-de-teatro-65-funcion-de-los-disfrazados-en-el-cmd-noroeste",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-10/disfrazados-gestor.jpg.png.webp?itok=1HZTBtNk",
-  "shortTitle": "Teatro +65: Los Disfrazados",
+  "shortTitle": "Los Disfrazados, teatro +65",
   "barrio": "Oeste",
   "id": "municipal-329ec1ad",
   "status": "published",
   "fingerprint": "ciclo teatro 65 funcion disfrazados cmd noroeste|2026-10-30|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "🌇 SUNSET CRISTAL CLUB/ ZETA CLUB 🌇",
-  "description": "Fiesta sunset con entrada gratuita en Güemes 2607. El line up incluye a Syxta b2b Vyka, Luciawine y Emanuel Fabbri.",
+  "description": "Fiesta sunset con Syxta b2b Vyka, Luciawine y Emanuel Fabbri. La entrada es gratis.",
   "startsAt": "2026-10-30T19:00:00-03:00",
   "endsAt": "2026-10-30T23:59:00-03:00",
   "venueName": "Güemes 2607",
@@ -3579,12 +3478,12 @@
   "sourceName": "Venti",
   "sourceUrl": "https://venti.live/evento/sunset-cristal-club-zeta-club",
   "imageUrl": "https://images.venti.live/user-images/1792623055944-lg.jpg",
-  "shortTitle": "Sunset Cristal Club y Zeta Club",
+  "shortTitle": "Sunset Cristal Club y Zeta Club, fiesta",
   "barrio": "Pichincha",
   "id": "ticketing-4c454943",
   "status": "published",
   "fingerprint": "sunset cristal club zeta club|2026-10-30|guemes",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Ciclo de Teatro +65: Función de Historias Nuestras en el marco de La Noche de Las Peatonales",
@@ -3599,12 +3498,12 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/ciclo-de-teatro-65-funcion-de-historias-nuestras-en-el-marco-de-la-noche-de-las-peatonales",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-10/Historias%20Nuestras.png.png.webp?itok=mJyj5KFR",
-  "shortTitle": "Teatro +65: Historias Nuestras",
+  "shortTitle": "Historias Nuestras, teatro +65",
   "barrio": "Centro",
   "id": "municipal-9eb769c0",
   "status": "published",
   "fingerprint": "ciclo teatro 65 funcion historias nuestras marco peatonales|2026-10-30|biblioteca",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "COMO MIRAR FIJO AL SOL",
@@ -3624,12 +3523,12 @@
   "sourceName": "Alpogo",
   "sourceUrl": "https://alpogo.com/evento/como-mirar-fijo-al-sol-29803",
   "imageUrl": "https://imagenes.alpogo.com/eventos/alta_evento_1792769058_6adb7c2240e3d.jpg",
-  "shortTitle": "Como Mirar Fijo al Sol",
+  "shortTitle": "Sofía Lara Petkos, presentación de EP",
   "barrio": "Centro",
   "id": "ticketing-ec47deab",
   "status": "published",
   "fingerprint": "como mirar fijo sol|2026-10-30|casona",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Turbio Especial Halloween: Terror en el Shopping",
@@ -3651,12 +3550,12 @@
   "sourceName": "Eventbrite",
   "sourceUrl": "https://www.eventbrite.com.ar/e/turbio-especial-halloween-terror-en-el-shopping-tickets-2003381888157",
   "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1195742021%2F993205438303%2F1%2Foriginal.20261014-001347?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=5fe4b3f85d8c6abb892dd7e287d8cf9c",
-  "shortTitle": "Turbio Especial Halloween",
+  "shortTitle": "Turbio, fiesta de Halloween",
   "barrio": "Centro",
   "id": "platform-e46505a7",
   "status": "published",
   "fingerprint": "turbio especial halloween terror shopping|2026-10-30|pres",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Camilo",
@@ -3670,13 +3569,13 @@
   "sourceName": "Entradauno",
   "sourceUrl": "https://www.turboentrada.com/landing/16627-camilo?idEspectaculoCartel=16627&cHashValidacion=1bd8390caed96437e615ac95087e3c06082f3f5a",
   "imageUrl": "https://contenidos.entradauno.com/cache/imagenes/productos/camilo_720x405_4bd10183-1386-4192-af1a-67609b115687.jpg",
-  "shortTitle": "Camilo",
-  "description": "Concierto de Camilo en el Metropolitano Rosario. Es un show en vivo del cantante en el estadio cubierto.",
+  "shortTitle": "Camilo, show en vivo",
+  "description": "El cantante Camilo se presenta en vivo en Rosario. Un recital con sus canciones.",
   "barrio": "Macrocentro",
   "id": "ticketing-778a354d",
   "status": "published",
   "fingerprint": "camilo|2026-10-30|metropolitano",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Gatita Pre Halloween: fiesta de disfraces",
@@ -3693,12 +3592,12 @@
   },
   "lat": -32.9510602,
   "lng": -60.626372,
-  "shortTitle": "Gatita Pre Halloween de disfraces",
+  "shortTitle": "Gatita, fiesta de disfraces",
   "barrio": "Centro",
   "id": "instagram-4e10a73f",
   "status": "published",
   "fingerprint": "gatita pre halloween disfraces|2026-10-30|congo",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "DISCIP",
@@ -3712,13 +3611,13 @@
   "sourceName": "Entradauno",
   "sourceUrl": "https://www.turboentrada.com/landing/discip?idEspectaculoCartel=17493&cHashValidacion=bef8da3f26a1393e0b3d267e555eb8486ceabed7",
   "imageUrl": "https://contenidos.entradauno.com/cache/imagenes/productos/destacada-720x405.jpg-(13)_5c4ba8e1-4f8b-449d-9916-3ffb053393f2.jpeg",
-  "shortTitle": "DISCIP",
-  "description": "Presentación musical de DISCIP en Alto Shopping Rosario. Es un show en vivo dentro del shopping.",
+  "shortTitle": "DISCIP, show en vivo",
+  "description": "Presentación musical de DISCIP en Rosario. Un show en vivo del artista.",
   "barrio": "Macrocentro",
   "id": "ticketing-6135aea5",
   "status": "published",
   "fingerprint": "discip|2026-10-30|alto",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "MASQUERADE PARTY BY ZETA CLUB🫦",
@@ -3740,12 +3639,12 @@
   "sourceName": "Venti",
   "sourceUrl": "https://venti.live/evento/masquerade-party-by-zeta-club",
   "imageUrl": "https://images.venti.live/user-images/1791933894578-lg.jpg",
-  "shortTitle": "Masquerade Party by Zeta Club",
+  "shortTitle": "Masquerade Party, fiesta de máscaras",
   "barrio": "Pichincha",
   "id": "ticketing-25cf7bb4",
   "status": "published",
   "fingerprint": "masquerade party by zeta club|2026-10-30|guemes",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Club de Cuenteras y Cuenteros en la Biblioteca Argentina",
@@ -3767,7 +3666,7 @@
   "id": "municipal-da904b81",
   "status": "published",
   "fingerprint": "club cuenteras cuenteros biblioteca argentina|2026-10-31|biblioteca",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "LASSIE. Una nueva aventura en Cine Lumière (SUBTITULADA)",
@@ -3786,13 +3685,13 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/lassie.-una-nueva-aventura-en-cine-lumiere-subtitulada",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-09/lassie-gestor.jpg.webp?itok=x_An2PJp",
-  "shortTitle": "Lassie. Una nueva aventura",
+  "shortTitle": "Lassie. Una nueva aventura, cine",
   "barrio": "Macrocentro",
   "timeUnknown": true,
   "id": "municipal-7acbe617",
   "status": "published",
   "fingerprint": "lassie nueva aventura cine lumiere subtitulada|2026-10-31|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Muestra: Efervescencia cromática. Anomalía de un universo en expansión",
@@ -3808,12 +3707,12 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/index.php/muestra-efervescencia-cromatica.-anomalia-de-un-universo-en-expansion",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-09/WhatsApp%20Image%202026-09-23%20at%2011.28.21.jpeg.webp?itok=VIGBspaA",
-  "shortTitle": "Muestra Efervescencia cromática",
+  "shortTitle": "Efervescencia cromática, muestra pop art",
   "barrio": "Sur",
   "id": "municipal-53b162dc",
   "status": "published",
   "fingerprint": "muestra efervescencia cromatica anomalia universo expansion|2026-10-31|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Pre Congreso sobre la Democracia Rosario En Común. Día 3",
@@ -3832,7 +3731,7 @@
   "id": "municipal-17111b23",
   "status": "published",
   "fingerprint": "pre congreso democracia rosario comun dia|2026-10-31|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Halloween en Show Park",
@@ -3849,12 +3748,12 @@
   },
   "lat": -33.014706499999996,
   "lng": -60.62207910000001,
-  "shortTitle": "Halloween infantil",
+  "shortTitle": "Halloween en Show Park, parque temático",
   "barrio": "Villa G. Gálvez",
   "id": "tiktok-8c190e58",
   "status": "published",
   "fingerprint": "halloween park|2026-10-31|show",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Seminario de tango Cumbia Cruzada para iniciales",
@@ -3879,11 +3778,11 @@
    "views": 392,
    "likes": 15
   },
-  "shortTitle": "Seminario de tango Cumbia Cruzada",
+  "shortTitle": "Seminario Cumbia Cruzada para iniciales",
   "id": "tiktok-df2099d6",
   "status": "published",
   "fingerprint": "seminario tango cumbia cruzada iniciales|2026-10-31|club",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Seminario de cumbia para iniciales en Club Excélsior",
@@ -3912,11 +3811,11 @@
   "id": "tiktok-ded26689",
   "status": "published",
   "fingerprint": "seminario cumbia iniciales club excelsior|2026-10-31|club",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "III Jornada Taller de tesistas en Humanidades y Artes (día 2)",
-  "description": "Segundo día de la jornada híbrida sobre prácticas de investigación y actualización bibliográfica.\n\nFuentes: https://www.instagram.com/p/DemrhaOmqdv/",
+  "description": "Segundo día de la jornada híbrida sobre prácticas de investigación y actualización bibliográfica.",
   "startsAt": "2026-10-31T18:00:00-03:00",
   "venueName": "Facultad de Humanidades y Artes (UNR)",
   "address": "Entre Ríos 758, Rosario",
@@ -3931,11 +3830,11 @@
    "views": 0,
    "likes": 33
   },
-  "shortTitle": "Jornada Taller de tesistas (día 2)",
+  "shortTitle": "Jornada taller de tesistas (día 2)",
   "id": "instagram-cd283248",
   "status": "published",
   "fingerprint": "iii jornada taller tesistas humanidades artes dia|2026-10-31|facultad",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Festival de Stand Up en el Fontanarrosa",
@@ -3954,16 +3853,16 @@
   "sourceName": "Municipalidad de Rosario",
   "sourceUrl": "https://www.rosario.gob.ar/inicio/festival-de-stand-en-el-fontanarrosa",
   "imageUrl": "https://www.rosario.gob.ar/inicio/sites/default/files/styles/colorbox_modal/public/2026-10/publico%20risas.jpeg.webp?itok=hEZ2Tb9E",
-  "shortTitle": "Festival de Stand Up",
+  "shortTitle": "Festival de stand up",
   "barrio": "Centro",
   "id": "municipal-800d514b",
   "status": "published",
   "fingerprint": "festival stand up fontanarrosa|2026-10-31|cultural",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Macbeth",
-  "description": "Función de Macbeth en el Teatro El Círculo a las 20 hs. Las entradas cuestan desde $40600.",
+  "description": "Función de Macbeth en Teatro El Círculo, a las 20 hs. Entradas desde $40600.",
   "startsAt": "2026-10-31T20:00:00-03:00",
   "venueName": "Teatro El Círculo",
   "address": "Laprida 1223",
@@ -3978,12 +3877,12 @@
   "sourceType": "ticketing",
   "sourceName": "Ticketek",
   "sourceUrl": "https://www.ticketek.com.ar/macbeth/teatro-el-circulo",
-  "shortTitle": "Macbeth",
+  "shortTitle": "Macbeth, obra de teatro",
   "barrio": "Centro",
   "id": "ticketing-b2f9ab29",
   "status": "published",
   "fingerprint": "macbeth|2026-10-31|teatro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Macbeth de Verdi",
@@ -4000,12 +3899,12 @@
   },
   "lat": -32.944405599999996,
   "lng": -60.6412624,
-  "shortTitle": "Macbeth de Verdi",
+  "shortTitle": "Macbeth de Verdi, ópera",
   "barrio": "Centro",
   "id": "instagram-18b6d56a",
   "status": "published",
   "fingerprint": "macbeth verdi|2026-10-31|ballet",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Prisma + invitados en García Bar",
@@ -4022,12 +3921,12 @@
   },
   "lat": -32.9333152,
   "lng": -60.659414000000005,
-  "shortTitle": "Prisma + invitados",
+  "shortTitle": "Prisma e invitados, Halloween en vivo",
   "barrio": "Pichincha",
   "id": "instagram-19a82ff8",
   "status": "published",
   "fingerprint": "prisma invitados garcia bar|2026-10-31|garcia",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Un Poco de Ruido",
@@ -4041,17 +3940,17 @@
   "sourceName": "Entradauno",
   "sourceUrl": "https://www.turboentrada.com/landing/un-poco-de-ruido?idEspectaculoCartel=17259&cHashValidacion=705fa88aa2bea8d5c9a2b4e9018ab8c5b0e7329c",
   "imageUrl": "https://contenidos.entradauno.com/cache/imagenes/productos/updr_rosario_720x405-(1)_ac54c48f-c3af-4de4-8426-80837bce64f4.jpg",
-  "shortTitle": "Un Poco de Ruido",
-  "description": "Show de Un Poco de Ruido en el Metropolitano Rosario. Es un recital en vivo del grupo musical.",
+  "shortTitle": "Un Poco de Ruido, show en vivo",
+  "description": "Show en vivo de Un Poco de Ruido en Rosario. Una noche de música con el proyecto.",
   "barrio": "Macrocentro",
   "id": "ticketing-69bc09a1",
   "status": "published",
   "fingerprint": "poco ruido|2026-10-31|metropolitano",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Leandro Gambetta en La Chunga",
-  "description": "Función de Leandro Gambetta en La Chunga. Es un espectáculo escénico en sala.",
+  "description": "Función de Leandro Gambetta en La Chunga. Es una presentación en vivo dentro de la cartelera de teatro de la sala.",
   "startsAt": "2026-10-31T21:00:00-03:00",
   "venueName": "La Chunga",
   "address": "San Martín 771",
@@ -4066,11 +3965,11 @@
    "views": 208,
    "likes": 1
   },
-  "shortTitle": "Leandro Gambetta",
+  "shortTitle": "Leandro Gambetta, función en vivo",
   "id": "tiktok-83b10f55",
   "status": "published",
   "fingerprint": "leandro gambetta chunga|2026-10-31|la",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "JXXXO + TOMI ALMADA / ANIVERSARIO PAAK @ SWITCH",
@@ -4091,13 +3990,13 @@
   "sourceName": "Venti",
   "sourceUrl": "https://venti.live/evento/jxxoo-tomi-almada-aniversaio-paak-switch",
   "imageUrl": "https://images.venti.live/user-images/1790630055457-lg.jpg",
-  "shortTitle": "JXXXO y Tomi Almada: aniversario Paak",
-  "description": "Fiesta aniversario de Paak en Switch Club con JXXXO y Tomi Almada. La entrada cuesta $10000.",
+  "shortTitle": "Aniversario Paak con Jxxxo y Tomi Almada",
+  "description": "Fiesta por el aniversario de Paak con Jxxxo y Tomi Almada en las bandejas. La entrada cuesta $10000.",
   "barrio": "Pichincha",
   "id": "ticketing-13a87d26",
   "status": "published",
   "fingerprint": "jxxxo tomi almada aniversario paak switch|2026-10-31|switch",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Border, el musical",
@@ -4120,7 +4019,7 @@
   "id": "instagram-290f9f09",
   "status": "published",
   "fingerprint": "border musical|2026-11-01|complejo",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Dubai cumple 13 años: fiesta aniversario",
@@ -4137,12 +4036,12 @@
   },
   "lat": -32.9323773,
   "lng": -60.6563062,
-  "shortTitle": "Dubai cumple 13 años",
+  "shortTitle": "Dubai 13 años, fiesta aniversario",
   "barrio": "Pichincha",
   "id": "instagram-b7099018",
   "status": "published",
   "fingerprint": "dubai cumple 13 anos aniversario|2026-11-03|dubai",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Escala Summit",
@@ -4164,12 +4063,12 @@
   "sourceName": "Eventbrite",
   "sourceUrl": "https://www.eventbrite.com.ar/e/escala-summit-tickets-2001879570685",
   "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1194001623%2F193368956481%2F1%2Foriginal.20260921-123017?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.07&fp-y=0.523&s=4f043294d56e615250a31f9967ab690e",
-  "shortTitle": "Escala Summit",
+  "shortTitle": "Escala Summit, salarios y beneficios",
   "barrio": "Parque",
   "id": "platform-5f0bb499",
   "status": "published",
   "fingerprint": "escala summit|2026-11-04|universidad",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "II Congreso Internacional de Geriatría y Gerontología del Interior (día 1)",
@@ -4191,7 +4090,7 @@
   "id": "instagram-f739f8e6",
   "status": "published",
   "fingerprint": "ii congreso internacional geriatria gerontologia interior dia|2026-11-05|circulo",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Border, el musical",
@@ -4214,7 +4113,7 @@
   "id": "instagram-2803fd05",
   "status": "published",
   "fingerprint": "border musical|2026-11-05|complejo",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Gauchos of the Pampa con Rya y Zapatea Lechuza",
@@ -4231,17 +4130,17 @@
   },
   "lat": -32.9341013,
   "lng": -60.660935099999996,
-  "shortTitle": "Gauchos of the Pampa con Rya",
+  "shortTitle": "Gauchos of the Pampa, Rya y más en vivo",
   "barrio": "Macrocentro",
   "id": "instagram-6602238d",
   "status": "published",
   "fingerprint": "gauchos pampa rya zapatea lechuza|2026-11-05|casa",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Fiesta de las Colectividades 2026",
   "shortTitle": "Fiesta de las Colectividades",
-  "description": "Más de 40 stands con gastronomía de Europa, América, Asia y Medio Oriente, espectáculos musicales y danzas típicas durante diez días.\n\nFuentes: https://www.instagram.com/p/DeO125GkYhF/",
+  "description": "Más de 40 stands con gastronomía de Europa, América, Asia y Medio Oriente, espectáculos musicales y danzas típicas durante diez días.",
   "startsAt": "2026-11-06T18:00:00-03:00",
   "endsAt": "2026-11-15T23:59:00-03:00",
   "venueName": "Parque Nacional a la Bandera",
@@ -4260,7 +4159,7 @@
   "id": "instagram-d65c4372",
   "status": "published",
   "fingerprint": "colectividades 2026|2026-11-06|parque",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "II Congreso Internacional de Geriatría y Gerontología del Interior (día 2)",
@@ -4282,7 +4181,7 @@
   "id": "instagram-4481f52f",
   "status": "published",
   "fingerprint": "ii congreso internacional geriatria gerontologia interior dia|2026-11-06|circulo",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Mathame",
@@ -4296,13 +4195,13 @@
   "sourceName": "Entradauno",
   "sourceUrl": "https://www.turboentrada.com/landing/mathame?idEspectaculoCartel=17460&cHashValidacion=f551e571fef286a11c0a1c12e5263fe7bc239abd",
   "imageUrl": "https://contenidos.entradauno.com/cache/imagenes/productos/mathame-dest_0a56f0a3-7550-4dd6-a681-1d10fa5a2cb6.jpeg",
-  "shortTitle": "Mathame",
-  "description": "Presentación de Mathame en el Metropolitano Rosario. Es una fecha de música en vivo con el proyecto.",
+  "shortTitle": "Mathame, show de música electrónica",
+  "description": "El proyecto Mathame se presenta en vivo en Rosario. Una noche de música electrónica.",
   "barrio": "Macrocentro",
   "id": "ticketing-3c82b207",
   "status": "published",
   "fingerprint": "mathame|2026-11-06|metropolitano",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "FIEBRE FIESTA en TAURA ROSARIO 6/11",
@@ -4324,12 +4223,12 @@
   "sourceName": "Venti",
   "sourceUrl": "https://venti.live/evento/fiebre-fiesta-en-taura-rosario-6-11",
   "imageUrl": "https://images.venti.live/user-images/1791246267030-lg.jpg",
-  "shortTitle": "Fiebre Fiesta",
+  "shortTitle": "Fiebre, fiesta de reggaetón viejo",
   "barrio": "Centro",
   "id": "ticketing-1d6b0fc7",
   "status": "published",
   "fingerprint": "fiebre taura rosario 11|2026-11-06|taura",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Sunset&Deco",
@@ -4343,14 +4242,14 @@
   "sourceName": "Eventbrite",
   "sourceUrl": "https://www.eventbrite.com.ar/e/sunsetdeco-tickets-2002062825806",
   "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1194098499%2F3015046254487%2F1%2Foriginal.20260922-132721?crop=focalpoint&fit=crop&w=450&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=2108c0125e3916da9f945e599c638c34",
-  "shortTitle": "Sunset&Deco",
-  "description": "Encuentro Sunset&Deco en Ibarlucea. Es una propuesta al atardecer cuyo formato no está detallado en la fuente.",
+  "shortTitle": "Sunset&Deco, encuentro al atardecer",
+  "description": "Evento en Ibarlucea con propuesta al atardecer centrada en la decoración. Los detalles de la actividad no están especificados en la fuente.",
   "barrio": "Funes",
   "timeUnknown": true,
   "id": "platform-ee7f9779",
   "status": "published",
   "fingerprint": "sunset deco|2026-11-07|ibarlucea",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Interstellar por Cápsula Producciones",
@@ -4370,12 +4269,12 @@
   "sourceName": "Alpogo",
   "sourceUrl": "https://alpogo.com/evento/interstellar-por-capsula-producciones-29412",
   "imageUrl": "https://imagenes.alpogo.com/eventos/01ad2365-fcfb-42c3-882c-21b1850affe3.webp",
-  "shortTitle": "Interstellar por Cápsula Producciones",
+  "shortTitle": "Interstellar con banda sonora en vivo",
   "barrio": "Centro",
   "id": "ticketing-7361f59b",
   "status": "published",
   "fingerprint": "interstellar capsula producciones|2026-11-07|teatro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Seminario de cumbia para iniciales en Club Excélsior",
@@ -4404,7 +4303,7 @@
   "id": "tiktok-fd3f5cdd",
   "status": "published",
   "fingerprint": "seminario cumbia iniciales club excelsior|2026-11-07|club",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Connie Ballarini",
@@ -4424,12 +4323,12 @@
   "sourceName": "Ticketek",
   "sourceUrl": "https://www.ticketek.com.ar/connie-ballarini/teatro-astengo",
   "imageUrl": "https://prod-cms-static.ticketek.com.ar/sites/default/files/images/artist/connie_agenerica.png",
-  "shortTitle": "Connie Ballarini",
+  "shortTitle": "Connie Ballarini, show de humor",
   "barrio": "Centro",
   "id": "ticketing-856a23cd",
   "status": "published",
   "fingerprint": "connie ballarini|2026-11-07|teatro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "La Peña de Demi Carabajal",
@@ -4454,7 +4353,7 @@
   "id": "ticketing-d8a3d463",
   "status": "published",
   "fingerprint": "pena demi carabajal|2026-11-07|asociacion",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "LOLA SANCHEZ",
@@ -4474,12 +4373,12 @@
   "sourceName": "Alpogo",
   "sourceUrl": "https://alpogo.com/evento/lola-sanchez-29585",
   "imageUrl": "https://imagenes.alpogo.com/eventos/alta_evento_1792005987_6acfd763c27e4.jpg",
-  "shortTitle": "Lola Sánchez",
+  "shortTitle": "Lola Sanchez, show en vivo",
   "barrio": "Centro",
   "id": "ticketing-c26791ff",
   "status": "published",
   "fingerprint": "lola sanchez|2026-11-07|casona",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "El Viaje De Chihiro por Cápsula Producciones",
@@ -4499,16 +4398,16 @@
   "sourceName": "Alpogo",
   "sourceUrl": "https://alpogo.com/evento/el-viaje-de-chihiro-por-capsula-producciones-29410",
   "imageUrl": "https://imagenes.alpogo.com/eventos/7aecb760-c293-466b-ba99-842dd056b59a.webp",
-  "shortTitle": "El Viaje de Chihiro",
+  "shortTitle": "El viaje de Chihiro con música en vivo",
   "barrio": "Centro",
   "id": "ticketing-b53e459d",
   "status": "published",
   "fingerprint": "viaje chihiro capsula producciones|2026-11-07|teatro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Dramer open to close en Capi Club",
-  "description": "Dramer toca un set open to close en Capi Club, de la apertura al cierre. Las entradas se consiguen en la bio de @dramer.music.",
+  "description": "El DJ Dramer toca un set open to close, de principio a fin de la noche, en Capi Club. Las entradas se consiguen en la bio de @dramer.music.",
   "startsAt": "2026-11-07T21:00:00-03:00",
   "venueName": "Capi Club",
   "barrio": "Centro",
@@ -4522,11 +4421,11 @@
   },
   "lat": -32.9518585,
   "lng": -60.6369674,
-  "shortTitle": "Dramer open to close",
+  "shortTitle": "Dramer open to close, fiesta electrónica",
   "id": "tiktok-76d08f44",
   "status": "published",
   "fingerprint": "dramer open to close capi club|2026-11-07|capi",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "LA CINTIA @ SWITCH CLUB",
@@ -4547,13 +4446,13 @@
   "sourceName": "Venti",
   "sourceUrl": "https://venti.live/evento/la-cintia-switch-club",
   "imageUrl": "https://images.venti.live/user-images/1792684837163-lg.jpg",
-  "shortTitle": "La Cintia",
-  "description": "Fiesta con La Cintia en Switch Club. La entrada cuesta $10000.",
+  "shortTitle": "La Cintia, fiesta en club",
+  "description": "Fiesta en Switch Club con La Cintia en el line up. La entrada cuesta $10000.",
   "barrio": "Pichincha",
   "id": "ticketing-23702c0c",
   "status": "published",
   "fingerprint": "cintia switch club|2026-11-07|switch",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Ronnie Wood en Rosario",
@@ -4570,12 +4469,12 @@
   },
   "lat": -32.928958099999996,
   "lng": -60.669610899999995,
-  "shortTitle": "Ronnie Wood",
+  "shortTitle": "Ronnie Wood, show en vivo",
   "barrio": "Macrocentro",
   "id": "tiktok-309448b3",
   "status": "published",
   "fingerprint": "ronnie wood rosario|2026-11-08|metropolitano",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Chapitas, Tormentas y Anomalía en García Bar",
@@ -4597,12 +4496,12 @@
   },
   "lat": -32.9333152,
   "lng": -60.659414000000005,
-  "shortTitle": "Chapitas, Tormentas y Anomalía",
+  "shortTitle": "Chapitas, Tormentas y Anomalía, rock",
   "barrio": "Pichincha",
   "id": "instagram-014eb58c",
   "status": "published",
   "fingerprint": "chapitas tormentas anomalia garcia bar|2026-11-13|garcia",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Rompela, Tormentas y Anomalía en García Bar",
@@ -4625,12 +4524,12 @@
   },
   "lat": -32.9333152,
   "lng": -60.659414000000005,
-  "shortTitle": "Rompela, Tormentas y Anomalía",
+  "shortTitle": "Rompela, Tormentas y Anomalía, rock",
   "barrio": "Pichincha",
   "id": "instagram-e9837527",
   "status": "published",
   "fingerprint": "rompela tormentas anomalia garcia bar|2026-11-13|garcia",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Homenaje a Charly García con músicos rosarinos",
@@ -4647,12 +4546,12 @@
   },
   "lat": -32.931649,
   "lng": -60.658896899999995,
-  "shortTitle": "Homenaje a Charly García",
+  "shortTitle": "Homenaje a Charly García, show en vivo",
   "barrio": "Pichincha",
   "id": "instagram-10d22386",
   "status": "published",
   "fingerprint": "homenaje charly garcia musicos rosarinos|2026-11-13|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Seminario de cumbia para iniciales en Club Excélsior",
@@ -4681,7 +4580,7 @@
   "id": "tiktok-c81cda51",
   "status": "published",
   "fingerprint": "seminario cumbia iniciales club excelsior|2026-11-14|club",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Horifest décima edición",
@@ -4700,11 +4599,11 @@
    "views": 0,
    "likes": 233
   },
-  "shortTitle": "Horifest décima edición",
+  "shortTitle": "Horifest, festival con tatuajes gratis",
   "id": "instagram-a1d995dd",
   "status": "published",
   "fingerprint": "horifest decima|2026-11-14|club",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Horifest décima edición con The Room",
@@ -4723,15 +4622,15 @@
    "views": 0,
    "likes": 198
   },
-  "shortTitle": "Horifest con The Room",
+  "shortTitle": "Horifest con The Room, festival",
   "id": "instagram-9fdd6432",
   "status": "published",
   "fingerprint": "horifest decima room|2026-11-14|club",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Festival de patín artístico del Centro Asturiano",
-  "description": "Show anual de patín artístico del Centro Asturiano de Rosario. Participan patinadores de la institución.",
+  "description": "Show anual de patín artístico del Centro Asturiano de Rosario. Las patinadoras y patinadores del club presentan sus coreografías ante el público.",
   "startsAt": "2026-11-14T20:00:00-03:00",
   "venueName": "Centro Asturiano de Rosario",
   "address": "Wilde 550",
@@ -4750,7 +4649,7 @@
   "id": "instagram-aea97b2a",
   "status": "published",
   "fingerprint": "festival patin artistico centro asturiano|2026-11-14|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Horifest en Club Atlético Horizonte",
@@ -4769,11 +4668,11 @@
    "views": 0,
    "likes": 132
   },
-  "shortTitle": "Horifest",
+  "shortTitle": "Horifest, festival de música",
   "id": "instagram-875389f5",
   "status": "published",
   "fingerprint": "horifest club atletico horizonte|2026-11-14|club",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Seminario de cumbia para iniciales en Club Excélsior",
@@ -4802,11 +4701,11 @@
   "id": "tiktok-c343f7bd",
   "status": "published",
   "fingerprint": "seminario cumbia iniciales club excelsior|2026-11-21|club",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Gusti Rabago y Kelo Ar en Groove Connection",
-  "description": "Noche de club con Gusti Rabago y Kelo Ar dentro del ciclo Groove Connection. Es una fiesta con DJs en Groove Connection Rosario.",
+  "description": "Noche de club con Gusti Rabago y Kelo Ar en las bandejas. Es una fecha del ciclo Groove Connection.",
   "startsAt": "2026-11-21T23:00:00-03:00",
   "venueName": "Groove Connection Rosario",
   "category": "fiesta",
@@ -4819,16 +4718,16 @@
   },
   "lat": -32.9551306,
   "lng": -60.6455928,
-  "shortTitle": "Gusti Rabago y Kelo Ar",
+  "shortTitle": "Gusti Rabago y Kelo Ar, fiesta de club",
   "barrio": "Parque",
   "id": "instagram-6b927934",
   "status": "published",
   "fingerprint": "gusti rabago kelo ar groove connection|2026-11-21|groove",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Benja Torres en el Centro Cultural Güemes",
-  "description": "Benja Torres vuelve a Rosario con un show en el Centro Cultural Güemes. Es un recital en vivo.\n\nFuentes: https://www.tiktok.com/@benjatorressss/video/7688473395679350037, https://www.tiktok.com/@benjatorressss/video/7688166046359932180",
+  "description": "Benja Torres vuelve a Rosario con un show en vivo. La fecha es en el Centro Cultural Güemes.\n\nFuentes: https://www.tiktok.com/@benjatorressss/video/7688473395679350037, https://www.tiktok.com/@benjatorressss/video/7688166046359932180",
   "startsAt": "2026-11-23T21:00:00-03:00",
   "venueName": "Centro Cultural Güemes",
   "category": "musica",
@@ -4841,12 +4740,12 @@
   },
   "lat": -32.931649,
   "lng": -60.658896899999995,
-  "shortTitle": "Benja Torres",
+  "shortTitle": "Benja Torres, show en vivo",
   "barrio": "Pichincha",
   "id": "tiktok-4976698b",
   "status": "published",
   "fingerprint": "benja torres centro cultural guemes|2026-11-23|centro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Seminario de cumbia para iniciales en Club Excélsior",
@@ -4875,7 +4774,7 @@
   "id": "tiktok-0cd09ef8",
   "status": "published",
   "fingerprint": "seminario cumbia iniciales club excelsior|2026-11-28|club",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Sunset + Night en Rooftop Rosario",
@@ -4893,12 +4792,12 @@
   },
   "lat": -32.9320322,
   "lng": -60.663682699999995,
-  "shortTitle": "Sunset + Night",
+  "shortTitle": "Sunset + Night, fiesta electrónica",
   "barrio": "Macrocentro",
   "id": "instagram-7d9d6612",
   "status": "published",
   "fingerprint": "sunset night rooftop rosario|2026-12-05|rooftop",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Gux Jimenez y Jerry Chiu: Droid9 Showcase",
@@ -4915,16 +4814,16 @@
   },
   "lat": -32.9551306,
   "lng": -60.6455928,
-  "shortTitle": "Gux Jimenez y Jerry Chiu: Droid9",
+  "shortTitle": "Droid9 Showcase, fiesta electrónica",
   "barrio": "Parque",
   "id": "instagram-e8286b6a",
   "status": "published",
   "fingerprint": "gux jimenez jerry chiu droid9 showcase|2026-12-05|groove",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Fénix, muestra anual del Studio Flavio Mendoza Rosario",
-  "description": "Muestra anual 2026 del Studio Flavio Mendoza Rosario, titulada Fénix, en el Teatro Astengo. Las entradas ya están disponibles.",
+  "description": "Fénix es la muestra anual 2026 del Studio Flavio Mendoza Rosario. Las alumnas y alumnos del estudio presentan su trabajo del año en el Teatro Astengo.",
   "startsAt": "2026-12-14T20:00:00-03:00",
   "venueName": "Teatro Astengo",
   "category": "cultura",
@@ -4937,17 +4836,17 @@
   },
   "lat": -32.945553100000005,
   "lng": -60.63949149999999,
-  "shortTitle": "Fénix, muestra Studio Flavio Mendoza",
+  "shortTitle": "Fénix, muestra anual de danza",
   "barrio": "Centro",
   "id": "instagram-68f17262",
   "status": "published",
   "fingerprint": "fenix muestra anual studio flavio mendoza rosario|2026-12-14|teatro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Julián Bellese: show de cierre de año",
   "shortTitle": "Julián Bellese: cierre de año",
-  "description": "Julián Bellese presenta un show especial para cerrar el año en el Teatro Ópera. Las entradas están en el link de su bio.\n\nFuentes: https://www.tiktok.com/@julianbellese/video/7695930350047923477",
+  "description": "Julián Bellese presenta un show especial para cerrar el año. La función es en el Teatro Ópera.",
   "startsAt": "2026-12-19T21:00:00-03:00",
   "venueName": "Teatro Ópera",
   "address": "Laprida 1223, Rosario",
@@ -4965,7 +4864,7 @@
   "id": "tiktok-ddd3338a",
   "status": "published",
   "fingerprint": "julian bellese cierre ano|2026-12-19|teatro",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Festival de Navidad en el Autódromo",
@@ -4982,16 +4881,16 @@
   },
   "lat": -32.9084328,
   "lng": -60.7466826,
-  "shortTitle": "Festival de Navidad",
+  "shortTitle": "Festival de Navidad, electrónica",
   "barrio": "Oeste",
   "id": "instagram-612f4f7c",
   "status": "published",
   "fingerprint": "festival navidad autodromo|2026-12-25|autodromo",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Miss Monique en el Autódromo de Rosario",
-  "description": "Fecha de música electrónica con Miss Monique en el Autódromo de Rosario, de 22 a 05 hs. Las entradas se venden por Bombo.",
+  "description": "Fecha de música electrónica con la DJ Miss Monique. La noche va de 22 a 5 en el Autódromo de Rosario.",
   "startsAt": "2026-12-26T22:00:00-03:00",
   "endsAt": "2026-12-27T05:00:00-03:00",
   "venueName": "Autódromo de Rosario",
@@ -5005,16 +4904,16 @@
   },
   "lat": -32.9084328,
   "lng": -60.7466826,
-  "shortTitle": "Miss Monique",
+  "shortTitle": "Miss Monique, fiesta electrónica",
   "barrio": "Oeste",
   "id": "tiktok-759cf9e1",
   "status": "published",
   "fingerprint": "miss monique autodromo rosario|2026-12-26|autodromo",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  },
  {
   "title": "Año Nuevo con Kamilo Sanclemente en Forest Open Air",
-  "description": "Fiesta de Año Nuevo con Kamilo Sanclemente y Nacho Lopez b2b Tato Seco. Entradas por passline.com.\n\nFuentes: https://www.instagram.com/p/DeIPHOWjzxQ/",
+  "description": "Fiesta de Año Nuevo con Kamilo Sanclemente y Nacho Lopez b2b Tato Seco. Entradas por passline.com.",
   "startsAt": "2026-12-31T23:59:00-03:00",
   "venueName": "Complejo Forest Open Air",
   "address": "Brown 3198, S2000 Rosario, Santa Fe, Argentina",
@@ -5028,11 +4927,11 @@
    "views": 0,
    "likes": 1970
   },
-  "shortTitle": "Año Nuevo con Kamilo Sanclemente",
+  "shortTitle": "Año Nuevo con Kamilo Sanclemente, fiesta",
   "barrio": "Macrocentro",
   "id": "instagram-007c1ec7",
   "status": "published",
   "fingerprint": "ano nuevo kamilo sanclemente forest open air|2026-12-31|complejo",
-  "createdAt": "2026-10-24T13:50:52-03:00"
+  "createdAt": "2026-10-24T14:14:37-03:00"
  }
 ]
