@@ -36,6 +36,7 @@ export function EventMap({ events, selectedId, onSelect, center = ROSARIO_CENTER
   const [ready, setReady] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [locating, setLocating] = useState(false);
+  const [retry, setRetry] = useState(0);
   const meRef = useRef<LeafletMarker>(null);
   const onLocateRef = useRef(onLocate);
   onLocateRef.current = onLocate;
@@ -70,6 +71,11 @@ export function EventMap({ events, selectedId, onSelect, center = ROSARIO_CENTER
     loadLeaflet()
       .then((L) => {
         if (cancelled || !containerRef.current || mapRef.current) return;
+        if (containerRef.current.clientHeight === 0) {
+          // Container not laid out yet (e.g. hidden tab): retry on next frame instead of initializing at 0px.
+          requestAnimationFrame(() => setRetry((n) => n + 1));
+          return;
+        }
         const map = L.map(containerRef.current, {
           center: [center.lat, center.lng],
           zoom,
@@ -84,6 +90,10 @@ export function EventMap({ events, selectedId, onSelect, center = ROSARIO_CENTER
         L.tileLayer(TILES, { attribution: ATTR, maxZoom: 19 }).addTo(map);
         mapRef.current = map;
         setReady(true);
+        // Layout settles after fonts, sheet and flex sizing: nudge Leaflet a couple of times.
+        requestAnimationFrame(() => map.invalidateSize());
+        setTimeout(() => map.invalidateSize(), 300);
+        setTimeout(() => map.invalidateSize(), 1000);
       })
       .catch((e: Error) => !cancelled && setError(e.message));
     return () => {
@@ -93,7 +103,7 @@ export function EventMap({ events, selectedId, onSelect, center = ROSARIO_CENTER
       markersRef.current.clear();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [retry]);
 
   // Sync pins.
   useEffect(() => {

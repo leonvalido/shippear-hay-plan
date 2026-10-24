@@ -26,25 +26,50 @@ export function loadLeaflet(): Promise<Leaflet> {
   if (window.L) return Promise.resolve(window.L);
   if (promise) return promise;
 
-  promise = new Promise((resolve, reject) => {
-    if (!document.querySelector('link[data-leaflet]')) {
-      const link = document.createElement("link");
-      link.rel = "stylesheet";
-      link.href = `${BASE}/leaflet.min.css`;
-      link.crossOrigin = "";
-      link.setAttribute("data-leaflet", "");
-      document.head.appendChild(link);
+  promise = Promise.all([loadCss(`${BASE}/leaflet.min.css`, "leaflet"), loadScript(`${BASE}/leaflet.min.js`)])
+    .then(() => {
+      if (!window.L) throw new Error("Leaflet no cargó");
+      return window.L;
+    })
+    .catch((e) => {
+      promise = null;
+      throw e instanceof Error ? e : new Error("No se pudo cargar el mapa");
+    });
+  return promise;
+}
+
+/** Stylesheet must be applied before the map is created, or tiles are laid out wrong (grey half map). */
+export function loadCss(href: string, key: string): Promise<void> {
+  return new Promise((resolve, reject) => {
+    const existing = document.querySelector<HTMLLinkElement>(`link[data-css="${key}"]`);
+    if (existing) {
+      if (existing.dataset.loaded) return resolve();
+      existing.addEventListener("load", () => resolve());
+      existing.addEventListener("error", () => reject(new Error("No se pudo cargar el mapa")));
+      return;
     }
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = href;
+    link.crossOrigin = "";
+    link.dataset.css = key;
+    link.onload = () => {
+      link.dataset.loaded = "1";
+      resolve();
+    };
+    link.onerror = () => reject(new Error("No se pudo cargar el mapa"));
+    document.head.appendChild(link);
+  });
+}
+
+export function loadScript(src: string): Promise<void> {
+  return new Promise((resolve, reject) => {
     const script = document.createElement("script");
-    script.src = `${BASE}/leaflet.min.js`;
+    script.src = src;
     script.async = true;
     script.crossOrigin = "";
-    script.onload = () => (window.L ? resolve(window.L) : reject(new Error("Leaflet no cargó")));
-    script.onerror = () => {
-      promise = null;
-      reject(new Error("No se pudo cargar el mapa"));
-    };
+    script.onload = () => resolve();
+    script.onerror = () => reject(new Error("No se pudo cargar el mapa"));
     document.head.appendChild(script);
   });
-  return promise;
 }
