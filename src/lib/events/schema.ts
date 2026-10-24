@@ -50,6 +50,10 @@ export const EventSchema = z.object({
   links: z.array(z.object({ label: z.string().max(40), url: z.string().url() })).max(6).optional(),
   /** Social-media signal for events that came from TikTok/Instagram captions. */
   metrics: z.object({ views: z.number().nonnegative().optional(), likes: z.number().nonnegative().optional() }).optional(),
+  /** A regular night (boliche's weekly party) rather than a one-off event. */
+  recurring: z.boolean().optional(),
+  /** Google Places rating of the venue, when known. */
+  rating: z.object({ value: z.number(), count: z.number() }).optional(),
   status: EventStatus.default("published"),
   fingerprint: z.string().optional(), // normalized title|date|venue, used for dedupe
   createdAt: z.string(),
@@ -59,6 +63,8 @@ export type Event = z.infer<typeof EventSchema>;
 /** What an ingestion script or the flyer reader hands over: no id, no status yet. */
 export const RawEventSchema = EventSchema.omit({ id: true, createdAt: true, status: true, fingerprint: true }).extend({
   category: EventCategory.default("otro"),
+  /** Transient grounding text (reviews, editorial summary, website text) for the AI title/description pass. Never written to events.json. */
+  context: z.string().max(4000).optional(),
 });
 export type RawEvent = z.infer<typeof RawEventSchema>;
 

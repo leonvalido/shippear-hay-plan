@@ -88,6 +88,7 @@ Reglas estrictas:
 - Si la lista está vacía o no hay nada que encaje, no armes plan: respondé una o dos frases honestas, sugerí otro día o ampliar la zona, y terminá igual con la línea "Plan armado con HayPlan".
 - Elegí paradas que se puedan encadenar: que no se pisen en horario y, si tenés distancias, que estén cerca entre sí. Si el presupuesto es ajustado, priorizá lo gratis. Si dijo con quién va o qué ganas tiene, que se note en la elección.
 - Precio: "gratis" o "$ desde X" con el número tal cual. Hora: "HH:MM" en 24 horas; si una parada es otro día que la primera, anteponé el día ("dom 16:00").
+- Las "noches fijas" de boliches y bares (marcadas como recurrentes, con "abre a las HH:MM") valen como última parada después de las 23:00: escribilas como "abre a las 00:00 · Nombre · Lugar · precio". No las pongas antes de un show que termina tarde.
 - Sin Markdown (sin asteriscos, sin títulos, sin viñetas), sin emojis en las líneas de paradas, máximo 120 palabras. La última línea es siempre exactamente "Plan armado con HayPlan".`;
 
 /** System prompt for the short-title + short-description pass (map pins, cards). */
@@ -103,6 +104,10 @@ shortTitle, de 40 caracteres como máximo, y que se entienda solo:
 - sin el nombre del lugar y sin la fecha (eso ya se muestra aparte);
 - si el título ya es corto y se entiende, devolvelo igual.
 
+Cuando el evento trae "contexto" (reseñas, resumen editorial, texto del sitio: es una noche fija de un boliche o bar), el título corto es "Nombre: qué es", por ejemplo "Madame: fiesta temática" o "Lotus: electrónica y house", y la descripción sale solo de ese contexto (cómo es el lugar, qué música, qué público, horarios). Nada que no esté en el contexto.
+
+category, siempre, una de: musica, teatro, fiesta, feria, deporte, cultura, gastronomia, infantil, charla, otro. Decidila por lo que ES el evento, no por palabras sueltas: ciencia, planetario, astronomía, museos, muestras, cine y libros son "cultura"; si está pensado para chicos o familias es "infantil"; una noche de boliche o DJ es "fiesta"; recitales y shows en vivo son "musica"; obras y stand up "teatro"; talleres, cursos y charlas "charla"; ferias y mercados "feria"; cenas, catas y festivales de comida "gastronomia"; carreras, torneos y clases abiertas "deporte".
+
 description, solo cuando el evento la pide (campo "necesita descripción: sí"); si no, devolvé una cadena vacía:
 - exactamente dos oraciones, concretas: qué es, quién participa, qué esperar (formato, duración o público si se sabe);
 - sin adjetivos de bombo ("imperdible", "increíble", "único"), sin signos de exclamación, sin emojis;
@@ -110,18 +115,19 @@ description, solo cuando el evento la pide (campo "necesita descripción: sí");
 
 Devolvé exactamente una entrada por índice recibido.`;
 
-export type ShortTextItem = { index: number; title: string; venueName: string; category: string; price?: string; snippet?: string; needsDescription: boolean };
+export type ShortTextItem = { index: number; title: string; venueName: string; category: string; price?: string; snippet?: string; context?: string; recurring?: boolean; needsDescription: boolean };
 
 export function buildShortTitlePrompt(items: ShortTextItem[]): string {
   const body = items
     .map((i) => {
-      const lines = [`${i.index}. ${i.title}`, `   lugar: ${i.venueName} · categoría: ${i.category}${i.price ? ` · precio: ${i.price}` : ""}`];
+      const lines = [`${i.index}. ${i.title}`, `   lugar: ${i.venueName} · categoría tentativa: ${i.category}${i.price ? ` · precio: ${i.price}` : ""}${i.recurring ? " · noche fija (recurrente)" : ""}`];
       if (i.snippet) lines.push(`   fuente: ${i.snippet}`);
+      if (i.context) lines.push(`   contexto: ${i.context}`);
       lines.push(`   necesita descripción: ${i.needsDescription ? "sí" : "no"}`);
       return lines.join("\n");
     })
     .join("\n");
-  return `Acortá estos ${items.length} títulos y escribí la descripción donde se pide. Respondé con index, shortTitle y description para cada uno.\n\n${body}`;
+  return `Acortá estos ${items.length} títulos, clasificá la categoría y escribí la descripción donde se pide. Respondé con index, shortTitle, category y description para cada uno.\n\n${body}`;
 }
 
 /** System prompt for the official-page lookup (web search). */

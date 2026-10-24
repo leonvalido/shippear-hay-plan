@@ -31,6 +31,7 @@ type Row = {
   image_url: string | null; status: string; fingerprint: string; created_at: string; search: string;
   metrics_views: number | null; metrics_likes: number | null;
   short_title: string | null; time_unknown: number | null; links: string | null;
+  recurring: number | null; rating_value: number | null; rating_count: number | null;
 };
 
 const DDL = `
@@ -62,7 +63,10 @@ CREATE TABLE IF NOT EXISTS events (
   metrics_likes INTEGER,
   short_title TEXT,
   time_unknown INTEGER,
-  links TEXT
+  links TEXT,
+  recurring INTEGER,
+  rating_value REAL,
+  rating_count INTEGER
 );
 CREATE INDEX IF NOT EXISTS events_starts_at ON events (starts_at);
 CREATE INDEX IF NOT EXISTS events_starts_ms ON events (starts_ms);
@@ -77,10 +81,13 @@ const MIGRATIONS = [
   "ALTER TABLE events ADD COLUMN short_title TEXT",
   "ALTER TABLE events ADD COLUMN time_unknown INTEGER",
   "ALTER TABLE events ADD COLUMN links TEXT",
+  "ALTER TABLE events ADD COLUMN recurring INTEGER",
+  "ALTER TABLE events ADD COLUMN rating_value REAL",
+  "ALTER TABLE events ADD COLUMN rating_count INTEGER",
 ];
 
 const COLUMNS =
-  "id,title,description,starts_at,starts_ms,ends_at,venue_name,address,lat,lng,barrio,category,price_free,price_min,price_max,source_type,source_name,source_url,image_url,status,fingerprint,created_at,search,metrics_views,metrics_likes,short_title,time_unknown,links";
+  "id,title,description,starts_at,starts_ms,ends_at,venue_name,address,lat,lng,barrio,category,price_free,price_min,price_max,source_type,source_name,source_url,image_url,status,fingerprint,created_at,search,metrics_views,metrics_likes,short_title,time_unknown,links,recurring,rating_value,rating_count";
 
 function searchText(e: Pick<Event, "title" | "venueName">) {
   return normalizeText(`${e.title} ${e.venueName}`);
@@ -101,6 +108,7 @@ function toRow(e: Event): unknown[] {
     f.createdAt, searchText(f), f.metrics?.views ?? null, f.metrics?.likes ?? null,
     f.shortTitle ?? null, f.timeUnknown === undefined ? null : f.timeUnknown ? 1 : 0,
     f.links?.length ? JSON.stringify(f.links) : null,
+    f.recurring === undefined ? null : f.recurring ? 1 : 0, f.rating?.value ?? null, f.rating?.count ?? null,
   ];
 }
 
@@ -128,6 +136,8 @@ function fromRow(r: Row): Event {
   if (r.links) {
     try { e.links = JSON.parse(r.links); } catch { /* ignore a corrupt cell */ }
   }
+  if (r.recurring === 1) e.recurring = true;
+  if (r.rating_value !== null) e.rating = { value: r.rating_value, count: r.rating_count ?? 0 };
   if (r.metrics_views !== null || r.metrics_likes !== null) {
     e.metrics = { ...(r.metrics_views !== null ? { views: r.metrics_views } : {}), ...(r.metrics_likes !== null ? { likes: r.metrics_likes } : {}) };
   }
@@ -357,7 +367,7 @@ export function validateRaw(input: unknown): RawEvent | undefined {
 /** What the list endpoint returns: enough for cards and pins. Full record on /api/events/:id. */
 export type EventCard = Pick<
   Event,
-  "id" | "shortTitle" | "title" | "startsAt" | "timeUnknown" | "venueName" | "lat" | "lng" | "barrio" | "category" | "price" | "sourceType" | "sourceName" | "imageUrl" | "status"
+  "id" | "shortTitle" | "title" | "startsAt" | "timeUnknown" | "venueName" | "lat" | "lng" | "barrio" | "category" | "price" | "sourceType" | "sourceName" | "imageUrl" | "status" | "recurring" | "rating"
 > & { metrics?: { views?: number } };
 
 export function toCard(e: Event): EventCard {
@@ -373,5 +383,7 @@ export function toCard(e: Event): EventCard {
   if (e.sourceName) card.sourceName = e.sourceName;
   if (e.imageUrl) card.imageUrl = e.imageUrl;
   if (e.metrics?.views !== undefined) card.metrics = { views: e.metrics.views };
+  if (e.recurring) card.recurring = true;
+  if (e.rating) card.rating = e.rating;
   return card;
 }
