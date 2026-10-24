@@ -8,6 +8,7 @@ import { displayTitle, formatWhen, humanizeTitle } from "@/components/events/for
 import { groupByVenue, venueOf, type Venue } from "@/components/events/venues";
 import { DARK_STYLE, loadMapLibre, type GLMap, type GLPopup, type MapLibre } from "./maplibre";
 import { VIOLET, VIOLET_LIGHT, VIOLET_LIGHT_SOURCE, VIOLET_SOURCE, categoryHex, loadImages, toHex } from "./paint";
+import { tilePlan, tileTemplate, warmTiles } from "./prefetch";
 import "./map-gl.css";
 
 type Props = {
@@ -34,6 +35,10 @@ type Props = {
 const PIN_ZOOM = 14;
 /** Gran Rosario with ~30 km of margin, as [west, south, east, north]. */
 const AREA: [number, number, number, number] = [-61.35, -33.45, -60.15, -32.4];
+/** The dense centre (Centro to Pichincha, Abasto, Martin): the only area worth warming at zoom 15. */
+const CORE: [number, number, number, number] = [-60.72, -33.0, -60.6, -32.9];
+/** The loading overlay waits for the first view's tiles at most this long. */
+const GATE_MS = 3000;
 const MIN_ZOOM = 10;
 const MAX_ZOOM = 18;
 const SRC = "venues";
@@ -64,8 +69,10 @@ export function EventMap({
   const cb = useRef({ onSelectVenue, onSelectCluster, onLocate });
   cb.current = { onSelectVenue, onSelectCluster, onLocate };
   const [ready, setReady] = useState(false);
-  /** First frame with the basemap drawn: the "Cargando mapa…" overlay goes away here, before data layers are added. */
+  /** The "Cargando mapa…" overlay stays until the first view's tiles are in (or GATE_MS), so nothing pops in afterwards. */
   const [styled, setStyled] = useState(false);
+  const gated = useRef(false);
+  const warm = useRef<AbortController | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [locating, setLocating] = useState(false);
 
@@ -106,12 +113,13 @@ export function EventMap({
           minZoom: MIN_ZOOM,
           maxZoom: MAX_ZOOM,
           maxBounds: AREA,
+          maxTileCacheSize: 2000, // keep every zoom level we have seen resident: zooming back out never refetches
+          fadeDuration: 0, // loaded tiles appear at once instead of cross-fading in
           attributionControl: { compact: true },
           interactive,
           dragRotate: false,
           pitchWithRotate: false,
           touchPitch: false,
-          fadeDuration: 150,
         });
         map.touchZoomRotate?.disableRotation();
         map.keyboard?.disableRotation?.();
@@ -119,7 +127,6 @@ export function EventMap({
         mapRef.current = map;
         // Debug handle for QA scripts (pinch/zoom checks in emulated browsers); not used by the app.
         (window as unknown as { __hpMap?: GLMap }).__hpMap = map;
-        map.on("style.load", () => map.once("render", () => !cancelled && setStyled(true)));
         map.on("load", async () => {
           try {
             await loadImages(map);
@@ -141,6 +148,7 @@ export function EventMap({
       cancelled = true;
       popupRef.current?.remove();
       popupRef.current = null;
+      warm.current?.abort();
       mapRef.current?.remove();
       mapRef.current = null;
     };
@@ -152,6 +160,34 @@ export function EventMap({
     const map = mapRef.current;
     if (!ready || !map) return;
     map.getSource(SRC)?.setData(toGeoJSON(venues, selectedKey));
+    if (gated.current) return;
+    gated.current = true;
+    // First data: the fit effect below moves the camera in this same commit, so the next idle frame means
+    // the first view (zoom 10–11 over the whole area) has all its tiles. Then warm the rest in the background.
+    let done = false;
+    const show = () => {
+      if (done) return;
+      done = true;
+      setStyled(true);
+      // Idle callback with a deadline: a backgrounded tab may never report idle, and the warm-up must still start.
+      const schedule = (fn: () => void) =>
+        "requestIdleCallback" in window
+          ? (window as Window & { requestIdleCallback: (cb: () => void, opts?: { timeout: number }) => void }).requestIdleCallback(fn, { timeout: 2000 })
+          : setTimeout(fn, 1000);
+      schedule(() => {
+        if (mapRef.current !== map) return;
+        const template = tileTemplate(map.getStyle());
+        if (!template) return;
+        const vs = venuesRef.current;
+        const box: [number, number, number, number] = vs.length
+          ? [Math.min(...vs.map((v) => v.lng)) - 0.02, Math.min(...vs.map((v) => v.lat)) - 0.02, Math.max(...vs.map((v) => v.lng)) + 0.02, Math.max(...vs.map((v) => v.lat)) + 0.02]
+          : CORE;
+        warm.current = new AbortController();
+        void warmTiles(template, tilePlan(AREA, box, CORE), warm.current.signal);
+      });
+    };
+    map.once("idle", show);
+    setTimeout(show, GATE_MS);
   }, [venues, selectedKey, ready]);
 
   // Fit the view to the pins (filters changed) — never while a venue or plan panel is open (fit is false then).
