@@ -109,6 +109,46 @@ export async function completeJSON<T extends z.ZodType>(opts: {
   return response.parsed_output;
 }
 
+/**
+ * One question answered with the web_search server tool; returns the final text.
+ * Resumes `pause_turn` up to 3 times. In mock mode returns `mock` without any call.
+ */
+export async function completeWithWebSearch(opts: {
+  prompt: string;
+  system: string;
+  mock: string;
+  maxUses?: number;
+  maxTokens?: number;
+}): Promise<string> {
+  if (isMockMode()) return opts.mock;
+  const client = getClient();
+  const messages: Anthropic.MessageParam[] = [{ role: "user", content: opts.prompt }];
+  const params: Anthropic.MessageCreateParamsNonStreaming = {
+    model: MODEL,
+    max_tokens: opts.maxTokens ?? 8000,
+    system: opts.system,
+    output_config: { effort: EFFORT },
+    tools: [
+      {
+        type: "web_search_20260209",
+        name: "web_search",
+        max_uses: opts.maxUses ?? 3,
+        user_location: { type: "approximate", city: "Rosario", region: "Santa Fe", country: "AR", timezone: "America/Argentina/Cordoba" },
+      },
+    ],
+    messages,
+  };
+  let response = await client.messages.create(params);
+  for (let i = 0; i < 3 && response.stop_reason === "pause_turn"; i++) {
+    messages.push({ role: "assistant", content: response.content });
+    response = await client.messages.create({ ...params, messages });
+  }
+  return response.content
+    .filter((b): b is Anthropic.TextBlock => b.type === "text")
+    .map((b) => b.text)
+    .join("\n");
+}
+
 /** Turn an API error into a short message safe to show in the UI. */
 export function describeError(err: unknown): string {
   if (err instanceof Anthropic.AuthenticationError) return "API key inválida. Revisá ANTHROPIC_API_KEY en .env.local.";

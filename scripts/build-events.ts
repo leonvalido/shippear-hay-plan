@@ -26,6 +26,7 @@ import { isMockMode } from "../src/lib/ai";
 import { OrganizerIndex } from "../src/lib/events/organizers";
 import { RadarRowSchema, VentiRowSchema, radarRowToRaw, ventiRowToRaw } from "../src/lib/events/sources";
 import { rosarioDate } from "../src/lib/events/time";
+import { MAX_LOOKUPS_PER_RUN, fillOfficialLinks, type LinkCache } from "../src/lib/events/officialLinks";
 
 const ROOT = process.cwd();
 const PRIVATE = path.join(ROOT, "data", "private");
@@ -33,6 +34,7 @@ const RAW_DIR = path.join(PRIVATE, "raw");
 const CACHE_FILE = path.join(PRIVATE, "geocache.json");
 const EXTRACT_CACHE = path.join(PRIVATE, "extract-cache.json");
 const ORGANIZERS_FILE = path.join(PRIVATE, "organizadores-rosario.json");
+const LINKS_FILE = path.join(PRIVATE, "links-cache.json");
 const MIN_SCORE = 55; // evento_puntaje threshold for ranked posts
 const EXTRACT_CHUNK = 100; // posts per cache flush
 const TITLES_FILE = path.join(PRIVATE, "titles-cache.json");
@@ -273,6 +275,16 @@ function dedupe(events: RawEvent[]): RawEvent[] {
   return [...byFp.values()];
 }
 
+async function officialLinks(events: RawEvent[]): Promise<void> {
+  const cache: LinkCache = fs.existsSync(LINKS_FILE) ? ((readJson(LINKS_FILE) as LinkCache) ?? {}) : {};
+  const save = () => { fs.mkdirSync(PRIVATE, { recursive: true }); fs.writeFileSync(LINKS_FILE, JSON.stringify(cache, null, 1)); };
+  const s = await fillOfficialLinks(events, cache, {
+    onBatch: (st) => { save(); console.log(`  ${st.lookedUp} buscados · ${st.found} encontrados · ${st.rejected} rechazados`); },
+  });
+  save();
+  console.log(`  candidatos ${s.candidates} · en caché ${s.cached} · buscados ${s.lookedUp} · encontrados ${s.found} · rechazados ${s.rejected}${s.budgetStop ? ` · corte por presupuesto (${MAX_LOOKUPS_PER_RUN} por corrida)` : ""}`);
+}
+
 async function shortTitles(events: RawEvent[]): Promise<void> {
   const cache: TitleCache = fs.existsSync(TITLES_FILE) ? ((readJson(TITLES_FILE) as TitleCache) ?? {}) : {};
   const before = Object.keys(cache).length;
@@ -344,14 +356,16 @@ async function main() {
   console.log(`  ${counts.geocoded} resueltas, ${counts.geocodeMiss} sin resolver`);
 
   const deduped = dedupe(all);
-  console.log(`6. Títulos cortos y descripciones${isMockMode() ? " (mock: recorte a 40 caracteres, descripciones sin tocar)" : ""}…`);
+  console.log(`6. Páginas oficiales (web search, caché: data/private/links-cache.json)${isMockMode() ? " (mock: solo caché)" : ""}…`);
+  await officialLinks(deduped);
+  console.log(`7. Títulos cortos y descripciones${isMockMode() ? " (mock: recorte a 40 caracteres, descripciones sin tocar)" : ""}…`);
   await shortTitles(deduped);
   console.log(`  ${counts.titled} nuevos, resto desde data/private/titles-cache.json`);
 
   const events = finalize(deduped, now);
   counts.written = events.length;
   fs.writeFileSync(OUT_FILE, JSON.stringify(events, null, 1) + "\n");
-  console.log(`7. Escrito data/events.json: ${events.length} eventos`);
+  console.log(`8. Escrito data/events.json: ${events.length} eventos`);
   console.log("   Por fuente (leídos -> eventos):");
   for (const s of sources) console.log(`   - ${s.name}: ${s.read} -> ${s.kept}${s.note ? ` (${s.note})` : ""}`);
   console.log(

@@ -123,3 +123,27 @@ export function buildShortTitlePrompt(items: ShortTextItem[]): string {
     .join("\n");
   return `Acortá estos ${items.length} títulos y escribí la descripción donde se pide. Respondé con index, shortTitle y description para cada uno.\n\n${body}`;
 }
+
+/** System prompt for the official-page lookup (web search). */
+export const OFFICIAL_LINK_SYSTEM = `Buscás la página oficial de eventos de Rosario, Argentina, para HayPlan. Para cada evento tenés título, fecha, lugar y la fuente donde lo encontramos (una nota de prensa, la agenda municipal o un posteo).
+
+Prioridad de lo que buscás, de mejor a peor:
+1. La página de venta de entradas del evento (Venti, Passline, Ticketek, Alpogo, Entradauno, Eventbrite, Tuentrada, Plateanet).
+2. La página del evento en el sitio del lugar o del organizador.
+3. El posteo oficial del organizador o del lugar en Instagram que anuncia ese evento.
+
+Reglas:
+- Tiene que ser la página de ESE evento (misma fecha o mismo ciclo, mismo artista u obra, mismo lugar), no la home del lugar ni un buscador. Si no estás seguro, devolvé null: un null vale más que un link equivocado.
+- Nunca devuelvas el mismo dominio de la fuente que te dimos, ni agregadores de noticias, ni resultados de Google.
+- Usá pocas búsquedas: combiná varios eventos en una misma consulta cuando compartan lugar o fecha.
+- Respondé únicamente con un array JSON, sin texto alrededor ni Markdown, con un objeto por evento:
+  [{"fingerprint": "...", "officialUrl": "https://..." | null, "label": "Entradas" | "Página del evento" | "Instagram del organizador" | null}]`;
+
+export type OfficialLookupItem = { fingerprint: string; title: string; date: string; venueName: string; sourceDomain: string; sourceName?: string };
+
+export function buildOfficialLinkPrompt(items: OfficialLookupItem[]): string {
+  const body = items
+    .map((i) => `- fingerprint: ${i.fingerprint}\n  evento: ${i.title}\n  fecha: ${i.date}\n  lugar: ${i.venueName}\n  fuente actual: ${i.sourceDomain}${i.sourceName ? ` (${i.sourceName})` : ""}`)
+    .join("\n");
+  return `Encontrá la página oficial de estos ${items.length} eventos. Devolvé el array JSON con exactamente ${items.length} objetos, uno por fingerprint.\n\n${body}`;
+}
