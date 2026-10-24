@@ -473,9 +473,9 @@ export function MapExplorer({ initialEvents }: { initialEvents?: Event[] }) {
           <Link
             href="/"
             aria-label="HayPlan, inicio"
-            className="glass tap absolute left-3 top-3 z-[1001] flex h-9 items-center rounded-full px-3 text-foreground"
+            className="tap absolute left-4 top-4 z-[1001] flex items-center text-white [filter:drop-shadow(0_1px_8px_rgba(0,0,0,0.6))]"
           >
-            <Logo className="h-5 w-auto" />
+            <Logo className="h-7 w-auto" />
           </Link>
         )}
         <ConciergeBar
