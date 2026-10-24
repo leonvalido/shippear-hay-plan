@@ -62,7 +62,7 @@ export function ConciergeBar({ day, onDay, budget, onBudget, near, onNear, locat
           maxLength={200}
           placeholder={speech.listening ? "Escuchando…" : "¿Qué hacés hoy? Contame…"}
           aria-label="Contale al concierge qué tenés ganas de hacer"
-          className="h-full min-w-0 flex-1 bg-transparent text-[15px] text-foreground outline-none placeholder:text-muted-foreground"
+          className="h-full min-w-0 flex-1 bg-transparent text-[16px] text-foreground outline-none placeholder:text-muted-foreground"
         />
         {speech.supported && (
           <button
