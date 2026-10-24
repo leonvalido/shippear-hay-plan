@@ -8,7 +8,8 @@
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "check": "node scripts/check-api.mjs",
-    "ingest": "node --no-warnings scripts/ingest/all.mjs"
+    "ingest": "node --no-warnings scripts/ingest/all.mjs",
+    "build-events": "node --no-warnings --import ./scripts/ts-loader.mjs scripts/build-events.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^1.2.0",
