@@ -120,7 +120,7 @@ export function EventCardEditorial({ event, selected, onSelect, index = 0, showT
       className={cn("tap row-in block", className)}
     >
       <div
-        className={cn("relative flex aspect-[21/9] items-end overflow-hidden rounded-[14px] p-2.5", selected && "ring-2 ring-primary/60")}
+        className={cn("relative flex aspect-[3/1] items-end overflow-hidden rounded-[14px] p-2.5", selected && "ring-2 ring-primary/60")}
         style={{ background: categoryGradient(event.category) }}
       >
         {event.imageUrl && !broken ? (
