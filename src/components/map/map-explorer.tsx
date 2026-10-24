@@ -192,7 +192,7 @@ export function MapExplorer() {
             setQuery(b);
             setQ(b);
           }}
-          className="absolute left-14 right-14 top-3 z-[1000] pr-10 [mask-image:linear-gradient(to_right,black_82%,transparent)]"
+          className="absolute left-14 right-3 top-3 z-[1000] pr-14 [mask-image:linear-gradient(to_right,black_calc(100%-5.5rem),transparent_calc(100%-3rem))]"
         />
       </div>
 
