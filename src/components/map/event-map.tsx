@@ -303,7 +303,7 @@ export function EventMap({
           disabled={locating}
           aria-label="Centrar el mapa en mi ubicación"
           title="Mi ubicación"
-          className="glass absolute right-3 top-[132px] z-[1000] flex size-10 items-center justify-center rounded-full text-foreground shadow-md disabled:opacity-60 md:top-3"
+          className="glass absolute right-3 top-[176px] z-[1000] flex size-10 items-center justify-center rounded-full text-foreground shadow-md disabled:opacity-60 md:top-3"
         >
           <svg viewBox="0 0 24 24" className={cn("size-5", locating && "animate-pulse")} fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
             <circle cx="12" cy="12" r="3" />

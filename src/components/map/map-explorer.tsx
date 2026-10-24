@@ -33,6 +33,7 @@ import { useStream } from "@/hooks/use-stream";
 import { BarrioStrip } from "./barrio-strip";
 import { ConciergeBar, type Budget } from "./concierge-bar";
 import { TileCache } from "./tile-cache";
+import { Logo } from "@/components/layout/logo";
 import { EventMap } from "./event-map";
 import { FilterChips } from "./filter-chips";
 
@@ -400,7 +401,7 @@ export function MapExplorer({ initialEvents }: { initialEvents?: Event[] }) {
     <div className="relative flex flex-col overflow-hidden md:flex-row">
       <TileCache />
       {/* Map: the whole viewport on phones; the sheet slides over it. */}
-      <div className={cn("relative shrink-0 md:flex-1", embed ? "h-dvh" : "h-[calc(100dvh-3.5rem)]")}>
+      <div className="relative h-dvh shrink-0 md:flex-1">
         <EventMap
           events={shown}
           selectedId={selectedId}
@@ -413,6 +414,15 @@ export function MapExplorer({ initialEvents }: { initialEvents?: Event[] }) {
           explore
           onLocate={setMe}
         />
+        {!embed && (
+          <Link
+            href="/"
+            aria-label="HayPlan, inicio"
+            className="glass tap absolute left-3 top-3 z-[1001] flex h-9 items-center rounded-full px-3 text-foreground"
+          >
+            <Logo className="h-5 w-auto" />
+          </Link>
+        )}
         <ConciergeBar
           day={day}
           onDay={setDay}
@@ -424,7 +434,7 @@ export function MapExplorer({ initialEvents }: { initialEvents?: Event[] }) {
           busy={ai.status === "loading" || ai.status === "streaming"}
           autoFocus={focusBar}
           onSubmit={askConcierge}
-          className="absolute left-3 right-3 top-3 z-[1000] md:top-16 md:mx-auto md:max-w-xl"
+          className={cn("absolute left-3 right-3 z-[1000] md:top-16 md:mx-auto md:max-w-xl", embed ? "top-3" : "top-14")}
         />
         <BarrioStrip
           events={shown}
@@ -434,12 +444,12 @@ export function MapExplorer({ initialEvents }: { initialEvents?: Event[] }) {
             setQuery(b);
             setQ(b);
           }}
-          className="absolute left-14 right-3 top-3 z-[1000] hidden pr-14 [mask-image:linear-gradient(to_right,black_calc(100%-5.5rem),transparent_calc(100%-3rem))] md:flex"
+          className="absolute left-[132px] right-3 top-3 z-[1000] hidden pr-14 [mask-image:linear-gradient(to_right,black_calc(100%-5.5rem),transparent_calc(100%-3rem))] md:flex"
         />
       </div>
 
       {/* Desktop side panel */}
-      <aside className="glass hidden h-[calc(100dvh-3.5rem)] w-96 flex-col md:flex" aria-label="Lista de eventos">
+      <aside className="glass hidden h-dvh w-96 flex-col md:flex" aria-label="Lista de eventos">
         {mode.kind === "list" && <div className="space-y-2 border-b p-3">{filters}</div>}
         <div className="relative min-h-0 flex-1 overflow-y-auto p-3">{body}</div>
       </aside>
