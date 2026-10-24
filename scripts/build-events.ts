@@ -14,7 +14,7 @@ import path from "node:path";
 import { RawEventSchema, type Event, type RawEvent } from "../src/lib/events/schema";
 import { eventId, fingerprint, mergeEvents } from "../src/lib/events/normalize";
 import { SocialPostSchema, extractEventsFromCaptions, type SocialPost } from "../src/lib/events/extract";
-import { barrioFromCoords, geocodeAddress, geocodeVenue, inRosario, type GeoCache } from "../src/lib/events/geocode";
+import { barrioFromCoords, geocodeAddress, geocodePlaces, geocodeVenue, inRosario, type GeoCache } from "../src/lib/events/geocode";
 import { isMidnight, toRosarioISO } from "../src/lib/events/time";
 import { fillShortTitles, type TitleCache } from "../src/lib/events/titles";
 import { isMockMode } from "../src/lib/ai";
@@ -89,6 +89,7 @@ async function geocodeMissing(events: RawEvent[]): Promise<void> {
     while (next < todo.length) {
       const e = todo[next++]!;
       let p = e.address ? await geocodeAddress(e.address, cache) : undefined;
+      if (!p) p = await geocodePlaces(e.address ? `${e.venueName}, ${e.address}` : e.venueName, cache);
       if (!p) p = await geocodeVenue(e.venueName, cache);
       if (p) { e.lat = p.lat; e.lng = p.lng; counts.geocoded++; } else counts.geocodeMiss++;
     }
