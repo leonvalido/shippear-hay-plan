@@ -191,6 +191,16 @@ export function walkMinutes(from: LatLng | null | undefined, e: { lat?: number; 
   return Math.max(1, Math.round(haversineMeters(from, { lat: e.lat, lng: e.lng }) / 80));
 }
 
+/** "a 12 min caminando" under an hour, otherwise "a 23 km"; null when unknown. */
+export function distanceLabel(from: LatLng | null | undefined, e: { lat?: number; lng?: number }): string | null {
+  if (!from || e.lat == null || e.lng == null) return null;
+  const meters = haversineMeters(from, { lat: e.lat, lng: e.lng });
+  const mins = Math.max(1, Math.round(meters / 80));
+  if (mins < 60) return `a ${mins} min caminando`;
+  const km = meters / 1000;
+  return `a ${km < 10 ? km.toFixed(1).replace(".", ",") : Math.round(km)} km`;
+}
+
 export type DayFilter = "hoy" | "manana" | "finde" | "semana";
 
 export const DAY_LABELS: Record<DayFilter, string> = { hoy: "Hoy", manana: "Mañana", finde: "Finde", semana: "Semana" };

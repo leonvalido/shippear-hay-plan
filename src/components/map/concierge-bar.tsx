@@ -123,7 +123,7 @@ export function ConciergeBar({ day, onDay, budget, onBudget, near, onNear, locat
         </button>
       </div>
 
-      <div className="mt-2 flex gap-1.5 overflow-x-auto px-1 pb-0.5 [scrollbar-width:none] [mask-image:linear-gradient(to_right,black_calc(100%-24px),transparent)]">
+      <div className="mt-2 flex gap-1.5 overflow-x-auto overscroll-x-contain px-1 pb-0.5 [scrollbar-width:none] [touch-action:pan-x] [mask-image:linear-gradient(to_right,black_calc(100%-24px),transparent)] md:flex-wrap md:overflow-visible md:[mask-image:none]">
         <div role="group" aria-label="Cuándo" className="flex shrink-0 gap-1.5">
           {WHEN.map((d) => (
             <Chip key={d} active={day === d} onClick={() => onDay(day === d ? null : d)}>
@@ -131,7 +131,8 @@ export function ConciergeBar({ day, onDay, budget, onBudget, near, onNear, locat
             </Chip>
           ))}
         </div>
-        <span aria-hidden className="my-1.5 w-px shrink-0 bg-white/10" />
+        <span aria-hidden className="my-1.5 w-px shrink-0 bg-white/10 md:hidden" />
+        <span aria-hidden className="hidden h-0 basis-full md:block" />
         <div role="group" aria-label="Presupuesto" className="flex shrink-0 gap-1.5">
           {BUDGET_CHIPS.map((b) => (
             <Chip key={b.label} active={budget === b.value} onClick={() => onBudget(b.value)}>

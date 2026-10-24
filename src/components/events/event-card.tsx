@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import type { Event } from "@/lib/events/schema";
 import { cn } from "@/lib/utils";
-import { CATEGORY_COLORS, CATEGORY_LABELS, SOCIAL_SOURCES, displayTitle, formatPrice, formatViews, formatWhen, humanizeTitle, walkMinutes, type LatLng } from "./format";
+import { CATEGORY_COLORS, CATEGORY_LABELS, SOCIAL_SOURCES, displayTitle, distanceLabel, formatPrice, formatViews, formatWhen, humanizeTitle, type LatLng } from "./format";
 
 type Props = {
   event: Event;
@@ -28,7 +28,7 @@ type Props = {
  */
 export function EventCard({ event, selected, onSelect, from, index = 0, className }: Props) {
   const color = CATEGORY_COLORS[event.category];
-  const mins = walkMinutes(from, event);
+  const dist = distanceLabel(from, event);
   const social = SOCIAL_SOURCES.has(event.sourceType);
   return (
     <article
@@ -52,7 +52,7 @@ export function EventCard({ event, selected, onSelect, from, index = 0, classNam
         </h3>
         <p className="truncate text-[13px] text-muted-foreground">
           {humanizeTitle(event.venueName)}
-          {mins != null && <span className="text-tertiary"> · a {mins >= 90 ? `${Math.round(mins / 60)} h` : `${mins} min`} caminando</span>}
+          {dist && <span className="text-tertiary"> · {dist}</span>}
         </p>
         <div className="flex flex-wrap items-center gap-1.5 pt-0.5">
           <Badge variant={event.price?.free ? "success" : "secondary"}>{formatPrice(event.price)}</Badge>
@@ -93,12 +93,17 @@ function Thumb({ event }: { event: Event }) {
         <Image
           src={event.imageUrl}
           alt=""
-          width={64}
-          height={64}
-          sizes="64px"
+          width={128}
+          height={128}
+          quality={85}
           loading="lazy"
           className="relative h-full w-full object-cover"
           onError={() => setBroken(true)}
+          onLoad={(e) => {
+            // The optimizer never upscales: a tiny source comes back tiny. Show the category tile instead of a blur.
+            const img = e.currentTarget;
+            if (Math.min(img.naturalWidth, img.naturalHeight) < 120) setBroken(true);
+          }}
         />
       )}
     </div>
@@ -134,7 +139,7 @@ function SocialBadge({ event }: { event: Event }) {
     <Badge variant="outline" className="gap-1">
       Visto en {tiktok ? "TikTok" : "Instagram"}
       {event.sourceName && <span className="text-tertiary">· {event.sourceName}</span>}
-      {views != null && <span className="font-semibold text-foreground">· {formatViews(views)}</span>}
+      {views != null && views > 0 && <span className="font-semibold text-foreground">· {formatViews(views)}</span>}
     </Badge>
   );
 }

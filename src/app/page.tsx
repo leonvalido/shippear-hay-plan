@@ -9,12 +9,6 @@ import type { Event } from "@/lib/events/schema";
 
 export const dynamic = "force-dynamic";
 
-const PUBLIC_SOURCES = new Set(["municipal", "ticketing", "platform", "press"]);
-
-function sourceBase(name?: string) {
-  return (name ?? "").split("·")[0].trim().toLowerCase();
-}
-
 /** Tonight first (from 17:00), then the rest of today, then what comes next. */
 function pickTonight(today: Event[], week: Event[]): { title: string; events: Event[] } {
   const hour = (e: Event) => Number(formatTime(e.startsAt).slice(0, 2));
@@ -32,16 +26,6 @@ export default async function Home() {
   ]);
   const count = week.length;
   const tonight = pickTonight(today, week);
-  const publicSources = new Set(week.filter((e) => PUBLIC_SOURCES.has(e.sourceType)).map((e) => sourceBase(e.sourceName)).filter(Boolean)).size;
-  const social = week.filter((e) => e.sourceType === "tiktok" || e.sourceType === "instagram").length;
-  const freeToday = today.filter((e) => e.price?.free).length;
-  const barriosToday = new Set(today.map((e) => e.barrio).filter(Boolean)).size;
-
-  const stats: { n: number; label: string }[] = [
-    { n: publicSources, label: `fuente${publicSources === 1 ? "" : "s"} pública${publicSources === 1 ? "" : "s"} leída${publicSources === 1 ? "" : "s"} por IA` },
-    social > 0 ? { n: social, label: "eventos encontrados en TikTok e Instagram" } : { n: freeToday, label: `plan${freeToday === 1 ? "" : "es"} gratis hoy` },
-    { n: barriosToday, label: `barrio${barriosToday === 1 ? "" : "s"} con planes hoy` },
-  ];
 
   return (
     <div className="w-full">
@@ -76,17 +60,17 @@ export default async function Home() {
                 <Link href="/mapa">Abrir el mapa</Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="tap h-12 w-full rounded-full px-8 text-base sm:w-auto">
-                <Link href="/hoy">Preguntale al concierge</Link>
+                <Link href="/mapa?concierge=1">Preguntale al concierge</Link>
               </Button>
             </div>
           </div>
-          <PhoneFrame src="/mapa" className="hidden justify-self-end xl:block" />
+          <PhoneFrame src="/mapa?embed=1" className="hidden justify-self-end xl:block" />
         </div>
       </section>
 
       {/* Real content as decoration: tonight's events straight from the API. */}
       {tonight.events.length > 0 && (
-        <section className="mx-auto w-full max-w-[1200px] px-4 pb-6 pt-2 sm:px-6 sm:pb-12">
+        <section className="mx-auto w-full max-w-[1200px] px-4 pb-16 pt-2 sm:px-6 sm:pb-24">
           <div className="mb-4 flex items-end justify-between gap-4">
             <h2 className="text-2xl font-extrabold tracking-[-0.02em] sm:text-3xl">{tonight.title}</h2>
             <Link href="/mapa" className="shrink-0 text-sm font-semibold text-primary hover:underline">
@@ -106,7 +90,8 @@ export default async function Home() {
                         src={e.imageUrl}
                         alt=""
                         fill
-                        sizes="(min-width: 1280px) 190px, 200px"
+                        sizes="(min-width: 1280px) 380px, 400px"
+                        quality={85}
                         loading="lazy"
                         className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
                       />
@@ -125,18 +110,6 @@ export default async function Home() {
         </section>
       )}
 
-      {/* Three statements, real numbers, no card chrome. */}
-      <section className="mx-auto w-full max-w-[1200px] px-4 py-10 sm:px-6 sm:py-16">
-        <ol className="grid gap-8 sm:grid-cols-3 sm:gap-6">
-          {stats.map((s, i) => (
-            <li key={s.label} className="border-t border-white/10 pt-5">
-              <p className="text-xs font-bold tracking-widest text-tertiary">0{i + 1}</p>
-              <p className="mt-3 text-4xl font-extrabold tracking-[-0.02em] tabular-nums sm:text-5xl">{s.n}</p>
-              <p className="mt-1 max-w-[22ch] text-base text-muted-foreground">{s.label}</p>
-            </li>
-          ))}
-        </ol>
-      </section>
     </div>
   );
 }
