@@ -6,6 +6,7 @@ import { ROSARIO_CENTER } from "@/lib/events/schema";
 import { cn } from "@/lib/utils";
 import { CATEGORY_COLORS, displayTitle, formatWhen, humanizeTitle } from "@/components/events/format";
 import { groupByVenue, venueOf, type Venue } from "@/components/events/venues";
+import { categoryIconHtml } from "@/components/events/category-icon";
 import { loadLeaflet, loadMarkerCluster, type LeafletMap, type LeafletMarker } from "./leaflet";
 
 type Props = {
@@ -226,7 +227,7 @@ export function EventMap({
       seen.add(v.key);
       let m = markers.get(v.key);
       if (!m) {
-        m = L.marker([v.lat, v.lng], { icon: iconFor(L, map, v, false, explore), venueKey: v.key, riseOnHover: true });
+        m = L.marker([v.lat, v.lng], { icon: iconFor(L, map, v, false, explore), venueKey: v.key, riseOnHover: true, title: `${humanizeTitle(v.name)}: ${v.events.length} evento${v.events.length === 1 ? "" : "s"}`, alt: humanizeTitle(v.name) });
         m.bindTooltip(tooltipHtml(v), { direction: "top", offset: [0, -14], className: "hp-tooltip" });
         m.on("click", () => {
           // At city zoom a lone bubble behaves like a cluster: zoom in to pin mode first.
@@ -303,7 +304,7 @@ export function EventMap({
           disabled={locating}
           aria-label="Centrar el mapa en mi ubicación"
           title="Mi ubicación"
-          className="glass absolute right-3 top-[132px] z-[1000] flex size-10 items-center justify-center rounded-full text-foreground shadow-md disabled:opacity-60 md:top-3"
+          className="glass absolute right-3 top-[176px] z-[1000] flex size-10 items-center justify-center rounded-full text-foreground shadow-md disabled:opacity-60 md:top-3"
         >
           <svg viewBox="0 0 24 24" className={cn("size-5", locating && "animate-pulse")} fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
             <circle cx="12" cy="12" r="3" />
@@ -364,7 +365,7 @@ function iconFor(L: any, map: LeafletMap, v: Venue, selected: boolean, explore: 
 
 /** Counted bubble: the same look for clusters and for lone venues at city zoom. Size scales mildly with count. */
 function bubbleIcon(L: any, n: number, selected = false) {
-  const size = 40;
+  const size = 34;
   return L.divIcon({
     html: `<div class="hp-cluster${selected ? " hp-cluster-selected" : ""}">${n}</div>`,
     className: "",
@@ -376,12 +377,12 @@ function bubbleIcon(L: any, n: number, selected = false) {
 
 function pinIcon(L: any, v: Venue, selected: boolean) {
   const n = v.events.length;
-  const size = 28;
+  const size = 22;
   return L.divIcon({
     className: "",
     iconSize: [size, size],
     iconAnchor: [size / 2, size / 2],
     tooltipAnchor: [0, -size / 2],
-    html: `<div class="hp-pin${selected ? " hp-pin-selected" : ""}" style="--c:${CATEGORY_COLORS[v.category]}">${n > 1 ? `<span class="hp-pin-count">${n}</span>` : ""}</div>`,
+    html: `<div class="hp-pin${selected ? " hp-pin-selected" : ""}" style="--c:${CATEGORY_COLORS[v.category]}">${categoryIconHtml(v.category, 12, "#fff")}${n > 1 ? `<span class="hp-pin-count">${n}</span>` : ""}</div>`,
   });
 }

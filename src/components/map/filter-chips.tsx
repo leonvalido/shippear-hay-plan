@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 
-type Chip<T extends string> = { value: T; label: string; color?: string };
+type Chip<T extends string> = { value: T; label: string; color?: string; icon?: React.ReactNode };
 
 type Props<T extends string> = {
   label: string;
@@ -28,7 +28,13 @@ export function FilterChips<T extends string>({ label, chips, value, onChange }:
               active ? "border-primary bg-primary text-white" : "border-white/8 bg-card text-foreground hover:bg-accent",
             )}
           >
-            {c.color && <span aria-hidden className="size-2 rounded-full" style={{ background: c.color }} />}
+            {c.icon ? (
+              <span className={cn("flex size-3.5 items-center justify-center", !active && "[&>svg]:text-[var(--chip-color)]")} style={{ "--chip-color": c.color } as React.CSSProperties}>
+                {c.icon}
+              </span>
+            ) : (
+              c.color && <span aria-hidden className="size-2 rounded-full" style={{ background: c.color }} />
+            )}
             {c.label}
           </button>
         );

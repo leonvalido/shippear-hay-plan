@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Concierge } from "@/components/concierge/concierge";
 
-export const metadata: Metadata = { title: "Qué hago hoy" };
+export const metadata: Metadata = { title: "Qué hago hoy", alternates: { canonical: "/hoy" } };
 
 export default function HoyPage() {
   return (

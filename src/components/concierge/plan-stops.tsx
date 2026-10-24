@@ -51,7 +51,7 @@ function tidyTitle(t: string): string {
 }
 
 /** Tappable cards for each stop of the plan; "Ver en el mapa" searches the title on /mapa. */
-export function PlanStops({ stops }: { stops: Stop[] }) {
+export function PlanStops({ stops, onPick }: { stops: Stop[]; onPick?: (stop: Stop) => void }) {
   if (stops.length === 0) return null;
   return (
     <ol className="space-y-3" aria-label="Paradas del plan">
