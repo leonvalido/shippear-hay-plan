@@ -58,6 +58,16 @@ export function MapExplorer() {
     return () => clearTimeout(t);
   }, [query]);
 
+  // Deep link from the concierge: /mapa?q=título
+  useEffect(() => {
+    const initial = new URLSearchParams(window.location.search).get("q");
+    if (initial) {
+      setQuery(initial);
+      setQ(initial);
+      setExpanded(true);
+    }
+  }, []);
+
   const range = useMemo(() => dayRange(day), [day]);
   const { events, status, error, refetch } = useEvents({ ...range, category, q });
 
@@ -88,6 +98,8 @@ export function MapExplorer() {
     el?.scrollIntoView({ block: "nearest", behavior: "smooth" });
   }, [selectedId]);
 
+  const count = status === "done" ? `${events.length} evento${events.length === 1 ? "" : "s"}` : "Buscando…";
+
   const filters = (
     <div className="space-y-2">
       <label className="sr-only" htmlFor="map-search">
@@ -101,25 +113,33 @@ export function MapExplorer() {
         onChange={(e) => setQuery(e.target.value)}
         className="h-10 bg-background"
       />
-      <FilterChips label="Cuándo" chips={DAY_CHIPS} value={day} onChange={setDay} />
-      <FilterChips label="Categoría" chips={CATEGORY_CHIPS} value={category} onChange={setCategory} />
-      <div role="group" aria-label="Orden" className="flex rounded-lg border p-0.5 text-xs">
-        {(
-          [
-            ["hora", "Por hora"],
-            ["views", "Lo que más se mueve"],
-          ] as const
-        ).map(([v, label]) => (
-          <button
-            key={v}
-            type="button"
-            aria-pressed={sort === v}
-            onClick={() => setSort(v)}
-            className={cn("flex-1 rounded-md px-2 py-1 font-medium transition-colors", sort === v ? "bg-foreground text-background" : "text-muted-foreground hover:bg-accent")}
-          >
-            {label}
-          </button>
-        ))}
+      <div className="-mx-3 flex gap-1.5 overflow-x-auto px-3 pb-1 [scrollbar-width:none]">
+        <FilterChips label="Cuándo" chips={DAY_CHIPS} value={day} onChange={setDay} />
+        <span aria-hidden className="my-1 w-px shrink-0 bg-border" />
+        <FilterChips label="Categoría" chips={CATEGORY_CHIPS} value={category} onChange={setCategory} />
+      </div>
+      <div className="flex items-center justify-between text-xs">
+        <p className="text-muted-foreground" aria-live="polite">
+          {count}
+        </p>
+        <div role="group" aria-label="Orden" className="flex gap-1">
+          {(
+            [
+              ["hora", "Por hora"],
+              ["views", "Lo que más se mueve"],
+            ] as const
+          ).map(([v, label]) => (
+            <button
+              key={v}
+              type="button"
+              aria-pressed={sort === v}
+              onClick={() => setSort(v)}
+              className={cn("rounded-full px-2 py-0.5 font-medium transition-colors", sort === v ? "bg-foreground text-background" : "text-muted-foreground hover:bg-accent")}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -144,7 +164,7 @@ export function MapExplorer() {
       )}
       {groups.map(([key, g]) => (
         <section key={key} aria-label={g.label}>
-          <h2 className="sticky top-0 z-10 -mx-1 mb-2 bg-background/95 px-1 py-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground backdrop-blur">
+          <h2 className="sticky top-0 z-20 -mx-3 mb-2 border-b border-white/10 bg-background px-3 py-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
             {g.label}
             <span className="ml-1.5 font-normal normal-case">· {g.events.length}</span>
           </h2>
@@ -158,7 +178,6 @@ export function MapExplorer() {
     </div>
   );
 
-  const count = status === "done" ? `${events.length} evento${events.length === 1 ? "" : "s"}` : "Buscando…";
 
   return (
     <div className="relative flex flex-col md:flex-row">
@@ -173,19 +192,14 @@ export function MapExplorer() {
             setQuery(b);
             setQ(b);
           }}
-          className="absolute left-14 right-16 top-3 z-[1000]"
+          className="absolute left-14 right-14 top-3 z-[1000] pr-10 [mask-image:linear-gradient(to_right,black_82%,transparent)]"
         />
       </div>
 
       {/* Desktop side panel */}
       <aside className="glass hidden h-[calc(100dvh-3.5rem)] w-96 flex-col md:flex" aria-label="Lista de eventos">
-        <div className="space-y-2 border-b p-3">
-          {filters}
-          <p className="text-xs text-muted-foreground" aria-live="polite">
-            {count}
-          </p>
-        </div>
-        <div className="min-h-0 flex-1 overflow-y-auto p-3">{list}</div>
+        <div className="space-y-2 border-b p-3">{filters}</div>
+        <div className="relative min-h-0 flex-1 overflow-y-auto p-3">{list}</div>
       </aside>
 
       {/* Mobile bottom sheet */}
@@ -203,12 +217,10 @@ export function MapExplorer() {
           className="flex w-full flex-col items-center gap-1 pb-1 pt-2"
         >
           <span aria-hidden className="h-1.5 w-10 rounded-full bg-border" />
-          <span className="text-xs text-muted-foreground">
-            {count} · {expanded ? "ver mapa" : "ver lista"}
-          </span>
+          <span className="text-xs text-muted-foreground">{expanded ? "Ver mapa" : "Ver lista"}</span>
         </button>
         <div className="space-y-2 px-3 pb-2">{filters}</div>
-        <div className="min-h-0 flex-1 overflow-y-auto px-3 pb-4">{list}</div>
+        <div className="relative min-h-0 flex-1 overflow-y-auto px-3 pb-4">{list}</div>
       </section>
     </div>
   );

@@ -88,13 +88,13 @@ export function formatDateTime(iso: string): string {
 const fmtARS = new Intl.NumberFormat("es-AR", { maximumFractionDigits: 0 });
 
 export function formatPrice(price: Event["price"]): string {
-  if (!price) return "Consultar";
+  if (!price) return "Precio a confirmar";
   if (price.free) return "Gratis";
   if (price.min != null && price.max != null && price.max !== price.min) {
     return `$${fmtARS.format(price.min)} – $${fmtARS.format(price.max)}`;
   }
   const v = price.min ?? price.max;
-  return v != null ? `$${fmtARS.format(v)}` : "Consultar";
+  return v != null ? `$${fmtARS.format(v)}` : "Precio a confirmar";
 }
 
 /** 12300 → "12,3 mil", 1500000 → "1,5 M" */

@@ -14,7 +14,7 @@ type Props<T extends string> = {
 /** Horizontal, scrollable row of toggle chips. Tapping the active chip clears it. */
 export function FilterChips<T extends string>({ label, chips, value, onChange }: Props<T>) {
   return (
-    <div role="group" aria-label={label} className="-mx-1 flex gap-1.5 overflow-x-auto px-1 pb-1 [scrollbar-width:none]">
+    <div role="group" aria-label={label} className="flex shrink-0 gap-1.5">
       {chips.map((c) => {
         const active = c.value === value;
         return (

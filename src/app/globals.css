@@ -48,8 +48,8 @@
   --popover: oklch(0.21 0.025 300);
   --popover-foreground: oklch(0.97 0.01 300);
 
-  --primary: oklch(0.72 0.20 320);
-  --primary-foreground: oklch(0.16 0.02 300);
+  --primary: oklch(0.6 0.24 320); /* same violet as the logo, lifted a touch for dark */
+  --primary-foreground: oklch(0.99 0.005 300);
   --secondary: oklch(0.27 0.03 300);
   --secondary-foreground: oklch(0.97 0.01 300);
   --muted: oklch(0.27 0.03 300);
@@ -136,7 +136,7 @@
   color: var(--foreground);
 }
 .dark .leaflet-control-attribution a {
-  color: var(--primary);
+  color: var(--muted-foreground);
 }
 .dark .leaflet-popup-content-wrapper,
 .dark .leaflet-popup-tip {
@@ -147,4 +147,19 @@
   background: var(--card);
   color: var(--foreground);
   border-color: var(--border);
+}
+
+/* Cluster bubbles (Leaflet.markercluster with a custom divIcon). */
+.hp-cluster {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 9999px;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  font: 700 13px/1 ui-rounded, "SF Pro Rounded", system-ui, sans-serif;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
 }

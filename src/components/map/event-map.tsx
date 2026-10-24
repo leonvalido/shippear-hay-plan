@@ -5,7 +5,7 @@ import type { Event } from "@/lib/events/schema";
 import { ROSARIO_CENTER } from "@/lib/events/schema";
 import { cn } from "@/lib/utils";
 import { CATEGORY_COLORS, formatPrice, formatTime, relativeDayLabel } from "@/components/events/format";
-import { loadLeaflet, type LeafletMap, type LeafletMarker } from "./leaflet";
+import { loadLeaflet, loadMarkerCluster, type LeafletMap, type LeafletMarker } from "./leaflet";
 
 type Props = {
   events: Event[];
@@ -31,11 +31,14 @@ export function EventMap({ events, selectedId, onSelect, center = ROSARIO_CENTER
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<LeafletMap>(null);
   const markersRef = useRef<Map<string, LeafletMarker>>(new Map());
+  /** Cluster group when the plugin loaded; otherwise pins go straight on the map. */
+  const layerRef = useRef<LeafletMarker>(null);
   const onSelectRef = useRef(onSelect);
   onSelectRef.current = onSelect;
   const [ready, setReady] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [locating, setLocating] = useState(false);
+  const [retry, setRetry] = useState(0);
   const meRef = useRef<LeafletMarker>(null);
   const onLocateRef = useRef(onLocate);
   onLocateRef.current = onLocate;
@@ -70,6 +73,11 @@ export function EventMap({ events, selectedId, onSelect, center = ROSARIO_CENTER
     loadLeaflet()
       .then((L) => {
         if (cancelled || !containerRef.current || mapRef.current) return;
+        if (containerRef.current.clientHeight === 0) {
+          // Container not laid out yet (e.g. hidden tab): retry on next frame instead of initializing at 0px.
+          requestAnimationFrame(() => setRetry((n) => n + 1));
+          return;
+        }
         const map = L.map(containerRef.current, {
           center: [center.lat, center.lng],
           zoom,
@@ -83,17 +91,44 @@ export function EventMap({ events, selectedId, onSelect, center = ROSARIO_CENTER
         });
         L.tileLayer(TILES, { attribution: ATTR, maxZoom: 19 }).addTo(map);
         mapRef.current = map;
-        setReady(true);
+        const start = () => {
+          if (cancelled || mapRef.current !== map) return;
+          if (explore && L.markerClusterGroup) {
+            layerRef.current = L.markerClusterGroup({
+              maxClusterRadius: 44,
+              showCoverageOnHover: false,
+              spiderfyOnMaxZoom: true,
+              zoomToBoundsOnClick: true,
+              iconCreateFunction: (cluster: { getChildCount: () => number }) => {
+                const n = cluster.getChildCount();
+                const size = n < 10 ? 36 : n < 100 ? 42 : 48;
+                return L.divIcon({
+                  html: `<div class="hp-cluster">${n}</div>`,
+                  className: "",
+                  iconSize: [size, size],
+                });
+              },
+            }).addTo(map);
+          }
+          setReady(true);
+        };
+        if (explore) loadMarkerCluster().then(start, start);
+        else start();
+        // Layout settles after fonts, sheet and flex sizing: nudge Leaflet a couple of times.
+        requestAnimationFrame(() => map.invalidateSize());
+        setTimeout(() => map.invalidateSize(), 300);
+        setTimeout(() => map.invalidateSize(), 1000);
       })
       .catch((e: Error) => !cancelled && setError(e.message));
     return () => {
       cancelled = true;
       mapRef.current?.remove();
       mapRef.current = null;
+      layerRef.current = null;
       markersRef.current.clear();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [retry]);
 
   // Sync pins.
   useEffect(() => {
@@ -111,7 +146,7 @@ export function EventMap({ events, selectedId, onSelect, center = ROSARIO_CENTER
         m.bindTooltip(`${formatTime(e.startsAt)} · ${e.title}`, { direction: "top", offset: [0, -8] });
         if (explore) m.bindPopup(popupHtml(e), { offset: [0, -6], closeButton: false, maxWidth: 240 });
         m.on("click", () => onSelectRef.current?.(e.id));
-        m.addTo(map);
+        (layerRef.current ?? map).addLayer(m);
         markers.set(e.id, m);
       } else {
         m.setLatLng([e.lat, e.lng]);
@@ -119,7 +154,7 @@ export function EventMap({ events, selectedId, onSelect, center = ROSARIO_CENTER
     }
     for (const [id, m] of markers) {
       if (!seen.has(id)) {
-        m.remove();
+        (layerRef.current ?? map).removeLayer(m);
         markers.delete(id);
       }
     }
@@ -139,8 +174,16 @@ export function EventMap({ events, selectedId, onSelect, center = ROSARIO_CENTER
       const sel = e.id === selectedId;
       m.setStyle(pinStyle(e, sel));
       if (sel) {
-        m.bringToFront();
-        map.panTo(m.getLatLng(), { animate: true });
+        if (layerRef.current?.zoomToShowLayer) {
+          // Pull the pin out of its cluster first, then center on it.
+          layerRef.current.zoomToShowLayer(m, () => {
+            m.bringToFront();
+            map.panTo(m.getLatLng(), { animate: true });
+          });
+        } else {
+          m.bringToFront();
+          map.panTo(m.getLatLng(), { animate: true });
+        }
       }
     }
   }, [selectedId, events, ready]);

@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useStream } from "@/hooks/use-stream";
 import { MicButton } from "./mic-button";
+import { PlanStops, parseStops } from "./plan-stops";
 import { WhatsAppButton } from "./whatsapp-button";
 import { ROSARIO_CENTER } from "@/lib/events/schema";
 
@@ -77,6 +78,7 @@ export function Concierge() {
   }
 
   const busy = ai.status === "loading" || ai.status === "streaming";
+  const stops = ai.status === "done" ? parseStops(ai.text) : [];
 
   return (
     <div className="space-y-6">
@@ -116,7 +118,7 @@ export function Concierge() {
             Ganas de… <span className="font-normal text-muted-foreground">(opcional)</span>
           </Label>
           <div className="flex gap-2">
-            <Input id="mood" maxLength={200} placeholder="Ej: algo tranqui al aire libre, con amigos" value={mood} onChange={(e) => setMood(e.target.value)} />
+            <Input id="mood" maxLength={200} placeholder="Ej: algo tranqui al aire libre" value={mood} onChange={(e) => setMood(e.target.value)} />
             <MicButton onResult={onVoice} disabled={busy} />
           </div>
         </div>
@@ -143,6 +145,7 @@ export function Concierge() {
         </div>
       </section>
 
+      {ai.status !== "idle" && (
       <AIResult
         title="Tu plan"
         status={ai.status}
@@ -153,6 +156,8 @@ export function Concierge() {
         emptyHint="Hola, soy HayPlan. Decime qué tenés ganas de hacer o a qué hora salís y te armo algo con lo que hay hoy en Rosario."
         className="min-h-40"
       />
+      )}
+      {stops.length > 0 && <PlanStops stops={stops} />}
       {ai.status === "done" && ai.text.trim() && (
         <div className="flex justify-end">
           <WhatsAppButton text={ai.text} className="w-full sm:w-auto" />
