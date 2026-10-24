@@ -89,13 +89,13 @@ export function Concierge() {
         </div>
 
         <div className="space-y-2">
-          <div className="flex items-baseline justify-between">
+          <div className="flex items-baseline justify-between gap-3">
             <Label htmlFor="budget" className="text-sm font-normal text-muted-foreground">Presupuesto</Label>
             <span className="text-sm font-semibold text-foreground" aria-live="polite">
               {BUDGETS[budgetIdx].label}
             </span>
           </div>
-          <div className="rounded-xl border border-white/8 p-3">
+          <div className="rounded-xl border border-white/8 px-3 py-1">
           <input
             id="budget"
             type="range"
@@ -104,12 +104,12 @@ export function Concierge() {
             step={1}
             value={budgetIdx}
             onChange={(e) => setBudgetIdx(Number(e.target.value))}
-            className="w-full accent-primary"
+            className="block h-11 w-full accent-primary"
             aria-valuetext={BUDGETS[budgetIdx].label}
           />
-          <div className="mt-2 flex justify-between text-xs text-tertiary">
+          <div className="flex justify-between gap-2 pb-2 text-xs leading-tight text-tertiary">
             {BUDGETS.map((b) => (
-              <span key={b.label}>{b.label}</span>
+              <span key={b.label} className="min-w-0 text-center first:text-left last:text-right">{b.label}</span>
             ))}
           </div>
           </div>
@@ -120,7 +120,7 @@ export function Concierge() {
             Ganas de… <span className="text-tertiary">(opcional)</span>
           </Label>
           <div className="flex gap-2">
-            <Input id="mood" className="h-10 rounded-xl border-white/8" maxLength={200} placeholder="Ej: algo tranqui al aire libre" value={mood} onChange={(e) => setMood(e.target.value)} />
+            <Input id="mood" className="h-11 min-w-0 rounded-xl border-white/8" maxLength={200} placeholder="Ej: algo tranqui al aire libre" value={mood} onChange={(e) => setMood(e.target.value)} />
             <MicButton onResult={onVoice} disabled={busy} />
           </div>
         </div>
@@ -128,7 +128,7 @@ export function Concierge() {
         <div className="space-y-2">
           <p className="text-sm text-muted-foreground">Ubicación</p>
           <div className="flex flex-wrap items-center gap-3">
-            <Button type="button" variant="outline" onClick={locate} disabled={locating} aria-label="Usar mi ubicación" className="h-10 rounded-full border-white/8 px-4">
+            <Button type="button" variant="outline" onClick={locate} disabled={locating} aria-label="Usar mi ubicación" className="h-11 rounded-full border-white/8 px-4">
               <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
                 <path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z" />
                 <circle cx="12" cy="10" r="2.5" />

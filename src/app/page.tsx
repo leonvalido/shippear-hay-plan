@@ -43,7 +43,7 @@ export default async function Home() {
           <span aria-hidden className="size-2 animate-pulse rounded-full bg-emerald-500" />
           <strong className="font-semibold text-foreground tabular-nums">{count}</strong> evento{count === 1 ? "" : "s"} esta semana
         </p>
-        <h1 className="relative mx-auto max-w-3xl font-display text-3xl font-semibold leading-tight sm:text-6xl">Mirá qué pasa hoy en Rosario.</h1>
+        <h1 className="relative mx-auto max-w-3xl font-display text-3xl font-semibold leading-tight text-balance sm:text-6xl">Mirá qué pasa hoy en Rosario.</h1>
         <p className="relative mx-auto max-w-xl text-base text-muted-foreground">
           Ves en un mapa los recitales, las ferias, el teatro y las fiestas de hoy, con hora, lugar y precio de la entrada.
         </p>
@@ -52,7 +52,7 @@ export default async function Home() {
             <li key={c}>
               <Link
                 href={`/mapa?category=${c}`}
-                className="glass tap inline-flex h-8 items-center gap-1.5 rounded-full px-3 text-sm font-medium"
+                className="glass tap inline-flex h-11 items-center gap-2 rounded-full px-4 text-sm font-medium"
               >
                 <span aria-hidden className="size-2 rounded-full" style={{ background: CATEGORY_COLORS[c] }} />
                 {CATEGORY_LABELS[c]}
