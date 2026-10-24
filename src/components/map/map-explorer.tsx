@@ -11,6 +11,7 @@ import {
   relativeDayLabel,
   rosarioDayKey,
   type DayFilter,
+  type LatLng,
 } from "@/components/events/format";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -33,6 +34,23 @@ export function MapExplorer() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [expanded, setExpanded] = useState(false);
   const [sort, setSort] = useState<"hora" | "views">("hora");
+  const [me, setMe] = useState<LatLng | null>(null);
+
+  // If the user already granted location to this site, pick it up silently (no prompt).
+  useEffect(() => {
+    if (!("permissions" in navigator) || !("geolocation" in navigator)) return;
+    navigator.permissions
+      .query({ name: "geolocation" })
+      .then((p) => {
+        if (p.state !== "granted") return;
+        navigator.geolocation.getCurrentPosition(
+          (pos) => setMe({ lat: pos.coords.latitude, lng: pos.coords.longitude }),
+          () => {},
+          { timeout: 8000, maximumAge: 300_000 },
+        );
+      })
+      .catch(() => {});
+  }, []);
   const listRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -132,7 +150,7 @@ export function MapExplorer() {
           </h2>
           <div className="space-y-2">
             {g.events.map((e) => (
-              <EventCard key={e.id} event={e} selected={e.id === selectedId} onSelect={selectFromList} showDate={sort === "views"} />
+              <EventCard key={e.id} event={e} selected={e.id === selectedId} onSelect={selectFromList} showDate={sort === "views"} from={me} />
             ))}
           </div>
         </section>
@@ -146,7 +164,7 @@ export function MapExplorer() {
     <div className="relative flex flex-col md:flex-row">
       {/* Map */}
       <div className={cn("relative shrink-0 transition-[height]", expanded ? "h-[15dvh]" : "h-[50dvh]", "md:h-[calc(100dvh-3.5rem)] md:flex-1")}>
-        <EventMap events={events} selectedId={selectedId} onSelect={setSelectedId} fit={status === "done"} explore />
+        <EventMap events={events} selectedId={selectedId} onSelect={setSelectedId} fit={status === "done"} explore onLocate={setMe} />
         <BarrioStrip
           events={events}
           range={range}

@@ -4,19 +4,22 @@ import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import type { Event } from "@/lib/events/schema";
 import { cn } from "@/lib/utils";
-import { CATEGORY_COLORS, CATEGORY_LABELS, SOCIAL_SOURCES, formatDate, formatDayShort, formatMonthShort, formatPrice, formatTime, formatViews, sourceLabel } from "./format";
+import { CATEGORY_COLORS, CATEGORY_LABELS, SOCIAL_SOURCES, formatDate, formatDayShort, formatMonthShort, formatPrice, formatTime, formatViews, sourceLabel, walkMinutes, type LatLng } from "./format";
 
 type Props = {
   event: Event;
   selected?: boolean;
   onSelect?: (id: string) => void;
   showDate?: boolean;
+  /** The viewer's position; when given, the card shows walking minutes. */
+  from?: LatLng | null;
   className?: string;
 };
 
 /** Compact event row used in the map list, duplicates list and detail pages. */
-export function EventCard({ event, selected, onSelect, showDate = true, className }: Props) {
+export function EventCard({ event, selected, onSelect, showDate = true, from, className }: Props) {
   const color = CATEGORY_COLORS[event.category];
+  const mins = walkMinutes(from, event);
   return (
     <article
       data-event-id={event.id}
@@ -53,6 +56,12 @@ export function EventCard({ event, selected, onSelect, showDate = true, classNam
           {showDate && event.imageUrl ? `${formatDate(event.startsAt)}, ` : ""}
           {showDate || event.imageUrl ? `${formatTime(event.startsAt)} · ` : ""}
           {event.venueName}
+          {mins != null && (
+            <span className="text-foreground">
+              {" "}
+              · 🚶 a {mins >= 90 ? `${Math.round(mins / 60)} h` : `${mins} min`} caminando
+            </span>
+          )}
         </p>
         <div className="flex flex-wrap items-center gap-1.5">
           {selected && (

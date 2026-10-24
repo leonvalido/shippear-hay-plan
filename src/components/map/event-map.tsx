@@ -17,6 +17,8 @@ type Props = {
   fit?: boolean;
   /** Show a "my location" button and a popup with a link on each pin. */
   explore?: boolean;
+  /** Called with the viewer's position after the location button succeeds. */
+  onLocate?: (pos: { lat: number; lng: number }) => void;
   interactive?: boolean;
   className?: string;
 };
@@ -25,7 +27,7 @@ const TILES = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
 const ATTR = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>';
 
 /** Leaflet map with one colored pin per geolocated event. Client-only. */
-export function EventMap({ events, selectedId, onSelect, center = ROSARIO_CENTER, zoom = 13, fit = false, explore = false, interactive = true, className }: Props) {
+export function EventMap({ events, selectedId, onSelect, center = ROSARIO_CENTER, zoom = 13, fit = false, explore = false, onLocate, interactive = true, className }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<LeafletMap>(null);
   const markersRef = useRef<Map<string, LeafletMarker>>(new Map());
@@ -35,6 +37,8 @@ export function EventMap({ events, selectedId, onSelect, center = ROSARIO_CENTER
   const [error, setError] = useState<string | null>(null);
   const [locating, setLocating] = useState(false);
   const meRef = useRef<LeafletMarker>(null);
+  const onLocateRef = useRef(onLocate);
+  onLocateRef.current = onLocate;
 
   function locate() {
     const map = mapRef.current;
@@ -52,6 +56,7 @@ export function EventMap({ events, selectedId, onSelect, center = ROSARIO_CENTER
           meRef.current.setLatLng(ll);
         }
         map.flyTo(ll, Math.max(map.getZoom(), 14));
+        onLocateRef.current?.({ lat: ll[0], lng: ll[1] });
         setLocating(false);
       },
       () => setLocating(false),

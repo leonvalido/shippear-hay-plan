@@ -138,6 +138,24 @@ export function rosarioDayKey(iso: string): string {
   return new Date(d.getTime() - OFFSET_MS).toISOString().slice(0, 10);
 }
 
+export type LatLng = { lat: number; lng: number };
+
+/** Great-circle distance in meters. */
+export function haversineMeters(a: LatLng, b: LatLng): number {
+  const R = 6_371_000;
+  const toRad = (x: number) => (x * Math.PI) / 180;
+  const dLat = toRad(b.lat - a.lat);
+  const dLng = toRad(b.lng - a.lng);
+  const s = Math.sin(dLat / 2) ** 2 + Math.cos(toRad(a.lat)) * Math.cos(toRad(b.lat)) * Math.sin(dLng / 2) ** 2;
+  return 2 * R * Math.asin(Math.sqrt(s));
+}
+
+/** Walking minutes at 80 m/min, rounded; null when either point is missing. */
+export function walkMinutes(from: LatLng | null | undefined, e: { lat?: number; lng?: number }): number | null {
+  if (!from || e.lat == null || e.lng == null) return null;
+  return Math.max(1, Math.round(haversineMeters(from, { lat: e.lat, lng: e.lng }) / 80));
+}
+
 export type DayFilter = "hoy" | "manana" | "finde" | "semana";
 
 export const DAY_LABELS: Record<DayFilter, string> = { hoy: "Hoy", manana: "Mañana", finde: "Finde", semana: "Semana" };
