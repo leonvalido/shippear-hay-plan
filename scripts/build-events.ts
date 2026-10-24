@@ -14,7 +14,7 @@ import path from "node:path";
 import { RawEventSchema, type Event, type RawEvent } from "../src/lib/events/schema";
 import { eventId, fingerprint, mergeEvents } from "../src/lib/events/normalize";
 import { SocialPostSchema, extractEventsFromCaptions, type SocialPost } from "../src/lib/events/extract";
-import { geocodeAddress, inRosario, type GeoCache } from "../src/lib/events/geocode";
+import { barrioFromCoords, geocodeAddress, inRosario, type GeoCache } from "../src/lib/events/geocode";
 import { toRosarioISO } from "../src/lib/events/time";
 import { isMockMode } from "../src/lib/ai";
 
@@ -115,6 +115,7 @@ function finalize(events: RawEvent[], now: Date): Event[] {
     const ms = Date.parse(e.startsAt);
     if (Number.isNaN(ms) || ms < nowMs) { counts.past++; continue; }
     if (e.lat !== undefined && e.lng !== undefined && !inRosario({ lat: e.lat, lng: e.lng })) { counts.outside++; continue; }
+    if (!e.barrio && e.lat !== undefined && e.lng !== undefined) e.barrio = barrioFromCoords(e.lat, e.lng);
     out.push({ ...e, id: eventId(e), status: "published", fingerprint: fingerprint(e), createdAt });
   }
   // same id twice can only happen through hash collision; keep the first

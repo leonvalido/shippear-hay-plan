@@ -58,3 +58,18 @@ export async function geocodeAddress(address: string, cache: GeoCache = {}, fetc
     return undefined;
   }
 }
+
+/**
+ * Coarse zone of Rosario from coordinates, used when a source gives no barrio.
+ * Boxes are approximate on purpose: they feed a count strip, not an address.
+ */
+export function barrioFromCoords(lat: number, lng: number): string {
+  if (lat > -32.905) return "Norte";
+  if (lat < -32.985) return "Sur";
+  if (lng < -60.695) return "Oeste";
+  if (lat >= -32.94 && lat <= -32.905 && lng >= -60.66 && lng <= -60.625) return "Pichincha";
+  if (lat >= -32.955 && lat <= -32.935 && lng >= -60.655 && lng <= -60.62) return "Centro";
+  if (lat >= -32.975 && lat <= -32.945 && lng >= -60.68 && lng <= -60.64) return "Parque";
+  if (lng > -60.625) return "Costanera";
+  return "Macrocentro";
+}
