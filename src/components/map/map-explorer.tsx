@@ -8,6 +8,8 @@ import {
   CATEGORY_LABELS,
   DAY_LABELS,
   dayRange,
+  relativeDayLabel,
+  rosarioDayKey,
   type DayFilter,
 } from "@/components/events/format";
 import { Button } from "@/components/ui/button";
@@ -39,6 +41,22 @@ export function MapExplorer() {
   const range = useMemo(() => dayRange(day), [day]);
   const { events, status, error, refetch } = useEvents({ ...range, category, q });
 
+  const groups = useMemo(() => {
+    const map = new Map<string, { label: string; events: typeof events }>();
+    for (const e of events) {
+      const key = rosarioDayKey(e.startsAt);
+      const g = map.get(key) ?? { label: relativeDayLabel(e.startsAt), events: [] };
+      g.events.push(e);
+      map.set(key, g);
+    }
+    return [...map.entries()];
+  }, [events]);
+
+  function selectFromList(id: string) {
+    setSelectedId(id);
+    setExpanded(false); // on phones, bring the map back so the pin is visible
+  }
+
   // Keep the selected card in view when a pin is tapped.
   useEffect(() => {
     if (!selectedId || !listRef.current) return;
@@ -65,7 +83,7 @@ export function MapExplorer() {
   );
 
   const list = (
-    <div ref={listRef} className="space-y-2">
+    <div ref={listRef} className="space-y-4">
       {status === "loading" && events.length === 0 && Array.from({ length: 4 }, (_, i) => <EventCardSkeleton key={i} />)}
       {status === "error" && (
         <div className="rounded-xl border border-destructive/40 bg-destructive/5 p-4 text-sm">
@@ -82,8 +100,18 @@ export function MapExplorer() {
           <p>Probá con otro día o categoría.</p>
         </div>
       )}
-      {events.map((e) => (
-        <EventCard key={e.id} event={e} selected={e.id === selectedId} onSelect={setSelectedId} />
+      {groups.map(([key, g]) => (
+        <section key={key} aria-label={g.label}>
+          <h2 className="sticky top-0 z-10 -mx-1 mb-2 bg-background/95 px-1 py-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground backdrop-blur">
+            {g.label}
+            <span className="ml-1.5 font-normal normal-case">· {g.events.length}</span>
+          </h2>
+          <div className="space-y-2">
+            {g.events.map((e) => (
+              <EventCard key={e.id} event={e} selected={e.id === selectedId} onSelect={selectFromList} showDate={false} />
+            ))}
+          </div>
+        </section>
       ))}
     </div>
   );
@@ -94,7 +122,7 @@ export function MapExplorer() {
     <div className="relative flex flex-col md:flex-row">
       {/* Map */}
       <div className={cn("relative shrink-0 transition-[height]", expanded ? "h-[15dvh]" : "h-[50dvh]", "md:h-[calc(100dvh-3.5rem)] md:flex-1")}>
-        <EventMap events={events} selectedId={selectedId} onSelect={setSelectedId} fit={status === "done"} />
+        <EventMap events={events} selectedId={selectedId} onSelect={setSelectedId} fit={status === "done"} explore />
       </div>
 
       {/* Desktop side panel */}

@@ -51,9 +51,18 @@ export function EventCard({ event, selected, onSelect, showDate = true, classNam
         </h3>
         <p className="truncate text-xs text-muted-foreground">
           {showDate && event.imageUrl ? `${formatDate(event.startsAt)}, ` : ""}
-          {formatTime(event.startsAt)} · {event.venueName}
+          {showDate || event.imageUrl ? `${formatTime(event.startsAt)} · ` : ""}
+          {event.venueName}
         </p>
         <div className="flex flex-wrap items-center gap-1.5">
+          {selected && (
+            <Link
+              href={`/evento/${event.id}`}
+              className="inline-flex items-center rounded-md bg-primary px-2 py-0.5 text-xs font-medium text-primary-foreground hover:bg-primary/90"
+            >
+              Ver evento →
+            </Link>
+          )}
           <Badge variant={event.price?.free ? "success" : "secondary"}>{formatPrice(event.price)}</Badge>
           <Badge variant="outline" style={{ borderColor: color, color }}>
             {CATEGORY_LABELS[event.category]}

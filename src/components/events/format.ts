@@ -112,6 +112,23 @@ export function rosarioWeekday(now = new Date()): number {
   return new Date(now.getTime() - OFFSET_MS).getUTCDay();
 }
 
+/** "Hoy", "Mañana" or "sáb 25 oct" for grouping the list. */
+export function relativeDayLabel(iso: string, now = new Date()): string {
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return "";
+  const t = d.getTime();
+  if (t >= rosarioDayStart(0, now).getTime() && t < rosarioDayStart(1, now).getTime()) return "Hoy";
+  if (t >= rosarioDayStart(1, now).getTime() && t < rosarioDayStart(2, now).getTime()) return "Mañana";
+  return formatDate(iso);
+}
+
+/** "2026-10-25" in Rosario time, for grouping. */
+export function rosarioDayKey(iso: string): string {
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return "";
+  return new Date(d.getTime() - OFFSET_MS).toISOString().slice(0, 10);
+}
+
 export type DayFilter = "hoy" | "manana" | "finde" | "semana";
 
 export const DAY_LABELS: Record<DayFilter, string> = { hoy: "Hoy", manana: "Mañana", finde: "Finde", semana: "Semana" };
