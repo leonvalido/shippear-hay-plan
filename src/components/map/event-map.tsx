@@ -76,9 +76,11 @@ export function EventMap({
       (pos) => {
         const ll: [number, number] = [pos.coords.latitude, pos.coords.longitude];
         if (!meRef.current) {
-          meRef.current = L.circleMarker(ll, { radius: 7, color: "#fff", weight: 2, fillColor: "#2563eb", fillOpacity: 1 })
-            .bindTooltip("Estás acá", { direction: "top", offset: [0, -8] })
-            .addTo(map);
+          meRef.current = L.marker(ll, {
+            icon: L.divIcon({ className: "", html: '<div class="hp-me"></div>', iconSize: [16, 16], iconAnchor: [8, 8] }),
+            interactive: false,
+            zIndexOffset: -100,
+          }).addTo(map);
         } else {
           meRef.current.setLatLng(ll);
         }
@@ -106,10 +108,15 @@ export function EventMap({
           center: [center.lat, center.lng],
           zoom,
           preferCanvas: true,
-          // Animations left the tile layer half-rendered on phones (tiles stuck mid zoom transition).
+          // Animated zoom leaves the tile layer stuck mid-transition on phones (half-grey map, verified twice),
+          // so zoom steps are instant but fine-grained: wheel and pinch still feel smooth.
           zoomAnimation: false,
           fadeAnimation: false,
           markerZoomAnimation: false,
+          zoomSnap: 0.25,
+          zoomDelta: 0.5,
+          wheelPxPerZoomLevel: 120,
+          wheelDebounceTime: 30,
           zoomControl: interactive,
           dragging: interactive,
           scrollWheelZoom: interactive,
@@ -125,11 +132,14 @@ export function EventMap({
           if (cancelled || mapRef.current !== map) return;
           if (explore && L.markerClusterGroup) {
             const group = L.markerClusterGroup({
-              maxClusterRadius: 40,
+              maxClusterRadius: 48,
               disableClusteringAtZoom: PIN_ZOOM,
               showCoverageOnHover: false,
               spiderfyOnMaxZoom: false,
               zoomToBoundsOnClick: false, // handled below so we can decide before the zoom happens
+              animate: false,
+              animateAddingMarkers: false,
+              removeOutsideVisibleBounds: false,
               iconCreateFunction: (cluster: { getChildCount: () => number }) => bubbleIcon(L, cluster.getChildCount()),
             }).addTo(map);
             // Singletons switch between bubble and pin with the zoom, so one screen never mixes both styles.
@@ -283,8 +293,8 @@ function escapeHtml(s: string) {
 /** Line 1 short title, line 2 day · time, line 3 venue (+ "N más" when the venue holds several events). */
 function tooltipHtml(v: Venue) {
   const e = v.events[0];
-  const more = v.events.length > 1 ? ` · +${v.events.length - 1} más` : "";
-  return `<div class="hp-tt"><em>${escapeHtml(formatWhen(e))}</em><strong>${escapeHtml(displayTitle(e))}</strong><span>${escapeHtml(humanizeTitle(v.name))}${more}</span></div>`;
+  const more = v.events.length > 1 ? `<b class="hp-tt-pill">Ver ${v.events.length} eventos</b>` : "";
+  return `<div class="hp-tt"><em>${escapeHtml(formatWhen(e))}</em><strong>${escapeHtml(displayTitle(e))}</strong><span>${escapeHtml(humanizeTitle(v.name))}</span>${more}</div>`;
 }
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -294,9 +304,9 @@ function iconFor(L: any, map: LeafletMap, v: Venue, selected: boolean, explore: 
 
 /** Counted bubble: the same look for clusters and for lone venues at city zoom. Size scales mildly with count. */
 function bubbleIcon(L: any, n: number, selected = false) {
-  const size = Math.round(30 + Math.min(18, Math.sqrt(n) * 4));
+  const size = 40;
   return L.divIcon({
-    html: `<div class="hp-cluster${n >= 10 ? " hp-cluster-big" : ""}${selected ? " hp-cluster-selected" : ""}">${n}</div>`,
+    html: `<div class="hp-cluster${selected ? " hp-cluster-selected" : ""}">${n}</div>`,
     className: "",
     iconSize: [size, size],
     iconAnchor: [size / 2, size / 2],
@@ -306,7 +316,7 @@ function bubbleIcon(L: any, n: number, selected = false) {
 
 function pinIcon(L: any, v: Venue, selected: boolean) {
   const n = v.events.length;
-  const size = selected ? 30 : 24;
+  const size = 28;
   return L.divIcon({
     className: "",
     iconSize: [size, size],
