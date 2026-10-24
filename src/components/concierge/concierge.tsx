@@ -121,7 +121,7 @@ export function Concierge() {
           </Label>
           <div className="flex gap-2">
             <Input id="mood" className="h-11 min-w-0 rounded-xl border-white/8" maxLength={200} placeholder="Ej: algo tranqui al aire libre" value={mood} onChange={(e) => setMood(e.target.value)} />
-            <MicButton onResult={onVoice} disabled={busy} />
+            <MicButton onResult={onVoice} onText={setMood} disabled={busy} />
           </div>
         </div>
 
