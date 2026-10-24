@@ -17,7 +17,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { RawEventSchema, type Event, type RawEvent } from "../src/lib/events/schema";
-import { eventId, fingerprint, mergeEvents } from "../src/lib/events/normalize";
+import { eventId, fingerprint, looksLikeSameEvent, mergeEvents } from "../src/lib/events/normalize";
 import { SocialPostSchema, extractEventsFromCaptions, type SocialPost } from "../src/lib/events/extract";
 import { barrioFromCoords, geocodeAddress, geocodePlaces, geocodeVenue, inRosario, type GeoCache } from "../src/lib/events/geocode";
 import { isMidnight, toRosarioISO } from "../src/lib/events/time";
@@ -26,6 +26,8 @@ import { isMockMode } from "../src/lib/ai";
 import { OrganizerIndex } from "../src/lib/events/organizers";
 import { RadarRowSchema, VentiRowSchema, radarRowToRaw, ventiRowToRaw } from "../src/lib/events/sources";
 import { rosarioDate } from "../src/lib/events/time";
+import { MAX_LOOKUPS_PER_RUN, fillOfficialLinks, type LinkCache } from "../src/lib/events/officialLinks";
+import { MAX_PRICE_LOOKUPS, fillPrices, type PriceCache } from "../src/lib/events/prices";
 
 const ROOT = process.cwd();
 const PRIVATE = path.join(ROOT, "data", "private");
@@ -33,6 +35,8 @@ const RAW_DIR = path.join(PRIVATE, "raw");
 const CACHE_FILE = path.join(PRIVATE, "geocache.json");
 const EXTRACT_CACHE = path.join(PRIVATE, "extract-cache.json");
 const ORGANIZERS_FILE = path.join(PRIVATE, "organizadores-rosario.json");
+const LINKS_FILE = path.join(PRIVATE, "links-cache.json");
+const PRICES_FILE = path.join(PRIVATE, "prices-cache.json");
 const MIN_SCORE = 55; // evento_puntaje threshold for ranked posts
 const EXTRACT_CHUNK = 100; // posts per cache flush
 const TITLES_FILE = path.join(PRIVATE, "titles-cache.json");
@@ -72,7 +76,7 @@ function readRawFiles(): RawEvent[] {
     counts.rawFiles++;
     let ok = 0;
     for (const item of list) {
-      const p = RawEventSchema.safeParse(item);
+      const p = RawEventSchema.safeParse(withRating(item));
       if (p.success) { out.push(p.data); ok++; } else counts.rawInvalid++;
     }
     console.log(`  raw/${name}: ${ok}/${list.length} válidos`);
@@ -80,6 +84,15 @@ function readRawFiles(): RawEvent[] {
   }
   counts.rawValid = out.length;
   return out;
+}
+
+/** datos writes Google Places details as meta.rating / meta.userRatingCount; map them to `rating`. */
+function withRating(item: unknown): unknown {
+  if (!item || typeof item !== "object") return item;
+  const o = item as Record<string, unknown>;
+  const meta = o.meta as Record<string, unknown> | undefined;
+  if (o.rating || !meta || typeof meta.rating !== "number") return item;
+  return { ...o, rating: { value: meta.rating, count: typeof meta.userRatingCount === "number" ? meta.userRatingCount : 0 } };
 }
 
 function listOf(data: unknown, keys = ["items", "events", "posts"]): unknown[] {
@@ -264,20 +277,48 @@ async function geocodeMissing(events: RawEvent[]): Promise<void> {
 }
 
 function dedupe(events: RawEvent[]): RawEvent[] {
+  // pass 1: exact fingerprint
   const byFp = new Map<string, RawEvent>();
   for (const e of events) {
     const fp = fingerprint(e);
     const prev = byFp.get(fp);
     if (prev) { byFp.set(fp, mergeEvents(prev, e)); counts.merged++; } else byFp.set(fp, e);
   }
-  return [...byFp.values()];
+  // pass 2: same date + same venue + similar title core, even when the hour differs
+  const byDate = new Map<string, RawEvent[]>();
+  for (const e of byFp.values()) {
+    const day = e.startsAt.slice(0, 10);
+    const bucket = byDate.get(day) ?? [];
+    const i = bucket.findIndex((o) => looksLikeSameEvent(o, e));
+    if (i >= 0) { bucket[i] = mergeEvents(bucket[i]!, e); counts.merged++; } else bucket.push(e);
+    byDate.set(day, bucket);
+  }
+  return [...byDate.values()].flat();
+}
+
+async function officialLinks(events: RawEvent[]): Promise<void> {
+  const cache: LinkCache = fs.existsSync(LINKS_FILE) ? ((readJson(LINKS_FILE) as LinkCache) ?? {}) : {};
+  const save = () => { fs.mkdirSync(PRIVATE, { recursive: true }); fs.writeFileSync(LINKS_FILE, JSON.stringify(cache, null, 1)); };
+  const s = await fillOfficialLinks(events, cache, {
+    onBatch: (st) => { save(); console.log(`  ${st.lookedUp} buscados · ${st.found} encontrados · ${st.rejected} rechazados`); },
+  });
+  save();
+  console.log(`  candidatos ${s.candidates} · en caché ${s.cached} · buscados ${s.lookedUp} · encontrados ${s.found} · rechazados ${s.rejected}${s.budgetStop ? ` · corte por presupuesto (${MAX_LOOKUPS_PER_RUN} por corrida)` : ""}`);
+}
+
+async function prices(events: RawEvent[]): Promise<void> {
+  const cache: PriceCache = fs.existsSync(PRICES_FILE) ? ((readJson(PRICES_FILE) as PriceCache) ?? {}) : {};
+  const save = () => { fs.mkdirSync(PRIVATE, { recursive: true }); fs.writeFileSync(PRICES_FILE, JSON.stringify(cache, null, 1)); };
+  const s = await fillPrices(events, cache, {
+    onProgress: (st) => { save(); console.log(`  ${st.fetched} páginas leídas · ${st.priced} precios · ${st.unreadable} ilegibles`); },
+  });
+  save();
+  console.log(`  candidatos ${s.candidates} · en caché ${s.cached} · leídas ${s.fetched} · precios ${s.priced} · ilegibles ${s.unreadable} · baja confianza ${s.lowConfidence}${s.budgetStop ? ` · corte por presupuesto (${MAX_PRICE_LOOKUPS} por corrida)` : ""}`);
 }
 
 async function shortTitles(events: RawEvent[]): Promise<void> {
   const cache: TitleCache = fs.existsSync(TITLES_FILE) ? ((readJson(TITLES_FILE) as TitleCache) ?? {}) : {};
-  const before = Object.keys(cache).length;
-  await fillShortTitles(events, cache, { onBatch: (done, total) => console.log(`  ${done}/${total} títulos y descripciones`) });
-  counts.titled = Object.keys(cache).length - before;
+  await fillShortTitles(events, cache, { onBatch: (done, total) => { counts.titled = done; console.log(`  ${done}/${total} títulos, categorías y descripciones`); } });
   fs.mkdirSync(PRIVATE, { recursive: true });
   fs.writeFileSync(TITLES_FILE, JSON.stringify(cache, null, 1));
 }
@@ -295,7 +336,8 @@ function finalize(events: RawEvent[], now: Date): Event[] {
     if (Number.isNaN(ms) || past) { counts.past++; continue; }
     if (e.lat !== undefined && e.lng !== undefined && !inRosario({ lat: e.lat, lng: e.lng })) { counts.outside++; continue; }
     if (!e.barrio && e.lat !== undefined && e.lng !== undefined) e.barrio = barrioFromCoords(e.lat, e.lng);
-    out.push({ ...e, id: eventId(e), status: "published", fingerprint: fingerprint(e), createdAt });
+    const { context: _context, ...publicFields } = e; // transient grounding text never ships
+    out.push({ ...publicFields, id: eventId(e), status: "published", fingerprint: fingerprint(e), createdAt });
   }
   // same id twice can only happen through hash collision; keep the first
   const seen = new Set<string>();
@@ -344,14 +386,18 @@ async function main() {
   console.log(`  ${counts.geocoded} resueltas, ${counts.geocodeMiss} sin resolver`);
 
   const deduped = dedupe(all);
-  console.log(`6. Títulos cortos y descripciones${isMockMode() ? " (mock: recorte a 40 caracteres, descripciones sin tocar)" : ""}…`);
+  console.log(`6. Páginas oficiales (web search, caché: data/private/links-cache.json)${isMockMode() ? " (mock: solo caché)" : ""}…`);
+  await officialLinks(deduped);
+  console.log(`6b. Precios desde la página oficial (caché: data/private/prices-cache.json)${isMockMode() ? " (mock: solo caché)" : ""}…`);
+  await prices(deduped);
+  console.log(`7. Títulos cortos y descripciones${isMockMode() ? " (mock: recorte a 40 caracteres, descripciones sin tocar)" : ""}…`);
   await shortTitles(deduped);
-  console.log(`  ${counts.titled} nuevos, resto desde data/private/titles-cache.json`);
+  console.log(`  ${counts.titled} generados, resto desde data/private/titles-cache.json`);
 
   const events = finalize(deduped, now);
   counts.written = events.length;
   fs.writeFileSync(OUT_FILE, JSON.stringify(events, null, 1) + "\n");
-  console.log(`7. Escrito data/events.json: ${events.length} eventos`);
+  console.log(`8. Escrito data/events.json: ${events.length} eventos`);
   console.log("   Por fuente (leídos -> eventos):");
   for (const s of sources) console.log(`   - ${s.name}: ${s.read} -> ${s.kept}${s.note ? ` (${s.note})` : ""}`);
   console.log(
