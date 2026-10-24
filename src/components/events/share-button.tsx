@@ -21,11 +21,32 @@ export function ShareButton({ title, text, path, className, iconOnly }: Props) {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
-      if ((err as Error).name !== "AbortError") window.prompt("Copiá el link:", url);
+      if ((err as Error).name === "AbortError") return;
+      // Clipboard API blocked: fall back to a hidden textarea + execCommand, still no prompt().
+      const ta = document.createElement("textarea");
+      ta.value = url;
+      ta.setAttribute("readonly", "");
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand("copy");
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      } finally {
+        ta.remove();
+      }
     }
   }
 
   return (
+    <>
+    {copied && (
+      <span role="status" className="fixed bottom-6 left-1/2 z-[1200] -translate-x-1/2 rounded-full bg-foreground px-4 py-2 text-sm font-medium text-background shadow-lg">
+        Link copiado
+      </span>
+    )}
     <Button
       type="button"
       variant="outline"
@@ -45,5 +66,6 @@ export function ShareButton({ title, text, path, className, iconOnly }: Props) {
       )}
       {!iconOnly && <span>{copied ? "Link copiado" : "Compartir"}</span>}
     </Button>
+    </>
   );
 }
