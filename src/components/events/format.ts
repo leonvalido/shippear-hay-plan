@@ -215,6 +215,13 @@ export function rosarioDayKey(iso: string): string {
   return new Date(d.getTime() - OFFSET_MS).toISOString().slice(0, 10);
 }
 
+/** True when the event started earlier today (it stays on the map and list, labelled "Empezó HH:MM"). */
+export function startedToday(e: { startsAt: string; timeUnknown?: boolean }, now = new Date()): boolean {
+  if (e.timeUnknown) return false;
+  const t = new Date(e.startsAt).getTime();
+  return t < now.getTime() && t >= rosarioDayStart(0, now).getTime();
+}
+
 export type LatLng = { lat: number; lng: number };
 
 /** Great-circle distance in meters. */
@@ -253,7 +260,7 @@ export function dayRange(filter: DayFilter | null, now = new Date()): { from?: s
   const iso = (d: Date) => d.toISOString();
   switch (filter) {
     case "hoy":
-      return { from: iso(now), to: iso(rosarioDayStart(1, now)) };
+      return { from: iso(rosarioDayStart(0, now)), to: iso(rosarioDayStart(1, now)) };
     case "manana":
       return { from: iso(rosarioDayStart(1, now)), to: iso(rosarioDayStart(2, now)) };
     case "finde": {
@@ -261,10 +268,10 @@ export function dayRange(filter: DayFilter | null, now = new Date()): { from?: s
       const wd = rosarioWeekday(now);
       const toFriday = wd === 0 ? -2 : wd === 6 ? -1 : 5 - wd;
       const friday = new Date(rosarioDayStart(toFriday, now).getTime() + 18 * 60 * 60 * 1000);
-      const from = friday > now ? friday : now;
+      const from = friday > now ? friday : rosarioDayStart(0, now);
       return { from: iso(from), to: iso(rosarioDayStart(toFriday + 3, now)) };
     }
     case "semana":
-      return { from: iso(now), to: iso(rosarioDayStart(7, now)) };
+      return { from: iso(rosarioDayStart(0, now)), to: iso(rosarioDayStart(7, now)) };
   }
 }
