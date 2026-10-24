@@ -210,3 +210,35 @@
 @media (prefers-reduced-motion: reduce) {
   .skeleton-shimmer { animation: none; }
 }
+
+/* Venue pins: dominant category color, dark ring, drop shadow, count badge. */
+.hp-pin {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 9999px;
+  background: var(--c);
+  box-shadow: 0 0 0 2px #15111a, 0 2px 6px rgba(0, 0, 0, 0.55);
+  transition: transform 0.15s ease-out;
+}
+.hp-pin-selected {
+  box-shadow: 0 0 0 2px #15111a, 0 0 0 5px color-mix(in oklch, var(--c) 55%, transparent), 0 4px 12px rgba(0, 0, 0, 0.6);
+  transform: scale(1.1);
+}
+.hp-pin-count {
+  position: absolute;
+  top: -7px;
+  right: -8px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 9999px;
+  background: #fff;
+  color: #15111a;
+  font: 700 11px/18px ui-rounded, "SF Pro Rounded", system-ui, sans-serif;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+.hp-cluster-selected {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35), 0 0 0 4px rgba(255, 255, 255, 0.35);
+}

@@ -12,12 +12,18 @@ import {
   rosarioDayKey,
   type DayFilter,
   type LatLng,
+  formatPrice,
+  formatTime,
+  walkMinutes,
 } from "@/components/events/format";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useEvents } from "@/hooks/use-events";
 import type { EventCategory } from "@/lib/events/schema";
 import { cn } from "@/lib/utils";
+import { type Venue } from "@/components/events/venues";
+import { Badge } from "@/components/ui/badge";
+import Link from "next/link";
 import { BarrioStrip } from "./barrio-strip";
 import { EventMap } from "./event-map";
 import { FilterChips } from "./filter-chips";
@@ -35,6 +41,8 @@ export function MapExplorer() {
   const [expanded, setExpanded] = useState(false);
   const [sort, setSort] = useState<"hora" | "views">("hora");
   const [me, setMe] = useState<LatLng | null>(null);
+  /** What the sheet shows: the full list, one venue, or the venues of a cluster that cannot be split. */
+  const [mode, setMode] = useState<{ kind: "list" } | { kind: "venue"; venue: Venue } | { kind: "venues"; venues: Venue[] }>({ kind: "list" });
 
   // If the user already granted location to this site, pick it up silently (no prompt).
   useEffect(() => {
@@ -109,6 +117,22 @@ export function MapExplorer() {
     setExpanded(false); // on phones, bring the map back so the pin is visible
   }
 
+  function openVenue(venue: Venue) {
+    setMode({ kind: "venue", venue });
+    setSelectedId(venue.events[0]?.id ?? null);
+    setExpanded(false);
+  }
+
+  function backToList() {
+    setMode({ kind: "list" });
+    setSelectedId(null);
+  }
+
+  // Filters changed: the venue shown may be gone; fall back to the list.
+  useEffect(() => {
+    setMode((m) => (m.kind === "list" ? m : { kind: "list" }));
+  }, [events]);
+
   // Keep the selected card in view when a pin is tapped.
   useEffect(() => {
     if (!selectedId || !listRef.current) return;
@@ -117,6 +141,101 @@ export function MapExplorer() {
   }, [selectedId]);
 
   const count = status === "done" ? `${events.length} evento${events.length === 1 ? "" : "s"}` : "Buscando…";
+
+  const venueGroups = (venue: Venue) => {
+    const map = new Map<string, { label: string; events: Venue["events"] }>();
+    for (const e of venue.events) {
+      const key = rosarioDayKey(e.startsAt);
+      const g = map.get(key) ?? { label: relativeDayLabel(e.startsAt), events: [] };
+      g.events.push(e);
+      map.set(key, g);
+    }
+    return [...map.values()];
+  };
+
+  const directions = (v: Venue) =>
+    `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(`${v.lat},${v.lng}`)}&travelmode=transit`;
+
+  /** Sheet body in venue mode: header, Cómo llegar, events by day, each row → /evento/[id]. */
+  const venuePanel = (venue: Venue) => (
+    <div className="space-y-4">
+      <button type="button" onClick={backToList} className="text-sm text-muted-foreground hover:underline">
+        ← Todos los eventos
+      </button>
+      <div className="space-y-1">
+        <h2 className="text-lg font-bold leading-tight">{venue.name}</h2>
+        {venue.address && <p className="text-sm text-muted-foreground">{venue.address}</p>}
+        <div className="flex flex-wrap items-center gap-2 pt-1">
+          <Button asChild size="sm">
+            <a href={directions(venue)} target="_blank" rel="noopener noreferrer">
+              Cómo llegar
+            </a>
+          </Button>
+          <span className="text-xs text-muted-foreground">
+            {venue.events.length} evento{venue.events.length === 1 ? "" : "s"}
+            {me && walkMinutes(me, venue) != null && ` · a ${walkMinutes(me, venue)} min caminando`}
+          </span>
+        </div>
+      </div>
+      {venueGroups(venue).map((g) => (
+        <section key={g.label} aria-label={g.label} className="space-y-2">
+          <h3 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">{g.label}</h3>
+          <ul className="space-y-1.5">
+            {g.events.map((e) => (
+              <li key={e.id}>
+                <Link
+                  href={`/evento/${e.id}`}
+                  className="glass flex items-center gap-3 rounded-xl p-3 transition-[background-color,transform] hover:bg-accent/60 active:scale-[0.98]"
+                >
+                  <span className="font-display w-12 shrink-0 text-base font-bold tabular-nums">{formatTime(e.startsAt)}</span>
+                  <span className="min-w-0 flex-1">
+                    <span className="block truncate text-sm font-semibold">{e.title}</span>
+                    <span className="mt-0.5 flex gap-1.5">
+                      <Badge variant={e.price?.free ? "success" : "secondary"}>{formatPrice(e.price)}</Badge>
+                      <Badge style={{ background: CATEGORY_COLORS[e.category], color: "#fff" }}>{CATEGORY_LABELS[e.category]}</Badge>
+                    </span>
+                  </span>
+                  <span aria-hidden className="text-muted-foreground">→</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+    </div>
+  );
+
+  /** Sheet body when a cluster cannot be split: pick a venue. */
+  const venuesPanel = (venues: Venue[]) => (
+    <div className="space-y-3">
+      <button type="button" onClick={backToList} className="text-sm text-muted-foreground hover:underline">
+        ← Todos los eventos
+      </button>
+      <h2 className="text-base font-bold">{venues.length} lugares acá</h2>
+      <ul className="space-y-1.5">
+        {venues.map((v) => (
+          <li key={v.key}>
+            <button
+              type="button"
+              onClick={() => openVenue(v)}
+              className="glass flex w-full items-center gap-3 rounded-xl p-3 text-left transition-[background-color,transform] hover:bg-accent/60 active:scale-[0.98]"
+            >
+              <span aria-hidden className="size-3 shrink-0 rounded-full" style={{ background: CATEGORY_COLORS[v.category] }} />
+              <span className="min-w-0 flex-1">
+                <span className="block truncate text-sm font-semibold">{v.name}</span>
+                <span className="block truncate text-xs text-muted-foreground">
+                  {v.events.length} evento{v.events.length === 1 ? "" : "s"}
+                  {v.address && ` · ${v.address}`}
+                </span>
+              </span>
+              <span aria-hidden className="text-muted-foreground">→</span>
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+
 
   const filters = (
     <div className="space-y-2">
@@ -197,11 +316,24 @@ export function MapExplorer() {
   );
 
 
+  const body = mode.kind === "venue" ? venuePanel(mode.venue) : mode.kind === "venues" ? venuesPanel(mode.venues) : list;
+
   return (
     <div className="relative flex flex-col md:flex-row">
       {/* Map */}
       <div className={cn("relative shrink-0 transition-[height] duration-300 ease-out", expanded ? "h-[15dvh]" : "h-[50dvh]", "md:h-[calc(100dvh-3.5rem)] md:flex-1")}>
-        <EventMap events={events} selectedId={selectedId} onSelect={setSelectedId} fit={status === "done"} explore onLocate={setMe} />
+        <EventMap
+          events={events}
+          selectedId={selectedId}
+          onSelectVenue={openVenue}
+          onSelectCluster={(vs) => {
+            setMode({ kind: "venues", venues: vs });
+            setExpanded(false);
+          }}
+          fit={status === "done" && mode.kind === "list"}
+          explore
+          onLocate={setMe}
+        />
         <BarrioStrip
           events={events}
           range={range}
@@ -216,8 +348,8 @@ export function MapExplorer() {
 
       {/* Desktop side panel */}
       <aside className="glass hidden h-[calc(100dvh-3.5rem)] w-96 flex-col md:flex" aria-label="Lista de eventos">
-        <div className="space-y-2 border-b p-3">{filters}</div>
-        <div className="relative min-h-0 flex-1 overflow-y-auto p-3">{list}</div>
+        {mode.kind === "list" && <div className="space-y-2 border-b p-3">{filters}</div>}
+        <div className="relative min-h-0 flex-1 overflow-y-auto p-3">{body}</div>
       </aside>
 
       {/* Mobile bottom sheet */}
@@ -243,8 +375,8 @@ export function MapExplorer() {
           <span aria-hidden className="h-1.5 w-10 rounded-full bg-border" />
           <span className="text-xs text-muted-foreground">{expanded ? "Ver mapa" : "Ver lista"}</span>
         </button>
-        <div className="space-y-2 px-3 pb-2">{filters}</div>
-        <div className="relative min-h-0 flex-1 overflow-y-auto px-3 pb-4">{list}</div>
+        {mode.kind === "list" && <div className="space-y-2 px-3 pb-2">{filters}</div>}
+        <div className="relative min-h-0 flex-1 overflow-y-auto px-3 pb-4">{body}</div>
       </section>
     </div>
   );
