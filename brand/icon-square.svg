@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="HayPlan">
+  <title>HayPlan</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1b1526"/><stop offset="1" stop-color="#0d0912"/></linearGradient>
+    <radialGradient id="glow" cx="50%" cy="46%" r="42%"><stop offset="0" stop-color="#aa24c5" stop-opacity="0.45"/><stop offset="1" stop-color="#aa24c5" stop-opacity="0"/></radialGradient>
+    <linearGradient id="metal" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9a3ff"/><stop offset="0.5" stop-color="#c94ee6"/><stop offset="1" stop-color="#7a1a9a"/></linearGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.75"/><stop offset="0.45" stop-color="#ffffff" stop-opacity="0"/></linearGradient>
+    <radialGradient id="sheen" cx="34%" cy="22%" r="45%"><stop offset="0" stop-color="#ffffff" stop-opacity="0.45"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></radialGradient>
+    <linearGradient id="shade" x1="0" y1="0.45" x2="0" y2="1"><stop offset="0" stop-color="#2a0538" stop-opacity="0"/><stop offset="1" stop-color="#2a0538" stop-opacity="0.55"/></linearGradient>
+    <linearGradient id="inset" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a0a4d"/><stop offset="1" stop-color="#6b1689"/></linearGradient>
+    <linearGradient id="insetgloss" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.22"/><stop offset="0.5" stop-color="#ffffff" stop-opacity="0"/></linearGradient>
+    <clipPath id="pinclip"><path d="M256 72c-80 0-138 59-138 136 0 99 138 232 138 232s138-133 138-232c0-77-58-136-138-136z"/></clipPath>
+  </defs>
+  <rect width="512" height="512" fill="url(#bg)"/>
+  <rect width="512" height="512" fill="url(#glow)"/>
+  <path d="M256 72c-80 0-138 59-138 136 0 99 138 232 138 232s138-133 138-232c0-77-58-136-138-136z" fill="url(#metal)"/>
+  <g clip-path="url(#pinclip)">
+    <rect width="512" height="512" fill="url(#sheen)"/>
+    <rect width="512" height="512" fill="url(#shade)"/>
+    <path d="M256 72c-80 0-138 59-138 136 0 99 138 232 138 232s138-133 138-232c0-77-58-136-138-136z" fill="none" stroke="url(#rim)" stroke-width="14"/>
+  </g>
+  <path d="M256 132l20 52 52 20-52 20-20 52-20-52-52-20 52-20z" fill="url(#inset)" stroke="#f3c8ff" stroke-opacity="0.8" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M256 132l20 52 52 20-52 20-20 52-20-52-52-20 52-20z" fill="url(#insetgloss)"/>
+</svg>
