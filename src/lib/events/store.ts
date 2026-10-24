@@ -347,3 +347,25 @@ export function validateRaw(input: unknown): RawEvent | undefined {
   const p = RawEventSchema.safeParse(input);
   return p.success ? p.data : undefined;
 }
+
+/** What the list endpoint returns: enough for cards and pins. Full record on /api/events/:id. */
+export type EventCard = Pick<
+  Event,
+  "id" | "shortTitle" | "title" | "startsAt" | "timeUnknown" | "venueName" | "lat" | "lng" | "barrio" | "category" | "price" | "sourceType" | "sourceName" | "imageUrl" | "status"
+> & { metrics?: { views?: number } };
+
+export function toCard(e: Event): EventCard {
+  const card: EventCard = {
+    id: e.id, title: e.title, startsAt: e.startsAt, venueName: e.venueName, category: e.category, sourceType: e.sourceType, status: e.status,
+  };
+  if (e.shortTitle) card.shortTitle = e.shortTitle;
+  if (e.timeUnknown) card.timeUnknown = true;
+  if (e.lat !== undefined) card.lat = e.lat;
+  if (e.lng !== undefined) card.lng = e.lng;
+  if (e.barrio) card.barrio = e.barrio;
+  if (e.price) card.price = e.price;
+  if (e.sourceName) card.sourceName = e.sourceName;
+  if (e.imageUrl) card.imageUrl = e.imageUrl;
+  if (e.metrics?.views !== undefined) card.metrics = { views: e.metrics.views };
+  return card;
+}

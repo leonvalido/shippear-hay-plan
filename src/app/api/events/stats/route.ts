@@ -2,7 +2,7 @@ import { NextRequest } from "next/server";
 import { z } from "zod";
 import { EventStatus } from "@/lib/events/schema";
 import { getEventStore } from "@/lib/events/store";
-import { jsonError } from "@/lib/http";
+import { cachedJson, jsonError } from "@/lib/http";
 
 export const runtime = "nodejs";
 
@@ -18,7 +18,7 @@ export async function GET(req: NextRequest) {
   if (!parsed.success) return jsonError("events/stats", 400, parsed.error.issues[0]?.message ?? "Consulta inválida");
   try {
     const store = await getEventStore();
-    return Response.json(store.stats(parsed.data));
+    return cachedJson(store.stats(parsed.data), parsed.data.status === "published");
   } catch (err) {
     return jsonError("events/stats", 500, "No se pudieron calcular las estadísticas", err);
   }

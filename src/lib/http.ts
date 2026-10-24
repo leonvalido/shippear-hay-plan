@@ -21,3 +21,10 @@ export function safeEqual(a: string, b: string): boolean {
   for (let i = 0; i < a.length; i++) diff |= a.charCodeAt(i) ^ b.charCodeAt(i);
   return diff === 0;
 }
+
+/** Edge/CDN caching for read endpoints whose data only changes on deploy. */
+export const PUBLIC_CACHE = "public, s-maxage=300, stale-while-revalidate=3600";
+
+export function cachedJson(body: unknown, cache: boolean): Response {
+  return Response.json(body, { headers: { "Cache-Control": cache ? PUBLIC_CACHE : "no-store" } });
+}
