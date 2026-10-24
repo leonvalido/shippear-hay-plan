@@ -20,16 +20,16 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es" className="dark">
-      <body className="flex min-h-dvh flex-col">
+      <body className="flex min-h-dvh flex-col overflow-x-clip">
         <header className="sticky top-0 z-30 border-b border-white/10 bg-background/80 backdrop-blur-xl">
-          <nav aria-label="Principal" className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-2 px-3 sm:px-4">
-            <Link href="/" aria-label="HayPlan, inicio" className="flex items-center text-foreground">
+          <nav aria-label="Principal" className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-2 px-4">
+            <Link href="/" aria-label="HayPlan, inicio" className="flex h-11 min-w-0 items-center text-foreground">
               <Logo className="h-7 w-auto" />
             </Link>
             <NavLinks />
           </nav>
         </header>
-        <main className="flex min-h-0 w-full flex-1 flex-col">{children}</main>
+        <main className="flex min-h-0 min-w-0 w-full flex-1 flex-col">{children}</main>
       </body>
     </html>
   );

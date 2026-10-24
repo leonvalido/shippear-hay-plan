@@ -44,7 +44,7 @@ export default async function EventoPage({ params }: Props) {
 
   return (
     <article className="mx-auto w-full max-w-3xl px-4 py-6 sm:py-10">
-      <Link href="/mapa" className="tap inline-block text-sm text-muted-foreground hover:text-foreground">
+      <Link href="/mapa" className="tap inline-flex h-11 items-center text-sm text-muted-foreground hover:text-foreground">
         ← Ver en el mapa
       </Link>
 
@@ -66,13 +66,13 @@ export default async function EventoPage({ params }: Props) {
             </Badge>
           )}
         </div>
-        <h1 className="font-display text-3xl font-semibold leading-tight">{tidyTitle(displayTitle(event))}</h1>
-        {showFull && <p className="text-base text-muted-foreground">{tidyTitle(event.title)}</p>}
+        <h1 className="line-clamp-3 break-words font-display text-3xl font-semibold leading-tight">{tidyTitle(displayTitle(event))}</h1>
+        {showFull && <p className="line-clamp-2 break-words text-base text-muted-foreground">{tidyTitle(event.title)}</p>}
         <p className="text-lg font-medium">
           {formatWhen(event)}
           {!event.timeUnknown && event.endsAt && <span className="text-muted-foreground"> – {formatTime(event.endsAt)}</span>}
         </p>
-        <p className="text-base text-muted-foreground">
+        <p className="break-words text-base text-muted-foreground">
           {humanizeTitle(event.venueName)}
           {event.address && ` · ${humanizeTitle(event.address)}`}
           {event.barrio && ` · ${event.barrio}`}
@@ -83,7 +83,7 @@ export default async function EventoPage({ params }: Props) {
       </header>
 
       <div className="mt-6 flex gap-3">
-        <Button asChild className="tap h-11 flex-1 rounded-full text-base">
+        <Button asChild className="tap h-11 min-w-0 flex-1 rounded-full px-3 text-base">
           <a href={directionsUrl(event)} target="_blank" rel="noopener noreferrer">
             Cómo llegar
           </a>
@@ -92,16 +92,16 @@ export default async function EventoPage({ params }: Props) {
           title={event.title}
           text={`${formatWhen(event)} · ${event.venueName}`}
           path={`/evento/${event.id}`}
-          className="tap h-11 flex-1 rounded-full text-base"
+          className="tap h-11 min-w-0 flex-1 rounded-full px-3 text-base"
         />
       </div>
       {event.sourceUrl && (
-        <p className="mt-3 text-center sm:text-left">
+        <p className="mt-1 text-center sm:text-left">
           <a
             href={event.sourceUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
+            className="inline-flex h-11 items-center text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
           >
             Ver fuente
           </a>

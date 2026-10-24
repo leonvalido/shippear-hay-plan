@@ -50,8 +50,15 @@ export function AIResult({ status, text, error, mode, onRetry, title = "Resultad
         </div>
       )}
 
-      {(status === "streaming" || status === "done") && (
-        <div className="whitespace-pre-wrap text-base leading-[1.45]">
+      {status === "done" && !text.trim() && (
+        <div>
+          <p className="text-base font-semibold">No encontré nada para ese pedido.</p>
+          <p className="text-base leading-[1.45] text-muted-foreground">Probá con otro día o con más presupuesto.</p>
+        </div>
+      )}
+
+      {(status === "streaming" || (status === "done" && text.trim())) && (
+        <div className="whitespace-pre-wrap break-words text-base leading-[1.45]">
           {text}
           {status === "streaming" && <span className="ml-0.5 inline-block h-4 w-2 animate-pulse bg-foreground/70 align-text-bottom" />}
         </div>
@@ -65,7 +72,7 @@ export function AIResult({ status, text, error, mode, onRetry, title = "Resultad
             {error && <p className="mt-1 text-sm text-tertiary">{error}</p>}
           </div>
           {onRetry && (
-            <Button size="sm" variant="outline" onClick={onRetry} className="h-10 rounded-full border-white/8 px-4">
+            <Button size="sm" variant="outline" onClick={onRetry} className="h-11 rounded-full border-white/8 px-4">
               Mandar de nuevo
             </Button>
           )}
