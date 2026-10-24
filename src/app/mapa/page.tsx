@@ -2,7 +2,12 @@ import type { Metadata } from "next";
 import { fetchEvents } from "@/app/_lib/api";
 import { MapExplorer } from "@/components/map/map-explorer";
 
-export const metadata: Metadata = { title: "Mapa" };
+export const metadata: Metadata = {
+  title: "Mapa",
+  description: "Todos los eventos de hoy en Rosario, en un mapa.",
+  alternates: { canonical: "/mapa" },
+  openGraph: { title: "El mapa de hoy en Rosario · HayPlan", description: "Todos los eventos de hoy en Rosario, en un mapa." },
+};
 export const dynamic = "force-dynamic";
 
 const LEAFLET = "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4";

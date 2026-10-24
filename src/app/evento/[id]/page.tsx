@@ -18,7 +18,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: displayTitle(event),
     description: `${formatWhen(event)} · ${event.venueName}`,
-    openGraph: { title: displayTitle(event), images: event.imageUrl ? [event.imageUrl] : undefined },
+    alternates: { canonical: `/evento/${event.id}` },
+    openGraph: { type: "article", title: displayTitle(event), description: `${formatWhen(event)} · ${event.venueName}` },
   };
 }
 
