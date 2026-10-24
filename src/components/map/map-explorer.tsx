@@ -17,6 +17,7 @@ import { Input } from "@/components/ui/input";
 import { useEvents } from "@/hooks/use-events";
 import type { EventCategory } from "@/lib/events/schema";
 import { cn } from "@/lib/utils";
+import { BarrioStrip } from "./barrio-strip";
 import { EventMap } from "./event-map";
 import { FilterChips } from "./filter-chips";
 
@@ -146,6 +147,16 @@ export function MapExplorer() {
       {/* Map */}
       <div className={cn("relative shrink-0 transition-[height]", expanded ? "h-[15dvh]" : "h-[50dvh]", "md:h-[calc(100dvh-3.5rem)] md:flex-1")}>
         <EventMap events={events} selectedId={selectedId} onSelect={setSelectedId} fit={status === "done"} explore />
+        <BarrioStrip
+          events={events}
+          range={range}
+          active={query}
+          onPick={(b) => {
+            setQuery(b);
+            setQ(b);
+          }}
+          className="absolute left-14 right-16 top-3 z-[1000]"
+        />
       </div>
 
       {/* Desktop side panel */}
