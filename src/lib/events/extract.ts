@@ -27,6 +27,11 @@ export const SocialPostSchema = z.object({
   author: z.string().optional(),
   date: z.string().optional(),
   ubicacion: z.string().optional(),
+  // engagement, as the radar export names them
+  vistas: z.coerce.number().nonnegative().optional(),
+  views: z.coerce.number().nonnegative().optional(),
+  likes: z.coerce.number().nonnegative().optional(),
+  megusta: z.coerce.number().nonnegative().optional(),
 });
 export type SocialPost = z.infer<typeof SocialPostSchema>;
 
@@ -61,6 +66,16 @@ function poiOf(p: SocialPost): string | undefined {
   if (typeof p.poi === "string") return p.poi;
   return [p.poi.name, p.poi.address].filter(Boolean).join(", ") || undefined;
 }
+export function metricsOf(p: SocialPost): RawEvent["metrics"] {
+  const views = asCount(p.vistas ?? p.views);
+  const likes = asCount(p.likes ?? p.megusta);
+  if (views === undefined && likes === undefined) return undefined;
+  return { ...(views !== undefined ? { views } : {}), ...(likes !== undefined ? { likes } : {}) };
+}
+function asCount(v: unknown): number | undefined {
+  const n = typeof v === "string" ? Number(v.replace(/[^\d.]/g, "")) : typeof v === "number" ? v : Number.NaN;
+  return Number.isFinite(n) && n >= 0 ? Math.round(n) : undefined;
+}
 export function sourceTypeOf(url: string): "tiktok" | "instagram" {
   return /instagram\.com/i.test(url) ? "instagram" : "tiktok";
 }
@@ -84,6 +99,7 @@ function toRaw(e: Extracted, post: SocialPost): RawEvent | undefined {
     sourceType: sourceTypeOf(post.url),
     sourceName: handleOf(post),
     sourceUrl: post.url,
+    metrics: metricsOf(post),
   };
   const parsed = RawEventSchema.safeParse(candidate);
   return parsed.success ? parsed.data : undefined;

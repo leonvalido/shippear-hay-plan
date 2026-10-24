@@ -16,8 +16,12 @@ export type EventStore = {
   queryEvents(q: EventsQuery): Event[];
   getEvent(id: string): Event | undefined;
   findDuplicates(raw: RawEvent): Event[];
+  stats(range: StatsRange): Stats;
   count(): number;
 };
+
+export type StatsRange = { from?: string; to?: string; status?: Event["status"] };
+export type Stats = { total: number; byBarrio: { barrio: string; count: number }[]; byCategory: { category: string; count: number }[] };
 
 type Row = {
   id: string; title: string; description: string | null; starts_at: string; starts_ms: number;
@@ -25,6 +29,7 @@ type Row = {
   barrio: string | null; category: string; price_free: number | null; price_min: number | null;
   price_max: number | null; source_type: string; source_name: string | null; source_url: string | null;
   image_url: string | null; status: string; fingerprint: string; created_at: string; search: string;
+  metrics_views: number | null; metrics_likes: number | null;
 };
 
 const DDL = `
@@ -51,7 +56,9 @@ CREATE TABLE IF NOT EXISTS events (
   status TEXT NOT NULL,
   fingerprint TEXT NOT NULL,
   created_at TEXT NOT NULL,
-  search TEXT NOT NULL
+  search TEXT NOT NULL,
+  metrics_views INTEGER,
+  metrics_likes INTEGER
 );
 CREATE INDEX IF NOT EXISTS events_starts_at ON events (starts_at);
 CREATE INDEX IF NOT EXISTS events_starts_ms ON events (starts_ms);
@@ -59,9 +66,11 @@ CREATE INDEX IF NOT EXISTS events_status ON events (status);
 CREATE INDEX IF NOT EXISTS events_category ON events (category);
 CREATE INDEX IF NOT EXISTS events_fingerprint ON events (fingerprint);
 `;
+/** Columns added after the first deploy; applied one by one on tables that predate them. */
+const MIGRATIONS = ["ALTER TABLE events ADD COLUMN metrics_views INTEGER", "ALTER TABLE events ADD COLUMN metrics_likes INTEGER"];
 
 const COLUMNS =
-  "id,title,description,starts_at,starts_ms,ends_at,venue_name,address,lat,lng,barrio,category,price_free,price_min,price_max,source_type,source_name,source_url,image_url,status,fingerprint,created_at,search";
+  "id,title,description,starts_at,starts_ms,ends_at,venue_name,address,lat,lng,barrio,category,price_free,price_min,price_max,source_type,source_name,source_url,image_url,status,fingerprint,created_at,search,metrics_views,metrics_likes";
 
 function searchText(e: Pick<Event, "title" | "venueName">) {
   return normalizeText(`${e.title} ${e.venueName}`);
@@ -79,7 +88,7 @@ function toRow(e: Event): unknown[] {
     f.address ?? null, f.lat ?? null, f.lng ?? null, f.barrio ?? null, f.category,
     f.price ? (f.price.free ? 1 : 0) : null, f.price?.min ?? null, f.price?.max ?? null,
     f.sourceType, f.sourceName ?? null, f.sourceUrl ?? null, f.imageUrl ?? null, f.status, f.fingerprint,
-    f.createdAt, searchText(f),
+    f.createdAt, searchText(f), f.metrics?.views ?? null, f.metrics?.likes ?? null,
   ];
 }
 
@@ -102,6 +111,9 @@ function fromRow(r: Row): Event {
   if (r.source_name) e.sourceName = r.source_name;
   if (r.source_url) e.sourceUrl = r.source_url;
   if (r.image_url) e.imageUrl = r.image_url;
+  if (r.metrics_views !== null || r.metrics_likes !== null) {
+    e.metrics = { ...(r.metrics_views !== null ? { views: r.metrics_views } : {}), ...(r.metrics_likes !== null ? { likes: r.metrics_likes } : {}) };
+  }
   return e as Event;
 }
 
@@ -141,6 +153,28 @@ function matches(e: Event, r: Resolved): boolean {
   return true;
 }
 
+function resolveRange(range: StatsRange, now = new Date()) {
+  const from = parseInstant(range.from) ?? now;
+  const to = parseInstant(range.to) ?? addDays(from, 14);
+  return { fromMs: from.getTime(), toMs: to.getTime(), status: range.status ?? "published" };
+}
+
+function tally(events: Pick<Event, "barrio" | "category">[]): Stats {
+  const barrios = new Map<string, number>();
+  const categories = new Map<string, number>();
+  for (const e of events) {
+    const b = e.barrio?.trim() || "Sin barrio";
+    barrios.set(b, (barrios.get(b) ?? 0) + 1);
+    categories.set(e.category, (categories.get(e.category) ?? 0) + 1);
+  }
+  const desc = (a: { count: number }, b: { count: number }) => b.count - a.count;
+  return {
+    total: events.length,
+    byBarrio: [...barrios].map(([barrio, count]) => ({ barrio, count })).sort(desc),
+    byCategory: [...categories].map(([category, count]) => ({ category, count })).sort(desc),
+  };
+}
+
 /** Candidates for duplication: same day, then same fingerprint or similar title. */
 function pickDuplicates(raw: RawEvent, sameDay: Event[]): Event[] {
   const fp = fingerprint(raw);
@@ -174,6 +208,13 @@ function memoryBackend(): EventStore {
         .sort((a, b) => epochMs(a.startsAt) - epochMs(b.startsAt))
         .slice(0, r.limit);
     },
+    stats: (range) => {
+      const r = resolveRange(range);
+      return tally([...map.values()].filter((e) => {
+        const ms = epochMs(e.startsAt);
+        return ms >= r.fromMs && ms <= r.toMs && e.status === r.status;
+      }));
+    },
     findDuplicates: (raw) => {
       const w = dayWindow(raw.startsAt);
       const sameDay = [...map.values()].filter((e) => {
@@ -187,11 +228,15 @@ function memoryBackend(): EventStore {
 
 function sqliteBackend(db: SqliteDatabase): EventStore {
   db.exec(DDL);
+  for (const sql of MIGRATIONS) {
+    try { db.exec(sql); } catch { /* column already there */ }
+  }
   const placeholders = COLUMNS.split(",").map(() => "?").join(",");
   const upsert = db.prepare(`INSERT OR REPLACE INTO events (${COLUMNS}) VALUES (${placeholders})`);
   const getQ = db.prepare("SELECT * FROM events WHERE id = ?");
   const countQ = db.prepare("SELECT COUNT(*) AS n FROM events");
   const sameDayQ = db.prepare("SELECT * FROM events WHERE starts_ms BETWEEN ? AND ? AND status != 'rejected'");
+  const statsQ = db.prepare("SELECT barrio, category FROM events WHERE starts_ms BETWEEN ? AND ? AND status = ?");
 
   return {
     backend: "sqlite",
@@ -218,6 +263,11 @@ function sqliteBackend(db: SqliteDatabase): EventStore {
     findDuplicates: (raw) => {
       const w = dayWindow(raw.startsAt);
       return pickDuplicates(raw, (sameDayQ.all(w.from, w.to) as Row[]).map(fromRow));
+    },
+    stats: (range) => {
+      const r = resolveRange(range);
+      const rows = statsQ.all(r.fromMs, r.toMs, r.status) as { barrio: string | null; category: string }[];
+      return tally(rows.map((x) => ({ barrio: x.barrio ?? undefined, category: x.category as Event["category"] })));
     },
   };
 }

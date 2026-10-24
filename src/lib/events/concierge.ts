@@ -95,14 +95,20 @@ export function buildConciergePrompt(ranked: Ranked[], input: ConciergeInput, wi
     `El usuario busca planes para ${win.label}, ${near}.`,
     `Presupuesto: ${input.budget !== undefined ? `hasta $ ${input.budget.toLocaleString("es-AR")}` : "no dijo"}.`,
     `Ánimo o ganas: ${input.mood?.trim() || "no dijo"}.`,
-    "Recomendá 2 o 3 de la lista (solo de la lista) con lugar, hora y precio.",
+    "Armá el plan con 2 o 3 paradas de la lista (solo de la lista), en orden de hora, con el formato indicado.",
   ].join("\n");
 }
 
-/** Deterministic text for mock mode, built from real store data. */
+/** Deterministic plan for mock mode, built from real store data, same format as the live answer. */
 export function mockConcierge(ranked: Ranked[], win: Window): string {
-  if (ranked.length === 0) return `Para ${win.label} no tengo nada cargado todavía. Probá con otro día o ampliá la zona.`;
-  const picks = ranked.slice(0, 3);
-  const lines = picks.map(({ event: e, km }) => `- **${e.title}** en ${e.venueName}, ${hourLabel(e.startsAt)}, ${priceLabel(e)}${km !== undefined ? ` (a ${km.toFixed(1)} km)` : ""}. Va bien si querés algo de ${e.category}.`);
-  return `Mirá, para ${win.label} te tiro estas opciones (modo demo, sin API key):\n\n${lines.join("\n")}\n\nCualquiera de las tres zafa; si me decís con quién vas, afino.`;
+  const footer = "Plan armado con HayPlan";
+  if (ranked.length === 0) return `Para ${win.label} no tengo nada cargado todavía. Probá con otro día o ampliá la zona.\n${footer}`;
+  const picks = ranked.slice(0, 3).sort((a, b) => a.event.startsAt.localeCompare(b.event.startsAt));
+  const firstDay = picks[0]!.event.startsAt.slice(0, 10);
+  const stops = picks.map(({ event: e }) => {
+    const h = hourLabel(e.startsAt);
+    const hour = e.startsAt.slice(0, 10) === firstDay ? h.slice(-5) : `${h.slice(0, 3)} ${h.slice(-5)}`;
+    return `${hour} · ${e.title} · ${e.venueName} · ${priceLabel(e)}`;
+  });
+  return [`Plan para ${win.label} (modo demo, sin API key):`, "", ...stops, "", "Entre parada y parada, a pata o en bici: todo queda cerca.", footer].join("\n");
 }

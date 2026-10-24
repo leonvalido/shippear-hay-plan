@@ -111,7 +111,16 @@ export function mergeEvents<T extends RawEvent>(a: T, b: T): T {
     sourceName: richer(a.sourceName, b.sourceName),
     sourceUrl: a.sourceUrl ?? b.sourceUrl,
     imageUrl: a.imageUrl ?? b.imageUrl,
+    metrics: mergeMetrics(a.metrics, b.metrics),
   };
+}
+
+function mergeMetrics(a?: RawEvent["metrics"], b?: RawEvent["metrics"]): RawEvent["metrics"] {
+  if (!a) return b;
+  if (!b) return a;
+  const views = maxDefined(a.views, b.views);
+  const likes = maxDefined(a.likes, b.likes);
+  return { ...(views !== undefined ? { views } : {}), ...(likes !== undefined ? { likes } : {}) };
 }
 
 function minDefined(a?: number, b?: number) {
