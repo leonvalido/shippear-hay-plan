@@ -96,6 +96,15 @@ export function formatPrice(price: Event["price"]): string {
   return v != null ? `$${fmtARS.format(v)}` : "Consultar";
 }
 
+/** 12300 → "12,3 mil", 1500000 → "1,5 M" */
+export function formatViews(n: number): string {
+  if (n >= 1_000_000) return `${(n / 1_000_000).toLocaleString("es-AR", { maximumFractionDigits: 1 })} M`;
+  if (n >= 1_000) return `${(n / 1_000).toLocaleString("es-AR", { maximumFractionDigits: 1 })} mil`;
+  return n.toLocaleString("es-AR");
+}
+
+export const SOCIAL_SOURCES = new Set<SourceType>(["tiktok", "instagram"]);
+
 export function sourceLabel(e: Pick<Event, "sourceType" | "sourceName">): string {
   return e.sourceName && e.sourceName !== "sample" ? e.sourceName : SOURCE_LABELS[e.sourceType];
 }

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import type { Event } from "@/lib/events/schema";
 import { cn } from "@/lib/utils";
-import { CATEGORY_COLORS, CATEGORY_LABELS, formatDate, formatDayShort, formatMonthShort, formatPrice, formatTime, sourceLabel } from "./format";
+import { CATEGORY_COLORS, CATEGORY_LABELS, SOCIAL_SOURCES, formatDate, formatDayShort, formatMonthShort, formatPrice, formatTime, formatViews, sourceLabel } from "./format";
 
 type Props = {
   event: Event;
@@ -67,12 +67,32 @@ export function EventCard({ event, selected, onSelect, showDate = true, classNam
           <Badge variant="outline" style={{ borderColor: color, color }}>
             {CATEGORY_LABELS[event.category]}
           </Badge>
-          <Badge variant="outline" className="text-muted-foreground">
-            {sourceLabel(event)}
-          </Badge>
+          {SOCIAL_SOURCES.has(event.sourceType) ? (
+            <SocialBadge event={event} />
+          ) : (
+            <Badge variant="outline" className="text-muted-foreground">
+              {sourceLabel(event)}
+            </Badge>
+          )}
         </div>
       </div>
     </article>
+  );
+}
+
+/** "Visto en TikTok · @handle · 12,3 mil" */
+function SocialBadge({ event }: { event: Event }) {
+  const tiktok = event.sourceType === "tiktok";
+  const views = event.metrics?.views;
+  return (
+    <Badge
+      variant="outline"
+      className={cn("gap-1", tiktok ? "border-black/70 bg-black text-white" : "border-pink-500/60 bg-pink-50 text-pink-700")}
+    >
+      Visto en {tiktok ? "TikTok" : "Instagram"}
+      {event.sourceName && <span className="opacity-80">· {event.sourceName}</span>}
+      {views != null && <span className="font-semibold">· ▶ {formatViews(views)}</span>}
+    </Badge>
   );
 }
 

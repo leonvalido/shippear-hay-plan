@@ -31,6 +31,7 @@ export function MapExplorer() {
   const [q, setQ] = useState("");
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [expanded, setExpanded] = useState(false);
+  const [sort, setSort] = useState<"hora" | "views">("hora");
   const listRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -43,6 +44,10 @@ export function MapExplorer() {
 
   const groups = useMemo(() => {
     const map = new Map<string, { label: string; events: typeof events }>();
+    if (sort === "views") {
+      const byViews = [...events].sort((a, b) => (b.metrics?.views ?? 0) - (a.metrics?.views ?? 0));
+      return [["views", { label: "Lo que más se mueve", events: byViews }] as const];
+    }
     for (const e of events) {
       const key = rosarioDayKey(e.startsAt);
       const g = map.get(key) ?? { label: relativeDayLabel(e.startsAt), events: [] };
@@ -50,7 +55,7 @@ export function MapExplorer() {
       map.set(key, g);
     }
     return [...map.entries()];
-  }, [events]);
+  }, [events, sort]);
 
   function selectFromList(id: string) {
     setSelectedId(id);
@@ -79,6 +84,24 @@ export function MapExplorer() {
       />
       <FilterChips label="Cuándo" chips={DAY_CHIPS} value={day} onChange={setDay} />
       <FilterChips label="Categoría" chips={CATEGORY_CHIPS} value={category} onChange={setCategory} />
+      <div role="group" aria-label="Orden" className="flex rounded-lg border p-0.5 text-xs">
+        {(
+          [
+            ["hora", "Por hora"],
+            ["views", "Lo que más se mueve"],
+          ] as const
+        ).map(([v, label]) => (
+          <button
+            key={v}
+            type="button"
+            aria-pressed={sort === v}
+            onClick={() => setSort(v)}
+            className={cn("flex-1 rounded-md px-2 py-1 font-medium transition-colors", sort === v ? "bg-foreground text-background" : "text-muted-foreground hover:bg-accent")}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
     </div>
   );
 
@@ -108,7 +131,7 @@ export function MapExplorer() {
           </h2>
           <div className="space-y-2">
             {g.events.map((e) => (
-              <EventCard key={e.id} event={e} selected={e.id === selectedId} onSelect={selectFromList} showDate={false} />
+              <EventCard key={e.id} event={e} selected={e.id === selectedId} onSelect={selectFromList} showDate={sort === "views"} />
             ))}
           </div>
         </section>
