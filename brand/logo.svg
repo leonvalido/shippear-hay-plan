@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 236 56" width="236" height="56" role="img" aria-label="HayPlan">
+  <title>HayPlan</title>
+  <path fill="#aa24c5" d="M28 4c-10.5 0-18 7.8-18 18 0 13 18 30 18 30s18-17 18-30c0-10.2-7.5-18-18-18z"/>
+  <path fill="#fff" d="M28 12l2.6 6.8 6.8 2.6-6.8 2.6L28 30.8l-2.6-6.8-6.8-2.6 6.8-2.6z"/>
+  <text x="56" y="42" font-family="ui-rounded, 'SF Pro Rounded', 'Segoe UI', Inter, system-ui, sans-serif" font-size="40" font-weight="700" letter-spacing="-1" fill="#19141f">hay<tspan fill="#aa24c5">plan</tspan></text>
+</svg>

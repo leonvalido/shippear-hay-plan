@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080" role="img" aria-label="HayPlan. ¿Qué hacés hoy? Hay plan. Shippear #3, Rosario">
+  <title>HayPlan · slide de título</title>
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="112%" r="80%">
+      <stop offset="0" stop-color="#aa24c5" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#0f0b15" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="#0f0b15"/>
+  <g stroke="#2a2438" stroke-width="2" opacity="0.5">
+    <path d="M0 200H1920M0 400H1920M0 600H1920M0 800H1920M0 1000H1920"/>
+    <path d="M240 0V1080M560 0V1080M880 0V1080M1200 0V1080M1520 0V1080M1840 0V1080"/>
+  </g>
+  <rect width="1920" height="1080" fill="url(#glow)"/>
+  <g transform="translate(760 250) scale(4.6)">
+    <path fill="#da74f1" d="M28 4c-10.5 0-18 7.8-18 18 0 13 18 30 18 30s18-17 18-30c0-10.2-7.5-18-18-18z"/>
+    <path fill="#0f0b15" d="M28 12l2.6 6.8 6.8 2.6-6.8 2.6L28 30.8l-2.6-6.8-6.8-2.6 6.8-2.6z"/>
+    <text x="56" y="42" font-family="ui-rounded, 'SF Pro Rounded', 'Segoe UI', Inter, system-ui, sans-serif" font-size="40" font-weight="700" letter-spacing="-1" fill="#f6f4fb">hay<tspan fill="#da74f1">plan</tspan></text>
+  </g>
+  <text x="960" y="640" text-anchor="middle" font-family="ui-rounded, 'SF Pro Rounded', 'Segoe UI', Inter, system-ui, sans-serif" font-size="96" font-weight="700" letter-spacing="-2" fill="#f6f4fb">¿Qué hacés hoy? Hay plan.</text>
+  <text x="960" y="720" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="40" fill="#a6a2b0">El mapa de lo que pasa hoy en Rosario, con un chat que te dice qué hacer.</text>
+  <text x="960" y="980" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="30" font-weight="600" letter-spacing="4" fill="#a6a2b0">SHIPPEAR #3 · ROSARIO</text>
+</svg>
