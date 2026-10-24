@@ -244,13 +244,17 @@ export async function geocode(venueName, address) {
     }
   }
   if (!result) {
-    const queries = [address && `${address}, Rosario, Santa Fe, Argentina`, `${venueName}, Rosario, Argentina`].filter(Boolean);
+    // a one-word venue name ("Casona", "Switch") is too generic to look up on its own
+    const nameQuery = /\s/.test(clean(venueName)) ? `${venueName}, Rosario, Argentina` : null;
+    const queries = [address && `${address}, Rosario, Santa Fe, Argentina`, nameQuery].filter(Boolean);
     for (const q of /** @type {string[]} */ (queries)) {
       try {
         const u = `https://nominatim.openstreetmap.org/search?format=json&limit=1&q=${encodeURIComponent(q)}`;
         const j = await fetchJson(u);
         const hit = j[0];
-        if (hit && inRosario(Number(hit.lat), Number(hit.lon))) { result = { lat: Number(hit.lat), lng: Number(hit.lon) }; break; }
+        // a bare venue name must resolve to a place, not to a street or a whole district
+        const plausible = hit && (q !== `${venueName}, Rosario, Argentina` || !/^(highway|boundary|place)$/.test(hit.class));
+        if (plausible && inRosario(Number(hit.lat), Number(hit.lon))) { result = { lat: Number(hit.lat), lng: Number(hit.lon) }; break; }
       } catch (e) {
         console.warn(`  nominatim failed for "${q}": ${/** @type {Error} */ (e).message}`);
       }
