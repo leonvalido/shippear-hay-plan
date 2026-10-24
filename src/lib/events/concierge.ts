@@ -66,6 +66,12 @@ export function priceLabel(e: Event): string {
   return "pago";
 }
 
+/** Hour for the plan line; "horario a confirmar" when the source had no time. */
+export function whenLabel(e: Pick<Event, "startsAt" | "timeUnknown">): string {
+  const h = hourLabel(e.startsAt);
+  return e.timeUnknown ? `${h.slice(0, -5)}horario a confirmar` : h;
+}
+
 export function hourLabel(iso: string): string {
   const d = parseInstant(iso);
   if (!d) return iso;
@@ -79,7 +85,7 @@ export function buildConciergePrompt(ranked: Ranked[], input: ConciergeInput, wi
   const list = ranked.length
     ? ranked
         .map(({ event: e, km }, i) => {
-          const parts = [`${i + 1}. ${e.title}`, `lugar: ${e.venueName}${e.barrio ? ` (${e.barrio})` : ""}`, `cuándo: ${hourLabel(e.startsAt)}`, `precio: ${priceLabel(e)}`, `categoría: ${e.category}`];
+          const parts = [`${i + 1}. ${e.shortTitle ?? e.title}`, `lugar: ${e.venueName}${e.barrio ? ` (${e.barrio})` : ""}`, `cuándo: ${whenLabel(e)}`, `precio: ${priceLabel(e)}`, `categoría: ${e.category}`];
           if (km !== undefined) parts.push(`distancia: ${km < 1 ? `${Math.round(km * 1000)} m` : `${km.toFixed(1)} km`}`);
           if (e.description) parts.push(`detalle: ${e.description.split("\n\nFuentes:")[0]!.slice(0, 200)}`);
           return parts.join(" · ");
@@ -95,7 +101,7 @@ export function buildConciergePrompt(ranked: Ranked[], input: ConciergeInput, wi
     `El usuario busca planes para ${win.label}, ${near}.`,
     `Presupuesto: ${input.budget !== undefined ? `hasta $ ${input.budget.toLocaleString("es-AR")}` : "no dijo"}.`,
     `Ánimo o ganas: ${input.mood?.trim() || "no dijo"}.`,
-    "Armá el plan con 2 o 3 paradas de la lista (solo de la lista), en orden de hora, con el formato indicado.",
+    "Armá el plan con 2 o 3 paradas de la lista (solo de la lista), en orden de hora, con el formato indicado. Los títulos de la lista ya están acortados: usalos tal cual. Si dice \"horario a confirmar\", escribí eso en lugar de la hora.",
   ].join("\n");
 }
 
@@ -107,8 +113,9 @@ export function mockConcierge(ranked: Ranked[], win: Window): string {
   const firstDay = picks[0]!.event.startsAt.slice(0, 10);
   const stops = picks.map(({ event: e }) => {
     const h = hourLabel(e.startsAt);
-    const hour = e.startsAt.slice(0, 10) === firstDay ? h.slice(-5) : `${h.slice(0, 3)} ${h.slice(-5)}`;
-    return `${hour} · ${e.title} · ${e.venueName} · ${priceLabel(e)}`;
+    const hh = e.timeUnknown ? "a confirmar" : h.slice(-5);
+    const hour = e.startsAt.slice(0, 10) === firstDay ? hh : `${h.slice(0, 3)} ${hh}`;
+    return `${hour} · ${e.shortTitle ?? e.title} · ${e.venueName} · ${priceLabel(e)}`;
   });
   return [`Plan para ${win.label} (modo demo, sin API key):`, "", ...stops, "", "Entre parada y parada, a pata o en bici: todo queda cerca.", footer].join("\n");
 }

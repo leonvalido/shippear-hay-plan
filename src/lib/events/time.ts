@@ -40,3 +40,8 @@ export function addDays(d: Date, days: number): Date {
 export function startOfRosarioDay(d: Date): Date {
   return new Date(`${rosarioDate(d)}T00:00:00${ROSARIO_OFFSET}`);
 }
+
+/** "YYYY-MM-DDT00:00:00..." or a bare date: the source gave no time of day. */
+export function isMidnight(iso: string): boolean {
+  return /^\d{4}-\d{2}-\d{2}(T00:00(:00)?)?([+-]\d{2}:\d{2}|Z)?$/.test(iso.trim());
+}

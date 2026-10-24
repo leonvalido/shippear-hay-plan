@@ -14,8 +14,14 @@ import path from "node:path";
 import { RawEventSchema, type Event, type RawEvent } from "../src/lib/events/schema";
 import { eventId, fingerprint, mergeEvents } from "../src/lib/events/normalize";
 import { SocialPostSchema, extractEventsFromCaptions, type SocialPost } from "../src/lib/events/extract";
+<<<<<<< HEAD
 import { barrioFromCoords, geocodeAddress, geocodeVenue, inRosario, type GeoCache } from "../src/lib/events/geocode";
 import { toRosarioISO } from "../src/lib/events/time";
+=======
+import { barrioFromCoords, geocodeAddress, inRosario, type GeoCache } from "../src/lib/events/geocode";
+import { isMidnight, toRosarioISO } from "../src/lib/events/time";
+import { fillShortTitles, type TitleCache } from "../src/lib/events/titles";
+>>>>>>> origin/claude/api-backend-f8e485
 import { isMockMode } from "../src/lib/ai";
 
 const ROOT = process.cwd();
@@ -23,12 +29,13 @@ const PRIVATE = path.join(ROOT, "data", "private");
 const RAW_DIR = path.join(PRIVATE, "raw");
 const SOCIAL_FILE = path.join(PRIVATE, "tiktok-rosario.json");
 const CACHE_FILE = path.join(PRIVATE, "geocache.json");
+const TITLES_FILE = path.join(PRIVATE, "titles-cache.json");
 const OUT_FILE = path.join(ROOT, "data", "events.json");
 const GEOCODE_CONCURRENCY = 1; // Nominatim allows one request per second
 
 loadEnvLocal();
 
-const counts = { rawFiles: 0, rawValid: 0, rawInvalid: 0, posts: 0, extracted: 0, geocoded: 0, geocodeMiss: 0, merged: 0, past: 0, outside: 0, written: 0 };
+const counts = { titled: 0, rawFiles: 0, rawValid: 0, rawInvalid: 0, posts: 0, extracted: 0, geocoded: 0, geocodeMiss: 0, merged: 0, past: 0, outside: 0, written: 0 };
 
 function loadEnvLocal() {
   const file = path.join(ROOT, ".env.local");
@@ -108,6 +115,15 @@ function dedupe(events: RawEvent[]): RawEvent[] {
   return [...byFp.values()];
 }
 
+async function shortTitles(events: RawEvent[]): Promise<void> {
+  const cache: TitleCache = fs.existsSync(TITLES_FILE) ? ((readJson(TITLES_FILE) as TitleCache) ?? {}) : {};
+  const before = Object.keys(cache).length;
+  await fillShortTitles(events, cache, { onBatch: (done, total) => console.log(`  ${done}/${total} títulos`) });
+  counts.titled = Object.keys(cache).length - before;
+  fs.mkdirSync(PRIVATE, { recursive: true });
+  fs.writeFileSync(TITLES_FILE, JSON.stringify(cache, null, 1));
+}
+
 function finalize(events: RawEvent[], now: Date): Event[] {
   const nowMs = now.getTime();
   const createdAt = toRosarioISO(now);
@@ -117,6 +133,7 @@ function finalize(events: RawEvent[], now: Date): Event[] {
     if (Number.isNaN(ms) || ms < nowMs) { counts.past++; continue; }
     if (e.lat !== undefined && e.lng !== undefined && !inRosario({ lat: e.lat, lng: e.lng })) { counts.outside++; continue; }
     if (!e.barrio && e.lat !== undefined && e.lng !== undefined) e.barrio = barrioFromCoords(e.lat, e.lng);
+    if (e.timeUnknown === undefined && isMidnight(e.startsAt)) e.timeUnknown = true;
     out.push({ ...e, id: eventId(e), status: "published", fingerprint: fingerprint(e), createdAt });
   }
   // same id twice can only happen through hash collision; keep the first
@@ -157,10 +174,15 @@ async function main() {
   await geocodeMissing(all);
   console.log(`  ${counts.geocoded} resueltas, ${counts.geocodeMiss} sin resolver`);
 
-  const events = finalize(dedupe(all), now);
+  const deduped = dedupe(all);
+  console.log(`4. Títulos cortos${isMockMode() ? " (mock: recorte a 40 caracteres)" : ""}…`);
+  await shortTitles(deduped);
+  console.log(`  ${counts.titled} nuevos, resto desde data/private/titles-cache.json`);
+
+  const events = finalize(deduped, now);
   counts.written = events.length;
   fs.writeFileSync(OUT_FILE, JSON.stringify(events, null, 1) + "\n");
-  console.log(`4. Escrito data/events.json: ${events.length} eventos`);
+  console.log(`5. Escrito data/events.json: ${events.length} eventos`);
   console.log(
     `   entradas ${all.length} (raw ${counts.rawValid}, extraídos ${counts.extracted}, inválidos ${counts.rawInvalid}) · fusionados ${counts.merged} · pasados ${counts.past} · fuera de Rosario ${counts.outside}`,
   );
