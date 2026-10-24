@@ -163,9 +163,13 @@ export function EventMap({ events, selectedId, onSelect, center = ROSARIO_CENTER
           disabled={locating}
           aria-label="Centrar el mapa en mi ubicación"
           title="Mi ubicación"
-          className="absolute right-3 top-3 z-[1000] flex size-10 items-center justify-center rounded-full border bg-background text-lg shadow-md disabled:opacity-60"
+          className="glass absolute right-3 top-3 z-[1000] flex size-10 items-center justify-center rounded-full text-foreground shadow-md disabled:opacity-60"
         >
-          {locating ? "…" : "📍"}
+          <svg viewBox="0 0 24 24" className={cn("size-5", locating && "animate-pulse")} fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+            <circle cx="12" cy="12" r="3" />
+            <circle cx="12" cy="12" r="8" />
+            <path d="M12 2v3M12 19v3M2 12h3M19 12h3" />
+          </svg>
         </button>
       )}
       {!ready && !error && (
@@ -189,8 +193,8 @@ function escapeHtml(s: string) {
 function popupHtml(e: Event) {
   return `<div style="font:13px/1.35 system-ui,sans-serif;min-width:160px">
     <strong style="display:block;margin-bottom:2px">${escapeHtml(e.title)}</strong>
-    <span style="color:#666">${escapeHtml(relativeDayLabel(e.startsAt))}, ${formatTime(e.startsAt)} · ${escapeHtml(e.venueName)}</span><br/>
-    <span style="color:#666">${escapeHtml(formatPrice(e.price))}</span><br/>
+    <span style="opacity:.7">${escapeHtml(relativeDayLabel(e.startsAt))}, ${formatTime(e.startsAt)} · ${escapeHtml(e.venueName)}</span><br/>
+    <span style="opacity:.7">${escapeHtml(formatPrice(e.price))}</span><br/>
     <a href="/evento/${encodeURIComponent(e.id)}" style="display:inline-block;margin-top:6px;font-weight:600;color:${CATEGORY_COLORS[e.category]}">Ver evento →</a>
   </div>`;
 }

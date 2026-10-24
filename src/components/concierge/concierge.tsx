@@ -80,7 +80,7 @@ export function Concierge() {
 
   return (
     <div className="space-y-6">
-      <section className="space-y-5 rounded-2xl border bg-card p-4 shadow-xs sm:p-6">
+      <section className="glass space-y-5 rounded-2xl p-4 sm:p-6">
         <div className="space-y-2">
           <p className="text-sm font-medium">¿Cuándo?</p>
           <FilterChips label="Cuándo" chips={WHEN_CHIPS} value={when} onChange={(v) => v && setWhen(v)} />
@@ -124,7 +124,7 @@ export function Concierge() {
         <div className="space-y-1">
           <div className="flex flex-wrap items-center gap-2">
             <Button type="button" variant="outline" size="sm" onClick={locate} disabled={locating}>
-              {locating ? "Ubicando…" : "📍 Usar mi ubicación"}
+              {locating ? "Ubicando…" : "Usar mi ubicación"}
             </Button>
             <span className="text-sm text-muted-foreground">{loc ? loc.label : "Sin ubicación: buscamos en toda la ciudad"}</span>
           </div>
@@ -132,8 +132,8 @@ export function Concierge() {
         </div>
 
         <div className="flex gap-2">
-          <Button size="lg" className="flex-1" onClick={() => ai.run(body())} disabled={busy}>
-            {busy ? "Pensando…" : "¿Qué hago?"}
+          <Button size="lg" className="flex-1 font-semibold" onClick={() => ai.run(body())} disabled={busy}>
+            {busy ? "Armando el plan…" : "Preguntale al concierge"}
           </Button>
           {busy && (
             <Button size="lg" variant="outline" onClick={ai.abort}>
@@ -150,7 +150,7 @@ export function Concierge() {
         error={ai.error}
         mode={ai.mode}
         onRetry={() => ai.run(body())}
-        emptyHint="Elegí cuándo y cuánto querés gastar, y te recomendamos 2 o 3 planes."
+        emptyHint="Hola, soy HayPlan. Decime qué tenés ganas de hacer o a qué hora salís y te armo algo con lo que hay hoy en Rosario."
         className="min-h-40"
       />
       {ai.status === "done" && ai.text.trim() && (

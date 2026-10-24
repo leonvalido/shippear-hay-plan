@@ -96,7 +96,7 @@ export function MapExplorer() {
       <Input
         id="map-search"
         type="search"
-        placeholder="Buscar por nombre o lugar…"
+        placeholder="Buscá un plan, un lugar o un barrio"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         className="h-10 bg-background"
@@ -138,8 +138,8 @@ export function MapExplorer() {
       )}
       {status === "done" && events.length === 0 && (
         <div className="rounded-xl border border-dashed p-6 text-center text-sm text-muted-foreground">
-          <p className="font-medium text-foreground">No hay eventos con esos filtros.</p>
-          <p>Probá con otro día o categoría.</p>
+          <p className="font-medium text-foreground">No hay nada con esos filtros.</p>
+          <p>Sacá uno o probá otro día.</p>
         </div>
       )}
       {groups.map(([key, g]) => (
@@ -178,7 +178,7 @@ export function MapExplorer() {
       </div>
 
       {/* Desktop side panel */}
-      <aside className="hidden h-[calc(100dvh-3.5rem)] w-96 flex-col border-l md:flex" aria-label="Lista de eventos">
+      <aside className="glass hidden h-[calc(100dvh-3.5rem)] w-96 flex-col md:flex" aria-label="Lista de eventos">
         <div className="space-y-2 border-b p-3">
           {filters}
           <p className="text-xs text-muted-foreground" aria-live="polite">
@@ -192,7 +192,7 @@ export function MapExplorer() {
       <section
         aria-label="Lista de eventos"
         className={cn(
-          "flex min-h-0 flex-col rounded-t-2xl border-t bg-background shadow-[0_-4px_20px_rgba(0,0,0,0.08)] md:hidden",
+          "glass flex min-h-0 flex-col rounded-t-2xl shadow-[0_-4px_24px_rgba(0,0,0,0.25)] md:hidden",
           expanded ? "h-[calc(85dvh-3.5rem)]" : "h-[calc(50dvh-3.5rem)]",
         )}
       >

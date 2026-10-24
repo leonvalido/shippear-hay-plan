@@ -13,7 +13,7 @@ export function WhatsAppButton({ text, className }: Props) {
   }
   return (
     <Button type="button" onClick={send} className={className} style={{ background: "#25D366", color: "#fff" }}>
-      <span aria-hidden>💬</span> Mandar por WhatsApp
+      Mandar por WhatsApp
     </Button>
   );
 }

@@ -17,17 +17,18 @@ export const CATEGORY_LABELS: Record<EventCategory, string> = {
   otro: "Otro",
 };
 
+/** Brand category colors (brand/tokens.css), as literals because Leaflet writes them into SVG attributes. */
 export const CATEGORY_COLORS: Record<EventCategory, string> = {
-  musica: "#e11d48",
-  teatro: "#7c3aed",
-  fiesta: "#db2777",
-  feria: "#f59e0b",
-  deporte: "#16a34a",
-  cultura: "#0891b2",
-  gastronomia: "#ea580c",
-  infantil: "#eab308",
-  charla: "#2563eb",
-  otro: "#64748b",
+  musica: "oklch(0.52 0.24 330)",
+  teatro: "oklch(0.52 0.21 20)",
+  fiesta: "oklch(0.50 0.23 295)",
+  feria: "oklch(0.55 0.15 65)",
+  deporte: "oklch(0.52 0.16 150)",
+  cultura: "oklch(0.50 0.20 255)",
+  gastronomia: "oklch(0.55 0.20 40)",
+  infantil: "oklch(0.52 0.13 205)",
+  charla: "oklch(0.50 0.12 110)",
+  otro: "oklch(0.50 0.02 280)",
 };
 
 export const CATEGORIES = Object.keys(CATEGORY_LABELS) as EventCategory[];

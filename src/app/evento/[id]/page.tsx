@@ -38,7 +38,7 @@ export default async function EventoPage({ params }: Props) {
   return (
     <article className="mx-auto w-full max-w-3xl px-4 py-6 sm:py-10">
       <Link href="/mapa" className="text-sm text-muted-foreground hover:underline">
-        ← Volver al mapa
+← Ver en el mapa
       </Link>
 
       {event.imageUrl && (
@@ -50,9 +50,7 @@ export default async function EventoPage({ params }: Props) {
 
       <header className="mt-4 space-y-3">
         <div className="flex flex-wrap items-center gap-1.5">
-          <Badge variant="outline" style={{ borderColor: color, color }}>
-            {CATEGORY_LABELS[event.category]}
-          </Badge>
+          <Badge style={{ background: color, color: "#fff" }}>{CATEGORY_LABELS[event.category]}</Badge>
           <Badge variant="outline" className="text-muted-foreground">
             {sourceLabel(event)}
           </Badge>
@@ -85,7 +83,7 @@ export default async function EventoPage({ params }: Props) {
         {event.sourceUrl && (
           <Button asChild variant="ghost">
             <a href={event.sourceUrl} target="_blank" rel="noopener noreferrer">
-              Ver fuente ↗
+              Ver fuente
             </a>
           </Button>
         )}

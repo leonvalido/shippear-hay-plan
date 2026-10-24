@@ -2,46 +2,67 @@
 
 /* shadcn/ui tokens (neutral base, Tailwind v4 style). Tweak --primary to brand it. */
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
+  --radius: 0.875rem;
+
+  --background: oklch(0.99 0.005 300);
+  --foreground: oklch(0.18 0.02 300);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
+  --card-foreground: oklch(0.18 0.02 300);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.55 0.2 25);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.7 0.15 25);
+  --popover-foreground: oklch(0.18 0.02 300);
+
+  --primary: oklch(0.55 0.24 320);
+  --primary-foreground: oklch(0.99 0.005 300);
+  --secondary: oklch(0.96 0.01 300);
+  --secondary-foreground: oklch(0.25 0.03 300);
+  --muted: oklch(0.96 0.01 300);
+  --muted-foreground: oklch(0.50 0.02 300);
+  --accent: oklch(0.94 0.04 320);
+  --accent-foreground: oklch(0.35 0.16 320);
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: oklch(0.99 0.005 300);
+
+  --border: oklch(0.90 0.01 300);
+  --input: oklch(0.90 0.01 300);
+  --ring: oklch(0.55 0.24 320);
+
+  /* Map pin / chip backgrounds. Always with white text and a 2px white stroke on the map. */
+  --category-musica: oklch(0.52 0.24 330);
+  --category-teatro: oklch(0.52 0.21 20);
+  --category-fiesta: oklch(0.50 0.23 295);
+  --category-feria: oklch(0.55 0.15 65);
+  --category-deporte: oklch(0.52 0.16 150);
+  --category-cultura: oklch(0.50 0.20 255);
+  --category-gastronomia: oklch(0.55 0.20 40);
+  --category-infantil: oklch(0.52 0.13 205);
+  --category-charla: oklch(0.50 0.12 110);
+  --category-otro: oklch(0.50 0.02 280);
+  --category-foreground: oklch(1 0 0);
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
+  --background: oklch(0.16 0.02 300);
+  --foreground: oklch(0.97 0.01 300);
+  --card: oklch(0.21 0.025 300);
+  --card-foreground: oklch(0.97 0.01 300);
+  --popover: oklch(0.21 0.025 300);
+  --popover-foreground: oklch(0.97 0.01 300);
+
+  --primary: oklch(0.72 0.20 320);
+  --primary-foreground: oklch(0.16 0.02 300);
+  --secondary: oklch(0.27 0.03 300);
+  --secondary-foreground: oklch(0.97 0.01 300);
+  --muted: oklch(0.27 0.03 300);
+  --muted-foreground: oklch(0.72 0.02 300);
+  --accent: oklch(0.30 0.06 320);
+  --accent-foreground: oklch(0.90 0.08 320);
+  --destructive: oklch(0.68 0.19 22);
+  --destructive-foreground: oklch(0.16 0.02 300);
+
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
+  --ring: oklch(0.72 0.20 320);
+  /* Category colors are shared between modes on purpose: a pin is the same color day and night. */
 }
 
 @theme inline {
@@ -67,6 +88,17 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --color-category-musica: var(--category-musica);
+  --color-category-teatro: var(--category-teatro);
+  --color-category-fiesta: var(--category-fiesta);
+  --color-category-feria: var(--category-feria);
+  --color-category-deporte: var(--category-deporte);
+  --color-category-cultura: var(--category-cultura);
+  --color-category-gastronomia: var(--category-gastronomia);
+  --color-category-infantil: var(--category-infantil);
+  --color-category-charla: var(--category-charla);
+  --color-category-otro: var(--category-otro);
+  --color-category-foreground: var(--category-foreground);
 }
 
 @layer base {
@@ -75,5 +107,44 @@
   }
   body {
     @apply bg-background text-foreground antialiased;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   }
+  h1, h2, .font-display {
+    font-family: ui-rounded, "SF Pro Rounded", "Segoe UI", Inter, system-ui, sans-serif;
+    letter-spacing: -0.02em;
+  }
+  h1 {
+    line-height: 1.05;
+  }
+}
+
+/* Frosted panels (brand): translucent background, blur, 1px border at 10%. */
+.glass {
+  background: color-mix(in oklch, var(--background) 80%, transparent);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid color-mix(in oklch, var(--foreground) 10%, transparent);
+}
+
+/* Night map: OSM tiles are light, so invert and tint them in dark mode. Pins live in another pane and keep their color. */
+.dark .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) brightness(0.75) contrast(0.9) saturate(0.4);
+}
+.dark .leaflet-control-attribution,
+.dark .leaflet-bar a {
+  background: var(--card);
+  color: var(--foreground);
+}
+.dark .leaflet-control-attribution a {
+  color: var(--primary);
+}
+.dark .leaflet-popup-content-wrapper,
+.dark .leaflet-popup-tip {
+  background: var(--card);
+  color: var(--foreground);
+}
+.dark .leaflet-tooltip {
+  background: var(--card);
+  color: var(--foreground);
+  border-color: var(--border);
 }
