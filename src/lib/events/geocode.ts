@@ -82,3 +82,37 @@ export function barrioFromCoords(lat: number, lng: number): string {
   if (lng > -60.625) return "Costanera";
   return "Macrocentro";
 }
+
+/**
+ * Venue-name lookup through Nominatim (OpenStreetMap), bounded to Gran Rosario,
+ * for sources that give a venue but no street number. Cached like addresses.
+ * Nominatim policy: at most one request per second and a real User-Agent.
+ */
+export async function geocodeVenue(
+  venueName: string,
+  cache: GeoCache = {},
+  fetchImpl: typeof fetch = fetch,
+): Promise<LatLng | undefined> {
+  const name = venueName.replace(/\(.*?\)/g, "").replace(/\s+/g, " ").trim();
+  if (name.length < 3) return undefined;
+  const key = "venue:" + normalizeText(name);
+  if (key in cache) return cache[key] ?? undefined;
+  const url = new URL("https://nominatim.openstreetmap.org/search");
+  url.searchParams.set("q", `${name}, Rosario, Santa Fe, Argentina`);
+  url.searchParams.set("format", "jsonv2");
+  url.searchParams.set("limit", "1");
+  url.searchParams.set("viewbox", `${ROSARIO_BBOX.minLng},${ROSARIO_BBOX.maxLat},${ROSARIO_BBOX.maxLng},${ROSARIO_BBOX.minLat}`);
+  url.searchParams.set("bounded", "1");
+  try {
+    await new Promise((r) => setTimeout(r, 1100));
+    const res = await fetchImpl(url, { headers: { "User-Agent": "HayPlan hackathon (contact: leon.valido@hotmail.com)" } });
+    if (!res.ok) return undefined;
+    const data = (await res.json()) as Array<{ lat: string; lon: string }>;
+    const hit = data[0];
+    const point = hit ? { lat: Number(hit.lat), lng: Number(hit.lon) } : undefined;
+    cache[key] = point && inRosario(point) ? point : null;
+    return cache[key] ?? undefined;
+  } catch {
+    return undefined;
+  }
+}
