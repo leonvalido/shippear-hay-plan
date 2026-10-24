@@ -195,9 +195,9 @@ export function MapExplorer({ initialEvents }: { initialEvents?: Event[] }) {
     return [...map.entries()];
   }, [shown, sort]);
 
+  /** Hover/focus on a card: highlight its pin. Tapping the card navigates, so the sheet stays as it is. */
   function selectFromList(id: string) {
     setSelectedId(id);
-    setExpanded(false); // on phones, bring the map back so the pin is visible
   }
 
   function openVenue(venue: Venue) {
