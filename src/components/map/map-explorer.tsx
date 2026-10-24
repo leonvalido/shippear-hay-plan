@@ -16,6 +16,7 @@ import {
   formatPrice,
   formatWhen,
   humanizeTitle,
+  distanceLabel,
   walkMinutes,
 } from "@/components/events/format";
 import { Button } from "@/components/ui/button";
@@ -230,7 +231,7 @@ export function MapExplorer({ initialEvents }: { initialEvents?: Event[] }) {
           </Button>
           <span className="text-xs text-muted-foreground">
             {venue.events.length} evento{venue.events.length === 1 ? "" : "s"}
-            {me && walkMinutes(me, venue) != null && ` · a ${walkMinutes(me, venue)} min caminando`}
+            {me && distanceLabel(me, venue) && ` · ${distanceLabel(me, venue)}`}
           </span>
         </div>
       </div>
