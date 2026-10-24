@@ -8,7 +8,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import type { Event } from "@/lib/events/schema";
 import { cn } from "@/lib/utils";
 import { CategoryIcon } from "./category-icon";
-import { CATEGORY_COLORS, CATEGORY_LABELS, displayTitle, displayVenue, distanceLabel, formatPrice, formatTime, formatViews, formatWhen, hasPrice, humanizeTitle, type LatLng } from "./format";
+import { CATEGORY_COLORS, CATEGORY_LABELS, displayTitle, displayVenue, distanceLabel, formatPrice, formatTime, formatViews, formatWhen, hasPrice, humanizeTitle, startedToday, type LatLng } from "./format";
 
 type Props = {
   event: Event;
@@ -110,6 +110,7 @@ export function EventCardEditorial({ event, selected, onSelect, index = 0, showT
   const [broken, setBroken] = useState(false);
   const free = !!event.price?.free;
   const paid = hasPrice(event.price) && !free;
+  const started = startedToday(event);
   return (
     <Link
       href={`/evento/${event.id}`}
@@ -117,7 +118,7 @@ export function EventCardEditorial({ event, selected, onSelect, index = 0, showT
       onPointerEnter={() => onSelect?.(event.id)}
       onFocus={() => onSelect?.(event.id)}
       style={{ animationDelay: `${Math.min(index, 12) * 40}ms` }}
-      className={cn("tap row-in block", className)}
+      className={cn("tap row-in block", started && "opacity-80", className)}
     >
       <div
         className={cn("relative flex aspect-[3/1] items-end overflow-hidden rounded-[14px] p-2.5", selected && "ring-2 ring-primary/60")}
@@ -149,7 +150,11 @@ export function EventCardEditorial({ event, selected, onSelect, index = 0, showT
       </div>
       <div className="flex items-center justify-between gap-3 px-0.5 pt-1.5 text-[12px] font-semibold">
         <span className="min-w-0 truncate">
-          {showTime && <span>{event.timeUnknown ? "Horario a confirmar" : formatTime(event.startsAt)}</span>}
+          {started ? (
+            <span className="font-normal text-tertiary">Empezó {formatTime(event.startsAt)}</span>
+          ) : (
+            showTime && <span>{event.timeUnknown ? "Horario a confirmar" : formatTime(event.startsAt)}</span>
+          )}
           <span className="font-normal text-muted-foreground">
             {showTime ? " · " : ""}
             {displayVenue(event.venueName)}

@@ -20,6 +20,7 @@ import {
   hasPrice,
   humanizeTitle,
   distanceLabel,
+  startedToday,
   walkMinutes,
 } from "@/components/events/format";
 import { Button } from "@/components/ui/button";
@@ -77,6 +78,11 @@ function hourGroups(events: Event[]): { key: string; hour: string; minutes: stri
       g.minutes = "00";
     }
     g.events.push(e);
+  }
+  // Within an hour, upcoming events first, then the ones that already started.
+  for (const g of groups.values()) {
+    const now = new Date();
+    g.events.sort((a, b) => Number(startedToday(a, now)) - Number(startedToday(b, now)) || a.startsAt.localeCompare(b.startsAt));
   }
   return [...groups.values()];
 }
