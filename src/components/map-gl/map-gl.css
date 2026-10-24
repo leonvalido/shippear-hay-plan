@@ -1,0 +1,75 @@
+/* MapLibre chrome in the HayPlan dark theme. The library stylesheet itself comes from cdnjs. */
+.hp-gl .maplibregl-canvas {
+  outline: none;
+}
+.hp-gl .maplibregl-ctrl-group {
+  background: var(--card);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+}
+.hp-gl .maplibregl-ctrl-group button {
+  width: 36px;
+  height: 36px;
+  background: transparent;
+}
+.hp-gl .maplibregl-ctrl-group button + button {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.hp-gl .maplibregl-ctrl-group button:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+.hp-gl .maplibregl-ctrl-group button:disabled {
+  opacity: 0.35;
+}
+.hp-gl .maplibregl-ctrl-group button .maplibregl-ctrl-icon {
+  filter: invert(1);
+}
+.hp-gl .maplibregl-ctrl-bottom-left {
+  bottom: 88px;
+}
+@media (min-width: 768px) {
+  .hp-gl .maplibregl-ctrl-bottom-left {
+    bottom: 12px;
+  }
+}
+.hp-gl .maplibregl-ctrl-attrib {
+  background: rgba(17, 13, 23, 0.7);
+  color: var(--muted-foreground);
+  font-size: 10px;
+  border-radius: 8px 0 0 0;
+}
+.hp-gl .maplibregl-ctrl-attrib a {
+  color: var(--muted-foreground);
+}
+.hp-gl .maplibregl-ctrl-attrib.maplibregl-compact {
+  background: rgba(17, 13, 23, 0.7);
+}
+.hp-gl .maplibregl-ctrl-attrib-button {
+  filter: invert(1);
+}
+
+/* Hover tooltip: same card as the list rows. */
+.maplibregl-popup.hp-gl-tooltip {
+  pointer-events: none;
+  z-index: 900;
+}
+.hp-gl-tooltip .maplibregl-popup-content {
+  background: var(--card);
+  color: var(--foreground);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 12px 14px;
+  min-width: 220px;
+  max-width: 280px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+.hp-gl-tooltip .maplibregl-popup-tip {
+  border-top-color: var(--card) !important;
+  border-bottom-color: var(--card) !important;
+}
+
+body.embed .maplibregl-control-container {
+  display: none !important;
+}
