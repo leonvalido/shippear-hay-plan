@@ -364,14 +364,16 @@ function iconFor(L: any, map: LeafletMap, v: Venue, selected: boolean, explore: 
 }
 
 /** Counted bubble: the same look for clusters and for lone venues at city zoom. Size scales mildly with count. */
+/** Flat 30 px bubble; widens into a pill from three digits. Same look for clusters and lone venues at city zoom. */
 function bubbleIcon(L: any, n: number, selected = false) {
-  const size = 34;
+  const h = 30;
+  const w = n >= 100 ? 42 : h;
   return L.divIcon({
     html: `<div class="hp-cluster${selected ? " hp-cluster-selected" : ""}">${n}</div>`,
     className: "",
-    iconSize: [size, size],
-    iconAnchor: [size / 2, size / 2],
-    tooltipAnchor: [0, -size / 2],
+    iconSize: [w, h],
+    iconAnchor: [w / 2, h / 2],
+    tooltipAnchor: [0, -h / 2],
   });
 }
 
