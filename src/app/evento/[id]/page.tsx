@@ -211,6 +211,11 @@ export default async function EventoPage({ params }: Props) {
               </b>
             </Fact>
           )}
+          {vibeRows(event).map((r) => (
+            <Fact key={r.k} k={r.k}>
+              <b className="font-semibold">{r.v}</b>
+            </Fact>
+          ))}
           {hasPrice(event.price) && (
             <Fact k="Entrada">
               <b className="font-semibold">{formatPrice(event.price)}</b>
@@ -286,6 +291,20 @@ export default async function EventoPage({ params }: Props) {
       </div>
     </article>
   );
+}
+
+/** Optional `vibe` from the API (api contract 15:30): short phrases from sources only; absent when nothing was stated. */
+type Vibe = { music?: string; crowd?: string; dress?: string; age?: string };
+
+function vibeRows(e: Event & { vibe?: Vibe }): { k: string; v: string }[] {
+  const v = e.vibe;
+  if (!v) return [];
+  const rows: { k: string; v: string }[] = [];
+  if (v.music) rows.push({ k: "Música", v: v.music });
+  const crowd = [v.crowd, v.age && !v.crowd?.includes(v.age) ? v.age : null].filter(Boolean).join(" · ");
+  if (crowd) rows.push({ k: "Público", v: crowd });
+  if (v.dress) rows.push({ k: "Dress code", v: v.dress });
+  return rows;
 }
 
 function Fact({ k, children }: { k: string; children: React.ReactNode }) {

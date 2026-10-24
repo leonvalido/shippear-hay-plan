@@ -7,11 +7,11 @@ import { cn } from "@/lib/utils";
 
 export type Budget = 0 | 10000 | 30000 | null;
 
-export const BUDGET_CHIPS: { value: Budget; label: string }[] = [
+/** Budget toggles; none selected = any budget. */
+export const BUDGET_CHIPS: { value: Exclude<Budget, null>; label: string }[] = [
   { value: 0, label: "Gratis" },
   { value: 10000, label: "$10 mil" },
   { value: 30000, label: "$30 mil" },
-  { value: null, label: "Lo que sea" },
 ];
 
 const WHEN: DayFilter[] = ["hoy", "manana", "finde"];
@@ -110,7 +110,7 @@ export function ConciergeBar({ day, onDay, budget, onBudget, near, onNear, locat
         <span aria-hidden className="my-1.5 w-px shrink-0 bg-white/10" />
         <div role="group" aria-label="Presupuesto" className="flex shrink-0 gap-1.5">
           {BUDGET_CHIPS.map((b) => (
-            <Chip key={b.label} active={budget === b.value} onClick={() => onBudget(b.value)}>
+            <Chip key={b.label} active={budget === b.value} onClick={() => onBudget(budget === b.value ? null : b.value)}>
               {b.label}
             </Chip>
           ))}

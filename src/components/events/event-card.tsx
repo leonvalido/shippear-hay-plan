@@ -120,7 +120,7 @@ export function EventCardEditorial({ event, selected, onSelect, index = 0, showT
       className={cn("tap row-in block", className)}
     >
       <div
-        className={cn("relative flex aspect-video items-end overflow-hidden rounded-[18px] p-3.5", selected && "ring-2 ring-primary/60")}
+        className={cn("relative flex aspect-[3/1] items-end overflow-hidden rounded-[14px] p-2.5", selected && "ring-2 ring-primary/60")}
         style={{ background: categoryGradient(event.category) }}
       >
         {event.imageUrl && !broken ? (
@@ -135,19 +135,19 @@ export function EventCardEditorial({ event, selected, onSelect, index = 0, showT
             onError={() => setBroken(true)}
           />
         ) : (
-          <CategoryIcon category={event.category} className="absolute right-4 top-4 size-[52px] text-white/35" />
+          <CategoryIcon category={event.category} className="absolute right-3 top-2.5 size-9 text-white/35" />
         )}
         <div aria-hidden className="absolute inset-0 bg-[linear-gradient(180deg,transparent_35%,rgba(10,7,14,0.85)_100%)]" />
         {free && (
-          <span className="absolute left-3 top-3 z-[1] rounded-[7px] bg-[rgba(10,7,14,0.6)] px-2.5 py-1.5 text-[11px] font-bold uppercase tracking-[0.04em] text-emerald-300 backdrop-blur-sm">
+          <span className="absolute left-2.5 top-2.5 z-[1] rounded-[6px] bg-[rgba(10,7,14,0.6)] px-2 py-1 text-[10px] font-bold uppercase tracking-[0.04em] text-emerald-300 backdrop-blur-sm">
             Gratis
           </span>
         )}
-        <h3 className="no-caps relative z-[1] line-clamp-2 text-[19px] font-bold leading-[1.2] text-white [text-shadow:0_1px_8px_rgba(0,0,0,0.4)]">
+        <h3 className="no-caps relative z-[1] line-clamp-2 text-[15px] font-semibold leading-[1.25] text-white [text-shadow:0_1px_8px_rgba(0,0,0,0.4)]">
           {displayTitle(event)}
         </h3>
       </div>
-      <div className="flex items-center justify-between gap-3 px-1 pt-2.5 text-[13px] font-semibold">
+      <div className="flex items-center justify-between gap-3 px-0.5 pt-1.5 text-[12px] font-semibold">
         <span className="min-w-0 truncate">
           {showTime && <span>{event.timeUnknown ? "Horario a confirmar" : formatTime(event.startsAt)}</span>}
           <span className="font-normal text-muted-foreground">
@@ -157,7 +157,7 @@ export function EventCardEditorial({ event, selected, onSelect, index = 0, showT
           {paid && <span className="text-muted-foreground"> · {formatPrice(event.price)}</span>}
         </span>
         <span className="flex shrink-0 items-center gap-1.5 text-muted-foreground">
-          <CategoryIcon category={event.category} className="size-3.5" style={{ color }} />
+          <CategoryIcon category={event.category} className="size-3" style={{ color }} />
           {CATEGORY_LABELS[event.category]}
         </span>
       </div>

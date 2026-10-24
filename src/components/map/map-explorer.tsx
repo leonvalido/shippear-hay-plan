@@ -427,7 +427,7 @@ export function MapExplorer({ initialEvents }: { initialEvents?: Event[] }) {
               </span>
             </h2>
             {sort === "views" ? (
-              <div className="space-y-[18px] pt-1">
+              <div className="space-y-2 pt-1">
                 {g.events.map((e, i) => (
                   <EventCardEditorial key={e.id} event={e} index={i} selected={e.id === selectedId} onSelect={selectFromList} />
                 ))}
@@ -435,20 +435,20 @@ export function MapExplorer({ initialEvents }: { initialEvents?: Event[] }) {
             ) : (
               hourGroups(g.events).map((h) => (
                 <div key={h.key} className="flex border-t border-white/8 first:border-t-0">
-                  <div className="w-14 shrink-0 pt-4">
+                  <div className="w-12 shrink-0 pt-2.5">
                     {h.unknown ? (
                       <span className="block text-[11px] font-semibold leading-tight text-muted-foreground">a confirmar</span>
                     ) : (
                       <>
-                        <b className="block text-[26px] font-extrabold leading-none tracking-[-0.02em]">{h.hour}</b>
-                        <small className="mt-0.5 block text-[12px] font-semibold text-muted-foreground">:{h.minutes}</small>
+                        <b className="block text-[22px] font-extrabold leading-none tracking-[-0.02em]">{h.hour}</b>
+                        <small className="mt-0.5 block text-[11px] font-semibold text-muted-foreground">:{h.minutes}</small>
                       </>
                     )}
                   </div>
-                  <div className="min-w-0 flex-1 border-l border-white/[0.14] pl-4">
+                  <div className="min-w-0 flex-1 border-l border-white/[0.14] pl-3">
                     {h.events.map((e, i) => (
-                      <div key={e.id} className="relative border-b border-white/8 py-4 last:border-b-0">
-                        <span aria-hidden className="absolute -left-[20px] top-6 size-[7px] rounded-full bg-muted-foreground" />
+                      <div key={e.id} className="relative py-1 first:pt-2 last:pb-2">
+                        <span aria-hidden className="absolute -left-[16px] top-4 size-[7px] rounded-full bg-muted-foreground" />
                         <EventCardEditorial event={e} index={i} selected={e.id === selectedId} onSelect={selectFromList} showTime={!h.unknown && formatTime(e.startsAt) !== `${h.hour}:${h.minutes}`} />
                       </div>
                     ))}
