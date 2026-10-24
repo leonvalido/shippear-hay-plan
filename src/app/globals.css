@@ -112,6 +112,7 @@
     font-size: 15px;
     line-height: 1.45;
   }
+  .font-bold { font-weight: 800; }
   h1, h2, h3, .font-display {
     font-weight: 800;
     letter-spacing: -0.02em;

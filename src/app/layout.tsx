@@ -6,7 +6,7 @@ import { Logo } from "@/components/layout/logo";
 import { NavLinks } from "@/components/layout/nav-links";
 import "./globals.css";
 
-const openSans = Open_Sans({ subsets: ["latin"], weight: ["400", "600", "700", "800"], variable: "--font-open-sans", display: "swap" });
+const openSans = Open_Sans({ subsets: ["latin"], weight: ["400", "600", "800"], variable: "--font-open-sans", display: "swap" });
 
 export const metadata: Metadata = {
   title: { default: "HayPlan · Qué hacer en Rosario", template: "%s · HayPlan" },

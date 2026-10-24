@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { fetchEvents } from "@/app/_lib/api";
 import { HeroMap } from "@/components/layout/hero-map";
@@ -101,8 +102,14 @@ export default async function Home() {
                     style={{ background: `linear-gradient(160deg, color-mix(in oklch, ${CATEGORY_COLORS[e.category]} 70%, #000), color-mix(in oklch, ${CATEGORY_COLORS[e.category]} 25%, #000))` }}
                   >
                     {e.imageUrl && (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img src={e.imageUrl} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]" />
+                      <Image
+                        src={e.imageUrl}
+                        alt=""
+                        fill
+                        sizes="(min-width: 1280px) 190px, 200px"
+                        loading="lazy"
+                        className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                      />
                     )}
                     <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
                     <div className="absolute inset-x-0 bottom-0 p-3">

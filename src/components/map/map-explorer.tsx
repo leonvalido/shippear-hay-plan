@@ -21,7 +21,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useEvents } from "@/hooks/use-events";
-import type { EventCategory } from "@/lib/events/schema";
+import type { Event, EventCategory } from "@/lib/events/schema";
 import { cn } from "@/lib/utils";
 import { type Venue } from "@/components/events/venues";
 import { Badge } from "@/components/ui/badge";
@@ -40,7 +40,7 @@ const DAY_CHIPS = (Object.keys(DAY_LABELS) as DayFilter[]).map((value) => ({ val
 const CATEGORY_CHIPS = CATEGORIES.map((value) => ({ value, label: CATEGORY_LABELS[value], color: CATEGORY_COLORS[value] }));
 
 /** The /mapa screen: map + filters + list (bottom sheet on phones, side panel on laptops). */
-export function MapExplorer() {
+export function MapExplorer({ initialEvents }: { initialEvents?: Event[] }) {
   const [day, setDay] = useState<DayFilter | null>(null);
   const [category, setCategory] = useState<EventCategory | null>(null);
   const [query, setQuery] = useState("");
@@ -135,7 +135,7 @@ export function MapExplorer() {
   }, []);
 
   const range = useMemo(() => dayRange(day), [day]);
-  const { events, status, error, refetch } = useEvents({ ...range, category, q });
+  const { events, status, error, refetch } = useEvents({ ...range, category, q }, initialEvents);
 
   const shown = useMemo(() => {
     let list = events;

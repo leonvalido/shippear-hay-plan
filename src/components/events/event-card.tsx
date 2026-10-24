@@ -1,6 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import type { Event } from "@/lib/events/schema";
@@ -80,15 +82,24 @@ export function EventCard({ event, selected, onSelect, from, index = 0, classNam
 /** 64px thumbnail: the image when there is one, else a category-tinted tile with a line icon. */
 function Thumb({ event }: { event: Event }) {
   const color = CATEGORY_COLORS[event.category];
+  const [broken, setBroken] = useState(false);
   return (
     <div
       className="relative flex size-16 shrink-0 items-center justify-center overflow-hidden rounded-[10px]"
       style={{ background: `color-mix(in oklch, ${color} 28%, var(--card))` }}
     >
       <CategoryIcon category={event.category} className="absolute size-7" style={{ color }} />
-      {event.imageUrl && (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img src={event.imageUrl} alt="" className="relative h-full w-full object-cover" loading="lazy" />
+      {event.imageUrl && !broken && (
+        <Image
+          src={event.imageUrl}
+          alt=""
+          width={64}
+          height={64}
+          sizes="64px"
+          loading="lazy"
+          className="relative h-full w-full object-cover"
+          onError={() => setBroken(true)}
+        />
       )}
     </div>
   );

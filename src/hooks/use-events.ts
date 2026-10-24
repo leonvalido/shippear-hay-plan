@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Event, EventCategory } from "@/lib/events/schema";
 
 export type EventsFilter = {
@@ -13,14 +13,20 @@ export type EventsFilter = {
 export type EventsStatus = "loading" | "done" | "error";
 
 /** Fetches GET /api/events whenever the filter changes; aborts stale requests. */
-export function useEvents(filter: EventsFilter) {
-  const [events, setEvents] = useState<Event[]>([]);
-  const [status, setStatus] = useState<EventsStatus>("loading");
+export function useEvents(filter: EventsFilter, initial?: Event[]) {
+  const [events, setEvents] = useState<Event[]>(() => (initial ? [...initial].sort((a, b) => a.startsAt.localeCompare(b.startsAt)) : []));
+  const [status, setStatus] = useState<EventsStatus>(initial ? "done" : "loading");
+  // The first render already has the server's list for the default filter: skip that one fetch.
+  const skipFirst = useRef(!!initial);
   const [error, setError] = useState<string | null>(null);
   const [tick, setTick] = useState(0);
   const key = JSON.stringify(filter);
 
   useEffect(() => {
+    if (skipFirst.current) {
+      skipFirst.current = false;
+      return;
+    }
     const f: EventsFilter = JSON.parse(key);
     const params = new URLSearchParams();
     if (f.from) params.set("from", f.from);
