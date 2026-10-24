@@ -69,12 +69,10 @@ export function EventCard({ event, selected, onSelect, showDate = true, from, cl
           <Badge variant={event.price?.free ? "success" : "secondary"}>{formatPrice(event.price)}</Badge>
           {mins != null && (
             <Badge variant="outline" className="gap-1">
-              <span aria-hidden>🚶</span> a {mins >= 90 ? `${Math.round(mins / 60)} h` : `${mins} min`} caminando
+              a {mins >= 90 ? `${Math.round(mins / 60)} h` : `${mins} min`} caminando
             </Badge>
           )}
-          <Badge variant="outline" style={{ borderColor: color, color }}>
-            {CATEGORY_LABELS[event.category]}
-          </Badge>
+          <Badge style={{ background: color, color: "#fff" }}>{CATEGORY_LABELS[event.category]}</Badge>
           {SOCIAL_SOURCES.has(event.sourceType) ? (
             <SocialBadge event={event} />
           ) : (
@@ -95,11 +93,11 @@ function SocialBadge({ event }: { event: Event }) {
   return (
     <Badge
       variant="outline"
-      className={cn("gap-1", tiktok ? "border-black/70 bg-black text-white" : "border-pink-500/60 bg-pink-50 text-pink-700")}
+      className={cn("gap-1", tiktok ? "border-white/20 bg-black text-white" : "border-pink-400/40 bg-pink-500/15 text-pink-300")}
     >
       Visto en {tiktok ? "TikTok" : "Instagram"}
       {event.sourceName && <span className="opacity-80">· {event.sourceName}</span>}
-      {views != null && <span className="font-semibold">· ▶ {formatViews(views)}</span>}
+      {views != null && <span className="font-semibold">· {formatViews(views)} vistas</span>}
     </Badge>
   );
 }

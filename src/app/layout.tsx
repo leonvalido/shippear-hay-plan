@@ -1,28 +1,28 @@
 import type { Metadata, Viewport } from "next";
 import Link from "next/link";
+import { Logo } from "@/components/layout/logo";
 import { NavLinks } from "@/components/layout/nav-links";
 import "./globals.css";
 
 export const metadata: Metadata = {
   title: { default: "HayPlan · Qué hacer en Rosario", template: "%s · HayPlan" },
-  description: "Todo lo que pasa en Rosario, en un mapa. Eventos de fuentes públicas, redes sociales, con recomendaciones.",
+  description: "El mapa de lo que pasa hoy en Rosario, con un chat que te dice qué hacer.",
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#ffffff",
+  themeColor: "#1a1520",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es">
+    <html lang="es" className="dark">
       <body className="flex min-h-dvh flex-col">
-        <header className="sticky top-0 z-30 border-b bg-background/95 backdrop-blur">
+        <header className="sticky top-0 z-30 border-b border-white/10 bg-background/80 backdrop-blur-xl">
           <nav aria-label="Principal" className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-2 px-3 sm:px-4">
-            <Link href="/" className="flex items-center gap-1.5 font-bold tracking-tight">
-              <span aria-hidden className="inline-block size-2.5 rounded-full bg-primary" />
-              HayPlan
+            <Link href="/" aria-label="HayPlan, inicio" className="flex items-center text-foreground">
+              <Logo className="h-7 w-auto" />
             </Link>
             <NavLinks />
           </nav>

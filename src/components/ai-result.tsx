@@ -59,12 +59,12 @@ export function AIResult({ status, text, error, mode, onRetry, title = "Resultad
 
         {status === "error" && (
           <Alert variant="destructive">
-            <AlertTitle>Algo falló</AlertTitle>
+            <AlertTitle>Se me trabó</AlertTitle>
             <AlertDescription>{error}</AlertDescription>
             {onRetry && (
               <div className="pt-2">
                 <Button size="sm" variant="outline" onClick={onRetry}>
-                  Reintentar
+                  Mandar de nuevo
                 </Button>
               </div>
             )}
