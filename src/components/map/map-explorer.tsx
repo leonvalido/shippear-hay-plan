@@ -186,9 +186,9 @@ export function MapExplorer({ initialEvents }: { initialEvents?: Event[] }) {
     setSelectedId(null);
   }
 
-  // Filters changed: the venue shown may be gone; fall back to the list.
+  // Filters changed: a venue panel may now be stale; the plan panel is independent of the list and stays.
   useEffect(() => {
-    setMode((m) => (m.kind === "list" ? m : { kind: "list" }));
+    setMode((m) => (m.kind === "venue" || m.kind === "venues" ? { kind: "list" } : m));
   }, [events]);
 
   // Keep the selected card in view when a pin is tapped.
