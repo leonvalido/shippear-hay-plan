@@ -16,17 +16,15 @@ export type EventsStatus = "loading" | "done" | "error";
 export function useEvents(filter: EventsFilter, initial?: Event[]) {
   const [events, setEvents] = useState<Event[]>(() => (initial ? [...initial].sort((a, b) => a.startsAt.localeCompare(b.startsAt)) : []));
   const [status, setStatus] = useState<EventsStatus>(initial ? "done" : "loading");
-  // The first render already has the server's list for the default filter: skip that one fetch.
-  const skipFirst = useRef(!!initial);
+  // The first render already has the server's list for the default filter: skip fetching while the filter is still that one.
+  const initialKey = useRef<string | null>(initial ? JSON.stringify(filter) : null);
   const [error, setError] = useState<string | null>(null);
   const [tick, setTick] = useState(0);
   const key = JSON.stringify(filter);
 
   useEffect(() => {
-    if (skipFirst.current) {
-      skipFirst.current = false;
-      return;
-    }
+    if (initialKey.current !== null && initialKey.current === key && tick === 0) return;
+    initialKey.current = null;
     const f: EventsFilter = JSON.parse(key);
     const params = new URLSearchParams();
     if (f.from) params.set("from", f.from);
