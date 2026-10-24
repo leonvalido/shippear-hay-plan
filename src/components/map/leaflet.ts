@@ -38,6 +38,20 @@ export function loadLeaflet(): Promise<Leaflet> {
   return promise;
 }
 
+const CLUSTER_BASE = "https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3";
+let clusterPromise: Promise<void> | null = null;
+
+/** Leaflet.markercluster plugin (needs Leaflet loaded first). Resolves even if it fails, so the map still works without clusters. */
+export function loadMarkerCluster(): Promise<boolean> {
+  if (typeof window === "undefined") return Promise.resolve(false);
+  if (window.L?.markerClusterGroup) return Promise.resolve(true);
+  clusterPromise ??= Promise.all([
+    loadCss(`${CLUSTER_BASE}/MarkerCluster.css`, "markercluster"),
+    loadScript(`${CLUSTER_BASE}/leaflet.markercluster.js`),
+  ]).then(() => undefined);
+  return clusterPromise.then(() => !!window.L?.markerClusterGroup).catch(() => false);
+}
+
 /** Stylesheet must be applied before the map is created, or tiles are laid out wrong (grey half map). */
 export function loadCss(href: string, key: string): Promise<void> {
   return new Promise((resolve, reject) => {
