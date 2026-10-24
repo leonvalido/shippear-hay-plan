@@ -107,6 +107,7 @@ export function rosarioToday(now = new Date()) {
 export function parseTime(text) {
   const t = stripAccents(text.toLowerCase());
   const m =
+    t.match(/\bde\s+([01]?\d|2[0-3])(?:[:.]([0-5]\d))?\s*(?:hs|h|horas)?\s+a\s+(?:las\s+)?(?:[01]?\d|2[0-3])\b/) ??
     t.match(/(?:^|[^\d:\/.])([01]?\d|2[0-3])(?:[:.]([0-5]\d))?\s*(?:hs\b|h\b|horas\b)/) ??
     t.match(/(?:^|[^\d:\/.])([01]?\d|2[0-3]):([0-5]\d)(?![\d\/.])/);
   if (!m) return null;
@@ -176,9 +177,10 @@ export function inWindow(iso, now = new Date(), days = WINDOW_DAYS) {
 // ---------- categories ----------
 /** @type {Array<[EventCategory, RegExp]>} */
 const CATEGORY_RULES = [
+  ["cultura", /\b(free tour|visita guiada|recorrido)\b/],
   ["infantil", /\b(infantil|infancias?|ninos|ninas|ninez|familia|titeres|kids)\b/],
   ["teatro", /\b(teatro|obra|comedia|drama|stand ?up|humor|monologo|circo|danza|ballet)\b/],
-  ["musica", /\b(musica|recital|concierto|banda|rock|jazz|folklore|folclore|cumbia|trap|rap|hip hop|dj|show|gira|tour|tributo|coro|orquesta|sinfonica|tango|cuarteto|festival)\b/],
+  ["musica", /\b(musica|recital|concierto|banda|rock|jazz|folklore|folclore|cumbia|trap|rap|hip hop|dj|show|gira|tributo|coro|orquesta|sinfonica|tango|cuarteto|festival)\b/],
   ["fiesta", /\b(fiesta|party|after|boliche|electronica|techno|house|rave|joda|previa)\b/],
   ["feria", /\b(feria|mercado|expo|exposicion|emprendedores|bazar|outlet)\b/],
   ["deporte", /\b(deporte|deportiva|partido|futbol|basquet|running|maraton|carrera|torneo|yoga|bici|cicl|padel|tenis|rugby|hockey|boxeo|tc|turismo carretera)\b/],
