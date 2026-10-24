@@ -1,6 +1,6 @@
 # HayPlan backlog
 
-Single registry of features. Production (Vercel) is at HEAD (see git log), Vercel Pro since 2026-10-24 15:30; everything in main is deployed.
+Single registry of features. Production (Vercel) is at 8d4edfa (deployed 2026-10-24, before the 16:00 deadline); Vercel Pro since 15:30; every branch listed below is merged into main. Submission: form sent 2026-10-24 before 16:00, track Vertical AI, demo video https://youtu.be/JFzPQqtQpfI, repo https://github.com/leonvalido/shippear-hay-plan, live https://hayplan.vercel.app.
 
 | Item | Owner session | Status | Live since (commit) |
 |---|---|---|---|
@@ -73,13 +73,17 @@ Single registry of features. Production (Vercel) is at HEAD (see git log), Verce
 | Metallic app icon | brand | done/live | c8a45ac |
 | Phone mockups: event detail | brand | done/live | fe257c7 |
 | Phone mockups: events list | brand | done/live | 65070d4 |
-| Demo video v3 | video | done/live | 34aed34 (version unverified) |
+| Demo video v3 (1:55 cut, poster) | video | done/live | f4dbb99 · https://youtu.be/JFzPQqtQpfI |
 | QA fixes (QA 2, 5, 11, 12, 19) | qa | done/live | 44d645c |
-| List redesign: editorial 16:9 cards | web | in progress | on origin/claude/web-ui-494abf only (062a450) |
-| iOS .ics route, 16px inputs | web | in progress | on origin/claude/web-ui-494abf only (e108cec) |
-| iPhone review | qa-iphone | in progress (unverified) | no commits found |
-| TikTok/links/prices analysis | analisis | in progress (unverified) | no commits found |
-| Merges and Vercel deploys | deploy | done/live | c5b0b8c (Pro plan, cap lifted) |
+| List redesign: editorial 16:9 cards | web | done/live | 062a450 |
+| iOS .ics route, 16px inputs | web | done/live | e108cec |
+| iPhone review | qa-iphone | done/live | fixes landed via fix-mic (2198443) and fix-location (64d6ff2) |
+| TikTok/links/prices analysis (sidecar files) | analisis | done/live | seed 698baf7 |
+| Merges and Vercel deploys | deploy | done/live | 8d4edfa (Pro plan since c5b0b8c) |
+| Mic fix 2: interim transcripts, preparing state, watchdog | fix-mic | done/live | 2198443 |
+| Cerca mío: location hook, pulsing dot, walking minutes | fix-location | done/live | 64d6ff2 |
+| Repo renamed to leonvalido/shippear-hay-plan | deploy | done/live | 58f98b5 |
+| Submission form (track Vertical AI) | submission | done/live | sent 2026-10-24 before 16:00 |
 
 ## How to update
 The deploy session updates this table with every merge and deploy, and commits it together with the merge.
