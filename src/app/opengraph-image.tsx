@@ -30,16 +30,16 @@ export default async function OgImage() {
             <path fill="#da74f1" d="M28 4c-10.5 0-18 7.8-18 18 0 13 18 30 18 30s18-17 18-30c0-10.2-7.5-18-18-18z" />
             <path fill="#fff" d="M28 12l2.6 6.8 6.8 2.6-6.8 2.6L28 30.8l-2.6-6.8-6.8-2.6 6.8-2.6z" />
           </svg>
-          <div style={{ fontSize: 40, fontWeight: 700, letterSpacing: -1 }}>hayplan</div>
+          <div style={{ display: "flex",  fontSize: 40, fontWeight: 700, letterSpacing: -1 }}>hayplan</div>
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-          <div style={{ fontSize: 88, fontWeight: 800, lineHeight: 1.02, letterSpacing: -3, maxWidth: 1000 }}>Mirá qué pasa hoy en Rosario.</div>
-          <div style={{ fontSize: 32, color: "rgba(255,255,255,0.7)" }}>El mapa de lo que pasa hoy, con un concierge que te arma el plan.</div>
+          <div style={{ display: "flex",  fontSize: 88, fontWeight: 800, lineHeight: 1.02, letterSpacing: -3, maxWidth: 1000 }}>Mirá qué pasa hoy en Rosario.</div>
+          <div style={{ display: "flex",  fontSize: 32, color: "rgba(255,255,255,0.7)" }}>El mapa de lo que pasa hoy, con un concierge que te arma el plan.</div>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 14, fontSize: 30 }}>
-          <div style={{ width: 16, height: 16, borderRadius: 999, background: "#34d399" }} />
-          <div style={{ fontWeight: 700 }}>{count}</div>
-          <div style={{ color: "rgba(255,255,255,0.7)" }}>eventos esta semana</div>
+          <div style={{ display: "flex",  width: 16, height: 16, borderRadius: 999, background: "#34d399" }} />
+          <div style={{ display: "flex",  fontWeight: 700 }}>{count}</div>
+          <div style={{ display: "flex",  color: "rgba(255,255,255,0.7)" }}>eventos esta semana</div>
         </div>
       </div>
     ),

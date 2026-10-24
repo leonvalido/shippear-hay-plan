@@ -1,6 +1,21 @@
 import { ImageResponse } from "next/og";
 import { fetchEvent } from "@/app/_lib/api";
-import { CATEGORY_COLORS, CATEGORY_LABELS, displayTitle, formatPrice, formatWhen, humanizeTitle } from "@/components/events/format";
+import { CATEGORY_LABELS, displayTitle, formatPrice, formatWhen, humanizeTitle } from "@/components/events/format";
+import type { EventCategory } from "@/lib/events/schema";
+
+/** Satori (next/og) cannot parse oklch(), so the category palette is repeated here in hex. */
+const HEX: Record<EventCategory, string> = {
+  musica: "#c0168f",
+  teatro: "#c43a2f",
+  fiesta: "#7a3ad6",
+  feria: "#b8771a",
+  deporte: "#2a9a5b",
+  cultura: "#2f6fd6",
+  gastronomia: "#d2541f",
+  infantil: "#2b8fb0",
+  charla: "#6e8f2a",
+  otro: "#6b6577",
+};
 
 export const alt = "Evento en HayPlan";
 export const size = { width: 1200, height: 630 };
@@ -10,7 +25,7 @@ export const contentType = "image/png";
 export default async function EventOgImage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const event = await fetchEvent(id);
-  const color = event ? CATEGORY_COLORS[event.category] : "#aa24c5";
+  const color = event ? HEX[event.category] : "#aa24c5";
   return new ImageResponse(
     (
       <div
@@ -42,20 +57,20 @@ export default async function EventOgImage({ params }: { params: Promise<{ id: s
         </div>
         {event ? (
           <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
-            <div style={{ fontSize: 30, fontWeight: 700, letterSpacing: 2, color: "rgba(255,255,255,0.6)", textTransform: "uppercase" }}>{formatWhen(event)}</div>
-            <div style={{ fontSize: 80, fontWeight: 800, lineHeight: 1.05, letterSpacing: -2.5, maxWidth: 1050 }}>{displayTitle(event)}</div>
-            <div style={{ fontSize: 34, color: "rgba(255,255,255,0.75)" }}>{humanizeTitle(event.venueName)}</div>
+            <div style={{ display: "flex",  fontSize: 30, fontWeight: 700, letterSpacing: 2, color: "rgba(255,255,255,0.6)", textTransform: "uppercase" }}>{formatWhen(event)}</div>
+            <div style={{ display: "flex",  fontSize: 80, fontWeight: 800, lineHeight: 1.05, letterSpacing: -2.5, maxWidth: 1050 }}>{displayTitle(event)}</div>
+            <div style={{ display: "flex",  fontSize: 34, color: "rgba(255,255,255,0.75)" }}>{humanizeTitle(event.venueName)}</div>
           </div>
         ) : (
-          <div style={{ fontSize: 72, fontWeight: 800 }}>Mirá qué pasa hoy en Rosario.</div>
+          <div style={{ display: "flex",  fontSize: 72, fontWeight: 800 }}>Mirá qué pasa hoy en Rosario.</div>
         )}
         <div style={{ display: "flex", alignItems: "center", gap: 14, fontSize: 30 }}>
           {event && (
-            <div style={{ padding: "8px 20px", borderRadius: 999, background: event.price?.free ? "rgba(52,211,153,0.25)" : "rgba(255,255,255,0.12)", color: event.price?.free ? "#6ee7b7" : "#fff" }}>
+            <div style={{ display: "flex",  padding: "8px 20px", borderRadius: 999, background: event.price?.free ? "rgba(52,211,153,0.25)" : "rgba(255,255,255,0.12)", color: event.price?.free ? "#6ee7b7" : "#fff" }}>
               {formatPrice(event.price)}
             </div>
           )}
-          <div style={{ color: "rgba(255,255,255,0.6)" }}>hayplan · Rosario</div>
+          <div style={{ display: "flex",  color: "rgba(255,255,255,0.6)" }}>hayplan · Rosario</div>
         </div>
       </div>
     ),

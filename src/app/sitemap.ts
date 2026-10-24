@@ -10,6 +10,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: "/", lastModified: now, changeFrequency: "daily", priority: 1 },
     { url: "/mapa", lastModified: now, changeFrequency: "hourly", priority: 0.9 },
     { url: "/hoy", lastModified: now, changeFrequency: "daily", priority: 0.5 },
-    ...events.map((e) => ({ url: `/evento/${e.id}`, lastModified: new Date(e.createdAt), changeFrequency: "daily" as const, priority: 0.7 })),
+    ...events.map((e) => {
+      const d = new Date(e.createdAt);
+      return { url: `/evento/${e.id}`, lastModified: Number.isNaN(d.getTime()) ? now : d, changeFrequency: "daily" as const, priority: 0.7 };
+    }),
   ];
 }
