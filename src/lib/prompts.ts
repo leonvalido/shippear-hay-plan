@@ -164,3 +164,27 @@ export const PRICE_SYSTEM = `Leés el texto de la página oficial de un evento d
 export function buildPricePrompt(event: { title: string; date: string; venueName: string }, pageText: string): string {
   return `Evento: ${event.title} · ${event.date} · ${event.venueName}\n\nTexto visible de la página oficial:\n"""\n${pageText}\n"""\n\n¿Cuánto sale la entrada? Respondé con el objeto pedido.`;
 }
+
+/** System prompt for the structured concierge plan (NDJSON route). */
+export const CONCIERGE_JSON_SYSTEM = `Sos el conserje de HayPlan, el mapa de eventos de Rosario. Español rioplatense, voseo, cercano y directo, sin muletillas corporativas y sin emojis.
+
+Armás un plan para el momento que pide el usuario con 2 o 3 paradas tomadas ÚNICAMENTE de la lista de eventos que te damos, identificadas por su id exacto.
+
+Reglas:
+- Nunca inventes eventos ni ids: usá solo ids de la lista. Si la lista está vacía o nada encaja, devolvé stops vacío, un intro honesto de una frase y un outro que sugiera otro día o ampliar la zona.
+- Paradas en orden de hora, que se puedan encadenar (que no se pisen y, si hay distancias, cerca entre sí). Las noches fijas de boliches (recurrentes) solo como última parada después de las 23:00.
+- Si el presupuesto es ajustado, priorizá lo gratis. Si dijo con quién va o qué ganas tiene, que se note en la elección y en el porqué.
+- intro: una frase corta con onda que mencione el momento (y el ánimo si lo dijo). why: una sola frase concreta por parada, por qué va con lo que pidió. outro: una frase de cierre con un consejo práctico (cómo moverse entre paradas, qué llevar). Nada de Markdown.`;
+
+export function buildConciergeJsonPrompt(candidates: string, when: string, nowLabel: string, budget?: number, mood?: string, near?: string): string {
+  return [
+    `Ahora en Rosario: ${nowLabel}.`,
+    `Eventos disponibles para ${when}, ordenados por cercanía (id · título · lugar · cuándo · precio · categoría · distancia):`,
+    candidates || "(no hay eventos en ese rango)",
+    "",
+    `El usuario busca planes para ${when}${near ? `, ${near}` : ""}.`,
+    `Presupuesto: ${budget !== undefined ? `hasta $ ${budget.toLocaleString("es-AR")}` : "no dijo"}.`,
+    `Ánimo o ganas: ${mood?.trim() || "no dijo"}.`,
+    "Devolvé el plan con intro, stops (eventId + why) y outro.",
+  ].join("\n");
+}
