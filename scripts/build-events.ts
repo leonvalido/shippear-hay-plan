@@ -28,6 +28,7 @@ import { RadarRowSchema, VentiRowSchema, radarRowToRaw, ventiRowToRaw } from "..
 import { rosarioDate } from "../src/lib/events/time";
 import { MAX_LOOKUPS_PER_RUN, fillOfficialLinks, type LinkCache } from "../src/lib/events/officialLinks";
 import { MAX_PRICE_LOOKUPS, fillPrices, type PriceCache } from "../src/lib/events/prices";
+import { applyLinkPrices, applyVenues, indexLinkPrices, indexVenues, isSidecar } from "../src/lib/events/sidecars";
 
 const ROOT = process.cwd();
 const PRIVATE = path.join(ROOT, "data", "private");
@@ -70,7 +71,7 @@ function readJson(file: string): unknown {
 function readRawFiles(): RawEvent[] {
   if (!fs.existsSync(RAW_DIR)) return [];
   const out: RawEvent[] = [];
-  for (const name of fs.readdirSync(RAW_DIR).filter((f) => f.endsWith(".json") && !f.startsWith("_")).sort()) {
+  for (const name of fs.readdirSync(RAW_DIR).filter((f) => f.endsWith(".json") && !f.startsWith("_") && !isSidecar(f)).sort()) {
     const data = readJson(path.join(RAW_DIR, name));
     const list = Array.isArray(data) ? data : Array.isArray((data as { events?: unknown[] })?.events) ? (data as { events: unknown[] }).events : [];
     counts.rawFiles++;
@@ -243,6 +244,26 @@ async function readSocial(now: Date): Promise<RawEvent[]> {
   return out;
 }
 
+// ---------- sidecars from the analysis session ----------
+
+function applySidecarVenues(events: RawEvent[]): void {
+  const file = path.join(RAW_DIR, "venues-places.json");
+  if (!fs.existsSync(file)) { console.log("  (no hay raw/venues-places.json)"); return; }
+  const index = indexVenues(listOf(readJson(file)));
+  const s = applyVenues(events, index);
+  console.log(`  venues-places.json: ${s.matched} eventos con lugar conocido · ${s.coords} coordenadas · ${s.addresses} direcciones · ${s.ratings} puntajes · ${s.links} webs`);
+  sources.push({ name: "raw/venues-places.json", read: index.size, kept: s.matched, note: "enriquecimiento de lugares" });
+}
+
+function applySidecarLinkPrices(events: RawEvent[]): void {
+  const files = fs.existsSync(RAW_DIR) ? fs.readdirSync(RAW_DIR).filter((f) => /^links-prices.*\.json$/.test(f)).sort() : [];
+  if (files.length === 0) { console.log("  (no hay raw/links-prices*.json)"); return; }
+  const index = indexLinkPrices(files.map((f) => listOf(readJson(path.join(RAW_DIR, f)))));
+  const s = applyLinkPrices(events, index);
+  console.log(`  ${files.join(", ")}: ${index.size} filas · ${s.matched} eventos · ${s.linked} links oficiales · ${s.priced} precios`);
+  sources.push({ name: files.join("+"), read: index.size, kept: s.matched, note: `${s.linked} links, ${s.priced} precios` });
+}
+
 // ---------- organizers ----------
 
 function applyOrganizers(events: RawEvent[]): void {
@@ -375,6 +396,9 @@ async function main() {
   console.log("4. Organizadores (lugares y fuentes canónicos):");
   applyOrganizers(all);
 
+  console.log("4b. Lugares con Google Places (raw/venues-places.json):");
+  applySidecarVenues(all);
+
   console.log("5. Geocodificando…");
   // An image shared by several events is a source's article collage, not the event's picture.
   {
@@ -386,6 +410,8 @@ async function main() {
   console.log(`  ${counts.geocoded} resueltas, ${counts.geocodeMiss} sin resolver`);
 
   const deduped = dedupe(all);
+  console.log("5b. Links y precios precalculados (raw/links-prices*.json):");
+  applySidecarLinkPrices(deduped);
   console.log(`6. Páginas oficiales (web search, caché: data/private/links-cache.json)${isMockMode() ? " (mock: solo caché)" : ""}…`);
   await officialLinks(deduped);
   console.log(`6b. Precios desde la página oficial (caché: data/private/prices-cache.json)${isMockMode() ? " (mock: solo caché)" : ""}…`);
