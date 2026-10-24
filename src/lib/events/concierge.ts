@@ -67,9 +67,10 @@ export function priceLabel(e: Event): string {
 }
 
 /** Hour for the plan line; "horario a confirmar" when the source had no time. */
-export function whenLabel(e: Pick<Event, "startsAt" | "timeUnknown">): string {
+export function whenLabel(e: Pick<Event, "startsAt" | "timeUnknown" | "recurring">): string {
   const h = hourLabel(e.startsAt);
-  return e.timeUnknown ? `${h.slice(0, -5)}horario a confirmar` : h;
+  if (e.timeUnknown) return `${h.slice(0, -5)}horario a confirmar`;
+  return e.recurring ? `abre a las ${h.slice(-5)} (noche fija)` : h;
 }
 
 export function hourLabel(iso: string): string {
@@ -87,6 +88,7 @@ export function buildConciergePrompt(ranked: Ranked[], input: ConciergeInput, wi
         .map(({ event: e, km }, i) => {
           const parts = [`${i + 1}. ${e.shortTitle ?? e.title}`, `lugar: ${e.venueName}${e.barrio ? ` (${e.barrio})` : ""}`, `cuándo: ${whenLabel(e)}`, `precio: ${priceLabel(e)}`, `categoría: ${e.category}`];
           if (km !== undefined) parts.push(`distancia: ${km < 1 ? `${Math.round(km * 1000)} m` : `${km.toFixed(1)} km`}`);
+          if (e.rating) parts.push(`puntaje: ${e.rating.value} (${e.rating.count} reseñas)`);
           if (e.description) parts.push(`detalle: ${e.description.split("\n\nFuentes:")[0]!.slice(0, 200)}`);
           return parts.join(" · ");
         })
@@ -113,7 +115,7 @@ export function mockConcierge(ranked: Ranked[], win: Window): string {
   const firstDay = picks[0]!.event.startsAt.slice(0, 10);
   const stops = picks.map(({ event: e }) => {
     const h = hourLabel(e.startsAt);
-    const hh = e.timeUnknown ? "a confirmar" : h.slice(-5);
+    const hh = e.timeUnknown ? "a confirmar" : e.recurring ? `abre ${h.slice(-5)}` : h.slice(-5);
     const hour = e.startsAt.slice(0, 10) === firstDay ? hh : `${h.slice(0, 3)} ${hh}`;
     return `${hour} · ${e.shortTitle ?? e.title} · ${e.venueName} · ${priceLabel(e)}`;
   });
