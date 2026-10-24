@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { fetchEvent } from "@/app/_lib/api";
-import { CATEGORY_COLORS, CATEGORY_LABELS, displayTitle, formatPrice, formatTime, formatWhen, sourceLabel } from "@/components/events/format";
+import { CATEGORY_LABELS, displayTitle, formatPrice, formatTime, formatWhen, sourceLabel } from "@/components/events/format";
 import { ShareButton } from "@/components/events/share-button";
 import { EventMap } from "@/components/map/event-map";
 import { Badge } from "@/components/ui/badge";
@@ -22,6 +22,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+/** Titles sometimes come in ALL CAPS: title-case them as a fallback. */
+function tidyTitle(t: string): string {
+  const letters = t.replace(/[^\p{L}]/gu, "");
+  if (letters.length < 4 || letters !== letters.toUpperCase()) return t;
+  return t.toLowerCase().replace(/(^|[\s(¡¿"-])(\p{L})/gu, (_, a: string, b: string) => a + b.toUpperCase());
+}
+
 function directionsUrl(e: Event): string {
   const dest = e.lat != null && e.lng != null ? `${e.lat},${e.lng}` : `${e.address ?? e.venueName}, Rosario`;
   return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(dest)}&travelmode=transit`;
@@ -32,13 +39,13 @@ export default async function EventoPage({ params }: Props) {
   const event = await fetchEvent(id);
   if (!event) notFound();
 
-  const color = CATEGORY_COLORS[event.category];
   const hasCoords = event.lat != null && event.lng != null;
+  const showFull = !!event.shortTitle && event.shortTitle.trim() !== event.title;
 
   return (
     <article className="mx-auto w-full max-w-3xl px-4 py-6 sm:py-10">
-      <Link href="/mapa" className="text-sm text-muted-foreground hover:underline">
-← Ver en el mapa
+      <Link href="/mapa" className="tap inline-block text-sm text-muted-foreground hover:text-foreground">
+        ← Ver en el mapa
       </Link>
 
       {event.imageUrl && (
@@ -49,58 +56,69 @@ export default async function EventoPage({ params }: Props) {
       )}
 
       <header className="mt-4 space-y-3">
-        <div className="flex flex-wrap items-center gap-1.5">
-          <Badge style={{ background: color, color: "#fff" }}>{CATEGORY_LABELS[event.category]}</Badge>
-          <Badge variant="outline" className="text-muted-foreground">
-            {sourceLabel(event)}
-          </Badge>
-          {event.status === "pending" && <Badge variant="warning">pendiente de revisión</Badge>}
+        <div className="flex flex-wrap items-center gap-2">
+          <Badge variant="secondary">{CATEGORY_LABELS[event.category]}</Badge>
+          {event.status === "pending" ? (
+            <Badge variant="warning">pendiente de revisión</Badge>
+          ) : (
+            <Badge variant="outline" className="text-muted-foreground">
+              {sourceLabel(event)}
+            </Badge>
+          )}
         </div>
-        <h1 className="text-2xl font-bold leading-tight tracking-tight sm:text-4xl">{displayTitle(event)}</h1>
-        {event.shortTitle && event.shortTitle.trim() !== event.title && <p className="text-base text-muted-foreground">{event.title}</p>}
+        <h1 className="font-display text-3xl font-semibold leading-tight">{tidyTitle(displayTitle(event))}</h1>
+        {showFull && <p className="text-base text-muted-foreground">{tidyTitle(event.title)}</p>}
         <p className="text-lg font-medium">
           {formatWhen(event)}
           {!event.timeUnknown && event.endsAt && <span className="text-muted-foreground"> – {formatTime(event.endsAt)}</span>}
         </p>
-        <p className="text-muted-foreground">
+        <p className="text-base text-muted-foreground">
           {event.venueName}
           {event.address && ` · ${event.address}`}
           {event.barrio && ` · ${event.barrio}`}
         </p>
-        <p>
-          <Badge variant={event.price?.free ? "success" : "secondary"} className="px-2.5 py-1 text-sm">
-            {formatPrice(event.price)}
-          </Badge>
-        </p>
+        <div>
+          <Badge variant={event.price?.free ? "success" : "secondary"}>{formatPrice(event.price)}</Badge>
+        </div>
       </header>
 
-      <div className="mt-5 flex flex-wrap gap-2">
-        <Button asChild>
+      <div className="mt-6 flex gap-3">
+        <Button asChild className="tap h-11 flex-1 rounded-full text-base">
           <a href={directionsUrl(event)} target="_blank" rel="noopener noreferrer">
             Cómo llegar
           </a>
         </Button>
-        <ShareButton title={event.title} text={`${formatWhen(event)} · ${event.venueName}`} path={`/evento/${event.id}`} />
-        {event.sourceUrl && (
-          <Button asChild variant="ghost">
-            <a href={event.sourceUrl} target="_blank" rel="noopener noreferrer">
-              Ver fuente
-            </a>
-          </Button>
-        )}
+        <ShareButton
+          title={event.title}
+          text={`${formatWhen(event)} · ${event.venueName}`}
+          path={`/evento/${event.id}`}
+          className="tap h-11 flex-1 rounded-full text-base"
+        />
       </div>
+      {event.sourceUrl && (
+        <p className="mt-3 text-center sm:text-left">
+          <a
+            href={event.sourceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
+          >
+            Ver fuente
+          </a>
+        </p>
+      )}
 
       {event.description && (
         <section className="mt-6">
           <h2 className="sr-only">Descripción</h2>
-          <p className="whitespace-pre-line leading-relaxed">{event.description}</p>
+          <p className="whitespace-pre-line text-base leading-[1.45]">{event.description}</p>
         </section>
       )}
 
       {hasCoords && (
         <section className="mt-6">
           <h2 className="sr-only">Ubicación</h2>
-          <div className="h-56 overflow-hidden rounded-2xl border sm:h-72">
+          <div className="h-40 overflow-hidden rounded-xl border border-white/8">
             <EventMap events={[event]} center={{ lat: event.lat!, lng: event.lng! }} zoom={15} interactive={false} />
           </div>
         </section>
