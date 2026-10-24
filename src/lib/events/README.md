@@ -1,6 +1,6 @@
 # Events pipeline (HayPlan backend)
 
-1. **Inputs** (git-ignored, owned by `datos`): `data/private/raw/*.json` as `RawEvent[]` and `data/private/tiktok-rosario.json`, the radar export of TikTok/Instagram captions (`{ url, fecha, poi, descr, handle }`).
+1. **Inputs** (git-ignored, owned by `datos`/radar): `data/private/raw/*.json` as `RawEvent[]`; radar extractions `eventos-argon.json` and `eventos-rosario.json` (converted directly, confianza >= 0.6, future dates only); `html/venti/rosario-events.json`; social captions `tiktok-rosario*.json` (`ranked` filtered by `evento_puntaje >= 55`, `resto` only with `EXTRACT_RESTO=1`), extracted once per `video_id` and cached in `extract-cache.json`; `organizadores-rosario.json` to spell venues one way and name organizers.
 2. **`npm run build-events`** (`scripts/build-events.ts`, plain Node with `scripts/ts-loader.mjs` stripping types):
    - validates every raw event with `RawEventSchema`;
    - `extract.ts` sends captions to Claude in batches of 20 (`completeJSON` + `zodOutputFormat`) and keeps only concrete, upcoming events; skipped when `ANTHROPIC_API_KEY` is missing;
