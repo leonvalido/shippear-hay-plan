@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Logo } from "@/components/layout/logo";
+import { SITE_URL } from "@/components/landing/site";
 
 const DESCRIPTION = "El mapa de lo que pasa hoy en Rosario, con un chat que te dice qué hacer. Demo de HayPlan para Shippear #3.";
 
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
     description: DESCRIPTION,
     url: "/video",
     images: [{ url: "/video/poster.jpg", width: 1920, height: 1080, alt: "HayPlan, el mapa de lo que pasa hoy en Rosario" }],
-    videos: [{ url: "/video/hayplan.mp4", type: "video/mp4", width: 1920, height: 1080 }],
+    videos: [{ url: `${SITE_URL}/video/hayplan.mp4`, type: "video/mp4", width: 1920, height: 1080 }],
   },
   twitter: {
     card: "summary_large_image",
