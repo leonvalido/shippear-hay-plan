@@ -49,4 +49,4 @@ Everything must work with no API key (mock mode) and on a phone screen. Vercel: 
 
 Sessions on separate branches: `datos` (ingestion scripts), `api` (backend), `web` (UI), `brand` (brand kit under `brand/`).
 A teammate working from a fork opens pull requests against `main`; the coordinator merges and Vercel redeploys
-https://shippear-starter.vercel.app on every push to `main`. Deadline 15:30; feature freeze 14:30.
+https://hayplan.vercel.app on every push to `main`. Deadline 15:30; feature freeze 14:30.
