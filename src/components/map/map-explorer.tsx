@@ -144,7 +144,7 @@ export function MapExplorer() {
       )}
       {groups.map(([key, g]) => (
         <section key={key} aria-label={g.label}>
-          <h2 className="sticky top-0 z-10 -mx-1 mb-2 bg-background/95 px-1 py-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground backdrop-blur">
+          <h2 className="sticky top-0 z-20 -mx-3 mb-2 border-b border-white/10 bg-background px-3 py-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
             {g.label}
             <span className="ml-1.5 font-normal normal-case">· {g.events.length}</span>
           </h2>
@@ -173,7 +173,7 @@ export function MapExplorer() {
             setQuery(b);
             setQ(b);
           }}
-          className="absolute left-14 right-16 top-3 z-[1000]"
+          className="absolute left-14 right-14 top-3 z-[1000] pr-10 [mask-image:linear-gradient(to_right,black_82%,transparent)]"
         />
       </div>
 
@@ -185,7 +185,7 @@ export function MapExplorer() {
             {count}
           </p>
         </div>
-        <div className="min-h-0 flex-1 overflow-y-auto p-3">{list}</div>
+        <div className="relative min-h-0 flex-1 overflow-y-auto p-3">{list}</div>
       </aside>
 
       {/* Mobile bottom sheet */}
@@ -208,7 +208,7 @@ export function MapExplorer() {
           </span>
         </button>
         <div className="space-y-2 px-3 pb-2">{filters}</div>
-        <div className="min-h-0 flex-1 overflow-y-auto px-3 pb-4">{list}</div>
+        <div className="relative min-h-0 flex-1 overflow-y-auto px-3 pb-4">{list}</div>
       </section>
     </div>
   );

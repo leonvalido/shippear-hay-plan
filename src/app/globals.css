@@ -136,7 +136,7 @@
   color: var(--foreground);
 }
 .dark .leaflet-control-attribution a {
-  color: var(--primary);
+  color: var(--muted-foreground);
 }
 .dark .leaflet-popup-content-wrapper,
 .dark .leaflet-popup-tip {
