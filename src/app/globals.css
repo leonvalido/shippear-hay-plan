@@ -197,11 +197,11 @@
   width: 100%;
   height: 100%;
   border-radius: 9999px;
-  background: linear-gradient(135deg, oklch(0.66 0.24 320), oklch(0.5 0.24 330));
+  background: oklch(0.58 0.24 322);
   color: #fff;
-  font: 700 13px/1 ui-rounded, "SF Pro Rounded", system-ui, sans-serif;
+  font: 700 14px/1 ui-rounded, "SF Pro Rounded", system-ui, sans-serif;
   border: 2px solid #fff;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+  box-sizing: border-box;
 }
 .hp-cluster-big {
   animation: none;
@@ -260,10 +260,9 @@
   background: var(--c);
   border: 2px solid #fff;
   box-sizing: border-box;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.55);
 }
 .hp-pin-selected {
-  box-shadow: 0 0 0 4px color-mix(in oklch, var(--c) 45%, transparent), 0 4px 12px rgba(0, 0, 0, 0.6);
+  outline: 4px solid color-mix(in oklch, var(--c) 45%, transparent);
 }
 .hp-me {
   width: 16px;
@@ -272,7 +271,7 @@
   background: #2563eb;
   border: 2px solid #fff;
   box-sizing: border-box;
-  box-shadow: 0 0 0 6px rgba(37, 99, 235, 0.25);
+  outline: 6px solid rgba(37, 99, 235, 0.25);
 }
 .hp-pin-count {
   position: absolute;
@@ -286,10 +285,9 @@
   color: #15111a;
   font: 700 11px/18px ui-rounded, "SF Pro Rounded", system-ui, sans-serif;
   text-align: center;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 .hp-cluster-selected {
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35), 0 0 0 4px rgba(255, 255, 255, 0.35);
+  outline: 3px solid rgba(255, 255, 255, 0.35);
 }
 
 /* Pin tooltip: title / day · time / venue */

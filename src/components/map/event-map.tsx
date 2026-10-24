@@ -108,15 +108,13 @@ export function EventMap({
           center: [center.lat, center.lng],
           zoom,
           preferCanvas: true,
-          // Animated zoom leaves the tile layer stuck mid-transition on phones (half-grey map, verified twice),
-          // so zoom steps are instant but fine-grained: wheel and pinch still feel smooth.
-          zoomAnimation: false,
-          fadeAnimation: false,
-          markerZoomAnimation: false,
-          zoomSnap: 0.25,
-          zoomDelta: 0.5,
-          wheelPxPerZoomLevel: 120,
-          wheelDebounceTime: 30,
+          zoomAnimation: true,
+          markerZoomAnimation: true,
+          fadeAnimation: true,
+          zoomSnap: 1, // whole levels keep tiles crisp; the animation does the smoothing
+          zoomDelta: 1,
+          wheelPxPerZoomLevel: 80,
+          inertia: true,
           zoomControl: interactive,
           dragging: interactive,
           scrollWheelZoom: interactive,
@@ -125,8 +123,19 @@ export function EventMap({
           keyboard: interactive,
           tap: interactive,
         });
-        L.tileLayer(TILES, { attribution: ATTR, maxZoom: 19, updateWhenIdle: false, keepBuffer: 4 }).addTo(map);
+        L.tileLayer(TILES, { attribution: ATTR, maxZoom: 19, updateWhenIdle: true, updateWhenZooming: false, keepBuffer: 3 }).addTo(map);
         map.on("load", () => map.invalidateSize());
+        // Watchdog: if the browser never fires transitionend for a zoom animation (seen on phones: tiles stay
+        // scaled and half the map is grey), finish it by hand so tiles for the new zoom load.
+        let zoomWatch: ReturnType<typeof setTimeout> | undefined;
+        map.on("zoomstart", () => {
+          clearTimeout(zoomWatch);
+          zoomWatch = setTimeout(() => {
+            const m = map as { _animatingZoom?: boolean; _onZoomTransitionEnd?: () => void };
+            if (m._animatingZoom && m._onZoomTransitionEnd) m._onZoomTransitionEnd();
+          }, 600);
+        });
+        map.on("zoomend", () => clearTimeout(zoomWatch));
         mapRef.current = map;
         const start = () => {
           if (cancelled || mapRef.current !== map) return;
@@ -143,13 +152,18 @@ export function EventMap({
               iconCreateFunction: (cluster: { getChildCount: () => number }) => bubbleIcon(L, cluster.getChildCount()),
             }).addTo(map);
             // Singletons switch between bubble and pin with the zoom, so one screen never mixes both styles.
-            map.on("zoomend", () => setZoomTick((n) => n + 1));
+            // Debounced so nothing is rebuilt while the user is still zooming.
+            let t: ReturnType<typeof setTimeout> | undefined;
+            map.on("zoomend", () => {
+              clearTimeout(t);
+              t = setTimeout(() => setZoomTick((n) => n + 1), 150);
+            });
             group.on("clusterclick", (e: { layer: { getBounds: () => unknown; getAllChildMarkers: () => LeafletMarker[] } }) => {
               // Zoom to the bubble's bounds while that separates something; otherwise list its venues in the sheet.
               const bounds = e.layer.getBounds();
               const z = map.getBoundsZoom(bounds);
               if (z > map.getZoom() && map.getZoom() < map.getMaxZoom()) {
-                map.fitBounds(bounds, { padding: [24, 24], animate: false, maxZoom: Math.max(PIN_ZOOM, z) });
+                map.fitBounds(bounds, { padding: [24, 24], animate: true, maxZoom: Math.max(PIN_ZOOM, z) });
                 return;
               }
               const keys = new Set(e.layer.getAllChildMarkers().map((m: LeafletMarker) => m.options.venueKey as string));
@@ -194,7 +208,7 @@ export function EventMap({
         m.bindTooltip(tooltipHtml(v), { direction: "top", offset: [0, -14], className: "hp-tooltip" });
         m.on("click", () => {
           // At city zoom a lone bubble behaves like a cluster: zoom in to pin mode first.
-          if (explore && map.getZoom() < PIN_ZOOM) return map.setView(m.getLatLng(), PIN_ZOOM, { animate: false });
+          if (explore && map.getZoom() < PIN_ZOOM) return map.setView(m.getLatLng(), PIN_ZOOM, { animate: true });
           cb.current.onSelectVenue?.(venuesRef.current.find((x) => x.key === v.key) ?? v);
         });
         target.addLayer(m);
