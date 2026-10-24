@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 };
 export const dynamic = "force-dynamic";
 
-const LEAFLET = "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4";
+const MAPLIBRE = "https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/4.7.1";
 
 export default async function MapaPage() {
   // First paint comes with the default list (next 14 days) already in the HTML; the client only refetches on filter changes.
@@ -18,9 +18,11 @@ export default async function MapaPage() {
   return (
     <>
       <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="" />
-      <link rel="preconnect" href="https://a.tile.openstreetmap.org" crossOrigin="" />
-      <link rel="preload" as="style" href={`${LEAFLET}/leaflet.min.css`} crossOrigin="" />
-      <link rel="preload" as="script" href={`${LEAFLET}/leaflet.min.js`} crossOrigin="" />
+      <link rel="preconnect" href="https://basemaps.cartocdn.com" crossOrigin="" />
+      <link rel="preconnect" href="https://tiles.basemaps.cartocdn.com" crossOrigin="" />
+      <link rel="preload" as="style" href={`${MAPLIBRE}/maplibre-gl.min.css`} crossOrigin="" />
+      <link rel="preload" as="script" href={`${MAPLIBRE}/maplibre-gl.min.js`} crossOrigin="" />
+      <link rel="preload" as="fetch" href="https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json" crossOrigin="" />
       <h1 className="sr-only">Mapa de eventos en Rosario</h1>
       <MapExplorer initialEvents={initialEvents} />
     </>

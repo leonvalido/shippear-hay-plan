@@ -1,7 +1,7 @@
-/* HayPlan tile cache: cache-first for map tiles, capped at 2000 entries, so revisits never refetch. */
-const CACHE = "hayplan-tiles-v1";
+/* HayPlan basemap cache: cache-first for vector tiles, sprite and glyphs, capped at 2000 entries, so revisits never refetch. */
+const CACHE = "hayplan-tiles-v2";
 const MAX = 2000;
-const TILE_HOSTS = ["tile.openstreetmap.org"];
+const TILE_HOSTS = ["tiles.basemaps.cartocdn.com"];
 
 self.addEventListener("install", () => self.skipWaiting());
 self.addEventListener("activate", (e) => e.waitUntil(self.clients.claim()));

@@ -45,7 +45,7 @@ const FONT = ["Open Sans Bold"];
  * MapLibre GL map: vector dark basemap, venues as a clustered GeoJSON source drawn by circle and symbol layers
  * (no DOM markers). Data changes go through setData; the map itself is created once. Client-only.
  */
-export function EventMapGL({
+export function EventMap({
   events,
   selectedId,
   onSelectVenue,
@@ -115,6 +115,8 @@ export function EventMapGL({
         map.keyboard?.disableRotation?.();
         if (interactive && explore) map.addControl(new gl.NavigationControl({ showCompass: false, visualizePitch: false }), "bottom-left");
         mapRef.current = map;
+        // Debug handle for QA scripts (pinch/zoom checks in emulated browsers); not used by the app.
+        (window as unknown as { __hpMap?: GLMap }).__hpMap = map;
         map.on("load", async () => {
           try {
             await loadImages(map);
@@ -402,7 +404,7 @@ function wire(map: GLMap, gl: MapLibre, explore: boolean, cb: Cb, venuesRef: Rea
     if (f.layer.id === "clusters") {
       const src = map.getSource(SRC);
       const id = f.properties.cluster_id;
-      // Fit the bubble's venues while that separates something (like fitBounds on a Leaflet cluster); otherwise list them.
+      // Fit the bubble's venues while that separates something (like fitBounds on the old cluster plugin); otherwise list them.
       Promise.all([src.getClusterLeaves(id, 500, 0), src.getClusterExpansionZoom(id)]).then(([leaves, expansion]: [{ geometry: { coordinates: [number, number] }; properties: { key: string } }[], number]) => {
         const b = new gl.LngLatBounds();
         for (const l of leaves) b.extend(l.geometry.coordinates);
