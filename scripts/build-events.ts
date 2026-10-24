@@ -14,14 +14,9 @@ import path from "node:path";
 import { RawEventSchema, type Event, type RawEvent } from "../src/lib/events/schema";
 import { eventId, fingerprint, mergeEvents } from "../src/lib/events/normalize";
 import { SocialPostSchema, extractEventsFromCaptions, type SocialPost } from "../src/lib/events/extract";
-<<<<<<< HEAD
 import { barrioFromCoords, geocodeAddress, geocodeVenue, inRosario, type GeoCache } from "../src/lib/events/geocode";
-import { toRosarioISO } from "../src/lib/events/time";
-=======
-import { barrioFromCoords, geocodeAddress, inRosario, type GeoCache } from "../src/lib/events/geocode";
 import { isMidnight, toRosarioISO } from "../src/lib/events/time";
 import { fillShortTitles, type TitleCache } from "../src/lib/events/titles";
->>>>>>> origin/claude/api-backend-f8e485
 import { isMockMode } from "../src/lib/ai";
 
 const ROOT = process.cwd();
