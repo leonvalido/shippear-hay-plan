@@ -12,12 +12,20 @@ import {
   rosarioDayKey,
   type DayFilter,
   type LatLng,
+  displayTitle,
+  formatPrice,
+  formatWhen,
+  humanizeTitle,
+  walkMinutes,
 } from "@/components/events/format";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useEvents } from "@/hooks/use-events";
 import type { EventCategory } from "@/lib/events/schema";
 import { cn } from "@/lib/utils";
+import { type Venue } from "@/components/events/venues";
+import { Badge } from "@/components/ui/badge";
+import Link from "next/link";
 import { BarrioStrip } from "./barrio-strip";
 import { EventMap } from "./event-map";
 import { FilterChips } from "./filter-chips";
@@ -35,6 +43,8 @@ export function MapExplorer() {
   const [expanded, setExpanded] = useState(false);
   const [sort, setSort] = useState<"hora" | "views">("hora");
   const [me, setMe] = useState<LatLng | null>(null);
+  /** What the sheet shows: the full list, one venue, or the venues of a cluster that cannot be split. */
+  const [mode, setMode] = useState<{ kind: "list" } | { kind: "venue"; venue: Venue } | { kind: "venues"; venues: Venue[] }>({ kind: "list" });
 
   // If the user already granted location to this site, pick it up silently (no prompt).
   useEffect(() => {
@@ -52,6 +62,21 @@ export function MapExplorer() {
       .catch(() => {});
   }, []);
   const listRef = useRef<HTMLDivElement>(null);
+  const dragStart = useRef<number | null>(null);
+
+  function onHandlePointerDown(e: React.PointerEvent) {
+    dragStart.current = e.clientY;
+    (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+  }
+  function onHandlePointerUp(e: React.PointerEvent) {
+    if (dragStart.current == null) return;
+    const dy = e.clientY - dragStart.current;
+    dragStart.current = null;
+    if (dy < -30) setExpanded(true);
+    else if (dy > 30) setExpanded(false);
+    else return; // a tap: the click handler toggles
+    setTimeout(() => window.dispatchEvent(new Event("resize")), 320);
+  }
 
   useEffect(() => {
     const t = setTimeout(() => setQ(query), 300);
@@ -60,7 +85,10 @@ export function MapExplorer() {
 
   // Deep link from the concierge: /mapa?q=título
   useEffect(() => {
-    const initial = new URLSearchParams(window.location.search).get("q");
+    const params = new URLSearchParams(window.location.search);
+    const cat = params.get("category");
+    if (cat && (CATEGORIES as string[]).includes(cat)) setCategory(cat as EventCategory);
+    const initial = params.get("q");
     if (initial) {
       setQuery(initial);
       setQ(initial);
@@ -91,6 +119,22 @@ export function MapExplorer() {
     setExpanded(false); // on phones, bring the map back so the pin is visible
   }
 
+  function openVenue(venue: Venue) {
+    setMode({ kind: "venue", venue });
+    setSelectedId(venue.events[0]?.id ?? null);
+    setExpanded(false);
+  }
+
+  function backToList() {
+    setMode({ kind: "list" });
+    setSelectedId(null);
+  }
+
+  // Filters changed: the venue shown may be gone; fall back to the list.
+  useEffect(() => {
+    setMode((m) => (m.kind === "list" ? m : { kind: "list" }));
+  }, [events]);
+
   // Keep the selected card in view when a pin is tapped.
   useEffect(() => {
     if (!selectedId || !listRef.current) return;
@@ -99,6 +143,98 @@ export function MapExplorer() {
   }, [selectedId]);
 
   const count = status === "done" ? `${events.length} evento${events.length === 1 ? "" : "s"}` : "Buscando…";
+
+  const venueGroups = (venue: Venue) => {
+    const map = new Map<string, { label: string; events: Venue["events"] }>();
+    for (const e of venue.events) {
+      const key = rosarioDayKey(e.startsAt);
+      const g = map.get(key) ?? { label: relativeDayLabel(e.startsAt), events: [] };
+      g.events.push(e);
+      map.set(key, g);
+    }
+    return [...map.values()];
+  };
+
+  const directions = (v: Venue) =>
+    `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(`${v.lat},${v.lng}`)}&travelmode=transit`;
+
+  /** Sheet body in venue mode: header, Cómo llegar, events by day, each row → /evento/[id]. */
+  const venuePanel = (venue: Venue) => (
+    <div className="space-y-4">
+      <button type="button" onClick={backToList} className="text-sm text-muted-foreground hover:underline">
+        ← Todos los eventos
+      </button>
+      <div className="space-y-1">
+        <h2 className="no-caps text-lg font-bold leading-tight">{humanizeTitle(venue.name)}</h2>
+        {venue.address && <p className="text-sm text-muted-foreground">{humanizeTitle(venue.address)}</p>}
+        <div className="flex flex-wrap items-center gap-2 pt-1">
+          <Button asChild size="sm">
+            <a href={directions(venue)} target="_blank" rel="noopener noreferrer">
+              Cómo llegar
+            </a>
+          </Button>
+          <span className="text-xs text-muted-foreground">
+            {venue.events.length} evento{venue.events.length === 1 ? "" : "s"}
+            {me && walkMinutes(me, venue) != null && ` · a ${walkMinutes(me, venue)} min caminando`}
+          </span>
+        </div>
+      </div>
+      {venueGroups(venue).map((g) => (
+        <section key={g.label} aria-label={g.label} className="space-y-2">
+          <h3 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">{g.label}</h3>
+          <ul className="space-y-3">
+            {g.events.map((e) => (
+              <li key={e.id}>
+                <Link href={`/evento/${e.id}`} className="surface tap row-in block space-y-1 p-3">
+                  <span className="block text-[11px] font-semibold uppercase tracking-wider text-tertiary">{formatWhen(e)}</span>
+                  <span className="no-caps line-clamp-2 block text-[15px] font-semibold leading-snug">{displayTitle(e)}</span>
+                  <span className="block truncate text-[13px] text-muted-foreground">{humanizeTitle(venue.name)}</span>
+                  <span className="flex items-center gap-1.5 pt-0.5">
+                    <Badge variant={e.price?.free ? "success" : "secondary"}>{formatPrice(e.price)}</Badge>
+                    <span className="ml-auto inline-flex items-center gap-1 rounded-full border border-white/8 px-2.5 py-0.5 text-xs font-medium text-primary">
+                      Ver evento <span aria-hidden>→</span>
+                    </span>
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+    </div>
+  );
+
+  /** Sheet body when a cluster cannot be split: pick a venue. */
+  const venuesPanel = (venues: Venue[]) => (
+    <div className="space-y-3">
+      <button type="button" onClick={backToList} className="text-sm text-muted-foreground hover:underline">
+        ← Todos los eventos
+      </button>
+      <h2 className="text-base font-bold">{venues.length} lugares acá</h2>
+      <ul className="space-y-3">
+        {venues.map((v) => (
+          <li key={v.key}>
+            <button
+              type="button"
+              onClick={() => openVenue(v)}
+              className="surface tap row-in flex w-full items-center gap-3 p-3 text-left"
+            >
+              <span aria-hidden className="size-3 shrink-0 rounded-full" style={{ background: CATEGORY_COLORS[v.category] }} />
+              <span className="min-w-0 flex-1">
+                <span className="block truncate text-sm font-semibold">{humanizeTitle(v.name)}</span>
+                <span className="block truncate text-xs text-muted-foreground">
+                  {v.events.length} evento{v.events.length === 1 ? "" : "s"}
+                  {v.address && ` · ${v.address}`}
+                </span>
+              </span>
+              <span aria-hidden className="text-muted-foreground">→</span>
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+
 
   const filters = (
     <div className="space-y-2">
@@ -113,7 +249,7 @@ export function MapExplorer() {
         onChange={(e) => setQuery(e.target.value)}
         className="h-10 bg-background"
       />
-      <div className="-mx-3 flex gap-1.5 overflow-x-auto px-3 pb-1 [scrollbar-width:none]">
+      <div className="-mx-3 flex gap-1.5 overflow-x-auto px-3 pb-1 [scrollbar-width:none] [mask-image:linear-gradient(to_right,transparent,black_12px,black_calc(100%-24px),transparent)]">
         <FilterChips label="Cuándo" chips={DAY_CHIPS} value={day} onChange={setDay} />
         <span aria-hidden className="my-1 w-px shrink-0 bg-border" />
         <FilterChips label="Categoría" chips={CATEGORY_CHIPS} value={category} onChange={setCategory} />
@@ -134,7 +270,7 @@ export function MapExplorer() {
               type="button"
               aria-pressed={sort === v}
               onClick={() => setSort(v)}
-              className={cn("rounded-full px-2 py-0.5 font-medium transition-colors", sort === v ? "bg-foreground text-background" : "text-muted-foreground hover:bg-accent")}
+              className={cn("tap rounded-full px-2.5 py-1 text-[13px] font-medium", sort === v ? "bg-white/12 text-foreground" : "text-muted-foreground hover:bg-accent")}
             >
               {label}
             </button>
@@ -145,32 +281,38 @@ export function MapExplorer() {
   );
 
   const list = (
-    <div ref={listRef} className="space-y-4">
-      {status === "loading" && events.length === 0 && Array.from({ length: 4 }, (_, i) => <EventCardSkeleton key={i} />)}
+    <div ref={listRef} className="space-y-6">
+      {status === "loading" && events.length === 0 && (
+        <div className="space-y-3">
+          {Array.from({ length: 4 }, (_, i) => (
+            <EventCardSkeleton key={i} />
+          ))}
+        </div>
+      )}
       {status === "error" && (
-        <div className="rounded-xl border border-destructive/40 bg-destructive/5 p-4 text-sm">
-          <p className="font-medium">No se pudieron cargar los eventos.</p>
-          <p className="text-muted-foreground">{error}</p>
-          <Button size="sm" variant="outline" className="mt-2" onClick={refetch}>
+        <div className="surface p-6 text-center">
+          <p className="text-[15px] font-semibold">No pudimos cargar los eventos.</p>
+          <p className="mt-1 text-[13px] text-muted-foreground">Probá de nuevo en un momento.</p>
+          <Button size="sm" variant="outline" className="mt-3 rounded-full" onClick={refetch}>
             Reintentar
           </Button>
         </div>
       )}
       {status === "done" && events.length === 0 && (
-        <div className="rounded-xl border border-dashed p-6 text-center text-sm text-muted-foreground">
-          <p className="font-medium text-foreground">No hay nada con esos filtros.</p>
-          <p>Sacá uno o probá otro día.</p>
+        <div className="surface p-6 text-center">
+          <p className="text-[15px] font-semibold">No hay nada con esos filtros.</p>
+          <p className="mt-1 text-[13px] text-muted-foreground">Sacá uno o probá otro día.</p>
         </div>
       )}
       {groups.map(([key, g]) => (
-        <section key={key} aria-label={g.label}>
-          <h2 className="sticky top-0 z-20 -mx-3 mb-2 border-b border-white/10 bg-background px-3 py-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+        <section key={key} aria-label={g.label} className="relative isolate">
+          <h2 className="sticky top-0 z-20 -mx-3 mb-3 border-b border-white/8 bg-background px-3 py-2 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
             {g.label}
             <span className="ml-1.5 font-normal normal-case">· {g.events.length}</span>
           </h2>
-          <div className="space-y-2">
-            {g.events.map((e) => (
-              <EventCard key={e.id} event={e} selected={e.id === selectedId} onSelect={selectFromList} showDate={sort === "views"} from={me} />
+          <div className="space-y-3">
+            {g.events.map((e, i) => (
+              <EventCard key={e.id} event={e} index={i} selected={e.id === selectedId} onSelect={selectFromList} from={me} />
             ))}
           </div>
         </section>
@@ -179,11 +321,24 @@ export function MapExplorer() {
   );
 
 
+  const body = mode.kind === "venue" ? venuePanel(mode.venue) : mode.kind === "venues" ? venuesPanel(mode.venues) : list;
+
   return (
     <div className="relative flex flex-col md:flex-row">
       {/* Map */}
-      <div className={cn("relative shrink-0 transition-[height]", expanded ? "h-[15dvh]" : "h-[50dvh]", "md:h-[calc(100dvh-3.5rem)] md:flex-1")}>
-        <EventMap events={events} selectedId={selectedId} onSelect={setSelectedId} fit={status === "done"} explore onLocate={setMe} />
+      <div className={cn("relative shrink-0 transition-[height] duration-[320ms] [transition-timing-function:cubic-bezier(0.32,0.72,0,1)]", expanded ? "h-[15dvh]" : "h-[50dvh]", "md:h-[calc(100dvh-3.5rem)] md:flex-1")}>
+        <EventMap
+          events={events}
+          selectedId={selectedId}
+          onSelectVenue={openVenue}
+          onSelectCluster={(vs) => {
+            setMode({ kind: "venues", venues: vs });
+            setExpanded(false);
+          }}
+          fit={status === "done" && mode.kind === "list"}
+          explore
+          onLocate={setMe}
+        />
         <BarrioStrip
           events={events}
           range={range}
@@ -192,35 +347,41 @@ export function MapExplorer() {
             setQuery(b);
             setQ(b);
           }}
-          className="absolute left-14 right-14 top-3 z-[1000] pr-10 [mask-image:linear-gradient(to_right,black_82%,transparent)]"
+          className="absolute left-14 right-3 top-3 z-[1000] pr-14 [mask-image:linear-gradient(to_right,black_calc(100%-5.5rem),transparent_calc(100%-3rem))]"
         />
       </div>
 
       {/* Desktop side panel */}
       <aside className="glass hidden h-[calc(100dvh-3.5rem)] w-96 flex-col md:flex" aria-label="Lista de eventos">
-        <div className="space-y-2 border-b p-3">{filters}</div>
-        <div className="relative min-h-0 flex-1 overflow-y-auto p-3">{list}</div>
+        {mode.kind === "list" && <div className="space-y-2 border-b p-3">{filters}</div>}
+        <div className="relative min-h-0 flex-1 overflow-y-auto p-3">{body}</div>
       </aside>
 
       {/* Mobile bottom sheet */}
       <section
         aria-label="Lista de eventos"
         className={cn(
-          "glass flex min-h-0 flex-col rounded-t-2xl shadow-[0_-4px_24px_rgba(0,0,0,0.25)] md:hidden",
+          "glass flex min-h-0 flex-col rounded-t-[20px] shadow-[0_-8px_32px_rgba(0,0,0,0.35)] transition-[height] duration-[320ms] [transition-timing-function:cubic-bezier(0.32,0.72,0,1)] md:hidden",
           expanded ? "h-[calc(85dvh-3.5rem)]" : "h-[calc(50dvh-3.5rem)]",
         )}
       >
         <button
           type="button"
-          onClick={() => setExpanded((v) => !v)}
+          onClick={() => {
+            setExpanded((v) => !v);
+            setTimeout(() => window.dispatchEvent(new Event("resize")), 320);
+          }}
+          onPointerDown={onHandlePointerDown}
+          onPointerUp={onHandlePointerUp}
+          onPointerCancel={() => (dragStart.current = null)}
           aria-expanded={expanded}
-          className="flex w-full flex-col items-center gap-1 pb-1 pt-2"
+          className="flex w-full touch-none select-none flex-col items-center gap-1 pb-1 pt-2"
         >
-          <span aria-hidden className="h-1.5 w-10 rounded-full bg-border" />
+          <span aria-hidden className="h-1.5 w-10 rounded-full bg-white/25" />
           <span className="text-xs text-muted-foreground">{expanded ? "Ver mapa" : "Ver lista"}</span>
         </button>
-        <div className="space-y-2 px-3 pb-2">{filters}</div>
-        <div className="relative min-h-0 flex-1 overflow-y-auto px-3 pb-4">{list}</div>
+        {mode.kind === "list" && <div className="space-y-2 px-3 pb-2">{filters}</div>}
+        <div className="relative min-h-0 flex-1 overflow-y-auto px-3 pb-4">{body}</div>
       </section>
     </div>
   );

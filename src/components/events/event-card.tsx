@@ -2,86 +2,74 @@
 
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
+import { Skeleton } from "@/components/ui/skeleton";
 import type { Event } from "@/lib/events/schema";
 import { cn } from "@/lib/utils";
-import { CATEGORY_COLORS, CATEGORY_LABELS, SOCIAL_SOURCES, formatDate, formatDayShort, formatMonthShort, formatPrice, formatTime, formatViews, sourceLabel, walkMinutes, type LatLng } from "./format";
+import { CATEGORY_COLORS, CATEGORY_LABELS, SOCIAL_SOURCES, displayTitle, formatPrice, formatViews, formatWhen, humanizeTitle, walkMinutes, type LatLng } from "./format";
 
 type Props = {
   event: Event;
   selected?: boolean;
   onSelect?: (id: string) => void;
+  /** Kept for API compatibility; the when-line always shows day · time. */
   showDate?: boolean;
   /** The viewer's position; when given, the card shows walking minutes. */
   from?: LatLng | null;
+  /** Stagger index for the list render animation. */
+  index?: number;
   className?: string;
 };
 
-/** Compact event row used in the map list, duplicates list and detail pages. */
-export function EventCard({ event, selected, onSelect, showDate = true, from, className }: Props) {
+/**
+ * Event row: 64px thumbnail (category fallback), then
+ * line 1 day · time (small, muted) · line 2 title (15px semibold, 2 lines) · line 3 venue (muted) · two pills max.
+ */
+export function EventCard({ event, selected, onSelect, from, index = 0, className }: Props) {
   const color = CATEGORY_COLORS[event.category];
   const mins = walkMinutes(from, event);
+  const social = SOCIAL_SOURCES.has(event.sourceType);
   return (
     <article
       data-event-id={event.id}
       onClick={() => onSelect?.(event.id)}
+      style={{ animationDelay: `${Math.min(index, 12) * 40}ms` }}
       className={cn(
-        "flex gap-3 rounded-xl border bg-card p-3 text-card-foreground shadow-xs transition-colors",
-        onSelect && "cursor-pointer hover:bg-accent/60",
-        selected && "border-primary ring-2 ring-primary/40",
+        "surface tap row-in flex gap-3 p-3",
+        onSelect && "cursor-pointer",
+        selected && "border-primary/70 ring-2 ring-primary/30",
         className,
       )}
     >
-      <div
-        className="relative flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-muted"
-        style={event.imageUrl ? { background: color } : { borderLeft: `4px solid ${color}` }}
-      >
-        {event.imageUrl ? (
-          <>
-            <CategoryIcon category={event.category} className="absolute size-7 text-white/80" />
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={event.imageUrl} alt="" className="relative h-full w-full object-cover" loading="lazy" />
-          </>
-        ) : (
-          <div className="text-center text-[11px] leading-tight">
-            {showDate && <div className="font-semibold">{formatDayShort(event.startsAt)}</div>}
-            {showDate && <div className="text-muted-foreground">{formatMonthShort(event.startsAt)}</div>}
-            <div className={showDate ? "" : "text-sm font-semibold"}>{formatTime(event.startsAt)}</div>
-          </div>
-        )}
-      </div>
+      <Thumb event={event} />
       <div className="min-w-0 flex-1 space-y-1">
-        <h3 className="line-clamp-2 text-sm font-semibold leading-tight">
+        <p className="text-[11px] font-semibold uppercase tracking-wider text-tertiary">{formatWhen(event)}</p>
+        <h3 className="no-caps line-clamp-2 text-[15px] font-semibold leading-snug">
           <Link href={`/evento/${event.id}`} className="hover:underline" onClick={(e) => e.stopPropagation()}>
-            {event.title}
+            {displayTitle(event)}
           </Link>
         </h3>
-        <p className="truncate text-xs text-muted-foreground">
-          {showDate && event.imageUrl ? `${formatDate(event.startsAt)}, ` : ""}
-          {showDate || event.imageUrl ? `${formatTime(event.startsAt)} · ` : ""}
-          {event.venueName}
+        <p className="truncate text-[13px] text-muted-foreground">
+          {humanizeTitle(event.venueName)}
+          {mins != null && <span className="text-tertiary"> · a {mins >= 90 ? `${Math.round(mins / 60)} h` : `${mins} min`} caminando</span>}
         </p>
-        <div className="flex flex-wrap items-center gap-1.5">
+        <div className="flex flex-wrap items-center gap-1.5 pt-0.5">
+          <Badge variant={event.price?.free ? "success" : "secondary"}>{formatPrice(event.price)}</Badge>
+          {social ? (
+            <SocialBadge event={event} />
+          ) : (
+            <Badge variant="outline" className="gap-1.5">
+              <span aria-hidden className="size-1.5 rounded-full" style={{ background: color }} />
+              {CATEGORY_LABELS[event.category]}
+            </Badge>
+          )}
           {selected && (
             <Link
               href={`/evento/${event.id}`}
-              className="inline-flex items-center rounded-md bg-primary px-2 py-0.5 text-xs font-medium text-primary-foreground hover:bg-primary/90"
+              onClick={(e) => e.stopPropagation()}
+              className="ml-auto inline-flex items-center gap-1 rounded-full bg-primary px-2.5 py-0.5 text-xs font-medium text-white"
             >
-              Ver evento →
+              Ver evento <span aria-hidden>→</span>
             </Link>
-          )}
-          <Badge variant={event.price?.free ? "success" : "secondary"}>{formatPrice(event.price)}</Badge>
-          {mins != null && (
-            <Badge variant="outline" className="gap-1">
-              a {mins >= 90 ? `${Math.round(mins / 60)} h` : `${mins} min`} caminando
-            </Badge>
-          )}
-          <Badge style={{ background: color, color: "#fff" }}>{CATEGORY_LABELS[event.category]}</Badge>
-          {SOCIAL_SOURCES.has(event.sourceType) ? (
-            <SocialBadge event={event} />
-          ) : (
-            <Badge variant="outline" className="text-muted-foreground">
-              {sourceLabel(event)}
-            </Badge>
           )}
         </div>
       </div>
@@ -89,8 +77,25 @@ export function EventCard({ event, selected, onSelect, showDate = true, from, cl
   );
 }
 
-/** Simple line icons per category; shown behind images while they load. */
-function CategoryIcon({ category, className }: { category: Event["category"]; className?: string }) {
+/** 64px thumbnail: the image when there is one, else a category-tinted tile with a line icon. */
+function Thumb({ event }: { event: Event }) {
+  const color = CATEGORY_COLORS[event.category];
+  return (
+    <div
+      className="relative flex size-16 shrink-0 items-center justify-center overflow-hidden rounded-[10px]"
+      style={{ background: `color-mix(in oklch, ${color} 28%, var(--card))` }}
+    >
+      <CategoryIcon category={event.category} className="absolute size-7" style={{ color }} />
+      {event.imageUrl && (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img src={event.imageUrl} alt="" className="relative h-full w-full object-cover" loading="lazy" />
+      )}
+    </div>
+  );
+}
+
+/** Simple line icons per category. */
+export function CategoryIcon({ category, className, style }: { category: Event["category"]; className?: string; style?: React.CSSProperties }) {
   const paths: Record<Event["category"], string> = {
     musica: "M9 18V5l12-2v13M9 18a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm12-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0z",
     teatro: "M4 4h16v6a8 8 0 0 1-16 0zM8 8h.01M16 8h.01M9 13a4 4 0 0 0 6 0",
@@ -104,36 +109,34 @@ function CategoryIcon({ category, className }: { category: Event["category"]; cl
     otro: "M12 3v18M3 12h18",
   };
   return (
-    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+    <svg viewBox="0 0 24 24" className={className} style={style} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
       <path d={paths[category]} />
     </svg>
   );
 }
 
-/** "Visto en TikTok · @handle · 12,3 mil" */
+/** "Visto en TikTok · @handle · 12,3 mil vistas" */
 function SocialBadge({ event }: { event: Event }) {
   const tiktok = event.sourceType === "tiktok";
   const views = event.metrics?.views;
   return (
-    <Badge
-      variant="outline"
-      className={cn("gap-1", tiktok ? "border-white/20 bg-black text-white" : "border-pink-400/40 bg-pink-500/15 text-pink-300")}
-    >
+    <Badge variant="outline" className="gap-1">
       Visto en {tiktok ? "TikTok" : "Instagram"}
-      {event.sourceName && <span className="opacity-80">· {event.sourceName}</span>}
-      {views != null && <span className="font-semibold">· {formatViews(views)} vistas</span>}
+      {event.sourceName && <span className="text-tertiary">· {event.sourceName}</span>}
+      {views != null && <span className="font-semibold text-foreground">· {formatViews(views)}</span>}
     </Badge>
   );
 }
 
 export function EventCardSkeleton() {
   return (
-    <div className="flex gap-3 rounded-xl border p-3" aria-hidden>
-      <div className="h-16 w-16 shrink-0 animate-pulse rounded-lg bg-accent" />
-      <div className="flex-1 space-y-2 py-1">
-        <div className="h-4 w-3/4 animate-pulse rounded bg-accent" />
-        <div className="h-3 w-1/2 animate-pulse rounded bg-accent" />
-        <div className="h-5 w-2/3 animate-pulse rounded bg-accent" />
+    <div className="surface flex gap-3 p-3" aria-hidden>
+      <Skeleton className="size-16 shrink-0 rounded-[10px]" />
+      <div className="flex-1 space-y-2 py-0.5">
+        <Skeleton className="h-3 w-1/3" />
+        <Skeleton className="h-4 w-4/5" />
+        <Skeleton className="h-3 w-1/2" />
+        <Skeleton className="h-5 w-2/5 rounded-full" />
       </div>
     </div>
   );

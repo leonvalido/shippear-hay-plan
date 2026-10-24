@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 type Props = { text: string; className?: string };
 
@@ -12,7 +13,7 @@ export function WhatsAppButton({ text, className }: Props) {
     window.open(`https://wa.me/?text=${encodeURIComponent(body)}`, "_blank", "noopener,noreferrer");
   }
   return (
-    <Button type="button" onClick={send} className={className} style={{ background: "#25D366", color: "#fff" }}>
+    <Button type="button" variant="outline" onClick={send} className={cn("h-11 w-full rounded-full sm:w-auto", className)} style={{ borderColor: "#25D366", color: "#25D366" }}>
       Mandar por WhatsApp
     </Button>
   );

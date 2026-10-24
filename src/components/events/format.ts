@@ -79,6 +79,40 @@ export function formatTime(iso: string): string {
   return fmtTime.format(d).replace(/^24/, "00");
 }
 
+type Timed = { startsAt: string; timeUnknown?: boolean };
+type Titled = { title: string; shortTitle?: string };
+
+const SMALL_WORDS = new Set(["de", "del", "la", "las", "el", "los", "y", "e", "o", "u", "en", "a", "con", "por", "para", "al"]);
+
+/** Sources sometimes shout. If a title is ALL CAPS, title-case it; otherwise leave it alone. */
+export function humanizeTitle(s: string): string {
+  const letters = s.replace(/[^\p{L}]/gu, "");
+  if (letters.length < 4 || letters !== letters.toLocaleUpperCase("es-AR")) return s;
+  return s
+    .toLocaleLowerCase("es-AR")
+    .split(/(\s+)/)
+    .map((w, i) => (i > 0 && SMALL_WORDS.has(w) ? w : w.charAt(0).toLocaleUpperCase("es-AR") + w.slice(1)))
+    .join("");
+}
+
+/** Short title for pins, cards and sheets; the detail page shows both. */
+export function displayTitle(e: Titled): string {
+  return humanizeTitle(e.shortTitle?.trim() || e.title);
+}
+
+/** "21:00", or "horario a confirmar" when the source had no time. */
+export function timeLabel(e: Timed): string {
+  return e.timeUnknown ? "horario a confirmar" : formatTime(e.startsAt);
+}
+
+/** "Hoy 21:00" · "Mañana 21:00" · "sáb 25 · 21:00" · "sáb 25 · horario a confirmar" */
+export function formatWhen(e: Timed, now = new Date()): string {
+  const day = relativeDayLabel(e.startsAt, now);
+  const t = timeLabel(e);
+  if (day === "Hoy" || day === "Mañana") return `${day} ${t}`;
+  return `${formatDayShort(e.startsAt)} · ${t}`;
+}
+
 /** "sáb 25 oct, 21:00" */
 export function formatDateTime(iso: string): string {
   const date = formatDate(iso);

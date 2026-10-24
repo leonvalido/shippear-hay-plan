@@ -7,6 +7,8 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: { default: "HayPlan · Qué hacer en Rosario", template: "%s · HayPlan" },
   description: "El mapa de lo que pasa hoy en Rosario, con un chat que te dice qué hacer.",
+  applicationName: "HayPlan",
+  appleWebApp: { capable: true, title: "HayPlan", statusBarStyle: "black-translucent" },
 };
 
 export const viewport: Viewport = {

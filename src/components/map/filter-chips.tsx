@@ -24,8 +24,8 @@ export function FilterChips<T extends string>({ label, chips, value, onChange }:
             aria-pressed={active}
             onClick={() => onChange(active ? null : c.value)}
             className={cn(
-              "flex shrink-0 items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-medium transition-colors",
-              active ? "border-primary bg-primary text-primary-foreground" : "bg-background hover:bg-accent",
+              "tap flex h-8 shrink-0 items-center gap-1.5 rounded-full border px-3.5 text-[13px] font-medium",
+              active ? "border-primary bg-primary text-white" : "border-white/8 bg-card text-foreground hover:bg-accent",
             )}
           >
             {c.color && <span aria-hidden className="size-2 rounded-full" style={{ background: c.color }} />}

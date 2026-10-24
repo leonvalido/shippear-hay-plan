@@ -2,11 +2,12 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
-type Props = { title: string; text?: string; path: string };
+type Props = { title: string; text?: string; path: string; className?: string };
 
 /** Web Share API when available (phones), clipboard fallback otherwise. */
-export function ShareButton({ title, text, path }: Props) {
+export function ShareButton({ title, text, path, className }: Props) {
   const [copied, setCopied] = useState(false);
 
   async function share() {
@@ -27,7 +28,7 @@ export function ShareButton({ title, text, path }: Props) {
   }
 
   return (
-    <Button type="button" variant="outline" onClick={share} aria-live="polite">
+    <Button type="button" variant="outline" onClick={share} aria-live="polite" className={cn(className)}>
       {copied ? "Link copiado ✓" : "Compartir"}
     </Button>
   );
