@@ -15,6 +15,7 @@ import {
   displayTitle,
   formatPrice,
   formatWhen,
+  hasPrice,
   humanizeTitle,
   distanceLabel,
   walkMinutes,
@@ -273,7 +274,7 @@ export function MapExplorer({ initialEvents }: { initialEvents?: Event[] }) {
                   <span className="no-caps line-clamp-2 block text-[15px] font-semibold leading-snug">{displayTitle(e)}</span>
                   <span className="block truncate text-[13px] text-muted-foreground">{humanizeTitle(venue.name)}</span>
                   <span className="flex items-center gap-1.5 pt-0.5">
-                    <Badge variant={e.price?.free ? "success" : "secondary"}>{formatPrice(e.price)}</Badge>
+                    {hasPrice(e.price) && <Badge variant={e.price?.free ? "success" : "secondary"}>{formatPrice(e.price)}</Badge>}
                     <Badge variant="outline" className="gap-1.5">
                       <CategoryIcon category={e.category} className="size-3.5" style={{ color: CATEGORY_COLORS[e.category] }} />
                       {CATEGORY_LABELS[e.category]}

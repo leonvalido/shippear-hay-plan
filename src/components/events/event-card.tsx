@@ -8,7 +8,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import type { Event } from "@/lib/events/schema";
 import { cn } from "@/lib/utils";
 import { CategoryIcon } from "./category-icon";
-import { CATEGORY_COLORS, CATEGORY_LABELS, displayTitle, distanceLabel, formatPrice, formatWhen, humanizeTitle, type LatLng } from "./format";
+import { CATEGORY_COLORS, CATEGORY_LABELS, displayTitle, distanceLabel, formatPrice, formatWhen, hasPrice, humanizeTitle, type LatLng } from "./format";
 
 type Props = {
   event: Event;
@@ -53,7 +53,7 @@ export function EventCard({ event, selected, onSelect, from, index = 0, classNam
           {dist && <span className="text-tertiary"> · {dist}</span>}
         </p>
         <div className="flex flex-wrap items-center gap-1.5 pt-0.5">
-          <Badge variant={event.price?.free ? "success" : "secondary"}>{formatPrice(event.price)}</Badge>
+          {hasPrice(event.price) && <Badge variant={event.price?.free ? "success" : "secondary"}>{formatPrice(event.price)}</Badge>}
           <Badge variant="outline" className="gap-1.5">
             <CategoryIcon category={event.category} className="size-3.5" style={{ color }} />
             {CATEGORY_LABELS[event.category]}
