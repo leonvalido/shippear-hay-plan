@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { EventCard, EventCardSkeleton } from "@/components/events/event-card";
+import { EventCard, EventCardEditorial, EventCardSkeleton } from "@/components/events/event-card";
 import {
   CATEGORIES,
   CATEGORY_COLORS,
@@ -14,7 +14,9 @@ import {
   type LatLng,
   displayTitle,
   formatPrice,
+  formatTime,
   formatWhen,
+  formatWhenLong,
   hasPrice,
   humanizeTitle,
   distanceLabel,
@@ -39,7 +41,7 @@ import { ConciergeBar, type Budget } from "./concierge-bar";
 import { TileCache } from "./tile-cache";
 import { Logo } from "@/components/layout/logo";
 import { CategoryIcon, STACK_ICON_PATH } from "@/components/events/category-icon";
-import { EventMap } from "@/components/map-gl/map-switch";
+import { EventMap } from "@/components/map-gl/event-map-gl";
 import { FilterChips } from "./filter-chips";
 
 const DAY_CHIPS = (Object.keys(DAY_LABELS) as DayFilter[]).map((value) => ({ value, label: DAY_LABELS[value] }));
@@ -58,6 +60,26 @@ const norm = (s: string) =>
     .replace(/[\u0300-\u036f]/g, "")
     .replace(/[^a-z0-9]+/g, " ")
     .trim();
+
+/** Events of one day grouped by their start hour (list option 2); unknown times go last. */
+function hourGroups(events: Event[]): { key: string; hour: string; minutes: string; unknown: boolean; events: Event[] }[] {
+  const groups = new Map<string, { key: string; hour: string; minutes: string; unknown: boolean; events: Event[] }>();
+  for (const e of events) {
+    const unknown = !!e.timeUnknown;
+    const t = unknown ? "" : formatTime(e.startsAt);
+    const hour = unknown ? "" : t.slice(0, 2);
+    const key = unknown ? "zz" : hour;
+    let g = groups.get(key);
+    if (!g) {
+      g = { key, hour, minutes: unknown ? "" : t.slice(3, 5), unknown, events: [] };
+      groups.set(key, g);
+    } else if (!unknown && g.minutes !== t.slice(3, 5)) {
+      g.minutes = "00";
+    }
+    g.events.push(e);
+  }
+  return [...groups.values()];
+}
 
 export function MapExplorer({ initialEvents }: { initialEvents?: Event[] }) {
   const [day, setDay] = useState<DayFilter | null>(null);
@@ -393,19 +415,50 @@ export function MapExplorer({ initialEvents }: { initialEvents?: Event[] }) {
           <p className="mt-1 text-[13px] text-muted-foreground">Sacá uno o probá otro día.</p>
         </div>
       )}
-      {groups.map(([key, g]) => (
-        <section key={key} aria-label={g.label} className="relative isolate">
-          <h2 className="sticky top-0 z-20 -mx-3 mb-3 border-b border-white/8 bg-background px-3 py-2 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
-            {g.label}
-            <span className="ml-1.5 font-normal normal-case">· {g.events.length}</span>
-          </h2>
-          <div className="space-y-3">
-            {g.events.map((e, i) => (
-              <EventCard key={e.id} event={e} index={i} selected={e.id === selectedId} onSelect={selectFromList} from={me} />
-            ))}
-          </div>
-        </section>
-      ))}
+      {groups.map(([key, g]) => {
+        const first = g.events[0];
+        const dayTitle = sort === "views" ? g.label : formatWhenLong(first).split(" · ")[0];
+        return (
+          <section key={key} aria-label={g.label} className="relative isolate">
+            <h2 className="sticky top-0 z-20 -mx-3 mb-2 flex items-center justify-between border-b border-white/8 bg-background px-3 py-2.5 text-[13px] font-bold uppercase tracking-[0.06em]">
+              <span>{dayTitle}</span>
+              <span className="text-muted-foreground">
+                {g.events.length} evento{g.events.length === 1 ? "" : "s"}
+              </span>
+            </h2>
+            {sort === "views" ? (
+              <div className="space-y-[18px] pt-1">
+                {g.events.map((e, i) => (
+                  <EventCardEditorial key={e.id} event={e} index={i} selected={e.id === selectedId} onSelect={selectFromList} />
+                ))}
+              </div>
+            ) : (
+              hourGroups(g.events).map((h) => (
+                <div key={h.key} className="flex border-t border-white/8 first:border-t-0">
+                  <div className="w-14 shrink-0 pt-4">
+                    {h.unknown ? (
+                      <span className="block text-[11px] font-semibold leading-tight text-muted-foreground">a confirmar</span>
+                    ) : (
+                      <>
+                        <b className="block text-[26px] font-extrabold leading-none tracking-[-0.02em]">{h.hour}</b>
+                        <small className="mt-0.5 block text-[12px] font-semibold text-muted-foreground">:{h.minutes}</small>
+                      </>
+                    )}
+                  </div>
+                  <div className="min-w-0 flex-1 border-l border-white/[0.14] pl-4">
+                    {h.events.map((e, i) => (
+                      <div key={e.id} className="relative border-b border-white/8 py-4 last:border-b-0">
+                        <span aria-hidden className="absolute -left-[20px] top-6 size-[7px] rounded-full bg-muted-foreground" />
+                        <EventCardEditorial event={e} index={i} selected={e.id === selectedId} onSelect={selectFromList} showTime={!h.unknown && formatTime(e.startsAt) !== `${h.hour}:${h.minutes}`} />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))
+            )}
+          </section>
+        );
+      })}
     </div>
   );
 
@@ -489,7 +542,7 @@ export function MapExplorer({ initialEvents }: { initialEvents?: Event[] }) {
           busy={ai.status === "loading" || ai.status === "streaming"}
           autoFocus={focusBar}
           onSubmit={askConcierge}
-          className={cn("absolute left-3 right-3 z-[1000] md:top-16 md:mx-auto md:max-w-[880px]", embed ? "top-3" : "top-14")}
+          className={cn("absolute left-3 right-3 z-[1000] [touch-action:pan-x_pan-y] md:top-16 md:mx-auto md:max-w-[880px]", embed ? "top-3" : "top-14")}
         />
         <BarrioStrip
           events={shown}
@@ -504,7 +557,7 @@ export function MapExplorer({ initialEvents }: { initialEvents?: Event[] }) {
       </div>
 
       {/* Desktop side panel */}
-      <aside className="glass hidden h-dvh w-96 flex-col md:flex" aria-label="Lista de eventos">
+      <aside className="glass hidden h-dvh w-96 flex-col [touch-action:pan-y] md:flex" aria-label="Lista de eventos">
         {mode.kind === "list" && <div className="space-y-2 border-b p-3">{filters}</div>}
         <div className="relative min-h-0 flex-1 overflow-y-auto p-3">{body}</div>
       </aside>
@@ -537,7 +590,7 @@ export function MapExplorer({ initialEvents }: { initialEvents?: Event[] }) {
         aria-label="Lista de eventos"
         aria-hidden={!expanded}
         className={cn(
-          "glass absolute inset-x-0 bottom-0 z-[1100] flex h-[85%] min-h-0 flex-col rounded-t-[20px] shadow-[0_-8px_32px_rgba(0,0,0,0.35)] transition-transform duration-[320ms] [transition-timing-function:cubic-bezier(0.32,0.72,0,1)] md:hidden",
+          "glass absolute inset-x-0 bottom-0 z-[1100] flex h-[85%] min-h-0 flex-col rounded-t-[20px] shadow-[0_-8px_32px_rgba(0,0,0,0.35)] transition-transform duration-[320ms] [touch-action:pan-y] [transition-timing-function:cubic-bezier(0.32,0.72,0,1)] md:hidden",
           expanded ? "translate-y-0" : "translate-y-full",
         )}
       >

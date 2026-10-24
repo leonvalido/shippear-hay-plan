@@ -8,7 +8,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import type { Event } from "@/lib/events/schema";
 import { cn } from "@/lib/utils";
 import { CategoryIcon } from "./category-icon";
-import { CATEGORY_COLORS, CATEGORY_LABELS, displayTitle, distanceLabel, formatPrice, formatWhen, hasPrice, humanizeTitle, type LatLng } from "./format";
+import { CATEGORY_COLORS, CATEGORY_LABELS, displayTitle, distanceLabel, formatPrice, formatTime, formatWhen, hasPrice, humanizeTitle, type LatLng } from "./format";
 
 type Props = {
   event: Event;
@@ -92,6 +92,76 @@ function Thumb({ event }: { event: Event }) {
         />
       )}
     </div>
+  );
+}
+
+/** Category gradient for cards without an image (brand list mockup, option 3). */
+export function categoryGradient(category: Event["category"]): string {
+  const c = CATEGORY_COLORS[category];
+  return `linear-gradient(150deg, color-mix(in oklch, ${c} 88%, white) 0%, ${c} 40%, color-mix(in oklch, ${c} 55%, black) 100%)`;
+}
+
+/**
+ * Editorial card (list option 3): 16:9 image or category gradient, title overlaid at the bottom,
+ * GRATIS tag on the image, then "HH:MM · venue" and the category under it. The whole card is the link.
+ */
+export function EventCardEditorial({ event, selected, onSelect, index = 0, showTime = true, className }: Props & { showTime?: boolean }) {
+  const color = CATEGORY_COLORS[event.category];
+  const [broken, setBroken] = useState(false);
+  const free = !!event.price?.free;
+  const paid = hasPrice(event.price) && !free;
+  return (
+    <Link
+      href={`/evento/${event.id}`}
+      data-event-id={event.id}
+      onPointerEnter={() => onSelect?.(event.id)}
+      onFocus={() => onSelect?.(event.id)}
+      style={{ animationDelay: `${Math.min(index, 12) * 40}ms` }}
+      className={cn("tap row-in block", className)}
+    >
+      <div
+        className={cn("relative flex aspect-video items-end overflow-hidden rounded-[18px] p-3.5", selected && "ring-2 ring-primary/60")}
+        style={{ background: categoryGradient(event.category) }}
+      >
+        {event.imageUrl && !broken ? (
+          <Image
+            src={event.imageUrl}
+            alt=""
+            fill
+            sizes="(min-width: 768px) 352px, 100vw"
+            quality={85}
+            loading="lazy"
+            className="object-cover"
+            onError={() => setBroken(true)}
+          />
+        ) : (
+          <CategoryIcon category={event.category} className="absolute right-4 top-4 size-[52px] text-white/35" />
+        )}
+        <div aria-hidden className="absolute inset-0 bg-[linear-gradient(180deg,transparent_35%,rgba(10,7,14,0.85)_100%)]" />
+        {free && (
+          <span className="absolute left-3 top-3 z-[1] rounded-[7px] bg-[rgba(10,7,14,0.6)] px-2.5 py-1.5 text-[11px] font-bold uppercase tracking-[0.04em] text-emerald-300 backdrop-blur-sm">
+            Gratis
+          </span>
+        )}
+        <h3 className="no-caps relative z-[1] line-clamp-2 text-[19px] font-bold leading-[1.2] text-white [text-shadow:0_1px_8px_rgba(0,0,0,0.4)]">
+          {displayTitle(event)}
+        </h3>
+      </div>
+      <div className="flex items-center justify-between gap-3 px-1 pt-2.5 text-[13px] font-semibold">
+        <span className="min-w-0 truncate">
+          {showTime && <span>{event.timeUnknown ? "Horario a confirmar" : formatTime(event.startsAt)}</span>}
+          <span className="font-normal text-muted-foreground">
+            {showTime ? " · " : ""}
+            {humanizeTitle(event.venueName)}
+          </span>
+          {paid && <span className="text-muted-foreground"> · {formatPrice(event.price)}</span>}
+        </span>
+        <span className="flex shrink-0 items-center gap-1.5 text-muted-foreground">
+          <CategoryIcon category={event.category} className="size-3.5" style={{ color }} />
+          {CATEGORY_LABELS[event.category]}
+        </span>
+      </div>
+    </Link>
   );
 }
 
