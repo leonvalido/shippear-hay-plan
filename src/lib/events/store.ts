@@ -30,7 +30,7 @@ type Row = {
   price_max: number | null; source_type: string; source_name: string | null; source_url: string | null;
   image_url: string | null; status: string; fingerprint: string; created_at: string; search: string;
   metrics_views: number | null; metrics_likes: number | null;
-  short_title: string | null; time_unknown: number | null;
+  short_title: string | null; time_unknown: number | null; links: string | null;
 };
 
 const DDL = `
@@ -61,7 +61,8 @@ CREATE TABLE IF NOT EXISTS events (
   metrics_views INTEGER,
   metrics_likes INTEGER,
   short_title TEXT,
-  time_unknown INTEGER
+  time_unknown INTEGER,
+  links TEXT
 );
 CREATE INDEX IF NOT EXISTS events_starts_at ON events (starts_at);
 CREATE INDEX IF NOT EXISTS events_starts_ms ON events (starts_ms);
@@ -75,10 +76,11 @@ const MIGRATIONS = [
   "ALTER TABLE events ADD COLUMN metrics_likes INTEGER",
   "ALTER TABLE events ADD COLUMN short_title TEXT",
   "ALTER TABLE events ADD COLUMN time_unknown INTEGER",
+  "ALTER TABLE events ADD COLUMN links TEXT",
 ];
 
 const COLUMNS =
-  "id,title,description,starts_at,starts_ms,ends_at,venue_name,address,lat,lng,barrio,category,price_free,price_min,price_max,source_type,source_name,source_url,image_url,status,fingerprint,created_at,search,metrics_views,metrics_likes,short_title,time_unknown";
+  "id,title,description,starts_at,starts_ms,ends_at,venue_name,address,lat,lng,barrio,category,price_free,price_min,price_max,source_type,source_name,source_url,image_url,status,fingerprint,created_at,search,metrics_views,metrics_likes,short_title,time_unknown,links";
 
 function searchText(e: Pick<Event, "title" | "venueName">) {
   return normalizeText(`${e.title} ${e.venueName}`);
@@ -98,6 +100,7 @@ function toRow(e: Event): unknown[] {
     f.sourceType, f.sourceName ?? null, f.sourceUrl ?? null, f.imageUrl ?? null, f.status, f.fingerprint,
     f.createdAt, searchText(f), f.metrics?.views ?? null, f.metrics?.likes ?? null,
     f.shortTitle ?? null, f.timeUnknown === undefined ? null : f.timeUnknown ? 1 : 0,
+    f.links?.length ? JSON.stringify(f.links) : null,
   ];
 }
 
@@ -122,6 +125,9 @@ function fromRow(r: Row): Event {
   if (r.image_url) e.imageUrl = r.image_url;
   if (r.short_title) e.shortTitle = r.short_title;
   if (r.time_unknown !== null) e.timeUnknown = r.time_unknown === 1;
+  if (r.links) {
+    try { e.links = JSON.parse(r.links); } catch { /* ignore a corrupt cell */ }
+  }
   if (r.metrics_views !== null || r.metrics_likes !== null) {
     e.metrics = { ...(r.metrics_views !== null ? { views: r.metrics_views } : {}), ...(r.metrics_likes !== null ? { likes: r.metrics_likes } : {}) };
   }
