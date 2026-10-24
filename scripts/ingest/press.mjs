@@ -7,7 +7,7 @@
  * Articles are discovered from the home and the Ocio section; SEED_URLS are a fallback.
  */
 import * as cheerio from "cheerio";
-import { fetchText, geocode, parseTime, toIso, inWindow, guessCategory, normalizeEvent, dedupe, writeRaw, clean, stripAccents } from "./lib.mjs";
+import { fetchText, geocode, parseTime, toIso, inWindow, guessCategory, normalizeEvent, dedupe, writeRaw, clean, stripAccents, townOf } from "./lib.mjs";
 
 const HOME = "https://www.rosario3.com/";
 const LIST_PAGES = [HOME, "https://www.rosario3.com/seccion/ocio/", "https://www.rosario3.com/seccion/ocio/pagina2.html"];
@@ -102,9 +102,11 @@ export async function run(now = new Date()) {
       const text = cheerio.load(inner.replace(/<\/?(strong|b)(?:\s[^>]*)?>/g, "**"), null, false).text();
       const parsed = parseParagraph(text, pubYmd);
       if (!parsed || !inWindow(parsed.startsAt, now)) continue;
-      const geo = await geocode(parsed.venueName, parsed.address);
+      const town = townOf(parsed.description); // items in Funes, San Lorenzo, etc. geocode in their own town
+      const geo = await geocode(parsed.venueName, parsed.address, town);
       const ev = normalizeEvent({
         ...parsed,
+        address: town !== "Rosario" ? `${parsed.address ?? parsed.venueName}, ${town}` : parsed.address,
         lat: geo?.lat, lng: geo?.lng,
         sourceType: "press",
         sourceName: "Rosario3",
