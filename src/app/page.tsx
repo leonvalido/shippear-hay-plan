@@ -1,36 +1,54 @@
 import Link from "next/link";
+import { fetchEvents } from "@/app/_lib/api";
+import { dayRange } from "@/components/events/format";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
-export default function Home() {
+export const dynamic = "force-dynamic";
+
+const STEPS = [
+  { icon: "🏛️", title: "Fuentes públicas", desc: "Agenda municipal, ticketeras y prensa, en un solo lugar y actualizadas." },
+  { icon: "📸", title: "Redes y flyers", desc: "Sacale una foto a un flyer y Claude lo lee, lo deduplica y lo sube al mapa." },
+  { icon: "✨", title: "Recomendaciones", desc: "Decinos cuándo y cuánto querés gastar, y te armamos el plan." },
+];
+
+export default async function Home() {
+  const week = await fetchEvents({ ...dayRange("semana"), limit: "500" } as Record<string, string>);
+  const count = week.length;
+
   return (
-    <div className="mx-auto w-full max-w-5xl space-y-16 px-4 py-10">
+    <div className="mx-auto w-full max-w-5xl space-y-14 px-4 py-12 sm:py-20">
       <section className="space-y-6 text-center">
+        <p className="inline-flex items-center gap-2 rounded-full border bg-card px-3 py-1 text-sm text-muted-foreground" aria-live="polite">
+          <span aria-hidden className="size-2 animate-pulse rounded-full bg-emerald-500" />
+          <strong className="font-semibold text-foreground tabular-nums">{count}</strong> evento{count === 1 ? "" : "s"} esta semana
+        </p>
         <h1 className="mx-auto max-w-3xl text-4xl font-bold tracking-tight sm:text-6xl">
           Todo lo que pasa en Rosario, en un mapa.
         </h1>
         <p className="mx-auto max-w-xl text-lg text-muted-foreground">
-          HayPlan junta recitales, ferias, teatro y fiestas de fuentes públicas, redes y flyers, y te recomienda qué hacer hoy.
+          Recitales, ferias, teatro y fiestas de fuentes públicas, redes y flyers, con un concierge que te dice qué hacer hoy.
         </p>
-        <div className="flex justify-center gap-3">
-          <Button asChild size="lg">
+        <div className="flex flex-col justify-center gap-3 sm:flex-row">
+          <Button asChild size="lg" className="h-12 px-8 text-base">
             <Link href="/mapa">Ver el mapa</Link>
+          </Button>
+          <Button asChild size="lg" variant="outline" className="h-12 px-8 text-base">
+            <Link href="/hoy">¿Qué hago hoy?</Link>
           </Button>
         </div>
       </section>
 
       <section className="grid gap-4 sm:grid-cols-3">
-        {[
-          ["Fuentes públicas", "Agenda municipal, ticketeras y prensa, en un solo lugar."],
-          ["Redes y flyers", "Sacale una foto a un flyer y Claude lo lee y lo sube al mapa."],
-          ["Recomendaciones", "Decinos cuándo y cuánto querés gastar, y te armamos el plan."],
-        ].map(([title, desc]) => (
-          <Card key={title}>
+        {STEPS.map((s) => (
+          <Card key={s.title} className="gap-3 py-5">
             <CardHeader>
-              <CardTitle>{title}</CardTitle>
-              <CardDescription>{desc}</CardDescription>
+              <div className="text-3xl" aria-hidden>
+                {s.icon}
+              </div>
+              <CardTitle className="pt-1">{s.title}</CardTitle>
+              <CardDescription>{s.desc}</CardDescription>
             </CardHeader>
-            <CardContent />
           </Card>
         ))}
       </section>
