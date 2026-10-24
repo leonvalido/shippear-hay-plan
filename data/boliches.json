@@ -1,0 +1,39 @@
+{
+  "description": "Boliches y bares con pista de Rosario, recopilados a mano de guías web el 2026-10-24. Los horarios pueden estar desactualizados: confirmar en el Instagram de cada lugar antes de usarlos como dato firme. null = la fuente no lo publica.",
+  "collectedAt": "2026-10-24",
+  "sources": {
+    "terminal": "https://www.terminalrosario.com.ar/boliches-en-rosario/",
+    "etur": "https://rosario.tur.ar/donde-ir/noche/noche/musica-para-salidas",
+    "rosarioturismo": "https://www.rosarioturismo.com.ar/noche.html",
+    "tangol": "https://www.tangol.com/blog/es/vida-nocturna-en-rosario/n-299"
+  },
+  "venues": [
+    { "name": "Madame", "type": "boliche", "address": "Brown 3126", "days": ["vie", "sab"], "opens": "00:00", "closes": "06:00", "music": "fiestas temáticas", "notes": "Dirección de rosarioturismo; otra guía dice Av. Francia 1041, y ETUR pone a Pacheco en Brown 3126.", "source": "terminal", "sourceDate": "2024-09-22" },
+    { "name": "Lotus Night Club", "type": "boliche", "address": "Alto Rosario Shopping", "days": ["vie", "sab"], "opens": "00:00", "closes": "06:00", "music": "electrónica, house", "source": "terminal", "sourceDate": "2024-09-22" },
+    { "name": "Bound", "type": "boliche", "address": null, "days": ["vie", "sab"], "opens": "00:00", "closes": "06:00", "music": "electrónica, house, techno", "source": "terminal", "sourceDate": "2024-09-22" },
+    { "name": "Roxy", "type": "boliche", "address": null, "days": ["vie", "sab"], "opens": "00:00", "closes": "05:00", "music": null, "source": "terminal", "sourceDate": "2024-09-22" },
+    { "name": "Switch Club", "type": "boliche", "address": null, "days": ["vie", "sab"], "opens": "00:00", "closes": "05:00", "music": null, "source": "terminal", "sourceDate": "2024-09-22" },
+    { "name": "Década", "type": "boliche", "address": "Cafferata 457", "days": ["vie", "sab"], "opens": "22:00", "closes": "05:00", "music": null, "source": "etur", "sourceDate": null },
+    { "name": "Furia", "type": "boliche", "address": "Ovidio Lagos 22", "days": ["vie", "sab", "feriados"], "opens": "21:00", "closes": "05:00", "music": null, "source": "etur", "sourceDate": null },
+    { "name": "Russia", "type": "boliche", "address": "Brown y Ovidio Lagos", "days": ["sab"], "opens": "23:30", "closes": "05:00", "music": null, "notes": "Solo mayores de 21", "source": "etur", "sourceDate": null },
+    { "name": "Pacheco", "type": "boliche", "address": "Brown 3126", "days": ["sab"], "opens": null, "closes": "05:00", "music": null, "source": "etur", "sourceDate": null },
+    { "name": "Rumbavana", "type": "boliche", "address": null, "days": null, "opens": "23:00", "closes": "05:00", "music": "salsa, bachata", "source": "etur", "sourceDate": null },
+    { "name": "Porto Boliche", "type": "boliche", "address": "Belgrano 501", "days": null, "opens": null, "closes": null, "music": "reggaetón a electrónica", "source": "tangol", "sourceDate": null },
+
+    { "name": "Kika", "type": "bar con pista", "address": "Urquiza 1580", "days": ["jue", "vie", "sab", "dom"], "opens": "21:00", "closes": "05:00", "notes": "Jue y dom 21 a 01; vie, sáb y vísperas de feriado 21 a 05, se baila después de las 00. Cerrado 24/12 y 31/12.", "source": "etur", "sourceDate": null },
+    { "name": "La Cautiva", "type": "bar con pista", "address": "San Nicolás 2256", "days": ["jue", "vie", "sab", "dom"], "opens": "21:00", "closes": "04:00", "notes": "Jue 21 a 03; vie y sáb 21 a 04; dom 21 a 02:30.", "source": "etur", "sourceDate": null },
+    { "name": "Capitán", "type": "bar con pista", "address": "Mendoza 903", "days": ["jue", "vie", "sab", "dom"], "opens": "20:00", "closes": "04:00", "notes": "Jue y dom shows hasta 01; vie y sáb shows y DJs hasta 04.", "source": "etur", "sourceDate": null },
+
+    { "name": "Blue", "type": "boliche", "address": "Av. Colombres 1698", "days": null, "opens": null, "closes": null, "source": "rosarioturismo", "sourceDate": null },
+    { "name": "Cer K", "type": "boliche", "address": "Av. Circunvalación, frente al Puente Rosario-Victoria", "days": null, "opens": null, "closes": null, "notes": "Para parejas", "source": "rosarioturismo", "sourceDate": null },
+    { "name": "Costello", "type": "boliche", "address": "Av. Rivadavia 2455", "days": null, "opens": null, "closes": null, "source": "rosarioturismo", "sourceDate": null },
+    { "name": "El Filo", "type": "boliche", "address": "Costanera y Baigorria", "days": null, "opens": null, "closes": null, "source": "rosarioturismo", "sourceDate": null },
+    { "name": "La Bajada", "type": "boliche", "address": "Av. Puccio y Costanera", "days": null, "opens": null, "closes": null, "source": "rosarioturismo", "sourceDate": null },
+    { "name": "La Morocha", "type": "boliche", "address": "Pasaje Navarra 80", "days": null, "opens": null, "closes": null, "source": "rosarioturismo", "sourceDate": null },
+    { "name": "Legends Club", "type": "boliche", "address": "Rivadavia 2739", "days": null, "opens": null, "closes": null, "source": "rosarioturismo", "sourceDate": null },
+    { "name": "Loft", "type": "boliche", "address": "Pichincha 33", "days": null, "opens": null, "closes": null, "source": "rosarioturismo", "sourceDate": null },
+    { "name": "Martinica", "type": "boliche", "address": "Costanera entre Pedriel y Puccio", "days": null, "opens": null, "closes": null, "source": "rosarioturismo", "sourceDate": null },
+    { "name": "Moore", "type": "boliche", "address": "Av. de los Inmigrantes 410 (Estación Fluvial)", "days": null, "opens": null, "closes": null, "source": "rosarioturismo", "sourceDate": null },
+    { "name": "Sonic", "type": "boliche", "address": "Maipú 1070", "days": null, "opens": null, "closes": null, "source": "rosarioturismo", "sourceDate": null }
+  ]
+}
