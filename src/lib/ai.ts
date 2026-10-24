@@ -31,11 +31,16 @@ export type StreamOptions = {
   system?: string;
   maxTokens?: number;
   signal?: AbortSignal;
+  /** Text streamed in mock mode instead of the generic MOCK_ANSWER. */
+  mock?: string;
 };
+
+/** Base64 image for vision requests. */
+export type ImageInput = { mediaType: "image/jpeg" | "image/png" | "image/gif" | "image/webp"; data: string };
 
 /** Returns a byte stream of UTF-8 text deltas. Pipe it straight into a Response. */
 export function streamText(opts: StreamOptions): ReadableStream<Uint8Array> {
-  if (isMockMode()) return mockStream(MOCK_ANSWER);
+  if (isMockMode()) return mockStream(opts.mock ?? MOCK_ANSWER);
 
   const encoder = new TextEncoder();
   const stream = getClient().messages.stream(
@@ -78,17 +83,25 @@ export async function completeJSON<T extends z.ZodType>(opts: {
   mock: z.infer<T>;
   system?: string;
   maxTokens?: number;
+  /** Optional image sent before the prompt (flyer reading). */
+  image?: ImageInput;
 }): Promise<z.infer<T>> {
   if (isMockMode()) {
     await sleep(600);
     return opts.mock;
   }
+  const content: Anthropic.ContentBlockParam[] = opts.image
+    ? [
+        { type: "image", source: { type: "base64", media_type: opts.image.mediaType, data: opts.image.data } },
+        { type: "text", text: opts.prompt },
+      ]
+    : [{ type: "text", text: opts.prompt }];
   const response = await getClient().messages.parse({
     model: MODEL,
     max_tokens: opts.maxTokens ?? 4096,
     system: opts.system ?? SYSTEM_PROMPT,
     output_config: { effort: EFFORT, format: zodOutputFormat(opts.schema) },
-    messages: [{ role: "user", content: opts.prompt }],
+    messages: [{ role: "user", content }],
   });
   if (!response.parsed_output) {
     throw new Error(`El modelo no devolvió un objeto válido (stop_reason=${response.stop_reason}).`);
