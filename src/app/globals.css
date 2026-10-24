@@ -48,8 +48,8 @@
   --popover: oklch(0.21 0.025 300);
   --popover-foreground: oklch(0.97 0.01 300);
 
-  --primary: oklch(0.72 0.20 320);
-  --primary-foreground: oklch(0.16 0.02 300);
+  --primary: oklch(0.6 0.24 320); /* same violet as the logo, lifted a touch for dark */
+  --primary-foreground: oklch(0.99 0.005 300);
   --secondary: oklch(0.27 0.03 300);
   --secondary-foreground: oklch(0.97 0.01 300);
   --muted: oklch(0.27 0.03 300);
