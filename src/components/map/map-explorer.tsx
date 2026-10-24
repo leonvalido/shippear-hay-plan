@@ -32,6 +32,7 @@ import { WhatsAppButton } from "@/components/concierge/whatsapp-button";
 import { useStream } from "@/hooks/use-stream";
 import { BarrioStrip } from "./barrio-strip";
 import { ConciergeBar, type Budget } from "./concierge-bar";
+import { TileCache } from "./tile-cache";
 import { EventMap } from "./event-map";
 import { FilterChips } from "./filter-chips";
 
@@ -394,6 +395,7 @@ export function MapExplorer() {
 
   return (
     <div className="relative flex flex-col md:flex-row">
+      <TileCache />
       {/* Map */}
       <div className={cn("relative shrink-0 transition-[height] duration-[320ms] [transition-timing-function:cubic-bezier(0.32,0.72,0,1)]", expanded ? "h-[15dvh]" : "h-[50dvh]", "md:h-[calc(100dvh-3.5rem)] md:flex-1")}>
         <EventMap

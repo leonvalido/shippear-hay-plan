@@ -30,6 +30,13 @@ type Props = {
 
 /** Below this zoom everything is a counted bubble; from here on, venue pins. */
 const PIN_ZOOM = 14;
+/** Gran Rosario with a small margin: the map never leaves our area. */
+const AREA: [[number, number], [number, number]] = [
+  [-33.25, -61.05],
+  [-32.6, -60.45],
+];
+const MIN_ZOOM = 11;
+const MAX_ZOOM = 18;
 
 // OSM tiles, darkened with a CSS filter in dark mode (CARTO basemaps now require an API key).
 const TILES = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
@@ -115,6 +122,10 @@ export function EventMap({
           zoomDelta: 1,
           wheelPxPerZoomLevel: 80,
           inertia: true,
+          minZoom: MIN_ZOOM,
+          maxZoom: MAX_ZOOM,
+          maxBounds: AREA,
+          maxBoundsViscosity: 1,
           zoomControl: false,
           dragging: interactive,
           scrollWheelZoom: interactive,
@@ -123,7 +134,17 @@ export function EventMap({
           keyboard: interactive,
           tap: interactive,
         });
-        L.tileLayer(TILES, { attribution: ATTR, maxZoom: 19, updateWhenIdle: true, updateWhenZooming: false, keepBuffer: 3 }).addTo(map);
+        L.tileLayer(TILES, {
+          attribution: ATTR,
+          minZoom: MIN_ZOOM,
+          maxZoom: MAX_ZOOM,
+          updateWhenIdle: true,
+          updateWhenZooming: false,
+          updateInterval: 150,
+          keepBuffer: 4,
+          crossOrigin: true, // CORS responses can be cached by the service worker
+        }).addTo(map);
+        if (explore) warmTiles(center);
         if (interactive && explore) L.control.zoom({ position: "bottomleft" }).addTo(map);
         map.on("load", () => map.invalidateSize());
         // Watchdog: if the browser never fires transitionend for a zoom animation (seen on phones: tiles stay
@@ -303,6 +324,30 @@ export function EventMap({
 
 function escapeHtml(s: string) {
   return s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c] ?? c);
+}
+
+/** Warm the cache for the city center at zooms 12–14 (a handful of tiles around the center, nothing bulk). */
+function warmTiles(center: { lat: number; lng: number }) {
+  const schedule = (fn: () => void) => ("requestIdleCallback" in window ? (window as Window & { requestIdleCallback: (cb: () => void) => void }).requestIdleCallback(fn) : setTimeout(fn, 1500));
+  schedule(() => {
+    const subs = ["a", "b", "c"];
+    let i = 0;
+    for (const z of [12, 13, 14]) {
+      const n = 2 ** z;
+      const x0 = Math.floor(((center.lng + 180) / 360) * n);
+      const latRad = (center.lat * Math.PI) / 180;
+      const y0 = Math.floor(((1 - Math.log(Math.tan(latRad) + 1 / Math.cos(latRad)) / Math.PI) / 2) * n);
+      const r = z === 14 ? 2 : 1;
+      for (let dx = -r; dx <= r; dx++) {
+        for (let dy = -r; dy <= r; dy++) {
+          const img = new Image();
+          img.crossOrigin = "";
+          img.decoding = "async";
+          img.src = `https://${subs[i++ % 3]}.tile.openstreetmap.org/${z}/${x0 + dx}/${y0 + dy}.png`;
+        }
+      }
+    }
+  });
 }
 
 /** Line 1 short title, line 2 day · time, line 3 venue (+ "N más" when the venue holds several events). */
