@@ -379,12 +379,12 @@ function bubbleIcon(L: any, n: number, selected = false) {
 
 function pinIcon(L: any, v: Venue, selected: boolean) {
   const n = v.events.length;
-  const size = 22;
+  const size = 26;
   return L.divIcon({
     className: "",
     iconSize: [size, size],
     iconAnchor: [size / 2, size / 2],
     tooltipAnchor: [0, -size / 2],
-    html: `<div class="hp-pin${selected ? " hp-pin-selected" : ""}" style="--c:${CATEGORY_COLORS[v.category]}">${categoryIconHtml(v.category, 12, "#fff")}${n > 1 ? `<span class="hp-pin-count">${n}</span>` : ""}</div>`,
+    html: `<div class="hp-pin${selected ? " hp-pin-selected" : ""}" style="--c:${CATEGORY_COLORS[v.category]}">${categoryIconHtml(v.category, 13, "#fff")}${n > 1 ? `<span class="hp-pin-count">${n}</span>` : ""}</div>`,
   });
 }

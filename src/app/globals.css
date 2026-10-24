@@ -291,13 +291,13 @@
   position: absolute;
   top: -6px;
   right: -7px;
-  min-width: 16px;
-  height: 16px;
+  min-width: 17px;
+  height: 17px;
   padding: 0 4px;
   border-radius: 9999px;
   background: #fff;
   color: #15111a;
-  font: 600 10px/16px var(--font-open-sans), system-ui, sans-serif;
+  font: 600 10px/17px var(--font-open-sans), system-ui, sans-serif;
   text-align: center;
 }
 .hp-cluster-selected {
