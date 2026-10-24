@@ -80,6 +80,20 @@ export function sourceTypeOf(url: string): "tiktok" | "instagram" {
   return /instagram\.com/i.test(url) ? "instagram" : "tiktok";
 }
 
+const URL_RE = /https?:\/\/[^\s<>()"']+/gi;
+
+/** Post URL ("Ver en TikTok/Instagram") plus any URL written in the caption ("Más info"). */
+export function linksOf(post: SocialPost): RawEvent["links"] {
+  const type = sourceTypeOf(post.url);
+  const out: NonNullable<RawEvent["links"]> = [{ label: type === "tiktok" ? "Ver en TikTok" : "Ver en Instagram", url: post.url }];
+  for (const m of captionOf(post).match(URL_RE) ?? []) {
+    const url = m.replace(/[.,;:!?]+$/, "");
+    if (url !== post.url && !out.some((l) => l.url === url)) out.push({ label: "Más info", url });
+    if (out.length === 6) break;
+  }
+  return out;
+}
+
 function toPrompt(p: SocialPost, index: number): CaptionForPrompt {
   return { index, url: p.url, fecha: p.fecha ?? p.date ?? "(desconocida)", poi: poiOf(p), handle: handleOf(p), descr: captionOf(p) };
 }
@@ -99,10 +113,14 @@ function toRaw(e: Extracted, post: SocialPost): RawEvent | undefined {
     sourceType: sourceTypeOf(post.url),
     sourceName: handleOf(post),
     sourceUrl: post.url,
+    links: linksOf(post),
     metrics: metricsOf(post),
   };
   const parsed = RawEventSchema.safeParse(candidate);
-  return parsed.success ? parsed.data : undefined;
+  if (parsed.success) return parsed.data;
+  // a malformed caption URL must not sink the event: retry with the post link only
+  const retry = RawEventSchema.safeParse({ ...candidate, links: linksOf(post)?.slice(0, 1) });
+  return retry.success ? retry.data : undefined;
 }
 
 export type ExtractOptions = { now?: Date; onBatch?: (done: number, total: number, found: number) => void };

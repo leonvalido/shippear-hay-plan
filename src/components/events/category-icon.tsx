@@ -1,6 +1,6 @@
 import type { EventCategory } from "@/lib/events/schema";
 
-/** Hand-drawn 24-grid line icons, one per category. Shared by React (chips, cards, detail) and Leaflet (pin html). */
+/** Hand-drawn 24-grid line icons, one per category. Shared by React (chips, cards, detail) and the map (rasterized into MapLibre images). */
 export const CATEGORY_ICON_PATHS: Record<EventCategory, string> = {
   // note
   musica: "M9 18V6l10-2v11M9 18a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0zm10-3a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z",
@@ -44,12 +44,3 @@ export function CategoryIcon({ category, className, style }: { category: EventCa
 
 /** Two overlapping rounded squares: a venue with events of several categories. */
 export const STACK_ICON_PATH = "M4 8a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zM9 6V5a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-1";
-
-export function stackIconHtml(size: number, color = "currentColor"): string {
-  return `<svg viewBox="0 0 24 24" width="${size}" height="${size}" fill="none" stroke="${color}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${STACK_ICON_PATH}"/></svg>`;
-}
-
-/** Same icon as an HTML string (for Leaflet divIcons). */
-export function categoryIconHtml(category: EventCategory, size: number, color = "currentColor"): string {
-  return `<svg viewBox="0 0 24 24" width="${size}" height="${size}" fill="none" stroke="${color}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${CATEGORY_ICON_PATHS[category]}"/></svg>`;
-}

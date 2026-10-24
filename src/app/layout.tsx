@@ -6,7 +6,7 @@ import "./globals.css";
 
 const openSans = Open_Sans({ subsets: ["latin"], weight: ["400", "600", "800"], variable: "--font-open-sans", display: "swap" });
 
-const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "https://shippear-starter.vercel.app");
+const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "https://hayplan.vercel.app");
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),

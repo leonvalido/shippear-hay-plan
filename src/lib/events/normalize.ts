@@ -56,6 +56,88 @@ export function titleSimilarity(a: string, b: string): number {
 
 const FOOTER = "\n\nFuentes: ";
 const MAX_DESCRIPTION = 2000;
+const MAX_LINKS = 6;
+
+export type Link = { label: string; url: string };
+
+/** Lower = more official/specific. Decides which record's sourceUrl survives a merge. */
+const SOURCE_RANK: Record<RawEvent["sourceType"], number> = {
+  ticketing: 0, platform: 1, manual: 2, municipal: 3, press: 4, instagram: 5, tiktok: 5, flyer: 6,
+};
+const SOURCE_LABEL: Record<RawEvent["sourceType"], string> = {
+  ticketing: "Entradas", platform: "Página del evento", manual: "Página del organizador", municipal: "Agenda municipal",
+  press: "Nota de prensa", instagram: "Ver en Instagram", tiktok: "Ver en TikTok", flyer: "Flyer",
+};
+
+/** Who to believe about the hour: ticketing > organizer/social > press > municipal. Placeholders always lose. */
+const TIME_RANK: Record<RawEvent["sourceType"], number> = {
+  ticketing: 0, platform: 1, manual: 1, tiktok: 1, instagram: 1, flyer: 1, press: 2, municipal: 3,
+};
+export function isPlaceholderTime(e: Pick<RawEvent, "startsAt" | "timeUnknown">): boolean {
+  return !!e.timeUnknown || /T(00:00|23:59)(:\d{2})?/.test(e.startsAt);
+}
+function timeRank(e: RawEvent): number {
+  return (TIME_RANK[e.sourceType] ?? 5) + (isPlaceholderTime(e) ? 10 : 0);
+}
+
+/** Same venue: identical normalised name, same first word, or coordinates within 150 m. */
+export function sameVenue(a: RawEvent, b: RawEvent): boolean {
+  const na = normalizeText(a.venueName);
+  const nb = normalizeText(b.venueName);
+  if (na === nb) return true;
+  if (na.split(" ")[0] === nb.split(" ")[0] && na.split(" ")[0]!.length > 2) return true;
+  if (a.lat !== undefined && a.lng !== undefined && b.lat !== undefined && b.lng !== undefined) {
+    const dLat = (a.lat - b.lat) * 111_000;
+    const dLng = (a.lng - b.lng) * 111_000 * Math.cos((a.lat * Math.PI) / 180);
+    return Math.hypot(dLat, dLng) <= 150;
+  }
+  return false;
+}
+
+/** Same event announced twice with different times: same date, similar title core, same venue. */
+export function looksLikeSameEvent(a: RawEvent, b: RawEvent): boolean {
+  if (dateOf(a.startsAt) !== dateOf(b.startsAt)) return false;
+  if (!sameVenue(a, b)) return false;
+  const sim = titleSimilarity(a.title, b.title);
+  if (sim >= 0.5) return true;
+  // one title contained in the other ("Ivan Menna en Switch" vs "Ivan Menna open to close @ Switch Club")
+  const ta = new Set(titleTokens(a.title));
+  const tb = new Set(titleTokens(b.title));
+  const [small, big] = ta.size <= tb.size ? [ta, tb] : [tb, ta];
+  if (small.size === 0) return false;
+  let inter = 0;
+  for (const w of small) if (big.has(w)) inter++;
+  return inter / small.size >= 0.8 && small.size >= 2;
+}
+
+export function sourceRank(t: RawEvent["sourceType"]): number {
+  return SOURCE_RANK[t] ?? 9;
+}
+export function linkLabel(t: RawEvent["sourceType"]): string {
+  return SOURCE_LABEL[t] ?? "Más info";
+}
+
+/** Every link a record carries: its sourceUrl (labelled by source type), its links, and legacy footer URLs. */
+function linksOf(e: RawEvent): Link[] {
+  const out: Link[] = [];
+  if (e.sourceUrl) out.push({ label: linkLabel(e.sourceType), url: e.sourceUrl });
+  for (const l of e.links ?? []) out.push(l);
+  for (const url of splitFooter(e.description).urls) out.push({ label: "Fuente", url });
+  return out;
+}
+
+/** Deduplicated by URL, primary excluded, at most MAX_LINKS. */
+export function dedupeLinks(links: Link[], exclude?: string): Link[] | undefined {
+  const seen = new Set<string>(exclude ? [exclude] : []);
+  const out: Link[] = [];
+  for (const l of links) {
+    if (!l.url || seen.has(l.url)) continue;
+    seen.add(l.url);
+    out.push({ label: l.label.slice(0, 40), url: l.url });
+    if (out.length === MAX_LINKS) break;
+  }
+  return out.length ? out : undefined;
+}
 
 function splitFooter(description?: string): { body: string; urls: string[] } {
   if (!description) return { body: "", urls: [] };
@@ -81,10 +163,13 @@ function richer<T>(a: T | undefined, b: T | undefined): T | undefined {
 export function mergeEvents<T extends RawEvent>(a: T, b: T): T {
   const fa = splitFooter(a.description);
   const fb = splitFooter(b.description);
-  const body = (richer(fa.body, fb.body) ?? "").trim();
-  const urls = [...new Set([...fa.urls, ...fb.urls, a.sourceUrl, b.sourceUrl].filter((u): u is string => !!u))];
-  let description = urls.length ? `${body}${FOOTER}${urls.join(", ")}`.trim() : body;
+  let description = (richer(fa.body, fb.body) ?? "").trim();
   if (description.length > MAX_DESCRIPTION) description = description.slice(0, MAX_DESCRIPTION);
+
+  // the most official record (ticketing > platform > organizer > municipal > press > social) owns sourceUrl/sourceType/sourceName
+  const primary = sourceRank(b.sourceType) < sourceRank(a.sourceType) ? b : a;
+  const secondary = primary === a ? b : a;
+  const links = dedupeLinks([...linksOf(primary), ...linksOf(secondary)].slice(1), primary.sourceUrl);
 
   const price =
     a.price && b.price
@@ -96,25 +181,30 @@ export function mergeEvents<T extends RawEvent>(a: T, b: T): T {
         }
       : (a.price ?? b.price);
 
-  // a known time beats a midnight placeholder on the same date
-  const takeTimeFromB = a.timeUnknown && !b.timeUnknown && dateOf(a.startsAt) === dateOf(b.startsAt);
+  // the more authoritative source decides the hour; a 00:00 / 23:59 / unknown placeholder never wins over a real time
+  const timeOwner = dateOf(a.startsAt) === dateOf(b.startsAt) && timeRank(b) < timeRank(a) ? b : a;
   return {
     ...b,
     ...a,
-    startsAt: takeTimeFromB ? b.startsAt : a.startsAt,
-    timeUnknown: takeTimeFromB ? b.timeUnknown : (a.timeUnknown ?? b.timeUnknown),
+    startsAt: timeOwner.startsAt,
+    endsAt: timeOwner.endsAt ?? richer(a.endsAt, b.endsAt),
+    timeUnknown: timeOwner.timeUnknown,
+    recurring: a.recurring ?? b.recurring,
+    rating: a.rating ?? b.rating,
+    context: richer(a.context, b.context),
     shortTitle: a.shortTitle ?? b.shortTitle,
     title: richer(a.title, b.title) ?? a.title,
     description: description || undefined,
-    endsAt: richer(a.endsAt, b.endsAt),
     address: richer(a.address, b.address),
     lat: a.lat ?? b.lat,
     lng: a.lng ?? b.lng,
     barrio: richer(a.barrio, b.barrio),
     category: a.category !== "otro" ? a.category : b.category,
     price,
-    sourceName: richer(a.sourceName, b.sourceName),
-    sourceUrl: a.sourceUrl ?? b.sourceUrl,
+    sourceType: primary.sourceUrl ? primary.sourceType : (a.sourceUrl ? a.sourceType : b.sourceUrl ? b.sourceType : a.sourceType),
+    sourceName: primary.sourceName ?? secondary.sourceName,
+    sourceUrl: primary.sourceUrl ?? secondary.sourceUrl,
+    links,
     imageUrl: a.imageUrl ?? b.imageUrl,
     metrics: mergeMetrics(a.metrics, b.metrics),
   };

@@ -21,7 +21,7 @@ import {
 } from "@/components/events/format";
 import { ShareButton } from "@/components/events/share-button";
 import { WalkingHint } from "@/components/events/walking-hint";
-import { EventMap } from "@/components/map/event-map";
+import { EventMap } from "@/components/map-gl/event-map-gl";
 import type { Event } from "@/lib/events/schema";
 
 type Props = { params: Promise<{ id: string }> };

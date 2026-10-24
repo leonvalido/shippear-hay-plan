@@ -5,6 +5,7 @@ import { CONCIERGE_SYSTEM } from "@/lib/prompts";
 import { buildConciergePrompt, mockConcierge, rankEvents, resolveWindow } from "@/lib/events/concierge";
 import { getEventStore } from "@/lib/events/store";
 import { toRosarioISO } from "@/lib/events/time";
+import { buildPlan, type PlanLine } from "@/lib/events/plan";
 import { jsonError, readJson } from "@/lib/http";
 import { DAY, MINUTE, allow, clientIp, underDailyBudget } from "@/lib/ratelimit";
 
@@ -13,8 +14,11 @@ export const maxDuration = 60;
 
 /**
  * POST /api/concierge  { when, lat?, lng?, budget?, mood? }
- * -> text/plain stream (rioplatense Spanish, 2-3 picks from the store), header x-ai-mode.
- * Limits: 10 calls / 10 min and 60 / day per IP, 2,000 / day per instance; text input <= 300 chars.
+ * Default: application/x-ndjson, one JSON object per line:
+ *   {"type":"intro","text"}  then 2-3  {"type":"stop",eventId,time,startsAt,shortTitle,title,venueName,barrio?,price,why,walkMinutes?,lat?,lng?}
+ *   then {"type":"outro","text","shareText"}   (shareText: WhatsApp-ready plain text ending with the /mapa link)
+ * With `Accept: text/plain`: the previous plain-text streamed plan (kept for one more deploy).
+ * Header x-ai-mode: mock|live. Limits: 10 calls / 10 min and 60 / day per IP, 2,000 / day per instance; text <= 300 chars.
  */
 const MAX_TEXT = 300;
 const PER_IP = [
@@ -52,11 +56,23 @@ export async function POST(req: NextRequest) {
     return jsonError("concierge", 503, "El conserje se tomó el día: llegamos al cupo de hoy. Mañana volvemos con más planes.");
   }
 
+  const wantsText = (req.headers.get("accept") ?? "").includes("text/plain");
+  const headers = { "Cache-Control": "no-store", "x-ai-mode": isMockMode() ? "mock" : "live" };
+
   try {
     const win = resolveWindow(input.when);
     const store = await getEventStore();
     const events = store.queryEvents({ from: toRosarioISO(win.from), to: toRosarioISO(win.to), status: "published", limit: 200 });
     const ranked = rankEvents(events, input);
+
+    if (!wantsText) {
+      const mapUrl = `${req.nextUrl.origin}/mapa`;
+      const lines = await buildPlan(ranked, input, win, mapUrl);
+      return new Response(ndjson(lines), {
+        headers: { ...headers, "Content-Type": "application/x-ndjson; charset=utf-8", "x-candidates": String(ranked.length) },
+      });
+    }
+
     const stream = streamText({
       system: CONCIERGE_SYSTEM,
       prompt: buildConciergePrompt(ranked, input, win),
@@ -65,14 +81,27 @@ export async function POST(req: NextRequest) {
       signal: req.signal,
     });
     return new Response(stream, {
-      headers: {
-        "Content-Type": "text/plain; charset=utf-8",
-        "Cache-Control": "no-store",
-        "x-ai-mode": isMockMode() ? "mock" : "live",
-        "x-candidates": String(ranked.length),
-      },
+      headers: { ...headers, "Content-Type": "text/plain; charset=utf-8", "x-candidates": String(ranked.length) },
     });
   } catch (err) {
     return jsonError("concierge", 502, describeError(err), err);
   }
+}
+
+/** Three chunks (intro, stops, outro) so the client can render progressively. */
+function ndjson(lines: PlanLine[]): ReadableStream<Uint8Array> {
+  const enc = new TextEncoder();
+  const chunks = [
+    lines.filter((l) => l.type === "intro"),
+    lines.filter((l) => l.type === "stop"),
+    lines.filter((l) => l.type === "outro"),
+  ].map((group) => group.map((l) => JSON.stringify(l) + "\n").join(""));
+  let i = 0;
+  return new ReadableStream<Uint8Array>({
+    async pull(controller) {
+      if (i >= chunks.length) return controller.close();
+      controller.enqueue(enc.encode(chunks[i++]!));
+      if (i < chunks.length) await new Promise((r) => setTimeout(r, 120));
+    },
+  });
 }

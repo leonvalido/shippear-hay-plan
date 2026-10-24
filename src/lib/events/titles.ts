@@ -2,7 +2,7 @@ import { z } from "zod";
 import { completeJSON } from "../ai";
 import { isMockMode } from "../ai";
 import { SHORT_TITLE_SYSTEM, buildShortTitlePrompt, type ShortTextItem } from "../prompts";
-import type { RawEvent } from "./schema";
+import { EventCategory, type RawEvent } from "./schema";
 import { fingerprint } from "./normalize";
 
 /**
@@ -17,11 +17,13 @@ export const MAX_SHORT = 40;
 export const MIN_DESCRIPTION = 80;
 const MAX_DESCRIPTION = 400;
 const BATCH = 40;
-export type TitleEntry = { shortTitle: string; description?: string };
+/** Bump when the prompt changes so every title regenerates on the next run. */
+export const TITLE_VERSION = 3;
+export type TitleEntry = { v?: number; shortTitle: string; description?: string; category?: EventCategory };
 export type TitleCache = Record<string, TitleEntry | string>;
 
 const ResultSchema = z.object({
-  titles: z.array(z.object({ index: z.number().int(), shortTitle: z.string(), description: z.string() })),
+  titles: z.array(z.object({ index: z.number().int(), shortTitle: z.string(), description: z.string(), category: EventCategory })),
 });
 
 const FOOTER = "\n\nFuentes: ";
@@ -34,11 +36,17 @@ function splitDescription(d?: string): { body: string; footer: string } {
 }
 
 function needsDescription(e: RawEvent): boolean {
-  return !isMockMode() && splitDescription(e.description).body.trim().length < MIN_DESCRIPTION;
+  return !isMockMode() && (splitDescription(e.description).body.trim().length < MIN_DESCRIPTION || !!e.context);
+}
+/** Category comes from the same pass in live mode; the keyword guess is only a fallback. */
+const confirmed = new WeakSet<RawEvent>();
+function needsCategory(e: RawEvent): boolean {
+  return !isMockMode() && !confirmed.has(e);
 }
 
+/** Only entries written by the current prompt version count as hits. */
 function entryOf(v: TitleEntry | string | undefined): TitleEntry | undefined {
-  return v === undefined ? undefined : typeof v === "string" ? { shortTitle: v } : v;
+  return v !== undefined && typeof v === "object" && v.v === TITLE_VERSION ? v : undefined;
 }
 
 function applyDescription(e: RawEvent, description: string) {
@@ -76,7 +84,8 @@ export async function fillShortTitles<T extends RawEvent>(events: T[], cache: Ti
     const hit = entryOf(cache[fingerprint(e)]);
     if (hit && !e.shortTitle) e.shortTitle = hit.shortTitle;
     if (hit?.description && needsDescription(e)) applyDescription(e, hit.description);
-    if (!e.shortTitle || needsDescription(e)) todo.push(e);
+    if (hit?.category) { e.category = hit.category; confirmed.add(e); }
+    if (!e.shortTitle || needsDescription(e) || needsCategory(e)) todo.push(e);
   }
   for (let i = 0; i < todo.length; i += BATCH) {
     const batch = todo.slice(i, i + BATCH);
@@ -85,7 +94,13 @@ export async function fillShortTitles<T extends RawEvent>(events: T[], cache: Ti
       const entry = entries[idx] ?? { shortTitle: truncateTitle(e.title) };
       if (!e.shortTitle) e.shortTitle = entry.shortTitle;
       if (entry.description && needsDescription(e)) applyDescription(e, entry.description);
-      cache[fingerprint(e)] = { shortTitle: e.shortTitle ?? entry.shortTitle, ...(entry.description ? { description: entry.description } : {}) };
+      if (entry.category) { e.category = entry.category; confirmed.add(e); }
+      cache[fingerprint(e)] = {
+        v: TITLE_VERSION,
+        shortTitle: e.shortTitle ?? entry.shortTitle,
+        ...(entry.description ? { description: entry.description } : {}),
+        ...(entry.category ? { category: entry.category } : {}),
+      };
     });
     opts.onBatch?.(Math.min(i + BATCH, todo.length), todo.length);
   }
@@ -107,13 +122,15 @@ async function shortTextBatch(batch: RawEvent[]): Promise<(TitleEntry | undefine
     category: e.category,
     price: priceText(e),
     snippet: splitDescription(e.description).body.trim().slice(0, 300) || undefined,
+    context: e.context?.replace(/\s+/g, " ").trim().slice(0, 700) || undefined,
+    recurring: !!e.recurring,
     needsDescription: needsDescription(e),
   }));
   const result = await completeJSON({
     prompt: buildShortTitlePrompt(items),
     system: SHORT_TITLE_SYSTEM,
     schema: ResultSchema,
-    mock: { titles: items.map((i) => ({ index: i.index, shortTitle: truncateTitle(i.title), description: "" })) },
+    mock: { titles: items.map((i) => ({ index: i.index, shortTitle: truncateTitle(i.title), description: "", category: i.category as EventCategory })) },
     maxTokens: 16000,
   });
   const out: (TitleEntry | undefined)[] = [];
@@ -123,7 +140,7 @@ async function shortTextBatch(batch: RawEvent[]): Promise<(TitleEntry | undefine
     const clean = sanitizeShort(t.shortTitle);
     const shortTitle = clean.length >= 2 && clean.length <= MAX_SHORT ? clean : truncateTitle(clean.length >= 2 ? clean : e.title);
     const description = cleanDescription(t.description);
-    out[t.index] = { shortTitle, ...(description ? { description } : {}) };
+    out[t.index] = { shortTitle, ...(description ? { description } : {}), category: t.category };
   }
   return out;
 }
