@@ -87,15 +87,20 @@ export function indexVenues(list: unknown[]): Map<string, VenuePlace> {
   return out;
 }
 
+/** 0.9 = name match (trust everything); 0.7 = address/distance only (trust location, not identity). */
+const VENUE_NAME_MATCH = 0.9;
+const VENUE_LOCATION_MATCH = 0.7;
+
 export type VenueStats = { matched: number; coords: number; addresses: number; ratings: number; links: number };
 export function applyVenues(events: RawEvent[], index: Map<string, VenuePlace>): VenueStats {
   const stats: VenueStats = { matched: 0, coords: 0, addresses: 0, ratings: 0, links: 0 };
   for (const e of events) {
     const v = index.get(normalizeText(e.venueName));
-    if (!v) continue;
+    if (!v || v.confidence < VENUE_LOCATION_MATCH) continue;
     stats.matched++;
     if ((e.lat === undefined || e.lng === undefined) && v.lat != null && v.lng != null) { e.lat = v.lat; e.lng = v.lng; stats.coords++; }
     if (!e.address && v.address) { e.address = v.address; stats.addresses++; }
+    if (v.confidence < VENUE_NAME_MATCH) continue; // a doubtful identity must not lend its rating or website
     if (!e.rating && v.rating != null && v.userRatingCount != null) { e.rating = { value: v.rating, count: v.userRatingCount }; stats.ratings++; }
     const links = [...(e.links ?? [])];
     const has = (url: string) => links.some((l) => l.url === url) || e.sourceUrl === url;
