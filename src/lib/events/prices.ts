@@ -2,6 +2,7 @@ import { z } from "zod";
 import { completeJSON, isMockMode } from "../ai";
 import { PRICE_SYSTEM, buildPricePrompt } from "../prompts";
 import type { RawEvent } from "./schema";
+import { addContext } from "./normalize";
 
 /**
  * Reads the ticket price from an event's official page: plain GET, visible text
@@ -92,6 +93,7 @@ export async function fillPrices(events: RawEvent[], cache: PriceCache, opts: Pr
     stats.fetched++;
     const text = await fetchVisibleText(url, opts.fetchImpl);
     if (!text) { stats.unreadable++; cache[url] = { price: null, confidence: 0, note: "página no legible", at }; continue; }
+    addContext(e, "página oficial", text.slice(0, 1500)); // also feeds the title/description/vibe pass
     const answer = await completeJSON({
       system: PRICE_SYSTEM,
       prompt: buildPricePrompt({ title: e.title, date: e.startsAt.slice(0, 10), venueName: e.venueName }, text),

@@ -17,7 +17,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { RawEventSchema, type Event, type RawEvent } from "../src/lib/events/schema";
-import { eventId, fingerprint, looksLikeSameEvent, mergeEvents } from "../src/lib/events/normalize";
+import { addContext, eventId, fingerprint, looksLikeSameEvent, mergeEvents } from "../src/lib/events/normalize";
 import { SocialPostSchema, extractEventsFromCaptions, type SocialPost } from "../src/lib/events/extract";
 import { barrioFromCoords, geocodeAddress, geocodePlaces, geocodeVenue, inRosario, type GeoCache } from "../src/lib/events/geocode";
 import { isMidnight, toRosarioISO } from "../src/lib/events/time";
@@ -87,13 +87,23 @@ function readRawFiles(): RawEvent[] {
   return out;
 }
 
-/** datos writes Google Places details as meta.rating / meta.userRatingCount; map them to `rating`. */
+/**
+ * datos writes extras the schema does not know: meta.rating / meta.userRatingCount -> `rating`;
+ * music, meta.music, meta.editorialSummary, meta.reviews -> transient `context` for the AI pass.
+ */
 function withRating(item: unknown): unknown {
   if (!item || typeof item !== "object") return item;
-  const o = item as Record<string, unknown>;
-  const meta = o.meta as Record<string, unknown> | undefined;
-  if (o.rating || !meta || typeof meta.rating !== "number") return item;
-  return { ...o, rating: { value: meta.rating, count: typeof meta.userRatingCount === "number" ? meta.userRatingCount : 0 } };
+  const o = { ...(item as Record<string, unknown>) };
+  const meta = (o.meta ?? {}) as Record<string, unknown>;
+  if (!o.rating && typeof meta.rating === "number") o.rating = { value: meta.rating, count: typeof meta.userRatingCount === "number" ? meta.userRatingCount : 0 };
+  const ctx = { context: typeof o.context === "string" ? o.context : undefined };
+  const str = (v: unknown) => (typeof v === "string" ? v : Array.isArray(v) ? v.map((x) => (typeof x === "string" ? x : (x as { text?: string })?.text ?? "")).filter(Boolean).slice(0, 3).join(" | ") : undefined);
+  addContext(ctx, "música", str(o.music ?? meta.music));
+  addContext(ctx, "público", str(o.crowd ?? meta.crowd));
+  addContext(ctx, "Google Places", str(meta.editorialSummary));
+  addContext(ctx, "reseñas", str(meta.reviews));
+  if (ctx.context) o.context = ctx.context;
+  return o;
 }
 
 function listOf(data: unknown, keys = ["items", "events", "posts"]): unknown[] {

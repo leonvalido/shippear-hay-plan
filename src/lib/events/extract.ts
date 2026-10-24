@@ -115,6 +115,7 @@ function toRaw(e: Extracted, post: SocialPost): RawEvent | undefined {
     sourceUrl: post.url,
     links: linksOf(post),
     metrics: metricsOf(post),
+    context: `caption: ${captionOf(post).slice(0, 1000)}`,
   };
   const parsed = RawEventSchema.safeParse(candidate);
   if (parsed.success) return parsed.data;

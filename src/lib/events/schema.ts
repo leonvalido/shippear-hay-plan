@@ -54,6 +54,8 @@ export const EventSchema = z.object({
   recurring: z.boolean().optional(),
   /** Google Places rating of the venue, when known. */
   rating: z.object({ value: z.number(), count: z.number() }).optional(),
+  /** What the night is like, only when a source says so (<= 60 chars each, rioplatense). */
+  vibe: z.object({ music: z.string().max(60).optional(), crowd: z.string().max(60).optional(), dress: z.string().max(60).optional(), age: z.string().max(60).optional() }).optional(),
   status: EventStatus.default("published"),
   fingerprint: z.string().optional(), // normalized title|date|venue, used for dedupe
   createdAt: z.string(),
