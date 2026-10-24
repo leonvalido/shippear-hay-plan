@@ -147,3 +147,14 @@ export function buildOfficialLinkPrompt(items: OfficialLookupItem[]): string {
     .join("\n");
   return `Encontrá la página oficial de estos ${items.length} eventos. Devolvé el array JSON con exactamente ${items.length} objetos, uno por fingerprint.\n\n${body}`;
 }
+
+/** System prompt for reading a ticket price off an event page. */
+export const PRICE_SYSTEM = `Leés el texto de la página oficial de un evento de Rosario, Argentina, y extraés el precio de la entrada en pesos argentinos (ARS).
+- free = true solo si la página dice gratis, entrada libre, sin cargo o a la gorra.
+- min = el precio más bajo de entrada general que figure (número, sin puntos de miles); max = el más alto si hay varias categorías. Ignorá cargos por servicio si están separados, cuotas, precios de bebidas o menú, y precios tachados.
+- Si la página no muestra un precio concreto (por ejemplo "próximamente", "consultar" o solo un botón de comprar sin monto), devolvé free = false, sin min ni max, y confidence baja (0.2 o menos).
+- confidence: 0.9 si el precio está explícito y claro para ese evento, 0.7 si está pero con alguna ambigüedad, menos de 0.5 si dudás. note: una frase corta con lo que viste ("anticipadas $8.000, en puerta $10.000").`;
+
+export function buildPricePrompt(event: { title: string; date: string; venueName: string }, pageText: string): string {
+  return `Evento: ${event.title} · ${event.date} · ${event.venueName}\n\nTexto visible de la página oficial:\n"""\n${pageText}\n"""\n\n¿Cuánto sale la entrada? Respondé con el objeto pedido.`;
+}

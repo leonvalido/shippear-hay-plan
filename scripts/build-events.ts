@@ -27,6 +27,7 @@ import { OrganizerIndex } from "../src/lib/events/organizers";
 import { RadarRowSchema, VentiRowSchema, radarRowToRaw, ventiRowToRaw } from "../src/lib/events/sources";
 import { rosarioDate } from "../src/lib/events/time";
 import { MAX_LOOKUPS_PER_RUN, fillOfficialLinks, type LinkCache } from "../src/lib/events/officialLinks";
+import { MAX_PRICE_LOOKUPS, fillPrices, type PriceCache } from "../src/lib/events/prices";
 
 const ROOT = process.cwd();
 const PRIVATE = path.join(ROOT, "data", "private");
@@ -35,6 +36,7 @@ const CACHE_FILE = path.join(PRIVATE, "geocache.json");
 const EXTRACT_CACHE = path.join(PRIVATE, "extract-cache.json");
 const ORGANIZERS_FILE = path.join(PRIVATE, "organizadores-rosario.json");
 const LINKS_FILE = path.join(PRIVATE, "links-cache.json");
+const PRICES_FILE = path.join(PRIVATE, "prices-cache.json");
 const MIN_SCORE = 55; // evento_puntaje threshold for ranked posts
 const EXTRACT_CHUNK = 100; // posts per cache flush
 const TITLES_FILE = path.join(PRIVATE, "titles-cache.json");
@@ -285,6 +287,16 @@ async function officialLinks(events: RawEvent[]): Promise<void> {
   console.log(`  candidatos ${s.candidates} · en caché ${s.cached} · buscados ${s.lookedUp} · encontrados ${s.found} · rechazados ${s.rejected}${s.budgetStop ? ` · corte por presupuesto (${MAX_LOOKUPS_PER_RUN} por corrida)` : ""}`);
 }
 
+async function prices(events: RawEvent[]): Promise<void> {
+  const cache: PriceCache = fs.existsSync(PRICES_FILE) ? ((readJson(PRICES_FILE) as PriceCache) ?? {}) : {};
+  const save = () => { fs.mkdirSync(PRIVATE, { recursive: true }); fs.writeFileSync(PRICES_FILE, JSON.stringify(cache, null, 1)); };
+  const s = await fillPrices(events, cache, {
+    onProgress: (st) => { save(); console.log(`  ${st.fetched} páginas leídas · ${st.priced} precios · ${st.unreadable} ilegibles`); },
+  });
+  save();
+  console.log(`  candidatos ${s.candidates} · en caché ${s.cached} · leídas ${s.fetched} · precios ${s.priced} · ilegibles ${s.unreadable} · baja confianza ${s.lowConfidence}${s.budgetStop ? ` · corte por presupuesto (${MAX_PRICE_LOOKUPS} por corrida)` : ""}`);
+}
+
 async function shortTitles(events: RawEvent[]): Promise<void> {
   const cache: TitleCache = fs.existsSync(TITLES_FILE) ? ((readJson(TITLES_FILE) as TitleCache) ?? {}) : {};
   const before = Object.keys(cache).length;
@@ -358,6 +370,8 @@ async function main() {
   const deduped = dedupe(all);
   console.log(`6. Páginas oficiales (web search, caché: data/private/links-cache.json)${isMockMode() ? " (mock: solo caché)" : ""}…`);
   await officialLinks(deduped);
+  console.log(`6b. Precios desde la página oficial (caché: data/private/prices-cache.json)${isMockMode() ? " (mock: solo caché)" : ""}…`);
+  await prices(deduped);
   console.log(`7. Títulos cortos y descripciones${isMockMode() ? " (mock: recorte a 40 caracteres, descripciones sin tocar)" : ""}…`);
   await shortTitles(deduped);
   console.log(`  ${counts.titled} nuevos, resto desde data/private/titles-cache.json`);
