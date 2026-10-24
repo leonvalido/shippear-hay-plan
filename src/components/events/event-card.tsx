@@ -105,8 +105,9 @@ export function categoryGradient(category: Event["category"]): string {
  * Editorial card (list option 3): 16:9 image or category gradient, title overlaid at the bottom,
  * GRATIS tag on the image, then "HH:MM · venue" and the category under it. The whole card is the link.
  */
-export function EventCardEditorial({ event, selected, onSelect, index = 0, showTime = true, className }: Props & { showTime?: boolean }) {
+export function EventCardEditorial({ event, selected, onSelect, from, index = 0, showTime = true, className }: Props & { showTime?: boolean }) {
   const color = CATEGORY_COLORS[event.category];
+  const dist = distanceLabel(from, event);
   const [broken, setBroken] = useState(false);
   const free = !!event.price?.free;
   const paid = hasPrice(event.price) && !free;
@@ -155,6 +156,7 @@ export function EventCardEditorial({ event, selected, onSelect, index = 0, showT
             {humanizeTitle(event.venueName)}
           </span>
           {paid && <span className="text-muted-foreground"> · {formatPrice(event.price)}</span>}
+          {dist && <span className="text-primary"> · {dist}</span>}
         </span>
         <span className="flex shrink-0 items-center gap-1.5 text-muted-foreground">
           <CategoryIcon category={event.category} className="size-3.5" style={{ color }} />

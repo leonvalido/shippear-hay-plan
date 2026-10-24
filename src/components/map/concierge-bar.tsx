@@ -24,6 +24,8 @@ type Props = {
   near: boolean;
   onNear: (on: boolean) => void;
   locating?: boolean;
+  /** Location denied: shown as a short alert under the input. */
+  nearError?: string | null;
   busy?: boolean;
   autoFocus?: boolean;
   onSubmit: (text: string) => void;
@@ -31,7 +33,7 @@ type Props = {
 };
 
 /** The concierge, floating over the map: a glowing glass card with the question and the filters. */
-export function ConciergeBar({ day, onDay, budget, onBudget, near, onNear, locating, busy, autoFocus, onSubmit, className }: Props) {
+export function ConciergeBar({ day, onDay, budget, onBudget, near, onNear, locating, nearError, busy, autoFocus, onSubmit, className }: Props) {
   const [text, setText] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
   const speech = useSpeech({
@@ -97,6 +99,11 @@ export function ConciergeBar({ day, onDay, budget, onBudget, near, onNear, locat
       {speech.error && (
         <p role="alert" className="mt-2 rounded-lg bg-destructive/15 px-3 py-1.5 text-[13px] text-foreground">
           {speech.error}
+        </p>
+      )}
+      {nearError && (
+        <p role="alert" className="mt-2 rounded-lg bg-destructive/15 px-3 py-1.5 text-[13px] text-foreground">
+          {nearError}
         </p>
       )}
       <div className="mt-2 flex gap-1.5 overflow-x-auto overscroll-x-contain px-1 pb-0.5 [scrollbar-width:none] [touch-action:pan-x] [mask-image:linear-gradient(to_right,black_calc(100%-24px),transparent)] lg:[mask-image:none]">
