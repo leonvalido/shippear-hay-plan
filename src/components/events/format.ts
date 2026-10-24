@@ -95,6 +95,30 @@ export function humanizeTitle(s: string): string {
     .join("");
 }
 
+/** Venue name for display: sources sometimes append the address in parentheses; keep only the name. */
+export function displayVenue(name: string): string {
+  return humanizeTitle(name.replace(/\s*\([^)]*\)\s*$/, "").trim() || name);
+}
+
+/** Jaccard overlap of the meaningful words of two titles (0..1); used to spot the same recurring event on other dates. */
+export function titleSimilarity(a: string, b: string): number {
+  const toks = (s: string) =>
+    new Set(
+      s
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .split(/[^a-z0-9]+/)
+        .filter((w) => w.length > 3),
+    );
+  const A = toks(a);
+  const B = toks(b);
+  if (A.size === 0 || B.size === 0) return 0;
+  let inter = 0;
+  for (const w of A) if (B.has(w)) inter++;
+  return inter / (A.size + B.size - inter);
+}
+
 /** Short title for pins, cards and sheets; the detail page shows both. */
 export function displayTitle(e: Titled): string {
   return humanizeTitle(e.shortTitle?.trim() || e.title);

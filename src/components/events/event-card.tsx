@@ -8,7 +8,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import type { Event } from "@/lib/events/schema";
 import { cn } from "@/lib/utils";
 import { CategoryIcon } from "./category-icon";
-import { CATEGORY_COLORS, CATEGORY_LABELS, displayTitle, distanceLabel, formatPrice, formatTime, formatWhen, hasPrice, humanizeTitle, type LatLng } from "./format";
+import { CATEGORY_COLORS, CATEGORY_LABELS, displayTitle, displayVenue, distanceLabel, formatPrice, formatTime, formatWhen, hasPrice, humanizeTitle, type LatLng } from "./format";
 
 type Props = {
   event: Event;
@@ -152,7 +152,7 @@ export function EventCardEditorial({ event, selected, onSelect, index = 0, showT
           {showTime && <span>{event.timeUnknown ? "Horario a confirmar" : formatTime(event.startsAt)}</span>}
           <span className="font-normal text-muted-foreground">
             {showTime ? " · " : ""}
-            {humanizeTitle(event.venueName)}
+            {displayVenue(event.venueName)}
           </span>
           {paid && <span className="text-muted-foreground"> · {formatPrice(event.price)}</span>}
         </span>
