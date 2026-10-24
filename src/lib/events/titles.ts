@@ -24,7 +24,7 @@ export function truncateTitle(title: string, max = MAX_SHORT): string {
   const space = cut.lastIndexOf(" ");
   const words = (space > max * 0.5 ? cut.slice(0, space) : clean.slice(0, max)).replace(/[\s,:;.\-–—]+$/, "").split(" ");
   while (words.length > 1 && TRAILING.has(words[words.length - 1]!.toLowerCase())) words.pop();
-  return words.join(" ");
+  return words.join(" ").replace(/[\s,:;.\-–—]+$/, "");
 }
 /** Words a truncated title must not end with. */
 const TRAILING = new Set(["a", "al", "con", "de", "del", "el", "en", "la", "las", "lo", "los", "para", "por", "y", "e", "o", "u", "un", "una", "su", "sus", "que"]);
