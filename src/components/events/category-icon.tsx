@@ -42,6 +42,13 @@ export function CategoryIcon({ category, className, style }: { category: EventCa
   );
 }
 
+/** Two overlapping rounded squares: a venue with events of several categories. */
+export const STACK_ICON_PATH = "M4 8a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zM9 6V5a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-1";
+
+export function stackIconHtml(size: number, color = "currentColor"): string {
+  return `<svg viewBox="0 0 24 24" width="${size}" height="${size}" fill="none" stroke="${color}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${STACK_ICON_PATH}"/></svg>`;
+}
+
 /** Same icon as an HTML string (for Leaflet divIcons). */
 export function categoryIconHtml(category: EventCategory, size: number, color = "currentColor"): string {
   return `<svg viewBox="0 0 24 24" width="${size}" height="${size}" fill="none" stroke="${color}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${CATEGORY_ICON_PATHS[category]}"/></svg>`;

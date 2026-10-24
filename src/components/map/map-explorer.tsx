@@ -37,7 +37,7 @@ import { BarrioStrip } from "./barrio-strip";
 import { ConciergeBar, type Budget } from "./concierge-bar";
 import { TileCache } from "./tile-cache";
 import { Logo } from "@/components/layout/logo";
-import { CategoryIcon } from "@/components/events/category-icon";
+import { CategoryIcon, STACK_ICON_PATH } from "@/components/events/category-icon";
 import { EventMap } from "./event-map";
 import { FilterChips } from "./filter-chips";
 
@@ -303,7 +303,13 @@ export function MapExplorer({ initialEvents }: { initialEvents?: Event[] }) {
               onClick={() => openVenue(v)}
               className="surface tap row-in flex w-full items-center gap-3 p-3 text-left"
             >
-              <CategoryIcon category={v.category} className="size-4 shrink-0" style={{ color: CATEGORY_COLORS[v.category] }} />
+              {v.mixed ? (
+                <svg viewBox="0 0 24 24" className="size-4 shrink-0 text-primary" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                  <path d={STACK_ICON_PATH} />
+                </svg>
+              ) : (
+                <CategoryIcon category={v.category} className="size-4 shrink-0" style={{ color: CATEGORY_COLORS[v.category] }} />
+              )}
               <span className="min-w-0 flex-1">
                 <span className="block truncate text-sm font-semibold">{humanizeTitle(v.name)}</span>
                 <span className="block truncate text-xs text-muted-foreground">
