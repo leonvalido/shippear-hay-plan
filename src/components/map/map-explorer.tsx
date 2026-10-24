@@ -15,6 +15,7 @@ import {
   displayTitle,
   formatPrice,
   formatWhen,
+  humanizeTitle,
   walkMinutes,
 } from "@/components/events/format";
 import { Button } from "@/components/ui/button";
@@ -164,8 +165,8 @@ export function MapExplorer() {
         ← Todos los eventos
       </button>
       <div className="space-y-1">
-        <h2 className="text-lg font-bold leading-tight">{venue.name}</h2>
-        {venue.address && <p className="text-sm text-muted-foreground">{venue.address}</p>}
+        <h2 className="no-caps text-lg font-bold leading-tight">{humanizeTitle(venue.name)}</h2>
+        {venue.address && <p className="text-sm text-muted-foreground">{humanizeTitle(venue.address)}</p>}
         <div className="flex flex-wrap items-center gap-2 pt-1">
           <Button asChild size="sm">
             <a href={directions(venue)} target="_blank" rel="noopener noreferrer">
@@ -187,7 +188,7 @@ export function MapExplorer() {
                 <Link href={`/evento/${e.id}`} className="surface tap row-in block space-y-1 p-3">
                   <span className="block text-[11px] font-semibold uppercase tracking-wider text-tertiary">{formatWhen(e)}</span>
                   <span className="no-caps line-clamp-2 block text-[15px] font-semibold leading-snug">{displayTitle(e)}</span>
-                  <span className="block truncate text-[13px] text-muted-foreground">{venue.name}</span>
+                  <span className="block truncate text-[13px] text-muted-foreground">{humanizeTitle(venue.name)}</span>
                   <span className="flex items-center gap-1.5 pt-0.5">
                     <Badge variant={e.price?.free ? "success" : "secondary"}>{formatPrice(e.price)}</Badge>
                     <span className="ml-auto inline-flex items-center gap-1 rounded-full border border-white/8 px-2.5 py-0.5 text-xs font-medium text-primary">
@@ -220,7 +221,7 @@ export function MapExplorer() {
             >
               <span aria-hidden className="size-3 shrink-0 rounded-full" style={{ background: CATEGORY_COLORS[v.category] }} />
               <span className="min-w-0 flex-1">
-                <span className="block truncate text-sm font-semibold">{v.name}</span>
+                <span className="block truncate text-sm font-semibold">{humanizeTitle(v.name)}</span>
                 <span className="block truncate text-xs text-muted-foreground">
                   {v.events.length} evento{v.events.length === 1 ? "" : "s"}
                   {v.address && ` · ${v.address}`}

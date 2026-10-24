@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import type { Event } from "@/lib/events/schema";
 import { cn } from "@/lib/utils";
-import { CATEGORY_COLORS, CATEGORY_LABELS, SOCIAL_SOURCES, displayTitle, formatPrice, formatViews, formatWhen, walkMinutes, type LatLng } from "./format";
+import { CATEGORY_COLORS, CATEGORY_LABELS, SOCIAL_SOURCES, displayTitle, formatPrice, formatViews, formatWhen, humanizeTitle, walkMinutes, type LatLng } from "./format";
 
 type Props = {
   event: Event;
@@ -49,7 +49,7 @@ export function EventCard({ event, selected, onSelect, from, index = 0, classNam
           </Link>
         </h3>
         <p className="truncate text-[13px] text-muted-foreground">
-          {event.venueName}
+          {humanizeTitle(event.venueName)}
           {mins != null && <span className="text-tertiary"> · a {mins >= 90 ? `${Math.round(mins / 60)} h` : `${mins} min`} caminando</span>}
         </p>
         <div className="flex flex-wrap items-center gap-1.5 pt-0.5">

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { fetchEvent } from "@/app/_lib/api";
-import { CATEGORY_LABELS, displayTitle, formatPrice, formatTime, formatWhen, sourceLabel } from "@/components/events/format";
+import { CATEGORY_LABELS, displayTitle, humanizeTitle, formatPrice, formatTime, formatWhen, sourceLabel } from "@/components/events/format";
 import { ShareButton } from "@/components/events/share-button";
 import { EventMap } from "@/components/map/event-map";
 import { Badge } from "@/components/ui/badge";
@@ -73,8 +73,8 @@ export default async function EventoPage({ params }: Props) {
           {!event.timeUnknown && event.endsAt && <span className="text-muted-foreground"> – {formatTime(event.endsAt)}</span>}
         </p>
         <p className="text-base text-muted-foreground">
-          {event.venueName}
-          {event.address && ` · ${event.address}`}
+          {humanizeTitle(event.venueName)}
+          {event.address && ` · ${humanizeTitle(event.address)}`}
           {event.barrio && ` · ${event.barrio}`}
         </p>
         <div>

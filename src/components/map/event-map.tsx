@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import type { Event } from "@/lib/events/schema";
 import { ROSARIO_CENTER } from "@/lib/events/schema";
 import { cn } from "@/lib/utils";
-import { CATEGORY_COLORS, displayTitle, formatWhen } from "@/components/events/format";
+import { CATEGORY_COLORS, displayTitle, formatWhen, humanizeTitle } from "@/components/events/format";
 import { groupByVenue, venueOf, type Venue } from "@/components/events/venues";
 import { loadLeaflet, loadMarkerCluster, type LeafletMap, type LeafletMarker } from "./leaflet";
 
@@ -284,7 +284,7 @@ function escapeHtml(s: string) {
 function tooltipHtml(v: Venue) {
   const e = v.events[0];
   const more = v.events.length > 1 ? ` · +${v.events.length - 1} más` : "";
-  return `<div class="hp-tt"><em>${escapeHtml(formatWhen(e))}</em><strong>${escapeHtml(displayTitle(e))}</strong><span>${escapeHtml(v.name)}${more}</span></div>`;
+  return `<div class="hp-tt"><em>${escapeHtml(formatWhen(e))}</em><strong>${escapeHtml(displayTitle(e))}</strong><span>${escapeHtml(humanizeTitle(v.name))}${more}</span></div>`;
 }
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
