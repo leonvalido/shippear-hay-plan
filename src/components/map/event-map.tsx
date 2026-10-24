@@ -23,6 +23,7 @@ type Props = {
   className?: string;
 };
 
+// OSM tiles, darkened with a CSS filter in dark mode (CARTO basemaps now require an API key).
 const TILES = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
 const ATTR = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>';
 
@@ -39,6 +40,7 @@ export function EventMap({ events, selectedId, onSelect, center = ROSARIO_CENTER
   const [error, setError] = useState<string | null>(null);
   const [locating, setLocating] = useState(false);
   const [retry, setRetry] = useState(0);
+  const onWindowResize = () => mapRef.current?.invalidateSize();
   const meRef = useRef<LeafletMarker>(null);
   const onLocateRef = useRef(onLocate);
   onLocateRef.current = onLocate;
@@ -81,6 +83,11 @@ export function EventMap({ events, selectedId, onSelect, center = ROSARIO_CENTER
         const map = L.map(containerRef.current, {
           center: [center.lat, center.lng],
           zoom,
+          preferCanvas: true,
+          // Animations are what left the tile layer half-rendered on phones (tiles stuck mid zoom transition).
+          zoomAnimation: false,
+          fadeAnimation: false,
+          markerZoomAnimation: false,
           zoomControl: interactive,
           dragging: interactive,
           scrollWheelZoom: interactive,
@@ -89,7 +96,8 @@ export function EventMap({ events, selectedId, onSelect, center = ROSARIO_CENTER
           keyboard: interactive,
           tap: interactive,
         });
-        L.tileLayer(TILES, { attribution: ATTR, maxZoom: 19 }).addTo(map);
+        L.tileLayer(TILES, { attribution: ATTR, maxZoom: 19, updateWhenIdle: false, keepBuffer: 4 }).addTo(map);
+        map.on("load", () => map.invalidateSize());
         mapRef.current = map;
         const start = () => {
           if (cancelled || mapRef.current !== map) return;
@@ -118,10 +126,12 @@ export function EventMap({ events, selectedId, onSelect, center = ROSARIO_CENTER
         requestAnimationFrame(() => map.invalidateSize());
         setTimeout(() => map.invalidateSize(), 300);
         setTimeout(() => map.invalidateSize(), 1000);
+        window.addEventListener("resize", onWindowResize);
       })
       .catch((e: Error) => !cancelled && setError(e.message));
     return () => {
       cancelled = true;
+      window.removeEventListener("resize", onWindowResize);
       mapRef.current?.remove();
       mapRef.current = null;
       layerRef.current = null;
@@ -160,7 +170,8 @@ export function EventMap({ events, selectedId, onSelect, center = ROSARIO_CENTER
     }
     if (fit && seen.size > 0) {
       const group = L.featureGroup([...markers.values()]);
-      map.fitBounds(group.getBounds().pad(0.2), { maxZoom: 15 });
+      map.fitBounds(group.getBounds().pad(0.2), { maxZoom: 15, animate: false });
+      setTimeout(() => map.invalidateSize({ pan: false }), 350);
     }
   }, [events, ready, fit, explore]);
 
@@ -178,11 +189,11 @@ export function EventMap({ events, selectedId, onSelect, center = ROSARIO_CENTER
           // Pull the pin out of its cluster first, then center on it.
           layerRef.current.zoomToShowLayer(m, () => {
             m.bringToFront();
-            map.panTo(m.getLatLng(), { animate: true });
+            map.panTo(m.getLatLng(), { animate: false });
           });
         } else {
           m.bringToFront();
-          map.panTo(m.getLatLng(), { animate: true });
+          map.panTo(m.getLatLng(), { animate: false });
         }
       }
     }
@@ -198,7 +209,7 @@ export function EventMap({ events, selectedId, onSelect, center = ROSARIO_CENTER
 
   return (
     <div className={cn("relative h-full w-full bg-muted", className)}>
-      <div ref={containerRef} className="h-full w-full" role="application" aria-label="Mapa de eventos" />
+      <div ref={containerRef} className="h-full min-h-[200px] w-full" role="application" aria-label="Mapa de eventos" />
       {explore && ready && (
         <button
           type="button"

@@ -212,7 +212,10 @@ export function MapExplorer() {
       >
         <button
           type="button"
-          onClick={() => setExpanded((v) => !v)}
+          onClick={() => {
+            setExpanded((v) => !v);
+            setTimeout(() => window.dispatchEvent(new Event("resize")), 320);
+          }}
           aria-expanded={expanded}
           className="flex w-full flex-col items-center gap-1 pb-1 pt-2"
         >
