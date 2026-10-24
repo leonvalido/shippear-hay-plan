@@ -15,12 +15,25 @@ export type Item = {
   createdAt: string; // ISO
 };
 
-type Store = {
+export type Store = {
   insert(item: Item): void;
   list(kind?: string, limit?: number): Item[];
   get(id: string): Item | undefined;
   remove(id: string): void;
   backend: "sqlite" | "memory";
+  /** Raw connection, only when backend is "sqlite". Used by src/lib/events/store.ts. */
+  db?: SqliteDatabase;
+};
+
+/** Minimal surface of node:sqlite's DatabaseSync that we rely on. */
+export type SqliteStatement = {
+  run(...params: unknown[]): unknown;
+  get(...params: unknown[]): unknown;
+  all(...params: unknown[]): unknown[];
+};
+export type SqliteDatabase = {
+  exec(sql: string): void;
+  prepare(sql: string): SqliteStatement;
 };
 
 // Keep the store on globalThis so Next.js hot reload doesn't create duplicates.
@@ -70,6 +83,7 @@ async function sqliteStore(): Promise<Store> {
 
   return {
     backend: "sqlite",
+    db: db as unknown as SqliteDatabase,
     insert: (i) => void ins.run(i.id, i.kind, JSON.stringify(i.data), i.createdAt),
     get: (id) => {
       const r = getQ.get(id) as Row | undefined;

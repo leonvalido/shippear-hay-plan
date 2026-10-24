@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="HayPlan">
+  <title>HayPlan</title>
+  <rect width="512" height="512" rx="112" fill="#aa24c5"/>
+  <path fill="#fff" fill-rule="evenodd" d="M256 72c-80 0-138 59-138 136 0 99 138 232 138 232s138-133 138-232c0-77-58-136-138-136zm0 60l20 52 52 20-52 20-20 52-20-52-52-20 52-20z"/>
+</svg>

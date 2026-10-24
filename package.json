@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
-    "check": "node scripts/check-api.mjs"
+    "check": "node scripts/check-api.mjs",
+    "ingest": "node --no-warnings scripts/ingest/all.mjs",
+    "build-events": "node --no-warnings --import ./scripts/ts-loader.mjs scripts/build-events.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^1.2.0",
@@ -25,6 +27,7 @@
     "@types/node": "^24.0.0",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
+    "cheerio": "^1.2.0",
     "tailwindcss": "^4.3.3",
     "typescript": "~5.9.0"
   },
