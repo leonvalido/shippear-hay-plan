@@ -42,6 +42,14 @@ const DAY_CHIPS = (Object.keys(DAY_LABELS) as DayFilter[]).map((value) => ({ val
 const CATEGORY_CHIPS = CATEGORIES.map((value) => ({ value, label: CATEGORY_LABELS[value], color: CATEGORY_COLORS[value] }));
 
 /** The /mapa screen: map + filters + list (bottom sheet on phones, side panel on laptops). */
+const norm = (s: string) =>
+  s
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+
 export function MapExplorer({ initialEvents }: { initialEvents?: Event[] }) {
   const [day, setDay] = useState<DayFilter | null>(null);
   const [category, setCategory] = useState<EventCategory | null>(null);
@@ -78,6 +86,17 @@ export function MapExplorer({ initialEvents }: { initialEvents?: Event[] }) {
   function toggleNear(on: boolean) {
     setNear(on);
     if (on) requestLocation();
+  }
+
+  /** A plan stop was tapped: filter the list to it, highlight its pin and show the map. */
+  function showStopOnMap(stop: { title: string; venue: string }) {
+    const key = norm(stop.title);
+    const hit = events.find((e) => norm(displayTitle(e)) === key || norm(e.title) === key) ?? events.find((e) => norm(e.venueName) === norm(stop.venue));
+    setQuery(stop.title);
+    setQ(stop.title);
+    setMode({ kind: "list" });
+    if (hit) setSelectedId(hit.id);
+    setExpanded(false);
   }
 
   function askConcierge(text: string) {
@@ -390,7 +409,7 @@ export function MapExplorer({ initialEvents }: { initialEvents?: Event[] }) {
         onRetry={() => ai.run({ when: day ?? "hoy", lat: me?.lat, lng: me?.lng, budget: budget ?? undefined })}
         className="min-h-32"
       />
-      {stops.length > 0 && <PlanStops stops={stops} />}
+      {stops.length > 0 && <PlanStops stops={stops} onPick={showStopOnMap} />}
       {ai.status === "done" && ai.text.trim() && <WhatsAppButton text={ai.text} className="w-full" />}
     </div>
   );
