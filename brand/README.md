@@ -20,6 +20,8 @@ Versión corta para favicon/stores: **Hay plan en Rosario.**
 
 ## Tono de voz
 
+Las reglas largas, con la evidencia de 46 marcas argentinas y el glosario de HayPlan, están en `voz.md`.
+
 Todas las líneas de abajo pasaron por el editor rioplatense de Cuentas Claras (`antigravity/.claude/agents/editor-rioplatense.md`) el 2026-10-24. Cualquier texto nuevo en español pasa por ahí antes de salir.
 
 1. **Rioplatense, con voseo y sin vergüenza.** "Mirá", "tenés", "dale". Nunca "usted", nunca "haz click".
@@ -37,6 +39,19 @@ Todas las líneas de abajo pasaron por el editor rioplatense de Cuentas Claras (
 5. **Entusiasmo medido.** Un signo de exclamación por pantalla como máximo. Sin emojis en la interfaz (los pines ya son el color). Sin "¡increíble!", sin "¡no te lo pierdas!".
    - Botón principal: `Ver en el mapa` · secundario: `Cómo llegar` · guardar: `Guardar` / `Guardado`
    - Confirmación: *"Listo, guardado para el sábado."*
+
+## Landing (`src/app/page.tsx`)
+
+Copia final, con la forma de `voz.md` y aprobada por el editor el 2026-10-24. Un eslogan por página: el tagline va en la nav o al pie, no en el titular.
+
+- Eyebrow: `Shippear #3 · Rosario`
+- Titular: **Mirá qué pasa hoy en Rosario.**
+- Bajada: *Ves en un mapa los recitales, las ferias, el teatro y las fiestas de hoy, con hora, lugar y precio de la entrada.*
+- Botón: `Abrir el mapa`
+- Tarjetas:
+  1. **El mapa de hoy** · Junta en un solo mapa lo que pasa hoy en la agenda municipal, los teatros y los bares de Rosario.
+  2. **El concierge** · Le decís qué tenés ganas de hacer y a qué hora salís, y te contesta con eventos de hoy, con hora, lugar y precio.
+  3. **El plan de esta noche** · Guardás el que te gusta, tocás "Cómo llegar" y salís.
 
 ## Logo
 
