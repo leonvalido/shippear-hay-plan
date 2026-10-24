@@ -7,6 +7,7 @@ import {
   CATEGORY_COLORS,
   CATEGORY_LABELS,
   displayTitle,
+  displayVenue,
   formatPrice,
   formatTime,
   formatViews,
@@ -18,6 +19,7 @@ import {
   rosarioDayStart,
   sourceLabel,
   timeLabel,
+  titleSimilarity,
 } from "@/components/events/format";
 import { ShareButton } from "@/components/events/share-button";
 import { WalkingHint } from "@/components/events/walking-hint";
@@ -72,7 +74,7 @@ function MiniCard({ e }: { e: Event }) {
       <span className="no-caps mt-1 line-clamp-2 block text-[14px] font-semibold leading-snug">{displayTitle(e)}</span>
       <span className="mt-1 flex items-center gap-1.5 truncate text-[12px] text-muted-foreground">
         <CategoryIcon category={e.category} className="size-3 shrink-0" style={{ color: CATEGORY_COLORS[e.category] }} />
-        {CATEGORY_LABELS[e.category]} · {humanizeTitle(e.venueName)}
+        {CATEGORY_LABELS[e.category]} · {displayVenue(e.venueName)}
       </span>
     </Link>
   );
@@ -96,7 +98,10 @@ export default async function EventoPage({ params }: Props) {
   ]);
   const venueKey = norm(event.venueName);
   // Same venue, but not the same recurring event on another date.
-  const atVenue = atVenueRaw.filter((e) => e.id !== event.id && norm(e.venueName) === venueKey && norm(displayTitle(e)) !== titleKey).slice(0, 6);
+  // Same venue, but not another date of the same recurring event (titles differ slightly per date, so compare word overlap).
+  const atVenue = atVenueRaw
+    .filter((e) => e.id !== event.id && norm(e.venueName) === venueKey && norm(displayTitle(e)) !== titleKey && titleSimilarity(displayTitle(e), displayTitle(event)) < 0.5)
+    .slice(0, 6);
   const nearby = hasCoords
     ? sameDay
         .filter((e) => e.id !== event.id && norm(e.venueName) !== venueKey && e.lat != null && e.lng != null)
@@ -196,7 +201,7 @@ export default async function EventoPage({ params }: Props) {
             </a>
           </Fact>
           <Fact k="Dónde">
-            <b className="font-semibold">{humanizeTitle(event.venueName)}</b>
+            <b className="font-semibold">{displayVenue(event.venueName)}</b>
             {(event.address || event.barrio) && (
               <span className="block text-muted-foreground">
                 {[event.address && humanizeTitle(event.address), event.barrio].filter(Boolean).join(", ")}
@@ -236,7 +241,7 @@ export default async function EventoPage({ params }: Props) {
           <div className="relative h-[180px] overflow-hidden rounded-[18px] border border-white/8 bg-[#141020]">
             <EventMap events={[event]} center={{ lat: event.lat!, lng: event.lng! }} zoom={15} interactive={false} />
             <div className="glass absolute bottom-3 left-3 rounded-xl px-3 py-2 text-[12px] font-semibold leading-tight">
-              {humanizeTitle(event.venueName)}
+              {displayVenue(event.venueName)}
               {event.barrio && <small className="block font-normal text-muted-foreground">{event.barrio}</small>}
             </div>
           </div>
