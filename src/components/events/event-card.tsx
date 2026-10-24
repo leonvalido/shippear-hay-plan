@@ -139,7 +139,7 @@ function SocialBadge({ event }: { event: Event }) {
     <Badge variant="outline" className="gap-1">
       Visto en {tiktok ? "TikTok" : "Instagram"}
       {event.sourceName && <span className="text-tertiary">· {event.sourceName}</span>}
-      {views != null && <span className="font-semibold text-foreground">· {formatViews(views)}</span>}
+      {views != null && views > 0 && <span className="font-semibold text-foreground">· {formatViews(views)}</span>}
     </Badge>
   );
 }

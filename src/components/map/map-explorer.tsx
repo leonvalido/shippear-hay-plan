@@ -177,7 +177,7 @@ export function MapExplorer({ initialEvents }: { initialEvents?: Event[] }) {
     const events = shown;
     const map = new Map<string, { label: string; events: typeof events }>();
     if (sort === "views") {
-      const byViews = [...events].sort((a, b) => (b.metrics?.views ?? 0) - (a.metrics?.views ?? 0));
+      const byViews = [...events].sort((a, b) => (b.metrics?.views ?? 0) - (a.metrics?.views ?? 0) || a.startsAt.localeCompare(b.startsAt));
       return [["views", { label: "Lo que más se mueve", events: byViews }] as const];
     }
     for (const e of events) {
