@@ -42,20 +42,28 @@ async function throttle(url, minGapMs = 1000) {
  * @returns {Promise<string>}
  */
 export async function fetchText(url, opts = {}) {
-  await throttle(url);
-  const ctrl = new AbortController();
-  const t = setTimeout(() => ctrl.abort(), opts.timeoutMs ?? 20_000);
-  try {
-    const res = await fetch(url, {
-      signal: ctrl.signal,
-      redirect: "follow",
-      headers: { "User-Agent": USER_AGENT, "Accept-Language": "es-AR,es;q=0.9,en;q=0.5", ...opts.headers },
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
-    return await res.text();
-  } finally {
-    clearTimeout(t);
+  let lastError;
+  for (let attempt = 0; attempt < 2; attempt++) {
+    await throttle(url);
+    const ctrl = new AbortController();
+    const t = setTimeout(() => ctrl.abort(), opts.timeoutMs ?? 20_000);
+    try {
+      const res = await fetch(url, {
+        signal: ctrl.signal,
+        redirect: "follow",
+        headers: { "User-Agent": USER_AGENT, "Accept-Language": "es-AR,es;q=0.9,en;q=0.5", ...opts.headers },
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
+      return await res.text();
+    } catch (e) {
+      lastError = e;
+      if (/HTTP \d{3}/.test(e.message)) break; // a real status code is not worth retrying
+      await sleep(1500); // transient "fetch failed" / timeout: one more try
+    } finally {
+      clearTimeout(t);
+    }
   }
+  throw lastError;
 }
 
 /**
