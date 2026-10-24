@@ -82,19 +82,20 @@ export function Concierge() {
 
   return (
     <div className="space-y-6">
-      <section className="glass space-y-5 rounded-2xl p-4 sm:p-6">
+      <section className="surface space-y-6 p-4">
         <div className="space-y-2">
-          <p className="text-sm font-medium">¿Cuándo?</p>
+          <p className="text-sm text-muted-foreground">¿Cuándo?</p>
           <FilterChips label="Cuándo" chips={WHEN_CHIPS} value={when} onChange={(v) => v && setWhen(v)} />
         </div>
 
         <div className="space-y-2">
           <div className="flex items-baseline justify-between">
-            <Label htmlFor="budget">Presupuesto</Label>
-            <span className="text-sm font-semibold" aria-live="polite">
+            <Label htmlFor="budget" className="text-sm font-normal text-muted-foreground">Presupuesto</Label>
+            <span className="text-sm font-semibold text-foreground" aria-live="polite">
               {BUDGETS[budgetIdx].label}
             </span>
           </div>
+          <div className="rounded-xl border border-white/8 p-3">
           <input
             id="budget"
             type="range"
@@ -106,39 +107,45 @@ export function Concierge() {
             className="w-full accent-primary"
             aria-valuetext={BUDGETS[budgetIdx].label}
           />
-          <div className="flex justify-between text-[11px] text-muted-foreground">
+          <div className="mt-2 flex justify-between text-xs text-tertiary">
             {BUDGETS.map((b) => (
               <span key={b.label}>{b.label}</span>
             ))}
           </div>
+          </div>
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="mood">
-            Ganas de… <span className="font-normal text-muted-foreground">(opcional)</span>
+          <Label htmlFor="mood" className="text-sm font-normal text-muted-foreground">
+            Ganas de… <span className="text-tertiary">(opcional)</span>
           </Label>
           <div className="flex gap-2">
-            <Input id="mood" maxLength={200} placeholder="Ej: algo tranqui al aire libre" value={mood} onChange={(e) => setMood(e.target.value)} />
+            <Input id="mood" className="h-10 rounded-xl border-white/8" maxLength={200} placeholder="Ej: algo tranqui al aire libre" value={mood} onChange={(e) => setMood(e.target.value)} />
             <MicButton onResult={onVoice} disabled={busy} />
           </div>
         </div>
 
-        <div className="space-y-1">
-          <div className="flex flex-wrap items-center gap-2">
-            <Button type="button" variant="outline" size="sm" onClick={locate} disabled={locating}>
-              {locating ? "Ubicando…" : "Usar mi ubicación"}
+        <div className="space-y-2">
+          <p className="text-sm text-muted-foreground">Ubicación</p>
+          <div className="flex flex-wrap items-center gap-3">
+            <Button type="button" variant="outline" onClick={locate} disabled={locating} aria-label="Usar mi ubicación" className="h-10 rounded-full border-white/8 px-4">
+              <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                <path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z" />
+                <circle cx="12" cy="10" r="2.5" />
+              </svg>
+              {locating ? "Ubicando…" : "Mi ubicación"}
             </Button>
-            <span className="text-sm text-muted-foreground">{loc ? loc.label : "Sin ubicación: buscamos en toda la ciudad"}</span>
+            <span className="text-sm text-tertiary">{loc ? loc.label : "Sin ubicación: buscamos en toda la ciudad"}</span>
           </div>
-          {locError && <p className="text-xs text-muted-foreground">{locError}</p>}
+          {locError && <p className="text-sm text-tertiary">{locError}</p>}
         </div>
 
         <div className="flex gap-2">
-          <Button size="lg" className="flex-1 font-semibold" onClick={() => ai.run(body())} disabled={busy}>
+          <Button size="lg" className="h-11 flex-1 rounded-full font-semibold" onClick={() => ai.run(body())} disabled={busy}>
             {busy ? "Armando el plan…" : "Preguntale al concierge"}
           </Button>
           {busy && (
-            <Button size="lg" variant="outline" onClick={ai.abort}>
+            <Button size="lg" variant="outline" className="h-11 rounded-full border-white/8" onClick={ai.abort}>
               Parar
             </Button>
           )}

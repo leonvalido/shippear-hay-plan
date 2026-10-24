@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 /* Minimal typing for the Web Speech API (not in lib.dom for every TS config). */
 type Recognition = {
@@ -70,7 +71,7 @@ export function MicButton({ onResult, disabled }: Props) {
       aria-pressed={listening}
       aria-label={listening ? "Dejar de escuchar" : "Decir qué tenés ganas de hacer"}
       title="Preguntar por voz"
-      className={listening ? "animate-pulse" : undefined}
+      className={cn("size-10 shrink-0 rounded-full border-white/8", listening && "animate-pulse")}
     >
       <svg viewBox="0 0 24 24" className="size-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden>
         <rect x="9" y="3" width="6" height="11" rx="3" />

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Badge } from "@/components/ui/badge";
 import { CATEGORY_COLORS } from "@/components/events/format";
 import type { EventCategory } from "@/lib/events/schema";
 
@@ -35,28 +36,31 @@ function guessCategory(s: string): EventCategory {
   return "otro";
 }
 
+/** ALL CAPS titles → "Title Case"; mixed-case titles are left alone. */
+function tidyTitle(t: string): string {
+  if (t !== t.toUpperCase() || t === t.toLowerCase()) return t;
+  return t.toLowerCase().replace(/(^|[\s(¡¿"'-])(\p{L})/gu, (_, p, c) => p + c.toUpperCase());
+}
+
 /** Tappable cards for each stop of the plan; "Ver en el mapa" searches the title on /mapa. */
 export function PlanStops({ stops }: { stops: Stop[] }) {
   if (stops.length === 0) return null;
   return (
-    <ol className="space-y-2" aria-label="Paradas del plan">
+    <ol className="space-y-3" aria-label="Paradas del plan">
       {stops.map((s, i) => (
         <li key={`${s.time}-${i}`} className="stop-reveal" style={{ animationDelay: `${i * 100}ms` }}>
-          <Link
-            href={`/mapa?q=${encodeURIComponent(s.title)}`}
-            className="glass flex items-center gap-3 rounded-xl p-3 transition-[background-color,transform] hover:bg-accent/60 active:scale-[0.98]"
-          >
-            <span aria-hidden className="size-2.5 shrink-0 rounded-full" style={{ background: CATEGORY_COLORS[guessCategory(`${s.title} ${s.venue}`)] }} />
-            <span className="font-display w-12 shrink-0 text-lg font-bold tabular-nums">{s.time}</span>
-            <span className="min-w-0 flex-1">
-              <span className="block truncate text-sm font-semibold">{s.title}</span>
-              <span className="block truncate text-xs text-muted-foreground">
-                {s.venue}
-                {s.price && ` · ${s.price}`}
-              </span>
+          <Link href={`/mapa?q=${encodeURIComponent(s.title)}`} className="surface tap flex flex-col gap-2 p-3">
+            <span className="flex items-center gap-2 text-sm text-muted-foreground">
+              <span aria-hidden className="size-2 shrink-0 rounded-full" style={{ background: CATEGORY_COLORS[guessCategory(`${s.title} ${s.venue}`)] }} />
+              <span className="tabular-nums">{s.time}</span>
             </span>
-            <span className="shrink-0 text-xs font-medium text-primary">
-              Ver en el mapa <span aria-hidden>→</span>
+            <span className="line-clamp-2 text-base font-semibold">{tidyTitle(s.title)}</span>
+            <span className="truncate text-sm text-muted-foreground">{s.venue}</span>
+            <span className="flex items-center justify-between gap-2">
+              {s.price ? <Badge variant={/gratis|libre/i.test(s.price) ? "success" : "secondary"}>{s.price}</Badge> : <span />}
+              <span className="inline-flex h-8 items-center rounded-full border border-white/8 px-3 text-sm font-medium text-primary">
+                Ver en el mapa <span aria-hidden className="ml-1">→</span>
+              </span>
             </span>
           </Link>
         </li>
