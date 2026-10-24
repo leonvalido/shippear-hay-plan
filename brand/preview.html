@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="es" class="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HayPlan · kit de marca</title>
+<style>
+:root{
+  --radius:14px;
+  --background:oklch(0.99 0.005 300);--foreground:oklch(0.18 0.02 300);
+  --card:oklch(1 0 0);--card-foreground:oklch(0.18 0.02 300);
+  --primary:oklch(0.55 0.24 320);--primary-foreground:oklch(0.99 0.005 300);
+  --secondary:oklch(0.96 0.01 300);--secondary-foreground:oklch(0.25 0.03 300);
+  --muted:oklch(0.96 0.01 300);--muted-foreground:oklch(0.50 0.02 300);
+  --accent:oklch(0.94 0.04 320);--accent-foreground:oklch(0.35 0.16 320);
+  --destructive:oklch(0.55 0.22 25);--border:oklch(0.90 0.01 300);--ring:oklch(0.55 0.24 320);
+  --glass:oklch(1 0 0 / 70%);
+  --category-musica:oklch(0.52 0.24 330);--category-teatro:oklch(0.52 0.21 20);--category-fiesta:oklch(0.50 0.23 295);
+  --category-feria:oklch(0.55 0.15 65);--category-deporte:oklch(0.52 0.16 150);--category-cultura:oklch(0.50 0.20 255);
+  --category-gastronomia:oklch(0.55 0.20 40);--category-infantil:oklch(0.52 0.13 205);--category-charla:oklch(0.50 0.12 110);
+  --category-otro:oklch(0.50 0.02 280);
+  --display:ui-rounded,"SF Pro Rounded","SF Pro Display","Segoe UI",Inter,system-ui,sans-serif;
+  --text:system-ui,-apple-system,"SF Pro Text","Segoe UI",Roboto,sans-serif;
+  color-scheme:light;
+}
+html.dark{
+  --background:oklch(0.16 0.02 300);--foreground:oklch(0.97 0.01 300);
+  --card:oklch(0.21 0.025 300);--card-foreground:oklch(0.97 0.01 300);
+  --primary:oklch(0.72 0.20 320);--primary-foreground:oklch(0.16 0.02 300);
+  --secondary:oklch(0.27 0.03 300);--secondary-foreground:oklch(0.97 0.01 300);
+  --muted:oklch(0.27 0.03 300);--muted-foreground:oklch(0.72 0.02 300);
+  --accent:oklch(0.30 0.06 320);--accent-foreground:oklch(0.90 0.08 320);
+  --destructive:oklch(0.68 0.19 22);--border:oklch(1 0 0 / 10%);--ring:oklch(0.72 0.20 320);
+  --glass:oklch(0.21 0.025 300 / 72%);
+  color-scheme:dark;
+}
+*{box-sizing:border-box;margin:0}
+body{background:var(--background);color:var(--foreground);font:16px/1.5 var(--text);-webkit-font-smoothing:antialiased}
+h1,h2,h3,.display{font-family:var(--display);letter-spacing:-0.02em;line-height:1.05;font-weight:700}
+main{max-width:1080px;margin:0 auto;padding:0 16px 120px}
+section{padding:clamp(48px,8vw,72px) 0;border-top:1px solid var(--border)}
+section:first-of-type{border-top:0}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-foreground);margin-bottom:12px}
+h2{font-size:34px;margin-bottom:8px}
+.lead{color:var(--muted-foreground);max-width:52ch;font-size:17px}
+.topbar{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;background:var(--glass);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.topbar .wm{height:28px;color:var(--foreground)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;border:0;font:600 15px var(--text);cursor:pointer;background:var(--primary);color:var(--primary-foreground)}
+.btn.ghost{background:var(--secondary);color:var(--secondary-foreground)}
+.btn.sm{padding:7px 14px;font-size:14px}
+/* hero */
+.hero{padding:96px 0 72px;text-align:center}
+.hero .mark{width:88px;height:88px;margin:0 auto 28px;display:block}
+.hero h1{font-size:clamp(44px,8vw,84px)}
+.hero h1 span{color:var(--primary)}
+.hero p{font-size:clamp(19px,2.6vw,26px);color:var(--muted-foreground);margin:18px auto 0;max-width:30ch;font-family:var(--display);letter-spacing:-0.01em;line-height:1.25}
+.hero .cta{margin-top:32px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+/* logos */
+.logos{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.tile{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:14px;align-items:flex-start;min-height:150px;justify-content:center}
+.tile.light{background:#fcfbff;color:#131019}
+.tile.purple{background:#aa24c5;color:#fff}
+.tile .cap{font-size:12px;color:inherit;opacity:.65}
+.tile svg{max-width:100%;height:auto}
+/* palette */
+.sw{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+.chip{border-radius:18px;overflow:hidden;border:1px solid var(--border);background:var(--card)}
+.chip .c{height:84px}
+.chip .m{padding:10px 12px;font-size:12px;line-height:1.35}
+.chip .m b{display:block;font-size:14px;margin-bottom:2px}
+.chip .m code{color:var(--muted-foreground);font-size:11px}
+/* type */
+.type div{padding:14px 0;border-bottom:1px solid var(--border);display:grid;grid-template-columns:140px 1fr;gap:16px;align-items:baseline;overflow-wrap:anywhere}
+@media(max-width:640px){.type div{grid-template-columns:1fr;gap:4px}}
+.type small{color:var(--muted-foreground);font-size:12px;font-family:ui-monospace,monospace}
+/* pins */
+.pins{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(180px,1fr))}
+.pin{display:flex;align-items:center;gap:12px;padding:10px;border-radius:16px;background:var(--card);border:1px solid var(--border)}
+.pin .dot{width:40px;height:40px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:2px solid #fff;display:grid;place-items:center;flex:none;box-shadow:0 4px 12px rgb(0 0 0/.25)}
+.pin .dot span{transform:rotate(45deg);color:#fff;font:700 13px var(--display)}
+.pin b{display:block;font-size:15px}.pin small{color:var(--muted-foreground);font-size:12px}
+.tag{display:inline-block;padding:3px 9px;border-radius:999px;color:#fff;font:600 11px/1.5 var(--text);letter-spacing:.02em}
+/* cards */
+.cards{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.ev{background:var(--card);border:1px solid var(--border);border-radius:22px;padding:18px;display:flex;flex-direction:column;gap:10px}
+.ev .when{font:600 13px var(--text);color:var(--primary)}
+.ev h3{font-size:21px}
+.ev p{color:var(--muted-foreground);font-size:14px}
+.ev .row{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:6px}
+/* phone + slide */
+.duo{display:grid;gap:32px;grid-template-columns:1fr;align-items:start}
+.duo>*{min-width:0}
+@media(min-width:900px){.duo{grid-template-columns:375px 1fr}}
+.phone{width:min(375px,100%);height:760px;margin:0 auto;border-radius:48px;background:#0f0b15;border:10px solid #1a1622;position:relative;overflow:hidden;box-shadow:0 30px 80px rgb(0 0 0/.5)}
+.phone .notch{position:absolute;top:12px;left:50%;transform:translateX(-50%);width:110px;height:32px;border-radius:20px;background:#1a1622;z-index:3}
+.phone svg.map{position:absolute;inset:0;width:100%;height:100%}
+.phone .search{position:absolute;top:62px;left:14px;right:14px;z-index:2;background:oklch(0.21 0.025 300/.75);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgb(255 255 255/.12);border-radius:999px;padding:11px 16px;display:flex;align-items:center;gap:10px;color:#a6a2b0;font-size:15px}
+.phone .days{position:absolute;top:116px;left:14px;z-index:2;display:flex;gap:6px}
+.phone .days span{background:oklch(0.21 0.025 300/.75);backdrop-filter:blur(20px);border:1px solid rgb(255 255 255/.12);color:#f6f4fb;border-radius:999px;padding:6px 12px;font:600 13px var(--text)}
+.phone .days span.on{background:#da74f1;color:#0f0b15;border-color:transparent}
+.phone .sheet{position:absolute;left:0;right:0;bottom:0;z-index:2;background:oklch(0.21 0.025 300/.82);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-top:1px solid rgb(255 255 255/.12);border-radius:28px 28px 0 0;padding:14px 18px 22px;color:#f6f4fb}
+.phone .sheet .grab{width:36px;height:4px;border-radius:2px;background:rgb(255 255 255/.25);margin:0 auto 12px}
+.phone .sheet .msg{background:rgb(255 255 255/.06);border-radius:16px 16px 16px 4px;padding:10px 12px;font-size:14px;line-height:1.4;margin-bottom:8px}
+.phone .sheet .me{background:#da74f1;color:#0f0b15;border-radius:16px 16px 4px 16px;margin-left:auto;width:max-content;max-width:85%}
+.phone .sheet .ask{display:flex;gap:8px;align-items:center;margin-top:10px;background:rgb(255 255 255/.06);border:1px solid rgb(255 255 255/.12);border-radius:999px;padding:9px 14px;color:#a6a2b0;font-size:14px}
+.slide{aspect-ratio:16/9;width:100%;border-radius:20px;overflow:hidden;border:1px solid var(--border);background:#0f0b15}
+.slide svg{width:100%;height:100%;display:block}
+.note{font-size:13px;color:var(--muted-foreground);margin-top:10px}
+footer{text-align:center;color:var(--muted-foreground);font-size:13px;padding:40px 0}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <svg class="wm" viewBox="0 0 236 56" aria-label="HayPlan"><path fill="currentColor" fill-rule="evenodd" d="M28 4c-10.5 0-18 7.8-18 18 0 13 18 30 18 30s18-17 18-30c0-10.2-7.5-18-18-18zm0 8l2.6 6.8 6.8 2.6-6.8 2.6L28 30.8l-2.6-6.8-6.8-2.6 6.8-2.6z"/><text x="56" y="42" font-family="ui-rounded,'SF Pro Rounded','Segoe UI',Inter,system-ui,sans-serif" font-size="40" font-weight="700" letter-spacing="-1" fill="currentColor">hayplan</text></svg>
+  <button class="btn ghost sm" onclick="document.documentElement.classList.toggle('dark');this.textContent=document.documentElement.classList.contains('dark')?'Ver modo claro':'Ver modo oscuro'">Ver modo claro</button>
+</div>
+<main>
+
+<section class="hero">
+  <svg class="mark" viewBox="0 0 56 56" aria-hidden="true"><path fill="var(--primary)" d="M28 4c-10.5 0-18 7.8-18 18 0 13 18 30 18 30s18-17 18-30c0-10.2-7.5-18-18-18z"/><path fill="var(--background)" d="M28 12l2.6 6.8 6.8 2.6-6.8 2.6L28 30.8l-2.6-6.8-6.8-2.6 6.8-2.6z"/></svg>
+  <h1>hay<span>plan</span></h1>
+  <p>¿Qué hacés hoy? Hay plan.<br>El mapa de eventos de Rosario.</p>
+  <div class="cta"><button class="btn">Ver en el mapa</button><button class="btn ghost">Preguntale al concierge</button></div>
+</section>
+
+<section>
+  <p class="eyebrow">Logo</p>
+  <h2>Un pin con un destello.</h2>
+  <p class="lead">"Acá hay algo." Funciona desde 24 px como favicon hasta 240 px en el pitch. Sobre fotos o color, siempre la versión mono.</p>
+  <div class="logos" style="margin-top:32px">
+    <div class="tile light"><svg width="236" height="56" viewBox="0 0 236 56"><path fill="#aa24c5" d="M28 4c-10.5 0-18 7.8-18 18 0 13 18 30 18 30s18-17 18-30c0-10.2-7.5-18-18-18z"/><path fill="#fff" d="M28 12l2.6 6.8 6.8 2.6-6.8 2.6L28 30.8l-2.6-6.8-6.8-2.6 6.8-2.6z"/><text x="56" y="42" font-family="ui-rounded,'SF Pro Rounded','Segoe UI',Inter,system-ui,sans-serif" font-size="40" font-weight="700" letter-spacing="-1" fill="#131019">hay<tspan fill="#aa24c5">plan</tspan></text></svg><span class="cap">logo.svg · fondo claro</span></div>
+    <div class="tile" style="background:#0f0b15;color:#f6f4fb"><svg width="236" height="56" viewBox="0 0 236 56"><path fill="#da74f1" d="M28 4c-10.5 0-18 7.8-18 18 0 13 18 30 18 30s18-17 18-30c0-10.2-7.5-18-18-18z"/><path fill="#0f0b15" d="M28 12l2.6 6.8 6.8 2.6-6.8 2.6L28 30.8l-2.6-6.8-6.8-2.6 6.8-2.6z"/><text x="56" y="42" font-family="ui-rounded,'SF Pro Rounded','Segoe UI',Inter,system-ui,sans-serif" font-size="40" font-weight="700" letter-spacing="-1" fill="#f6f4fb">hay<tspan fill="#da74f1">plan</tspan></text></svg><span class="cap">logo.svg · fondo oscuro (primary claro)</span></div>
+    <div class="tile purple"><svg width="236" height="56" viewBox="0 0 236 56" style="color:#fff"><path fill="currentColor" fill-rule="evenodd" d="M28 4c-10.5 0-18 7.8-18 18 0 13 18 30 18 30s18-17 18-30c0-10.2-7.5-18-18-18zm0 8l2.6 6.8 6.8 2.6-6.8 2.6L28 30.8l-2.6-6.8-6.8-2.6 6.8-2.6z"/><text x="56" y="42" font-family="ui-rounded,'SF Pro Rounded','Segoe UI',Inter,system-ui,sans-serif" font-size="40" font-weight="700" letter-spacing="-1" fill="currentColor">hayplan</text></svg><span class="cap">logo-mono.svg · sobre color</span></div>
+    <div class="tile" style="flex-direction:row;gap:24px;align-items:center;flex-wrap:wrap">
+      <svg width="96" height="96" viewBox="0 0 512 512"><rect width="512" height="512" rx="112" fill="#aa24c5"/><path fill="#fff" fill-rule="evenodd" d="M256 72c-80 0-138 59-138 136 0 99 138 232 138 232s138-133 138-232c0-77-58-136-138-136zm0 60l20 52 52 20-52 20-20 52-20-52-52-20 52-20z"/></svg>
+      <svg width="48" height="48" viewBox="0 0 512 512"><rect width="512" height="512" rx="112" fill="#aa24c5"/><path fill="#fff" fill-rule="evenodd" d="M256 72c-80 0-138 59-138 136 0 99 138 232 138 232s138-133 138-232c0-77-58-136-138-136zm0 60l20 52 52 20-52 20-20 52-20-52-52-20 52-20z"/></svg>
+      <svg width="24" height="24" viewBox="0 0 512 512"><rect width="512" height="512" rx="112" fill="#aa24c5"/><path fill="#fff" fill-rule="evenodd" d="M256 72c-80 0-138 59-138 136 0 99 138 232 138 232s138-133 138-232c0-77-58-136-138-136zm0 60l20 52 52 20-52 20-20 52-20-52-52-20 52-20z"/></svg>
+      <span class="cap">icon.svg · 96 / 48 / 24 px</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <p class="eyebrow">Color</p>
+  <h2>Un lienzo, un acento.</h2>
+  <p class="lead">Violeta nocturno para la acción. Todo lo demás es casi negro, casi blanco y gris. Tocá "Ver modo claro" arriba para ver la versión de día.</p>
+  <div class="sw" style="margin-top:32px">
+    <div class="chip"><div class="c" style="background:var(--primary)"></div><div class="m"><b>primary</b><code>oklch(0.55 0.24 320) · #aa24c5<br>dark: oklch(0.72 0.20 320) · #da74f1</code></div></div>
+    <div class="chip"><div class="c" style="background:var(--background)"></div><div class="m"><b>background</b><code>oklch(0.99 0.005 300) · #fcfbff<br>dark: oklch(0.16 0.02 300) · #0f0b15</code></div></div>
+    <div class="chip"><div class="c" style="background:var(--foreground)"></div><div class="m"><b>foreground</b><code>oklch(0.18 0.02 300) · #131019<br>dark: oklch(0.97 0.01 300) · #f6f4fb</code></div></div>
+    <div class="chip"><div class="c" style="background:var(--card)"></div><div class="m"><b>card / popover</b><code>oklch(1 0 0) · #ffffff<br>dark: oklch(0.21 0.025 300) · #1a1622</code></div></div>
+    <div class="chip"><div class="c" style="background:var(--secondary)"></div><div class="m"><b>secondary / muted</b><code>oklch(0.96 0.01 300) · #f3f0f8<br>dark: oklch(0.27 0.03 300) · #292333</code></div></div>
+    <div class="chip"><div class="c" style="background:var(--muted-foreground)"></div><div class="m"><b>muted-foreground</b><code>oklch(0.50 0.02 300) · #65616d<br>dark: oklch(0.72 0.02 300) · #a6a2b0</code></div></div>
+    <div class="chip"><div class="c" style="background:var(--accent)"></div><div class="m"><b>accent</b><code>oklch(0.94 0.04 320) · #f8e3fc<br>dark: oklch(0.30 0.06 320) · #3b2340</code></div></div>
+    <div class="chip"><div class="c" style="background:var(--destructive)"></div><div class="m"><b>destructive</b><code>oklch(0.55 0.22 25) · #d40924<br>dark: oklch(0.68 0.19 22) · #f75c61</code></div></div>
+  </div>
+</section>
+
+<section>
+  <p class="eyebrow">Tipografía</p>
+  <h2>Fuente del sistema. Grande y apretada.</h2>
+  <p class="lead">Sin descargas. Títulos en la redondeada del sistema con tracking -0.02em; cuerpo en la normal.</p>
+  <div class="type" style="margin-top:24px">
+    <div><small>pitch · 72/76</small><span class="display" style="font-size:clamp(44px,14vw,72px)">Hay plan.</span></div>
+    <div><small>titular · 44/48</small><span class="display" style="font-size:clamp(32px,10vw,44px)">¿Qué hacés hoy?</span></div>
+    <div><small>pantalla · 28/34</small><span class="display" style="font-size:28px;font-weight:600">Viernes 24 de octubre</span></div>
+    <div><small>card · 20/28</small><span class="display" style="font-size:20px;font-weight:600">Feria del Libro en el Parque</span></div>
+    <div><small>cuerpo grande · 16/24</small><span>Decime qué tenés ganas de hacer y te armo el plan con lo que hay hoy.</span></div>
+    <div><small>cuerpo · 14/20</small><span style="font-size:14px">Centro Cultural Parque de España · 21:00 · gratis</span></div>
+    <div><small>meta · 12/16</small><span style="font-size:12px;color:var(--muted-foreground)">Fuente: agenda municipal · actualizado hace 12 min</span></div>
+  </div>
+</section>
+
+<section>
+  <p class="eyebrow">Categorías</p>
+  <h2>Diez pines que se distinguen de un vistazo.</h2>
+  <p class="lead">Todos con texto blanco a 4.5:1 o más. Borde blanco de 2 px para que se lean también sobre el mapa oscuro.</p>
+  <div class="pins" style="margin-top:32px">
+    <div class="pin"><div class="dot" style="background:var(--category-musica)"><span>M</span></div><div><b>Música</b><small>oklch(0.52 0.24 330) · 6.3:1</small></div></div>
+    <div class="pin"><div class="dot" style="background:var(--category-teatro)"><span>T</span></div><div><b>Teatro</b><small>oklch(0.52 0.21 20) · 6.1:1</small></div></div>
+    <div class="pin"><div class="dot" style="background:var(--category-fiesta)"><span>F</span></div><div><b>Fiesta</b><small>oklch(0.50 0.23 295) · 6.8:1</small></div></div>
+    <div class="pin"><div class="dot" style="background:var(--category-feria)"><span>Fe</span></div><div><b>Feria</b><small>oklch(0.55 0.15 65) · 5.0:1</small></div></div>
+    <div class="pin"><div class="dot" style="background:var(--category-deporte)"><span>D</span></div><div><b>Deporte</b><small>oklch(0.52 0.16 150) · 5.0:1</small></div></div>
+    <div class="pin"><div class="dot" style="background:var(--category-cultura)"><span>C</span></div><div><b>Cultura</b><small>oklch(0.50 0.20 255) · 6.0:1</small></div></div>
+    <div class="pin"><div class="dot" style="background:var(--category-gastronomia)"><span>G</span></div><div><b>Gastronomía</b><small>oklch(0.55 0.20 40) · 5.3:1</small></div></div>
+    <div class="pin"><div class="dot" style="background:var(--category-infantil)"><span>I</span></div><div><b>Infantil</b><small>oklch(0.52 0.13 205) · 4.9:1</small></div></div>
+    <div class="pin"><div class="dot" style="background:var(--category-charla)"><span>Ch</span></div><div><b>Charla</b><small>oklch(0.50 0.12 110) · 5.9:1</small></div></div>
+    <div class="pin"><div class="dot" style="background:var(--category-otro)"><span>·</span></div><div><b>Otro</b><small>oklch(0.50 0.02 280) · 6.0:1</small></div></div>
+  </div>
+</section>
+
+<section>
+  <p class="eyebrow">Tarjetas de evento</p>
+  <h2>Hora, lugar, precio. Nada más.</h2>
+  <div class="cards" style="margin-top:32px">
+    <article class="ev"><span class="tag" style="background:var(--category-musica)">Música</span><span class="when">Hoy · 22:00</span><h3>Noche de jazz en Bon Scott</h3><p>Pichincha · entrada $8.000</p><div class="row"><button class="btn sm">Ver en el mapa</button><button class="btn ghost sm">Guardar</button></div></article>
+    <article class="ev"><span class="tag" style="background:var(--category-feria)">Feria</span><span class="when">Sábado · 11:00 a 20:00</span><h3>Feria de diseño en el Parque Independencia</h3><p>Bv. Oroño y 27 de Febrero · gratis</p><div class="row"><button class="btn sm">Ver en el mapa</button><button class="btn ghost sm">Guardado</button></div></article>
+    <article class="ev"><span class="tag" style="background:var(--category-cultura)">Cultura</span><span class="when">Hoy · 19:30</span><h3>Inauguración en el Castagnino</h3><p>Pellegrini 2202 · gratis con reserva</p><div class="row"><button class="btn sm">Ver en el mapa</button><button class="btn ghost sm">Guardar</button></div></article>
+  </div>
+</section>
+
+<section>
+  <p class="eyebrow">Pantalla del mapa y slide de pitch</p>
+  <h2>El mapa es la foto.</h2>
+  <p class="lead">Barra, días y concierge flotan en vidrio sobre Rosario de noche. El slide de título va antes de la demo en vivo.</p>
+  <div class="duo" style="margin-top:32px">
+    <div class="phone">
+      <div class="notch"></div>
+      <svg class="map" viewBox="0 0 375 760" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect width="375" height="760" fill="#0f0b15"/>
+        <path d="M300 0 C330 150 280 300 320 450 S290 650 340 760 L375 760 L375 0Z" fill="#1b1a33"/>
+        <g stroke="#2a2438" stroke-width="2">
+          <path d="M0 120H300M0 180H305M0 240H295M0 300H300M0 360H310M0 420H315M0 480H305M0 540H300M0 600H310M0 660H320"/>
+          <path d="M40 0V760M100 0V760M160 0V760M220 0V760M280 0V760"/>
+        </g>
+        <path d="M0 330H330" stroke="#3b2340" stroke-width="6"/>
+        <path d="M130 0V760" stroke="#3b2340" stroke-width="6"/>
+        <g font-family="system-ui,sans-serif" font-size="9" fill="#5e5768"><text x="140" y="326">Bv. Oroño</text><text x="34" y="92" transform="rotate(-90 34 92)">Córdoba</text><text x="318" y="400">Río Paraná</text></g>
+        <g stroke="#fff" stroke-width="2">
+          <g transform="translate(160,250)"><path fill="#ad00a8" d="M0 -22c-8 0-14 6-14 14 0 10 14 22 14 22s14-12 14-22c0-8-6-14-14-14z"/><text stroke="none" fill="#fff" x="0" y="-5" text-anchor="middle" font-size="10" font-weight="700" font-family="system-ui">M</text></g>
+          <g transform="translate(230,380)"><path fill="#005dd1" d="M0 -22c-8 0-14 6-14 14 0 10 14 22 14 22s14-12 14-22c0-8-6-14-14-14z"/><text stroke="none" fill="#fff" x="0" y="-5" text-anchor="middle" font-size="10" font-weight="700" font-family="system-ui">C</text></g>
+          <g transform="translate(90,330)"><path fill="#ab5a00" d="M0 -22c-8 0-14 6-14 14 0 10 14 22 14 22s14-12 14-22c0-8-6-14-14-14z"/><text stroke="none" fill="#fff" x="0" y="-5" text-anchor="middle" font-size="10" font-weight="700" font-family="system-ui">Fe</text></g>
+          <g transform="translate(270,210)"><path fill="#ca3200" d="M0 -22c-8 0-14 6-14 14 0 10 14 22 14 22s14-12 14-22c0-8-6-14-14-14z"/><text stroke="none" fill="#fff" x="0" y="-5" text-anchor="middle" font-size="10" font-weight="700" font-family="system-ui">G</text></g>
+          <g transform="translate(60,450)"><path fill="#008130" d="M0 -22c-8 0-14 6-14 14 0 10 14 22 14 22s14-12 14-22c0-8-6-14-14-14z"/><text stroke="none" fill="#fff" x="0" y="-5" text-anchor="middle" font-size="10" font-weight="700" font-family="system-ui">D</text></g>
+          <g transform="translate(190,470)"><path fill="#7330d4" d="M0 -22c-8 0-14 6-14 14 0 10 14 22 14 22s14-12 14-22c0-8-6-14-14-14z"/><text stroke="none" fill="#fff" x="0" y="-5" text-anchor="middle" font-size="10" font-weight="700" font-family="system-ui">F</text></g>
+          <g transform="translate(120,180)"><path fill="#c50031" d="M0 -22c-8 0-14 6-14 14 0 10 14 22 14 22s14-12 14-22c0-8-6-14-14-14z"/><text stroke="none" fill="#fff" x="0" y="-5" text-anchor="middle" font-size="10" font-weight="700" font-family="system-ui">T</text></g>
+        </g>
+        <circle cx="200" cy="300" r="7" fill="#da74f1" stroke="#fff" stroke-width="2"/><circle cx="200" cy="300" r="18" fill="#da74f1" opacity=".2"/>
+      </svg>
+      <div class="search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>Buscá un plan, un lugar, un barrio</div>
+      <div class="days"><span class="on">Hoy</span><span>Mañana</span><span>Finde</span></div>
+      <div class="sheet">
+        <div class="grab"></div>
+        <div class="msg">Hola. Soy HayPlan. Decime qué tenés ganas de hacer y te armo el plan con lo que hay hoy en Rosario.</div>
+        <div class="msg me">algo tranqui cerca de Pichincha, salgo a las 10</div>
+        <div class="msg">A las 22 hay jazz en Bon Scott (Pichincha, $8.000). Si preferís gratis, a las 19:30 inauguran en el Castagnino, a 10 cuadras.</div>
+        <div class="ask">Preguntale al concierge<span style="margin-left:auto;width:28px;height:28px;border-radius:50%;background:#da74f1;display:grid;place-items:center;color:#0f0b15;font-weight:700">↑</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="slide">
+        <svg viewBox="0 0 1920 1080" aria-label="Slide de título">
+          <defs><radialGradient id="g" cx="50%" cy="110%" r="80%"><stop offset="0" stop-color="#aa24c5" stop-opacity=".55"/><stop offset="1" stop-color="#0f0b15" stop-opacity="0"/></radialGradient></defs>
+          <rect width="1920" height="1080" fill="#0f0b15"/><rect width="1920" height="1080" fill="url(#g)"/>
+          <g transform="translate(760,250) scale(4.6)"><path fill="#da74f1" d="M28 4c-10.5 0-18 7.8-18 18 0 13 18 30 18 30s18-17 18-30c0-10.2-7.5-18-18-18z"/><path fill="#0f0b15" d="M28 12l2.6 6.8 6.8 2.6-6.8 2.6L28 30.8l-2.6-6.8-6.8-2.6 6.8-2.6z"/><text x="56" y="42" font-family="ui-rounded,'SF Pro Rounded','Segoe UI',Inter,system-ui,sans-serif" font-size="40" font-weight="700" letter-spacing="-1" fill="#f6f4fb">hay<tspan fill="#da74f1">plan</tspan></text></g>
+          <text x="960" y="640" text-anchor="middle" font-family="ui-rounded,'SF Pro Rounded','Segoe UI',Inter,system-ui,sans-serif" font-size="96" font-weight="700" letter-spacing="-2" fill="#f6f4fb">¿Qué hacés hoy? Hay plan.</text>
+          <text x="960" y="720" text-anchor="middle" font-family="system-ui,sans-serif" font-size="40" fill="#a6a2b0">El mapa de eventos de Rosario, con un concierge que te responde.</text>
+          <text x="960" y="980" text-anchor="middle" font-family="system-ui,sans-serif" font-size="30" font-weight="600" letter-spacing="4" fill="#a6a2b0">SHIPPEAR #3 · ROSARIO</text>
+        </svg>
+      </div>
+      <p class="note">pitch-slide.svg · 1920×1080. Se abre en cualquier navegador a pantalla completa.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer>HayPlan · kit de marca · Shippear #3 · Rosario · 2026</footer>
+</body>
+</html>
