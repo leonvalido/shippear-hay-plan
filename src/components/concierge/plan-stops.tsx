@@ -9,6 +9,14 @@ export type Stop = { time: string; title: string; venue: string; price?: string 
 
 const LINE = /^\s*(?:[-*•]\s*|\d+[.)]\s*)?\**(\d{1,2}:\d{2})\**(?:\s*hs?\.?)?\s*[·\-–—|]\s*\**(.+?)\**\s*[·\-–—|]\s*\**(.+?)\**(?:\s*[·\-–—|]\s*\**(.+?)\**)?\s*$/;
 
+/** One price wording across the app: unknown prices read "Precio a confirmar", free ones "Gratis". */
+function tidyPrice(p?: string): string | undefined {
+  if (!p) return undefined;
+  if (/no informado|consultar|a confirmar|sin dato|\?/i.test(p)) return "Precio a confirmar";
+  if (/gratis|libre|gratuit/i.test(p)) return "Gratis";
+  return p;
+}
+
 /** Pull "HH:MM · título · lugar · precio" lines out of the concierge answer. Anything else stays as text. */
 export function parseStops(text: string): Stop[] {
   const stops: Stop[] = [];
@@ -17,7 +25,7 @@ export function parseStops(text: string): Stop[] {
     if (!m) continue;
     const [, time, title, venue, price] = m;
     if (title.length < 2 || venue.length < 2) continue;
-    stops.push({ time: time.padStart(5, "0"), title: title.trim(), venue: venue.trim(), price: price?.trim() });
+    stops.push({ time: time.padStart(5, "0"), title: title.trim(), venue: venue.trim(), price: tidyPrice(price?.trim()) });
   }
   return stops;
 }
