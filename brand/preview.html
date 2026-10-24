@@ -110,6 +110,28 @@ footer{text-align:center;color:var(--muted-foreground);font-size:13px;padding:40
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="appicon" viewBox="0 0 512 512">  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1b1526"/><stop offset="1" stop-color="#0d0912"/></linearGradient>
+    <radialGradient id="glow" cx="50%" cy="46%" r="42%"><stop offset="0" stop-color="#aa24c5" stop-opacity="0.45"/><stop offset="1" stop-color="#aa24c5" stop-opacity="0"/></radialGradient>
+    <linearGradient id="metal" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9a3ff"/><stop offset="0.5" stop-color="#c94ee6"/><stop offset="1" stop-color="#7a1a9a"/></linearGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.75"/><stop offset="0.45" stop-color="#ffffff" stop-opacity="0"/></linearGradient>
+    <radialGradient id="sheen" cx="34%" cy="22%" r="45%"><stop offset="0" stop-color="#ffffff" stop-opacity="0.45"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></radialGradient>
+    <linearGradient id="shade" x1="0" y1="0.45" x2="0" y2="1"><stop offset="0" stop-color="#2a0538" stop-opacity="0"/><stop offset="1" stop-color="#2a0538" stop-opacity="0.55"/></linearGradient>
+    <linearGradient id="inset" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a0a4d"/><stop offset="1" stop-color="#6b1689"/></linearGradient>
+    <linearGradient id="insetgloss" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.22"/><stop offset="0.5" stop-color="#ffffff" stop-opacity="0"/></linearGradient>
+    <clipPath id="pinclip"><path d="M256 72c-80 0-138 59-138 136 0 99 138 232 138 232s138-133 138-232c0-77-58-136-138-136z"/></clipPath>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <rect width="512" height="512" fill="url(#glow)"/>
+  <path d="M256 72c-80 0-138 59-138 136 0 99 138 232 138 232s138-133 138-232c0-77-58-136-138-136z" fill="url(#metal)"/>
+  <g clip-path="url(#pinclip)">
+    <rect width="512" height="512" fill="url(#sheen)"/>
+    <rect width="512" height="512" fill="url(#shade)"/>
+    <path d="M256 72c-80 0-138 59-138 136 0 99 138 232 138 232s138-133 138-232c0-77-58-136-138-136z" fill="none" stroke="url(#rim)" stroke-width="14"/>
+  </g>
+  <path d="M256 132l20 52 52 20-52 20-20 52-20-52-52-20 52-20z" fill="url(#inset)" stroke="#f3c8ff" stroke-opacity="0.8" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M256 132l20 52 52 20-52 20-20 52-20-52-52-20 52-20z" fill="url(#insetgloss)"/>
+</symbol></svg>
 <div class="topbar">
   <svg class="wm" viewBox="0 0 236 56" aria-label="HayPlan"><path fill="currentColor" fill-rule="evenodd" d="M28 4c-10.5 0-18 7.8-18 18 0 13 18 30 18 30s18-17 18-30c0-10.2-7.5-18-18-18zm0 8l2.6 6.8 6.8 2.6-6.8 2.6L28 30.8l-2.6-6.8-6.8-2.6 6.8-2.6z"/><text x="56" y="42" font-family="ui-rounded,'SF Pro Rounded','Segoe UI',Inter,system-ui,sans-serif" font-size="40" font-weight="700" letter-spacing="-1" fill="currentColor">hayplan</text></svg>
   <button class="btn ghost sm" onclick="document.documentElement.classList.toggle('dark');this.textContent=document.documentElement.classList.contains('dark')?'Ver modo claro':'Ver modo oscuro'">Ver modo claro</button>
@@ -132,10 +154,10 @@ footer{text-align:center;color:var(--muted-foreground);font-size:13px;padding:40
     <div class="tile" style="background:#0f0b15;color:#f6f4fb"><svg width="236" height="56" viewBox="0 0 236 56"><path fill="#da74f1" d="M28 4c-10.5 0-18 7.8-18 18 0 13 18 30 18 30s18-17 18-30c0-10.2-7.5-18-18-18z"/><path fill="#0f0b15" d="M28 12l2.6 6.8 6.8 2.6-6.8 2.6L28 30.8l-2.6-6.8-6.8-2.6 6.8-2.6z"/><text x="56" y="42" font-family="ui-rounded,'SF Pro Rounded','Segoe UI',Inter,system-ui,sans-serif" font-size="40" font-weight="700" letter-spacing="-1" fill="#f6f4fb">hay<tspan fill="#da74f1">plan</tspan></text></svg><span class="cap">logo.svg · fondo oscuro (primary claro)</span></div>
     <div class="tile purple"><svg width="236" height="56" viewBox="0 0 236 56" style="color:#fff"><path fill="currentColor" fill-rule="evenodd" d="M28 4c-10.5 0-18 7.8-18 18 0 13 18 30 18 30s18-17 18-30c0-10.2-7.5-18-18-18zm0 8l2.6 6.8 6.8 2.6-6.8 2.6L28 30.8l-2.6-6.8-6.8-2.6 6.8-2.6z"/><text x="56" y="42" font-family="ui-rounded,'SF Pro Rounded','Segoe UI',Inter,system-ui,sans-serif" font-size="40" font-weight="700" letter-spacing="-1" fill="currentColor">hayplan</text></svg><span class="cap">logo-mono.svg · sobre color</span></div>
     <div class="tile" style="flex-direction:row;gap:24px;align-items:center;flex-wrap:wrap">
-      <svg width="96" height="96" viewBox="0 0 512 512"><rect width="512" height="512" rx="112" fill="#aa24c5"/><path fill="#fff" fill-rule="evenodd" d="M256 72c-80 0-138 59-138 136 0 99 138 232 138 232s138-133 138-232c0-77-58-136-138-136zm0 60l20 52 52 20-52 20-20 52-20-52-52-20 52-20z"/></svg>
-      <svg width="48" height="48" viewBox="0 0 512 512"><rect width="512" height="512" rx="112" fill="#aa24c5"/><path fill="#fff" fill-rule="evenodd" d="M256 72c-80 0-138 59-138 136 0 99 138 232 138 232s138-133 138-232c0-77-58-136-138-136zm0 60l20 52 52 20-52 20-20 52-20-52-52-20 52-20z"/></svg>
-      <svg width="24" height="24" viewBox="0 0 512 512"><rect width="512" height="512" rx="112" fill="#aa24c5"/><path fill="#fff" fill-rule="evenodd" d="M256 72c-80 0-138 59-138 136 0 99 138 232 138 232s138-133 138-232c0-77-58-136-138-136zm0 60l20 52 52 20-52 20-20 52-20-52-52-20 52-20z"/></svg>
-      <span class="cap">icon.svg · 96 / 48 / 24 px</span>
+      <svg width="96" height="96"><use href="#appicon"/></svg>
+      <svg width="48" height="48"><use href="#appicon"/></svg>
+      <svg width="24" height="24"><use href="#appicon"/></svg>
+      <span class="cap">icon.svg · 96 / 48 / 24 px · metálico, lee a 32 px</span>
     </div>
   </div>
 </section>
