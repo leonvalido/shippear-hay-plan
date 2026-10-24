@@ -60,7 +60,10 @@ export function MapExplorer() {
 
   // Deep link from the concierge: /mapa?q=título
   useEffect(() => {
-    const initial = new URLSearchParams(window.location.search).get("q");
+    const params = new URLSearchParams(window.location.search);
+    const cat = params.get("category");
+    if (cat && (CATEGORIES as string[]).includes(cat)) setCategory(cat as EventCategory);
+    const initial = params.get("q");
     if (initial) {
       setQuery(initial);
       setQ(initial);

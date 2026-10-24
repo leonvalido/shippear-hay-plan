@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { fetchEvents } from "@/app/_lib/api";
+import { HeroMap } from "@/components/layout/hero-map";
+import { CATEGORY_COLORS, CATEGORY_LABELS } from "@/components/events/format";
 import { dayRange } from "@/components/events/format";
 import { Button } from "@/components/ui/button";
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -18,17 +20,31 @@ export default async function Home() {
 
   return (
     <div className="mx-auto w-full max-w-5xl space-y-14 px-4 py-12 sm:py-20">
-      <section className="space-y-6 text-center">
-        <p className="text-sm font-medium uppercase tracking-widest text-muted-foreground">Shippear #3 · Rosario</p>
-        <p className="glass inline-flex items-center gap-2 rounded-full px-3 py-1 text-sm text-muted-foreground" aria-live="polite">
+      <section className="relative space-y-6 py-6 text-center">
+        <HeroMap />
+        <p className="relative text-sm font-medium uppercase tracking-widest text-muted-foreground">Shippear #3 · Rosario</p>
+        <p className="glass relative inline-flex items-center gap-2 rounded-full px-3 py-1 text-sm text-muted-foreground" aria-live="polite">
           <span aria-hidden className="size-2 animate-pulse rounded-full bg-emerald-500" />
           <strong className="font-semibold text-foreground tabular-nums">{count}</strong> evento{count === 1 ? "" : "s"} esta semana
         </p>
-        <h1 className="mx-auto max-w-3xl text-5xl font-bold sm:text-7xl">Mirá qué pasa hoy en Rosario.</h1>
-        <p className="mx-auto max-w-xl text-lg text-muted-foreground">
+        <h1 className="relative mx-auto max-w-3xl text-5xl font-bold sm:text-7xl">Mirá qué pasa hoy en Rosario.</h1>
+        <p className="relative mx-auto max-w-xl text-lg text-muted-foreground">
           Ves en un mapa los recitales, las ferias, el teatro y las fiestas de hoy, con hora, lugar y precio de la entrada.
         </p>
-        <div className="flex flex-col justify-center gap-3 sm:flex-row">
+        <ul className="relative flex flex-wrap justify-center gap-2" aria-label="Categorías">
+          {(["musica", "fiesta", "feria"] as const).map((c) => (
+            <li key={c}>
+              <Link
+                href={`/mapa?category=${c}`}
+                className="glass inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-sm font-medium transition-transform active:scale-[0.98]"
+              >
+                <span aria-hidden className="size-2 rounded-full" style={{ background: CATEGORY_COLORS[c] }} />
+                {CATEGORY_LABELS[c]}
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <div className="relative flex flex-col justify-center gap-3 sm:flex-row">
           <Button asChild size="lg" className="h-12 px-8 text-base">
             <Link href="/mapa">Abrir el mapa</Link>
           </Button>
