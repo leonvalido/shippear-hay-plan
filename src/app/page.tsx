@@ -9,7 +9,7 @@ export const dynamic = "force-dynamic";
 const STEPS = [
   { n: "01", title: "El mapa de hoy", desc: "Junta en un solo mapa lo que pasa hoy en la agenda municipal, los teatros y los bares de Rosario." },
   { n: "02", title: "El concierge", desc: "Le decís qué tenés ganas de hacer y a qué hora salís, y te contesta con eventos de hoy, con hora, lugar y precio." },
-  { n: "03", title: "El plan de esta noche", desc: "Guardás el que te gusta, tocás \"Cómo llegar\" y salís." },
+  { n: "03", title: "El plan de esta noche", desc: "Elegís el que te gusta, tocás \"Cómo llegar\" y salís." },
 ];
 
 export default async function Home() {
