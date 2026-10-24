@@ -6,6 +6,7 @@ import { ROSARIO_CENTER } from "@/lib/events/schema";
 import { cn } from "@/lib/utils";
 import { CATEGORY_COLORS, displayTitle, formatWhen, humanizeTitle } from "@/components/events/format";
 import { groupByVenue, venueOf, type Venue } from "@/components/events/venues";
+import { categoryIconHtml } from "@/components/events/category-icon";
 import { loadLeaflet, loadMarkerCluster, type LeafletMap, type LeafletMarker } from "./leaflet";
 
 type Props = {
@@ -382,6 +383,6 @@ function pinIcon(L: any, v: Venue, selected: boolean) {
     iconSize: [size, size],
     iconAnchor: [size / 2, size / 2],
     tooltipAnchor: [0, -size / 2],
-    html: `<div class="hp-pin${selected ? " hp-pin-selected" : ""}" style="--c:${CATEGORY_COLORS[v.category]}">${n > 1 ? `<span class="hp-pin-count">${n}</span>` : ""}</div>`,
+    html: `<div class="hp-pin${selected ? " hp-pin-selected" : ""}" style="--c:${CATEGORY_COLORS[v.category]}">${categoryIconHtml(v.category, 12, "#fff")}${n > 1 ? `<span class="hp-pin-count">${n}</span>` : ""}</div>`,
   });
 }

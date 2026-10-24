@@ -7,11 +7,13 @@ import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import type { Event } from "@/lib/events/schema";
 import { cn } from "@/lib/utils";
-import { CATEGORY_COLORS, CATEGORY_LABELS, SOCIAL_SOURCES, displayTitle, distanceLabel, formatPrice, formatViews, formatWhen, humanizeTitle, type LatLng } from "./format";
+import { CategoryIcon } from "./category-icon";
+import { CATEGORY_COLORS, CATEGORY_LABELS, displayTitle, distanceLabel, formatPrice, formatWhen, humanizeTitle, type LatLng } from "./format";
 
 type Props = {
   event: Event;
   selected?: boolean;
+  /** Hover/focus highlight (pin on the map); tapping the card always opens the event. */
   onSelect?: (id: string) => void;
   /** Kept for API compatibility; the when-line always shows day · time. */
   showDate?: boolean;
@@ -23,21 +25,21 @@ type Props = {
 };
 
 /**
- * Event row: 64px thumbnail (category fallback), then
- * line 1 day · time (small, muted) · line 2 title (15px semibold, 2 lines) · line 3 venue (muted) · two pills max.
+ * Event row, the whole card is the link: 64px thumbnail (category fallback), then
+ * line 1 day · time (small, muted) · line 2 title (15px semibold, 2 lines) · line 3 venue (muted) · price + category.
  */
 export function EventCard({ event, selected, onSelect, from, index = 0, className }: Props) {
   const color = CATEGORY_COLORS[event.category];
   const dist = distanceLabel(from, event);
-  const social = SOCIAL_SOURCES.has(event.sourceType);
   return (
-    <article
+    <Link
+      href={`/evento/${event.id}`}
       data-event-id={event.id}
-      onClick={() => onSelect?.(event.id)}
+      onPointerEnter={() => onSelect?.(event.id)}
+      onFocus={() => onSelect?.(event.id)}
       style={{ animationDelay: `${Math.min(index, 12) * 40}ms` }}
       className={cn(
-        "surface tap row-in flex gap-3 p-3",
-        onSelect && "cursor-pointer",
+        "surface tap row-in flex gap-3 p-3 text-left active:bg-white/5",
         selected && "border-primary/70 ring-2 ring-primary/30",
         className,
       )}
@@ -45,41 +47,24 @@ export function EventCard({ event, selected, onSelect, from, index = 0, classNam
       <Thumb event={event} />
       <div className="min-w-0 flex-1 space-y-1">
         <p className="text-[11px] font-semibold uppercase tracking-wider text-tertiary">{formatWhen(event)}</p>
-        <h3 className="no-caps line-clamp-2 text-[15px] font-semibold leading-snug">
-          <Link href={`/evento/${event.id}`} className="hover:underline" onClick={(e) => e.stopPropagation()}>
-            {displayTitle(event)}
-          </Link>
-        </h3>
+        <h3 className="no-caps line-clamp-2 text-[15px] font-semibold leading-snug">{displayTitle(event)}</h3>
         <p className="truncate text-[13px] text-muted-foreground">
           {humanizeTitle(event.venueName)}
           {dist && <span className="text-tertiary"> · {dist}</span>}
         </p>
         <div className="flex flex-wrap items-center gap-1.5 pt-0.5">
           <Badge variant={event.price?.free ? "success" : "secondary"}>{formatPrice(event.price)}</Badge>
-          {social ? (
-            <SocialBadge event={event} />
-          ) : (
-            <Badge variant="outline" className="gap-1.5">
-              <span aria-hidden className="size-1.5 rounded-full" style={{ background: color }} />
-              {CATEGORY_LABELS[event.category]}
-            </Badge>
-          )}
-          {selected && (
-            <Link
-              href={`/evento/${event.id}`}
-              onClick={(e) => e.stopPropagation()}
-              className="ml-auto inline-flex items-center gap-1 rounded-full bg-primary px-2.5 py-0.5 text-xs font-medium text-white"
-            >
-              Ver evento <span aria-hidden>→</span>
-            </Link>
-          )}
+          <Badge variant="outline" className="gap-1.5">
+            <CategoryIcon category={event.category} className="size-3.5" style={{ color }} />
+            {CATEGORY_LABELS[event.category]}
+          </Badge>
         </div>
       </div>
-    </article>
+    </Link>
   );
 }
 
-/** 64px thumbnail: the image when there is one, else a category-tinted tile with a line icon. */
+/** 64px thumbnail: the image when there is one (requested at 2x), else a category-tinted tile with the icon. */
 function Thumb({ event }: { event: Event }) {
   const color = CATEGORY_COLORS[event.category];
   const [broken, setBroken] = useState(false);
@@ -107,40 +92,6 @@ function Thumb({ event }: { event: Event }) {
         />
       )}
     </div>
-  );
-}
-
-/** Simple line icons per category. */
-export function CategoryIcon({ category, className, style }: { category: Event["category"]; className?: string; style?: React.CSSProperties }) {
-  const paths: Record<Event["category"], string> = {
-    musica: "M9 18V5l12-2v13M9 18a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm12-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0z",
-    teatro: "M4 4h16v6a8 8 0 0 1-16 0zM8 8h.01M16 8h.01M9 13a4 4 0 0 0 6 0",
-    fiesta: "M5 21l5-14 9 9zM14 4l1 2M18 2l-1 3M20 8l-3 1",
-    feria: "M3 9l2-5h14l2 5M3 9v11h18V9M3 9h18M9 20v-6h6v6",
-    deporte: "M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM2 12h20M12 2c3 3 3 17 0 20M12 2c-3 3-3 17 0 20",
-    cultura: "M4 19V5a2 2 0 0 1 2-2h14v16H6a2 2 0 0 0-2 2zM4 19a2 2 0 0 0 2 2h14",
-    gastronomia: "M7 2v20M4 2v6a3 3 0 0 0 6 0V2M17 2a4 4 0 0 0-4 4v6h4v10",
-    infantil: "M12 3l2.5 5 5.5.8-4 3.9.9 5.5-4.9-2.6-4.9 2.6.9-5.5-4-3.9 5.5-.8z",
-    charla: "M4 4h16v11H8l-4 4z",
-    otro: "M12 3v18M3 12h18",
-  };
-  return (
-    <svg viewBox="0 0 24 24" className={className} style={style} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-      <path d={paths[category]} />
-    </svg>
-  );
-}
-
-/** "Visto en TikTok · @handle · 12,3 mil vistas" */
-function SocialBadge({ event }: { event: Event }) {
-  const tiktok = event.sourceType === "tiktok";
-  const views = event.metrics?.views;
-  return (
-    <Badge variant="outline" className="gap-1">
-      Visto en {tiktok ? "TikTok" : "Instagram"}
-      {event.sourceName && <span className="text-tertiary">· {event.sourceName}</span>}
-      {views != null && views > 0 && <span className="font-semibold text-foreground">· {formatViews(views)}</span>}
-    </Badge>
   );
 }
 

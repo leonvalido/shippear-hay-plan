@@ -3,6 +3,7 @@ import Link from "next/link";
 import { fetchEvents } from "@/app/_lib/api";
 import { HeroMap } from "@/components/layout/hero-map";
 import { PhoneFrame } from "@/components/layout/phone-frame";
+import { CategoryIcon } from "@/components/events/category-icon";
 import { CATEGORY_COLORS, CATEGORY_LABELS, dayRange, displayTitle, formatTime, humanizeTitle, timeLabel } from "@/components/events/format";
 import { Button } from "@/components/ui/button";
 import type { Event } from "@/lib/events/schema";
@@ -49,7 +50,7 @@ export default async function Home() {
               {(["musica", "fiesta", "feria"] as const).map((c) => (
                 <li key={c}>
                   <Link href={`/mapa?category=${c}`} className="glass tap inline-flex h-11 items-center gap-2 rounded-full px-4 text-sm font-medium">
-                    <span aria-hidden className="size-2 rounded-full" style={{ background: CATEGORY_COLORS[c] }} />
+                    <CategoryIcon category={c} className="size-3.5" style={{ color: CATEGORY_COLORS[c] }} />
                     {CATEGORY_LABELS[c]}
                   </Link>
                 </li>
