@@ -14,7 +14,7 @@ import path from "node:path";
 import { RawEventSchema, type Event, type RawEvent } from "../src/lib/events/schema";
 import { eventId, fingerprint, mergeEvents } from "../src/lib/events/normalize";
 import { SocialPostSchema, extractEventsFromCaptions, type SocialPost } from "../src/lib/events/extract";
-import { barrioFromCoords, geocodeAddress, inRosario, type GeoCache } from "../src/lib/events/geocode";
+import { barrioFromCoords, geocodeAddress, geocodeVenue, inRosario, type GeoCache } from "../src/lib/events/geocode";
 import { toRosarioISO } from "../src/lib/events/time";
 import { isMockMode } from "../src/lib/ai";
 
@@ -24,7 +24,7 @@ const RAW_DIR = path.join(PRIVATE, "raw");
 const SOCIAL_FILE = path.join(PRIVATE, "tiktok-rosario.json");
 const CACHE_FILE = path.join(PRIVATE, "geocache.json");
 const OUT_FILE = path.join(ROOT, "data", "events.json");
-const GEOCODE_CONCURRENCY = 4;
+const GEOCODE_CONCURRENCY = 1; // Nominatim allows one request per second
 
 loadEnvLocal();
 
@@ -81,12 +81,13 @@ function readSocialPosts(): SocialPost[] {
 
 async function geocodeMissing(events: RawEvent[]): Promise<void> {
   const cache: GeoCache = fs.existsSync(CACHE_FILE) ? ((readJson(CACHE_FILE) as GeoCache) ?? {}) : {};
-  const todo = events.filter((e) => (e.lat === undefined || e.lng === undefined) && e.address);
+  const todo = events.filter((e) => e.lat === undefined || e.lng === undefined);
   let next = 0;
   async function worker() {
     while (next < todo.length) {
       const e = todo[next++]!;
-      const p = await geocodeAddress(e.address!, cache);
+      let p = e.address ? await geocodeAddress(e.address, cache) : undefined;
+      if (!p) p = await geocodeVenue(e.venueName, cache);
       if (p) { e.lat = p.lat; e.lng = p.lng; counts.geocoded++; } else counts.geocodeMiss++;
     }
   }
