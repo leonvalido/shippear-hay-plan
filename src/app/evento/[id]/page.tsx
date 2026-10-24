@@ -4,8 +4,10 @@ import { notFound } from "next/navigation";
 import { fetchEvent, fetchEvents } from "@/app/_lib/api";
 import { EventCard } from "@/components/events/event-card";
 import {
+  CATEGORY_COLORS,
   CATEGORY_LABELS,
   displayTitle,
+  formatViews,
   formatPrice,
   formatTime,
   formatWhen,
@@ -14,6 +16,7 @@ import {
   rosarioDayStart,
   sourceLabel,
 } from "@/components/events/format";
+import { CategoryIcon } from "@/components/events/category-icon";
 import { ShareButton } from "@/components/events/share-button";
 import { WalkingHint } from "@/components/events/walking-hint";
 import { EventMap } from "@/components/map/event-map";
@@ -161,7 +164,17 @@ export default async function EventoPage({ params }: Props) {
       {/* Hero */}
       <header className="mt-4 space-y-3">
         <div className="flex flex-wrap items-center gap-2">
-          <Badge variant="secondary">{CATEGORY_LABELS[event.category]}</Badge>
+          <Badge variant="secondary" className="gap-1.5">
+            <CategoryIcon category={event.category} className="size-3.5" style={{ color: CATEGORY_COLORS[event.category] }} />
+            {CATEGORY_LABELS[event.category]}
+          </Badge>
+          {(event.sourceType === "tiktok" || event.sourceType === "instagram") && (
+            <Badge variant="outline" className="gap-1">
+              Visto en {event.sourceType === "tiktok" ? "TikTok" : "Instagram"}
+              {event.sourceName && <span className="text-tertiary">· {event.sourceName}</span>}
+              {event.metrics?.views ? <span className="font-semibold text-foreground">· {formatViews(event.metrics.views)} vistas</span> : null}
+            </Badge>
+          )}
           {event.status === "pending" && <Badge variant="warning">pendiente de revisión</Badge>}
         </div>
         <h1 className="line-clamp-3 break-words font-display text-3xl font-semibold leading-tight">{tidyTitle(displayTitle(event))}</h1>

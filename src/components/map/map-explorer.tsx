@@ -35,11 +35,17 @@ import { BarrioStrip } from "./barrio-strip";
 import { ConciergeBar, type Budget } from "./concierge-bar";
 import { TileCache } from "./tile-cache";
 import { Logo } from "@/components/layout/logo";
+import { CategoryIcon } from "@/components/events/category-icon";
 import { EventMap } from "./event-map";
 import { FilterChips } from "./filter-chips";
 
 const DAY_CHIPS = (Object.keys(DAY_LABELS) as DayFilter[]).map((value) => ({ value, label: DAY_LABELS[value] }));
-const CATEGORY_CHIPS = CATEGORIES.map((value) => ({ value, label: CATEGORY_LABELS[value], color: CATEGORY_COLORS[value] }));
+const CATEGORY_CHIPS = CATEGORIES.map((value) => ({
+  value,
+  label: CATEGORY_LABELS[value],
+  color: CATEGORY_COLORS[value],
+  icon: <CategoryIcon category={value} className="size-3.5" />,
+}));
 
 /** The /mapa screen: map + filters + list (bottom sheet on phones, side panel on laptops). */
 const norm = (s: string) =>
@@ -266,9 +272,10 @@ export function MapExplorer({ initialEvents }: { initialEvents?: Event[] }) {
                   <span className="block truncate text-[13px] text-muted-foreground">{humanizeTitle(venue.name)}</span>
                   <span className="flex items-center gap-1.5 pt-0.5">
                     <Badge variant={e.price?.free ? "success" : "secondary"}>{formatPrice(e.price)}</Badge>
-                    <span className="ml-auto inline-flex items-center gap-1 rounded-full border border-white/8 px-2.5 py-0.5 text-xs font-medium text-primary">
-                      Ver evento <span aria-hidden>→</span>
-                    </span>
+                    <Badge variant="outline" className="gap-1.5">
+                      <CategoryIcon category={e.category} className="size-3.5" style={{ color: CATEGORY_COLORS[e.category] }} />
+                      {CATEGORY_LABELS[e.category]}
+                    </Badge>
                   </span>
                 </Link>
               </li>
@@ -294,7 +301,7 @@ export function MapExplorer({ initialEvents }: { initialEvents?: Event[] }) {
               onClick={() => openVenue(v)}
               className="surface tap row-in flex w-full items-center gap-3 p-3 text-left"
             >
-              <span aria-hidden className="size-3 shrink-0 rounded-full" style={{ background: CATEGORY_COLORS[v.category] }} />
+              <CategoryIcon category={v.category} className="size-4 shrink-0" style={{ color: CATEGORY_COLORS[v.category] }} />
               <span className="min-w-0 flex-1">
                 <span className="block truncate text-sm font-semibold">{humanizeTitle(v.name)}</span>
                 <span className="block truncate text-xs text-muted-foreground">
