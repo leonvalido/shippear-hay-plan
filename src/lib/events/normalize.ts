@@ -207,15 +207,20 @@ export function mergeEvents<T extends RawEvent>(a: T, b: T): T {
     sourceUrl: primary.sourceUrl ?? secondary.sourceUrl,
     links,
     imageUrl: a.imageUrl ?? b.imageUrl,
-    metrics: mergeMetrics(a.metrics, b.metrics),
+    metrics: mergeMetrics(a.metrics, b.metrics, isSocial(a) && isSocial(b) && !!a.sourceUrl && !!b.sourceUrl && a.sourceUrl !== b.sourceUrl),
   };
 }
 
-function mergeMetrics(a?: RawEvent["metrics"], b?: RawEvent["metrics"]): RawEvent["metrics"] {
+function isSocial(e: Pick<RawEvent, "sourceType">): boolean {
+  return e.sourceType === "tiktok" || e.sourceType === "instagram";
+}
+/** Two different posts about the same event add up; the same post seen twice does not. */
+function mergeMetrics(a?: RawEvent["metrics"], b?: RawEvent["metrics"], sum = false): RawEvent["metrics"] {
   if (!a) return b;
   if (!b) return a;
-  const views = maxDefined(a.views, b.views);
-  const likes = maxDefined(a.likes, b.likes);
+  const pick = sum ? sumDefined : maxDefined;
+  const views = pick(a.views, b.views);
+  const likes = pick(a.likes, b.likes);
   return { ...(views !== undefined ? { views } : {}), ...(likes !== undefined ? { likes } : {}) };
 }
 
@@ -233,6 +238,11 @@ function joinContext(a?: string, b?: string): string | undefined {
   return `${a}\n${b}`.slice(0, 4000);
 }
 
+function sumDefined(a?: number, b?: number) {
+  if (a === undefined) return b;
+  if (b === undefined) return a;
+  return a + b;
+}
 function minDefined(a?: number, b?: number) {
   if (a === undefined) return b;
   if (b === undefined) return a;

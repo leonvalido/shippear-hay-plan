@@ -17,7 +17,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { RawEventSchema, type Event, type RawEvent } from "../src/lib/events/schema";
-import { addContext, eventId, fingerprint, looksLikeSameEvent, mergeEvents } from "../src/lib/events/normalize";
+import { addContext, eventId, fingerprint, looksLikeSameEvent, mergeEvents, normalizeText, titleTokens } from "../src/lib/events/normalize";
 import { SocialPostSchema, extractEventsFromCaptions, type SocialPost } from "../src/lib/events/extract";
 import { barrioFromCoords, geocodeAddress, geocodePlaces, geocodeVenue, inRosario, type GeoCache } from "../src/lib/events/geocode";
 import { isMidnight, toRosarioISO } from "../src/lib/events/time";
@@ -324,7 +324,45 @@ function dedupe(events: RawEvent[]): RawEvent[] {
     if (i >= 0) { bucket[i] = mergeEvents(bucket[i]!, e); counts.merged++; } else bucket.push(e);
     byDate.set(day, bucket);
   }
-  return [...byDate.values()].flat();
+  return collapseSeries([...byDate.values()].flat());
+}
+
+const MONTHS_ES = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"];
+function dayLabel(iso: string): string {
+  return `${Number(iso.slice(8, 10))} ${MONTHS_ES[Number(iso.slice(5, 7)) - 1]}`;
+}
+
+/**
+ * pass 3: one social post announcing the same show on several dates (a grid) became one
+ * event per date, each with the post's full view count. Collapse them into one event:
+ * first date as startsAt, last as endsAt, the other dates listed in the description.
+ */
+function collapseSeries(events: RawEvent[]): RawEvent[] {
+  const groups = new Map<string, RawEvent[]>();
+  const rest: RawEvent[] = [];
+  for (const e of events) {
+    const social = e.sourceType === "tiktok" || e.sourceType === "instagram";
+    if (!social || !e.sourceUrl) { rest.push(e); continue; }
+    const key = `${e.sourceUrl}|${titleTokens(e.title).join(" ")}|${normalizeText(e.venueName).split(" ")[0]}`;
+    groups.set(key, [...(groups.get(key) ?? []), e]);
+  }
+  for (const group of groups.values()) {
+    if (group.length === 1) { rest.push(group[0]!); continue; }
+    group.sort((a, b) => a.startsAt.localeCompare(b.startsAt));
+    const first = group[0]!;
+    const last = group[group.length - 1]!;
+    const dates = group.map((e) => dayLabel(e.startsAt));
+    const note = `Fechas: ${dates.slice(0, -1).join(", ")} y ${dates[dates.length - 1]}.`;
+    const body = (first.description ?? "").trim();
+    const merged: RawEvent = {
+      ...first,
+      endsAt: last.startsAt,
+      description: body.includes("Fechas:") ? body : `${note}${body ? ` ${body}` : ""}`.slice(0, 2000),
+    };
+    counts.merged += group.length - 1;
+    rest.push(merged);
+  }
+  return rest;
 }
 
 async function officialLinks(events: RawEvent[]): Promise<void> {

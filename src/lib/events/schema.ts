@@ -77,7 +77,7 @@ export const EventsQuerySchema = z.object({
   q: z.string().max(100).optional(),
   bbox: z.string().optional(), // "minLng,minLat,maxLng,maxLat"
   status: EventStatus.default("published"),
-  limit: z.coerce.number().int().min(1).max(500).default(200),
+  limit: z.coerce.number().int().min(1).max(600).default(600),
 });
 export type EventsQuery = z.infer<typeof EventsQuerySchema>;
 

@@ -32,7 +32,7 @@
   "id": "municipal-651d82f5",
   "status": "published",
   "fingerprint": "taller jardin mariposas|2026-10-24|escuela",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Taller la escritura como refugio",
@@ -67,7 +67,7 @@
   "id": "municipal-123fae91",
   "status": "published",
   "fingerprint": "taller escritura como refugio|2026-10-24|biblioteca",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "50 veinticuatros. Sentidos y recorridos de las marchas por memoria, verdad y justicia",
@@ -103,7 +103,7 @@
   "id": "municipal-55b9f506",
   "status": "published",
   "fingerprint": "50 veinticuatros sentidos recorridos marchas memoria verdad justicia|2026-10-24|museo",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Talleres 2026 Puerto Joven: preinscripción",
@@ -148,7 +148,7 @@
   "id": "municipal-f809258e",
   "status": "published",
   "fingerprint": "talleres 2026 puerto joven preinscripcion|2026-10-24|puerto",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Shippear una idea. Un día. Muchas posibilidades",
@@ -186,7 +186,7 @@
   "id": "municipal-c0a2ae36",
   "status": "published",
   "fingerprint": "shippear idea dia muchas posibilidades|2026-10-24|tecnoteca",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Octubre Rosa en el Sudoeste: se viene el Zumbatón",
@@ -221,7 +221,7 @@
   "id": "municipal-6b386667",
   "status": "published",
   "fingerprint": "octubre rosa sudoeste viene zumbaton|2026-10-24|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Cabeza de Ratón: Nos vemos en el Cine",
@@ -260,7 +260,7 @@
   "id": "municipal-fd3bc108",
   "status": "published",
   "fingerprint": "cabeza raton nos vemos cine|2026-10-24|cine",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Ciclo de Teatro +65: Marathón",
@@ -298,7 +298,7 @@
   "id": "municipal-c7b14752",
   "status": "published",
   "fingerprint": "ciclo teatro 65 marathon|2026-10-24|casa",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Rubén Gómez y Julián Cicerchia presentan Doce Retratos",
@@ -336,7 +336,7 @@
   "id": "municipal-410a4ed2",
   "status": "published",
   "fingerprint": "ruben gomez julian cicerchia presentan doce retratos|2026-10-24|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Experiencia Monopatín – Costa Nueva",
@@ -372,7 +372,7 @@
   "id": "municipal-ce307489",
   "status": "published",
   "fingerprint": "experiencia monopatin costa nueva|2026-10-24|ente",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Unplugged Concierto - Emir Sensini",
@@ -396,7 +396,7 @@
   "id": "tiktok-c27167e4",
   "status": "published",
   "fingerprint": "unplugged concierto emir sensini|2026-10-24|miami",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "MEGA Workshop de Actuación frente a Cámara y Casting",
@@ -422,44 +422,7 @@
   "id": "tiktok-1245879d",
   "status": "published",
   "fingerprint": "mega workshop actuacion frente camara casting|2026-10-24|rosario",
-  "createdAt": "2026-10-24T15:34:18-03:00"
- },
- {
-  "title": "Ito",
-  "description": "Este sábado a las 16, se presentará Ito, teatro para bebés, la historia de un gusanito que descubre el mundo a través de juegos, sonidos, objetos y canciones. En La Orilla Infinita (Colón 2148).",
-  "startsAt": "2026-10-24T16:00:00-03:00",
-  "venueName": "Orilla Infinita",
-  "address": "Colón 2148",
-  "lat": -32.9646806922182,
-  "lng": -60.62956702247365,
-  "category": "infantil",
-  "sourceType": "press",
-  "sourceName": "Rosario3",
-  "sourceUrl": "https://www.rosario3.com/ocio/que-hacemos-este-fin-de-semana-en-rosario-festival-bandera-ricardo-darin-angela-torres-los-nocheros-y-mas-20261023-0001.html",
-  "rating": {
-   "value": 4.8,
-   "count": 157
-  },
-  "links": [
-   {
-    "label": "Sitio del lugar",
-    "url": "https://laorillainfinita.com.ar/"
-   },
-   {
-    "label": "Ver en Google Maps",
-    "url": "https://maps.google.com/?cid=10020744838203030309&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-   }
-  ],
-  "shortTitle": "Ito, teatro para bebés",
-  "vibe": {
-   "crowd": "bebés y familias",
-   "age": "bebés"
-  },
-  "barrio": "Macrocentro",
-  "id": "press-86e6dfd1",
-  "status": "published",
-  "fingerprint": "ito|2026-10-24|orilla",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "¿Cómo viste la luna?",
@@ -496,7 +459,7 @@
   "id": "press-4389cf76",
   "status": "published",
   "fingerprint": "como viste luna|2026-10-24|teatro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Inconformistas",
@@ -533,7 +496,7 @@
   "id": "platform-36557d52",
   "status": "published",
   "fingerprint": "inconformistas|2026-10-24|teatro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Tertulias Tangueras",
@@ -576,11 +539,11 @@
   "id": "municipal-edd11aa6",
   "status": "published",
   "fingerprint": "tertulias tangueras|2026-10-24|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Halloween en Show Park",
-  "description": "Parque temático festeja Halloween durante todo octubre en Villa Gobernador Gálvez.",
+  "description": "Fechas: 24 oct, 25 oct, 30 oct y 31 oct. Parque temático festeja Halloween durante todo octubre en Villa Gobernador Gálvez.",
   "startsAt": "2026-10-24T17:00:00-03:00",
   "venueName": "Show Park (Av. San Martín al 2600, Villa Gobernador Gálvez)",
   "category": "infantil",
@@ -608,12 +571,13 @@
     "url": "https://maps.google.com/?cid=13014451164215509796&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
    }
   ],
+  "endsAt": "2026-10-31T17:00:00-03:00",
   "shortTitle": "Halloween en parque temático",
   "barrio": "Villa G. Gálvez",
   "id": "tiktok-84fcaeda",
   "status": "published",
   "fingerprint": "halloween park|2026-10-24|show",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Seminario de cumbia para iniciales en Club Excélsior",
@@ -646,7 +610,7 @@
   "id": "tiktok-404d8507",
   "status": "published",
   "fingerprint": "seminario cumbia iniciales club excelsior|2026-10-24|club",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Pre Cosquín 2027 Sede Rosario en el Galpón 11",
@@ -700,7 +664,7 @@
   "id": "municipal-6bf79d44",
   "status": "published",
   "fingerprint": "pre cosquin 2027 sede rosario galpon 11|2026-10-24|galpon",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Semana del Planetario 2026",
@@ -728,7 +692,7 @@
   "id": "municipal-a79dbc65",
   "status": "published",
   "fingerprint": "semana planetario 2026|2026-10-24|planetario",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Ajedrez para personas adultas",
@@ -767,7 +731,7 @@
   "id": "municipal-5f7e47ea",
   "status": "published",
   "fingerprint": "ajedrez personas adultas|2026-10-24|biblioteca",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "La espera",
@@ -807,7 +771,7 @@
   "id": "press-defd5e6d",
   "status": "published",
   "fingerprint": "espera|2026-10-24|bar",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Festival Tercerescena con música en vivo de la orquesta de salsa La Frankicia",
@@ -848,7 +812,7 @@
   "id": "press-1d36f706",
   "status": "published",
   "fingerprint": "festival tercerescena musica orquesta salsa frankicia|2026-10-24|escuela",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Huellas que cambiaron la historia",
@@ -867,7 +831,7 @@
   "id": "press-e63ddfde",
   "status": "published",
   "fingerprint": "huellas cambiaron historia|2026-10-24|planetario",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Feria en San Martín 4915",
@@ -896,7 +860,7 @@
   "id": "tiktok-82c6860d",
   "status": "published",
   "fingerprint": "feria san martin 4915|2026-10-24|san",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Función de Marathon",
@@ -937,7 +901,7 @@
   "id": "municipal-39b6823c",
   "status": "published",
   "fingerprint": "funcion marathon|2026-10-24|casa",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Lambé-Lambé",
@@ -970,7 +934,7 @@
   "id": "press-88c866dc",
   "status": "published",
   "fingerprint": "lambe lambe|2026-10-24|escuela",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Capitán: noche de sábado",
@@ -991,7 +955,7 @@
   ],
   "recurring": true,
   "shortTitle": "Capitán: shows y DJs",
-  "description": "Noche de sábado en Capitán con shows y DJs. Abre hasta las 4.",
+  "description": "Noche de sábado en Capitán con shows en vivo y DJs. La propuesta sigue hasta las 4.",
   "vibe": {
    "music": "shows en vivo y DJs"
   },
@@ -999,7 +963,7 @@
   "id": "platform-8dd78a5e",
   "status": "published",
   "fingerprint": "capitan sabado|2026-10-24|capitan",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Adolescencia, sexo y muerte en Camp Miasma Cine Lumière",
@@ -1041,7 +1005,7 @@
   "id": "municipal-5770ff6e",
   "status": "published",
   "fingerprint": "adolescencia sexo muerte camp miasma cine lumiere|2026-10-24|cine",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Observaciones en el cielo",
@@ -1065,7 +1029,7 @@
   "id": "municipal-0b62660e",
   "status": "published",
   "fingerprint": "observaciones cielo|2026-10-24|planetario",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Mati RJ se presentará en vivo con su nuevo tour",
@@ -1098,7 +1062,7 @@
   "id": "press-fd026644",
   "status": "published",
   "fingerprint": "mati rj presentara nuevo tour|2026-10-24|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Amor, amor, amor, amor",
@@ -1134,7 +1098,7 @@
   "id": "press-7366c1e3",
   "status": "published",
   "fingerprint": "amor amor amor amor|2026-10-24|museo",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "La moribunda",
@@ -1167,7 +1131,7 @@
   "id": "press-806590b9",
   "status": "published",
   "fingerprint": "moribunda|2026-10-24|tunel",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Lo demás es cotillón",
@@ -1200,7 +1164,7 @@
   "id": "press-ee20618d",
   "status": "published",
   "fingerprint": "demas cotillon|2026-10-24|tandava",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Furia: noche de sábado",
@@ -1226,7 +1190,7 @@
    "count": 464
   },
   "shortTitle": "Furia: bar y boliche",
-  "description": "Noche de sábado en Furia, un bar que pasa a boliche cerca de las 12 o la 1. Suele ser gratis antes de las 12 y después se cobra entrada.",
+  "description": "Noche de sábado en Furia, un bar para tomar tragos que pasa a boliche cerca de las 12 o la 1. Suena música con DJ y suele ser gratis antes de las 12, después se cobra entrada.",
   "vibe": {
    "music": "música remixada por DJ",
    "dress": "controlan la vestimenta en la puerta"
@@ -1235,7 +1199,7 @@
   "id": "platform-c607369a",
   "status": "published",
   "fingerprint": "furia sabado|2026-10-24|furia",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Kika: noche de sábado",
@@ -1261,7 +1225,7 @@
    "count": 1500
   },
   "shortTitle": "Kika: espectáculos y baile",
-  "description": "Noche de sábado en Kika, con espectáculos y baile después de las 00, abierto de 21 a 05. No cobran entrada, solo se pide una consumición.",
+  "description": "Noche de sábado en Kika, un bar chico con espectáculos, abierto de 21 a 5. Después de las 00 se baila y no cobran entrada, solo una consumición.",
   "vibe": {
    "crowd": "ambiente tranqui, lugar pequeño",
    "dress": "sin entrada, con consumición"
@@ -1270,7 +1234,7 @@
   "id": "platform-13a1b76c",
   "status": "published",
   "fingerprint": "kika sabado|2026-10-24|kika",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "La Cautiva: noche de sábado",
@@ -1295,7 +1259,7 @@
    "count": 750
   },
   "shortTitle": "La Cautiva: cumbia y cuarteto en vivo",
-  "description": "Noche de sábado en La Cautiva, de 21 a 04, con bandas en vivo y comida. Suena cumbia y cuarteto, y van jóvenes, mayores y familias.",
+  "description": "Noche de sábado en La Cautiva, de 21 a 4, con bandas en vivo y comida. Suena cumbia y cuarteto, y van jóvenes, mayores y familias.",
   "vibe": {
    "music": "cumbia y cuarteto en vivo",
    "crowd": "jóvenes, mayores y familias"
@@ -1304,7 +1268,7 @@
   "id": "platform-b1083d66",
   "status": "published",
   "fingerprint": "cautiva sabado|2026-10-24|la",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "El Filo: noche de sábado",
@@ -1330,7 +1294,7 @@
    "count": 1178
   },
   "shortTitle": "El Filo: cena con show",
-  "description": "Noche de sábado en El Filo, un restaurante con mesas al aire libre junto al río. Según las reseñas, hay cena y espectáculos de humor.",
+  "description": "Noche de sábado en El Filo, un restaurante con mesas al aire libre junto al río. Según las reseñas hay comida abundante y espectáculos de humor.",
   "vibe": {
    "dress": "con reserva previa"
   },
@@ -1338,7 +1302,7 @@
   "id": "platform-ec34e171",
   "status": "published",
   "fingerprint": "filo sabado|2026-10-24|el",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Sonic: noche de sábado",
@@ -1348,7 +1312,7 @@
   "address": "Maipú 1070",
   "lat": -32.9503692,
   "lng": -60.6361937,
-  "category": "fiesta",
+  "category": "gastronomia",
   "sourceType": "platform",
   "sourceName": "Sonic",
   "links": [
@@ -1363,12 +1327,12 @@
    "count": 9
   },
   "shortTitle": "Sonic: birra artesanal y hamburguesas",
-  "description": "Noche de sábado en Sonic, un bar con patio, cerveza artesanal y hamburguesas. Las reseñas destacan la música y la buena onda.",
+  "description": "Noche de sábado en Sonic, un bar con patio, cerveza artesanal y hamburguesas. Las reseñas destacan la música y la buena onda de la atención.",
   "barrio": "Centro",
   "id": "platform-6ff7a316",
   "status": "published",
   "fingerprint": "sonic sabado|2026-10-24|sonic",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "IVAN MENNA OPEN TO CLOSE @ SWITCH CLUB",
@@ -1420,7 +1384,7 @@
   "id": "ticketing-882e2efa",
   "status": "published",
   "fingerprint": "ivan menna open to close switch club|2026-10-24|switch",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Función de Hervidero en Espacio Bravo",
@@ -1455,7 +1419,7 @@
   "id": "municipal-bfa770fe",
   "status": "published",
   "fingerprint": "funcion hervidero espacio bravo|2026-10-24|espacio",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Funciones de La Chunga en Teatro La Morada",
@@ -1493,7 +1457,7 @@
   "id": "municipal-7fa6a9d2",
   "status": "published",
   "fingerprint": "funciones chunga teatro morada|2026-10-24|teatro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Festival Bandera 2026",
@@ -1525,7 +1489,7 @@
   "id": "press-88172faf",
   "status": "published",
   "fingerprint": "festival bandera 2026|2026-10-24|parque",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Los Nocheros presentarán su espectáculo por los 40 años de trayectoria",
@@ -1561,7 +1525,7 @@
   "id": "press-5df04799",
   "status": "published",
   "fingerprint": "nocheros presentaran espectaculo 40 anos trayectoria|2026-10-24|segunda",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Ricardo Darín y Andrea Pietra en Escenas de la vida conyugal",
@@ -1602,7 +1566,7 @@
   "id": "press-5c115ed9",
   "status": "published",
   "fingerprint": "ricardo darin andrea pietra escenas vida conyugal|2026-10-24|teatro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Despertar de Primavera, el musical",
@@ -1643,7 +1607,7 @@
   "id": "press-4481978e",
   "status": "published",
   "fingerprint": "despertar primavera musical|2026-10-24|teatro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "La sombra de la botella",
@@ -1668,7 +1632,7 @@
   "id": "press-e911ac31",
   "status": "published",
   "fingerprint": "sombra botella|2026-10-24|mateo",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Piccolino",
@@ -1704,7 +1668,7 @@
   "id": "press-60ab6405",
   "status": "published",
   "fingerprint": "piccolino|2026-10-24|sala",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Inocencia trágica",
@@ -1733,7 +1697,7 @@
   "id": "press-840ab4b3",
   "status": "published",
   "fingerprint": "inocencia tragica|2026-10-24|platea",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Nones Circo",
@@ -1766,7 +1730,7 @@
   "id": "press-99662841",
   "status": "published",
   "fingerprint": "nones circo|2026-10-24|escuela",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Marcelo San Juan ofrecerá un concierto que recorrerá canciones de tango",
@@ -1802,7 +1766,7 @@
   "id": "press-ca6853b5",
   "status": "published",
   "fingerprint": "marcelo san juan ofrecera concierto recorrera canciones tango|2026-10-24|aserradero",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Quemarlo todo",
@@ -1835,7 +1799,7 @@
   "id": "press-f9f0e0eb",
   "status": "published",
   "fingerprint": "quemarlo todo|2026-10-24|teatro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "La función de los invisibles",
@@ -1868,7 +1832,7 @@
   "id": "press-ff181681",
   "status": "published",
   "fingerprint": "funcion invisibles|2026-10-24|orilla",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Hervidero",
@@ -1901,7 +1865,7 @@
   "id": "press-47774b52",
   "status": "published",
   "fingerprint": "hervidero|2026-10-24|espacio",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "El viaje del tambor",
@@ -1937,7 +1901,7 @@
   "id": "press-ff2398d6",
   "status": "published",
   "fingerprint": "viaje tambor|2026-10-24|cultural",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Matar al diván",
@@ -1970,7 +1934,7 @@
   "id": "press-4aa3709e",
   "status": "published",
   "fingerprint": "matar divan|2026-10-24|sala",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Jazz Cartoons",
@@ -2014,7 +1978,7 @@
   "id": "press-ebd29a01",
   "status": "published",
   "fingerprint": "jazz cartoons|2026-10-24|plataforma",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Continuarán las funciones de Microteatro",
@@ -2039,11 +2003,11 @@
   "id": "press-ac826bbb",
   "status": "published",
   "fingerprint": "continuaran funciones microteatro|2026-10-24|san",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "La Chunga de Mario Vargas Llosa",
-  "description": "¿Qué plan tenes para este sábado en Rosario? ¿Nos vemos en La Chunga? Sábados 3,10,24 y 31/ Domingo 11 a las 21h en San Martin 771.PA",
+  "description": "Fechas: 24 oct y 31 oct. ¿Qué plan tenes para este sábado en Rosario? ¿Nos vemos en La Chunga? Sábados 3,10,24 y 31/ Domingo 11 a las 21h en San Martin 771.PA",
   "startsAt": "2026-10-24T21:00:00-03:00",
   "venueName": "Sala La Morada",
   "address": "San Martín 771 P.A., Rosario",
@@ -2059,12 +2023,13 @@
   ],
   "lat": -32.94643265927821,
   "lng": -60.63665297711152,
+  "endsAt": "2026-10-31T21:00:00-03:00",
   "shortTitle": "La Chunga, de Mario Vargas Llosa",
   "barrio": "Centro",
   "id": "tiktok-5b938d08",
   "status": "published",
   "fingerprint": "chunga mario vargas llosa|2026-10-24|sala",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Aniversario 26° del Wacho en Forja con Damián Córdoba",
@@ -2098,8 +2063,8 @@
    }
   ],
   "metrics": {
-   "views": 7230,
-   "likes": 682
+   "views": 21147,
+   "likes": 1977
   },
   "lat": -32.953188,
   "lng": -60.647242399999996,
@@ -2116,7 +2081,7 @@
   "id": "tiktok-cd4266bb",
   "status": "published",
   "fingerprint": "aniversario 26 wacho forja damian cordoba|2026-10-24|forja",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Bailazo con Gabriel en Complejo Forja",
@@ -2156,7 +2121,7 @@
   "id": "tiktok-707be8f6",
   "status": "published",
   "fingerprint": "bailazo gabriel complejo forja|2026-10-24|complejo",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Gabriel 22 Fabula: 26 años de cuarteto en Forja",
@@ -2196,11 +2161,11 @@
   "id": "tiktok-f926298d",
   "status": "published",
   "fingerprint": "gabriel 22 fabula 26 anos cuarteto forja|2026-10-24|forja",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Leandro Gambetta en La Chunga",
-  "description": "Función de Leandro Gambetta en La Chunga. Una propuesta escénica en sala.",
+  "description": "Función de Leandro Gambetta en La Chunga. Es una propuesta escénica en sala.",
   "startsAt": "2026-10-24T21:00:00-03:00",
   "venueName": "La Chunga",
   "address": "San Martín 771",
@@ -2229,15 +2194,16 @@
     "url": "https://maps.google.com/?cid=10582950620396991815&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
    }
   ],
+  "endsAt": "2026-10-31T21:00:00-03:00",
   "shortTitle": "Leandro Gambetta, función de teatro",
   "id": "tiktok-3641134f",
   "status": "published",
   "fingerprint": "leandro gambetta chunga|2026-10-24|la",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "La Chunga en San Martín 771",
-  "description": "Función de La Chunga en San Martín 771. Arranca a las 21.",
+  "description": "Función en la sala La Chunga, en San Martín 771. Arranca a las 21.",
   "startsAt": "2026-10-24T21:00:00-03:00",
   "venueName": "La Chunga",
   "address": "San Martín 771",
@@ -2269,12 +2235,13 @@
    "value": 4.5,
    "count": 127
   },
+  "endsAt": "2026-10-31T21:00:00-03:00",
   "shortTitle": "La Chunga, obra de teatro",
   "barrio": "Centro",
   "id": "tiktok-773a8173",
   "status": "published",
   "fingerprint": "chunga san martin 771|2026-10-24|la",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Fiesta Tóxica con Masificación Barbárica y Mascotas Perdidas",
@@ -2314,7 +2281,7 @@
   "id": "instagram-5e003076",
   "status": "published",
   "fingerprint": "toxica masificacion barbarica mascotas perdidas|2026-10-24|ateneo",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Festival Bandera 2026",
@@ -2358,7 +2325,7 @@
   "id": "tiktok-4a7ed194",
   "status": "published",
   "fingerprint": "festival bandera 2026|2026-10-24|hipodromo",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Década: noche de sábado",
@@ -2384,7 +2351,7 @@
    "count": 1233
   },
   "shortTitle": "Década: boliche con bandas",
-  "description": "Noche de sábado en Década, un boliche popular donde suele haber bandas en vivo. Van jóvenes pero también gente más grande, con entrada y tragos aparte.",
+  "description": "Noche de sábado en Década, un boliche popular donde suele haber bandas en vivo. Van jóvenes y también gente más grande, con entrada y tragos aparte.",
   "vibe": {
    "music": "bandas en vivo",
    "crowd": "jóvenes y también más grandes",
@@ -2394,7 +2361,7 @@
   "id": "platform-5b24db20",
   "status": "published",
   "fingerprint": "decada sabado|2026-10-24|decada",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Kevin Di Serna",
@@ -2428,7 +2395,42 @@
   "id": "ticketing-d3bf27bd",
   "status": "published",
   "fingerprint": "kevin di serna|2026-10-24|alto",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
+ },
+ {
+  "title": "Fiesta Elite",
+  "description": "Fiesta Elite en City Center Rosario, desde las 22. Las entradas arrancan en $17100.",
+  "startsAt": "2026-10-24T22:00:00-03:00",
+  "venueName": "City Center Rosario",
+  "address": "Bv. Oroño y Av. Circunvalación",
+  "lat": -33.0147133007649,
+  "lng": -60.6644714033935,
+  "category": "fiesta",
+  "price": {
+   "free": false,
+   "min": 17100,
+   "currency": "ARS"
+  },
+  "sourceType": "ticketing",
+  "sourceName": "Ticketek",
+  "sourceUrl": "https://www.ticketek.com.ar/fiesta-elite/city-center",
+  "imageUrl": "https://prod-cms-static.ticketek.com.ar/sites/default/files/images/artist/elit440.jpg",
+  "rating": {
+   "value": 4.2,
+   "count": 27554
+  },
+  "links": [
+   {
+    "label": "Ver en Google Maps",
+    "url": "https://maps.google.com/?cid=12424494442194804102&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+   }
+  ],
+  "shortTitle": "Fiesta Elite",
+  "barrio": "Villa G. Gálvez",
+  "id": "ticketing-67e6715c",
+  "status": "published",
+  "fingerprint": "elite|2026-10-24|city",
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Disco 80/90 y lentos en Majo, Club de Adultos",
@@ -2464,8 +2466,8 @@
    }
   ],
   "metrics": {
-   "views": 183,
-   "likes": 9
+   "views": 526,
+   "likes": 23
   },
   "lat": -32.9420204,
   "lng": -60.635881600000005,
@@ -2482,42 +2484,7 @@
   "id": "tiktok-3beb471c",
   "status": "published",
   "fingerprint": "disco 80 90 lentos majo club adultos|2026-10-24|majo",
-  "createdAt": "2026-10-24T15:34:18-03:00"
- },
- {
-  "title": "Fiesta Elite",
-  "description": "Fiesta Elite en City Center, desde las 22. Entradas desde $17100.",
-  "startsAt": "2026-10-24T22:00:00-03:00",
-  "venueName": "City Center Rosario",
-  "address": "Bv. Oroño y Av. Circunvalación",
-  "lat": -33.0147133007649,
-  "lng": -60.6644714033935,
-  "category": "fiesta",
-  "price": {
-   "free": false,
-   "min": 17100,
-   "currency": "ARS"
-  },
-  "sourceType": "ticketing",
-  "sourceName": "Ticketek",
-  "sourceUrl": "https://www.ticketek.com.ar/fiesta-elite/city-center",
-  "imageUrl": "https://prod-cms-static.ticketek.com.ar/sites/default/files/images/artist/elit440.jpg",
-  "rating": {
-   "value": 4.2,
-   "count": 27554
-  },
-  "links": [
-   {
-    "label": "Ver en Google Maps",
-    "url": "https://maps.google.com/?cid=12424494442194804102&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-   }
-  ],
-  "shortTitle": "Fiesta Elite",
-  "barrio": "Villa G. Gálvez",
-  "id": "ticketing-67e6715c",
-  "status": "published",
-  "fingerprint": "elite|2026-10-24|city",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Rumbavana: noche de sábado",
@@ -2551,7 +2518,7 @@
   "id": "platform-26283202",
   "status": "published",
   "fingerprint": "rumbavana sabado|2026-10-24|rumbavana",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Russia: noche de sábado",
@@ -2588,7 +2555,7 @@
   "id": "platform-39f6ace2",
   "status": "published",
   "fingerprint": "russia sabado|2026-10-24|russia",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Martin Huergo protagonizará una noche de música electrónica",
@@ -2620,7 +2587,7 @@
   "id": "press-b59e59be",
   "status": "published",
   "fingerprint": "martin huergo protagonizara musica electronica|2026-10-24|complejo",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Aliento de Perro y Violacion Auditiva en Floyd Rosario",
@@ -2655,7 +2622,7 @@
   "id": "ticketing-21305e68",
   "status": "published",
   "fingerprint": "aliento perro violacion auditiva floyd rosario|2026-10-24|floyd",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "La Morocha: noche de sábado",
@@ -2681,12 +2648,12 @@
    "count": 48
   },
   "shortTitle": "La Morocha: noche de sábado",
-  "description": "Noche de sábado en La Morocha, un espacio que también hace eventos como degustaciones de vinos. El contexto no detalla la propuesta de esta noche.",
+  "description": "Noche de sábado en La Morocha, un espacio que también hace eventos como degustaciones de vinos. No hay detalles sobre la propuesta de esta noche.",
   "barrio": "Centro",
   "id": "platform-8613ff20",
   "status": "published",
   "fingerprint": "morocha sabado|2026-10-24|la",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Cumbión del Paraná",
@@ -2722,7 +2689,7 @@
   "id": "press-151ef595",
   "status": "published",
   "fingerprint": "cumbion parana|2026-10-24|segunda",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Ray Ban Party en Dubai Club",
@@ -2748,7 +2715,7 @@
   "id": "instagram-24ec3d3f",
   "status": "published",
   "fingerprint": "ray ban party dubai club|2026-10-24|dubai",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Madame: noche de sábado",
@@ -2782,7 +2749,7 @@
   "id": "platform-13f1d5f7",
   "status": "published",
   "fingerprint": "madame sabado|2026-10-25|madame",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Lotus Night Club: noche de sábado",
@@ -2816,7 +2783,7 @@
   "id": "platform-808efdbb",
   "status": "published",
   "fingerprint": "lotus night club sabado|2026-10-25|lotus",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Bound: noche de sábado",
@@ -2851,7 +2818,7 @@
   "id": "platform-afed2fd9",
   "status": "published",
   "fingerprint": "bound sabado|2026-10-25|bound",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Roxy: noche de sábado",
@@ -2877,7 +2844,7 @@
    "count": 355
   },
   "shortTitle": "Roxy: boliche con cena",
-  "description": "Noche de sábado en Roxy, un boliche donde se puede ir a comer antes y más tarde sacan las mesas para bailar. Las reseñas hablan de ambiente fiestero, lugar chico que se llena rápido y requisa en la entrada.",
+  "description": "Noche de sábado en Roxy, un boliche donde se puede ir a comer antes y más tarde sacan las mesas para bailar. Es chico, se llena rápido y hay requisa en la entrada.",
   "vibe": {
    "crowd": "grupos de amigos, ambiente fiestero",
    "dress": "requisa en la entrada"
@@ -2887,7 +2854,7 @@
   "id": "platform-1aeddc25",
   "status": "published",
   "fingerprint": "roxy sabado|2026-10-25|roxy",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Switch Club: noche de sábado",
@@ -2917,7 +2884,7 @@
    "count": 162
   },
   "shortTitle": "Switch Club: noche de baile con DJs",
-  "description": "Noche de sábado en Switch Club, un local bailable con dos barras y DJs invitados. Las reseñas mencionan un espacio chico y caluroso, ingreso rápido y gente que va incluso sola a bailar.",
+  "description": "Noche de sábado en Switch Club, un local bailable con dos barras y DJs invitados. Es un espacio chico y caluroso, con ingreso rápido y gente que va incluso sola.",
   "vibe": {
    "music": "sets de DJs",
    "crowd": "gente que va a bailar, incluso sola"
@@ -2927,7 +2894,7 @@
   "id": "platform-35ac30bb",
   "status": "published",
   "fingerprint": "switch club sabado|2026-10-25|switch",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Pacheco: noche de sábado",
@@ -2952,7 +2919,7 @@
    "count": 623
   },
   "shortTitle": "Pacheco: noche de sábado con cena",
-  "description": "Noche de sábado en Pacheco, un salón que las reseñas recomiendan para fiestas, cumpleaños y cenas. Destacan la ambientación, la barra y la música, con opiniones dispares sobre la comida.",
+  "description": "Noche de sábado en Pacheco, un salón que las reseñas recomiendan para fiestas, cumpleaños y cenas. Destacan la ambientación, la barra y la música.",
   "vibe": {
    "crowd": "grupos de festejo y cumpleaños"
   },
@@ -2961,7 +2928,7 @@
   "id": "platform-c112e831",
   "status": "published",
   "fingerprint": "pacheco sabado|2026-10-25|pacheco",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Sobre Ruedas Rosas",
@@ -2982,7 +2949,7 @@
   "id": "municipal-689da87a",
   "status": "published",
   "fingerprint": "ruedas rosas|2026-10-25|planetario",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Los abrazos en Cine Lumière",
@@ -3017,7 +2984,7 @@
   "id": "municipal-2ceb241c",
   "status": "published",
   "fingerprint": "abrazos cine lumiere|2026-10-25|cine",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Organismos estables presentan: Mozart y otros compositores",
@@ -3059,7 +3026,7 @@
   "id": "municipal-cd42533c",
   "status": "published",
   "fingerprint": "organismos estables presentan mozart otros compositores|2026-10-25|teatro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Show de Santiago Molina",
@@ -3097,7 +3064,7 @@
   "id": "municipal-35c81dc6",
   "status": "published",
   "fingerprint": "santiago molina|2026-10-25|complejo",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Gran Campeonato Relámpago de las 13 Provincias del Cusco y Delegaciones Invitadas",
@@ -3120,7 +3087,7 @@
   "id": "tiktok-8c397509",
   "status": "published",
   "fingerprint": "gran campeonato relampago 13 provincias cusco delegaciones invitadas|2026-10-25|cancha",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Calle Recreativa",
@@ -3159,7 +3126,7 @@
   "id": "municipal-b3361f51",
   "status": "published",
   "fingerprint": "calle recreativa|2026-10-25|calle",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Tango en Calle",
@@ -3197,7 +3164,7 @@
   "id": "municipal-c644f762",
   "status": "published",
   "fingerprint": "tango calle|2026-10-25|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Pañuelos al Viento",
@@ -3246,7 +3213,7 @@
   "id": "press-48fe5fe0",
   "status": "published",
   "fingerprint": "panuelos viento|2026-10-25|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Turismo Carretera en el Autódromo de Rosario",
@@ -3283,7 +3250,7 @@
   "id": "tiktok-81c42fb4",
   "status": "published",
   "fingerprint": "turismo carretera autodromo rosario|2026-10-25|autodromo",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "El Festival Tercerescena ofrecerá el taller “El cuerpo cómico y la voz”",
@@ -3330,7 +3297,7 @@
   "id": "press-c50a8f7a",
   "status": "published",
   "fingerprint": "festival tercerescena ofrecera taller cuerpo comico voz|2026-10-25|plataforma",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Intensivo de danza de octubre ORGN: Acro Contempo y Contempo Fusión",
@@ -3364,7 +3331,7 @@
   "id": "instagram-510d88ad",
   "status": "published",
   "fingerprint": "intensivo danza octubre orgn acro contempo contempo fusion|2026-10-25|punto",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Rosario Car Show",
@@ -3411,7 +3378,7 @@
   "id": "press-4466871e",
   "status": "published",
   "fingerprint": "rosario car|2026-10-25|portal",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Samba al aire libre en el Playón Tecnóteca",
@@ -3448,7 +3415,7 @@
   "id": "instagram-3c37d09e",
   "status": "published",
   "fingerprint": "samba aire playon tecnoteca|2026-10-25|playon",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Feria OhYeah en La Fluvial",
@@ -3490,7 +3457,7 @@
   "id": "instagram-2350869c",
   "status": "published",
   "fingerprint": "feria ohyeah fluvial|2026-10-25|salon",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Ballet Luz Aymara en la Feria Bulevar",
@@ -3523,7 +3490,7 @@
   "id": "instagram-50d6b3b4",
   "status": "published",
   "fingerprint": "ballet luz aymara feria bulevar|2026-10-25|feria",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Funciones y proyecciones fulldome en la Sala Planetario",
@@ -3543,7 +3510,7 @@
   "id": "municipal-abd6422f",
   "status": "published",
   "fingerprint": "funciones proyecciones fulldome sala planetario|2026-10-25|planetario",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Un paseo por el Sistema Solar",
@@ -3562,44 +3529,7 @@
   "id": "press-48a173a9",
   "status": "published",
   "fingerprint": "paseo sistema solar|2026-10-25|planetario",
-  "createdAt": "2026-10-24T15:34:18-03:00"
- },
- {
-  "title": "Halloween en Show Park",
-  "description": "Parque temático festeja Halloween durante todo octubre en Villa Gobernador Gálvez.",
-  "startsAt": "2026-10-25T17:00:00-03:00",
-  "venueName": "Show Park (Av. San Martín al 2600, Villa Gobernador Gálvez)",
-  "category": "infantil",
-  "sourceType": "tiktok",
-  "sourceName": "@showpark_2000",
-  "sourceUrl": "https://www.tiktok.com/@showpark_2000/video/7693672512470666548",
-  "metrics": {
-   "views": 1100000,
-   "likes": 21800
-  },
-  "lat": -33.014706499999996,
-  "lng": -60.62207910000001,
-  "address": "Juan Pablo II S/N, S2124 Villa Gdor. Galvez, Santa Fe",
-  "rating": {
-   "value": 4.3,
-   "count": 1925
-  },
-  "links": [
-   {
-    "label": "Sitio del lugar",
-    "url": "http://vggmunicipalidad.gov.ar/"
-   },
-   {
-    "label": "Ver en Google Maps",
-    "url": "https://maps.google.com/?cid=13014451164215509796&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-   }
-  ],
-  "shortTitle": "Halloween en parque temático",
-  "barrio": "Villa G. Gálvez",
-  "id": "tiktok-4a17b41b",
-  "status": "published",
-  "fingerprint": "halloween park|2026-10-25|show",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Roller Fest Halloween en Mega Sport",
@@ -3644,7 +3574,7 @@
   "id": "instagram-feb26fc8",
   "status": "published",
   "fingerprint": "roller fest halloween mega sport|2026-10-25|club",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Pre Cosquín 2027 sede Rosario",
@@ -3693,7 +3623,7 @@
   "id": "press-5a26d810",
   "status": "published",
   "fingerprint": "pre cosquin 2027 sede rosario|2026-10-25|galpon",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Bajo las banderas",
@@ -3725,7 +3655,7 @@
   "id": "press-47e9ff6f",
   "status": "published",
   "fingerprint": "bajo banderas|2026-10-25|paraguay",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Masterclass de alisados en La Fábrica de las Rubias",
@@ -3762,7 +3692,7 @@
   "id": "tiktok-aee2de6e",
   "status": "published",
   "fingerprint": "masterclass alisados fabrica rubias|2026-10-25|peluqueria",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Feria Oh Yeah en Estación La Fluvial",
@@ -3803,7 +3733,7 @@
   "id": "instagram-d6d3a7f1",
   "status": "published",
   "fingerprint": "feria oh yeah estacion fluvial|2026-10-25|estacion",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Mujeres que dejan huella: danza española y folclore",
@@ -3852,7 +3782,7 @@
   "id": "municipal-6b552a6b",
   "status": "published",
   "fingerprint": "mujeres dejan huella danza espanola folclore|2026-10-25|teatro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Mujeres que dejan huellas - Ballet Español de Rosario",
@@ -3889,7 +3819,7 @@
   "id": "instagram-3eb7afe2",
   "status": "published",
   "fingerprint": "mujeres dejan huellas ballet espanol rosario|2026-10-25|teatro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Un hueco",
@@ -3918,47 +3848,7 @@
   "id": "press-39cea064",
   "status": "published",
   "fingerprint": "hueco|2026-10-25|teatro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
- },
- {
-  "title": "Macbeth de Verdi",
-  "description": "Ópera Macbeth de Giuseppe Verdi, por primera vez en Rosario, con libreto de Francesco María Piave basado en Shakespeare.",
-  "startsAt": "2026-10-25T19:00:00-03:00",
-  "venueName": "Ballet Ruso de Rosario",
-  "category": "musica",
-  "sourceType": "instagram",
-  "sourceName": "@balletrusoderosario",
-  "sourceUrl": "https://www.instagram.com/p/DdmrJHKR7RT/",
-  "links": [
-   {
-    "label": "Ver en Google Maps",
-    "url": "https://maps.google.com/?cid=12119454078212806765&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-   },
-   {
-    "label": "Ver en Instagram",
-    "url": "https://www.instagram.com/p/DdPdQ9yluqA/"
-   }
-  ],
-  "metrics": {
-   "views": 5544,
-   "likes": 698
-  },
-  "lat": -32.944405599999996,
-  "lng": -60.6412624,
-  "address": "Sta Fe 1356, S2000 Rosario, Santa Fe",
-  "rating": {
-   "value": 4.7,
-   "count": 27
-  },
-  "vibe": {
-   "music": "ópera"
-  },
-  "shortTitle": "Macbeth, ópera de Verdi",
-  "barrio": "Centro",
-  "id": "instagram-54b8e92d",
-  "status": "published",
-  "fingerprint": "macbeth verdi|2026-10-25|ballet",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Macbeth",
@@ -3992,7 +3882,48 @@
   "id": "ticketing-36a96f0e",
   "status": "published",
   "fingerprint": "macbeth|2026-10-25|teatro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
+ },
+ {
+  "title": "Macbeth de Verdi",
+  "description": "Fechas: 25 oct y 31 oct. Ópera Macbeth de Giuseppe Verdi, por primera vez en Rosario, con libreto de Francesco María Piave basado en Shakespeare.",
+  "startsAt": "2026-10-25T19:00:00-03:00",
+  "venueName": "Ballet Ruso de Rosario",
+  "category": "musica",
+  "sourceType": "instagram",
+  "sourceName": "@balletrusoderosario",
+  "sourceUrl": "https://www.instagram.com/p/DdmrJHKR7RT/",
+  "links": [
+   {
+    "label": "Ver en Google Maps",
+    "url": "https://maps.google.com/?cid=12119454078212806765&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+   },
+   {
+    "label": "Ver en Instagram",
+    "url": "https://www.instagram.com/p/DdPdQ9yluqA/"
+   }
+  ],
+  "metrics": {
+   "views": 5544,
+   "likes": 857
+  },
+  "lat": -32.944405599999996,
+  "lng": -60.6412624,
+  "address": "Sta Fe 1356, S2000 Rosario, Santa Fe",
+  "rating": {
+   "value": 4.7,
+   "count": 27
+  },
+  "endsAt": "2026-10-31T20:00:00-03:00",
+  "vibe": {
+   "music": "ópera"
+  },
+  "shortTitle": "Macbeth, ópera de Verdi",
+  "barrio": "Centro",
+  "id": "instagram-54b8e92d",
+  "status": "published",
+  "fingerprint": "macbeth verdi|2026-10-25|ballet",
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Caballito de batalla",
@@ -4035,7 +3966,7 @@
   "id": "ticketing-01d7af88",
   "status": "published",
   "fingerprint": "caballito batalla|2026-10-25|teatro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Capitán: noche de domingo",
@@ -4056,7 +3987,7 @@
   ],
   "recurring": true,
   "shortTitle": "Capitán: shows en vivo",
-  "description": "Noche de domingo en Capitán con shows en vivo. Los jueves y domingos la propuesta va hasta la 1.",
+  "description": "Noche de domingo en Capitán con shows en vivo. La propuesta va hasta la 1.",
   "vibe": {
    "music": "shows en vivo"
   },
@@ -4064,7 +3995,7 @@
   "id": "platform-c2dbe198",
   "status": "published",
   "fingerprint": "capitan domingo|2026-10-25|capitan",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Los abrazos",
@@ -4104,7 +4035,7 @@
   "id": "press-42998fae",
   "status": "published",
   "fingerprint": "abrazos|2026-10-25|cine",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Cada vez otra vez",
@@ -4137,7 +4068,7 @@
   "id": "press-d3bc29b8",
   "status": "published",
   "fingerprint": "cada vez otra vez|2026-10-25|espacio",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Sin fronteras",
@@ -4177,7 +4108,7 @@
   "id": "press-08927bb0",
   "status": "published",
   "fingerprint": "fronteras|2026-10-25|plataforma",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Las escenas secundarias",
@@ -4210,7 +4141,7 @@
   "id": "press-f58758c9",
   "status": "published",
   "fingerprint": "escenas secundarias|2026-10-25|espacio",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Para anormales",
@@ -4243,7 +4174,7 @@
   "id": "press-a81637eb",
   "status": "published",
   "fingerprint": "anormales|2026-10-25|cultural",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Para anormales, comedia en Cultural de Abajo",
@@ -4276,7 +4207,7 @@
   ],
   "metrics": {
    "views": 0,
-   "likes": 110
+   "likes": 220
   },
   "lat": -32.94338534548666,
   "lng": -60.640329540691056,
@@ -4292,7 +4223,7 @@
   "id": "instagram-8eb5f76c",
   "status": "published",
   "fingerprint": "anormales comedia cultural abajo|2026-10-25|cultural",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Kika: noche de domingo",
@@ -4318,7 +4249,7 @@
    "count": 1500
   },
   "shortTitle": "Kika: espectáculos y tragos",
-  "description": "Noche de domingo en Kika, un espacio pequeño con espectáculos y barra, abierto de 21 a 1. Las reseñas cuentan que no cobran entrada sino consumición y que el ambiente es tranquilo.",
+  "description": "Noche de domingo en Kika, un espacio pequeño con espectáculos y barra, abierto de 21 a 1. No cobran entrada sino consumición y el ambiente es tranquilo.",
   "vibe": {
    "crowd": "ambiente tranqui",
    "dress": "sin entrada, con consumición"
@@ -4327,7 +4258,7 @@
   "id": "platform-59cc7fda",
   "status": "published",
   "fingerprint": "kika domingo|2026-10-25|kika",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "La Cautiva: noche de domingo",
@@ -4362,7 +4293,7 @@
   "id": "platform-123ad88a",
   "status": "published",
   "fingerprint": "cautiva domingo|2026-10-25|la",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Sonic: noche de domingo",
@@ -4387,7 +4318,7 @@
    "count": 9
   },
   "shortTitle": "Sonic: birra artesanal y hamburguesas",
-  "description": "Noche de domingo en Sonic, con patio, birra artesanal y hamburguesas. Las reseñas destacan la buena música, la atención y los precios.",
+  "description": "Noche de domingo en Sonic, con patio, birra artesanal y hamburguesas. Las reseñas destacan la música, la atención y los precios.",
   "vibe": {
    "crowd": "buena onda, para tomar algo"
   },
@@ -4395,7 +4326,7 @@
   "id": "platform-d792f8a0",
   "status": "published",
   "fingerprint": "sonic domingo|2026-10-25|sonic",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Ricardo Darín y Andrea Pietra en Escenas de la vida conyugal",
@@ -4436,7 +4367,7 @@
   "id": "press-da726d3c",
   "status": "published",
   "fingerprint": "ricardo darin andrea pietra escenas vida conyugal|2026-10-25|teatro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Santiago Linares presenta su disco Desde un nuevo lugar",
@@ -4480,7 +4411,7 @@
   "id": "press-f2c06284",
   "status": "published",
   "fingerprint": "santiago linares disco nuevo lugar|2026-10-25|complejo",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Despertar de Primavera, el musical",
@@ -4538,11 +4469,11 @@
   "id": "press-be4a5033",
   "status": "published",
   "fingerprint": "despertar primavera musical|2026-10-25|teatro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Macbeth, ópera de Verdi en el Teatro El Círculo",
-  "description": "Ópera Macbeth de Verdi basada en Shakespeare, con la soprano María Belén Rivarola como Lady Macbeth.",
+  "description": "Fechas: 25 oct, 29 oct y 31 oct. Ópera Macbeth de Verdi basada en Shakespeare, con la soprano María Belén Rivarola como Lady Macbeth.",
   "startsAt": "2026-10-25T21:00:00-03:00",
   "venueName": "Teatro Círculo",
   "address": "Laprida 1223",
@@ -4578,6 +4509,7 @@
    "value": 4.7,
    "count": 9797
   },
+  "endsAt": "2026-10-31T21:00:00-03:00",
   "vibe": {
    "music": "ópera"
   },
@@ -4586,7 +4518,7 @@
   "id": "tiktok-649ac109",
   "status": "published",
   "fingerprint": "macbeth opera verdi teatro circulo|2026-10-25|teatro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "El cine El Cairo ofrecerá una nueva edición de “La Random”",
@@ -4623,7 +4555,7 @@
   "id": "press-4e197fce",
   "status": "published",
   "fingerprint": "cine cairo ofrecera nueva random|2026-10-25|bar",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Bienestar y actividad física en San Martín A",
@@ -4657,7 +4589,7 @@
   "id": "municipal-7c1ebf37",
   "status": "published",
   "fingerprint": "bienestar actividad fisica san martin|2026-10-26|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Activá tu busqueda laboral en el Distrito Sudoeste",
@@ -4699,7 +4631,7 @@
   "id": "municipal-ab11f767",
   "status": "published",
   "fingerprint": "activa tu busqueda laboral distrito sudoeste|2026-10-26|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Caminata adultos mayores en el sudoeste",
@@ -4742,7 +4674,7 @@
   "id": "municipal-dfc2e447",
   "status": "published",
   "fingerprint": "caminata adultos mayores sudoeste|2026-10-26|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Yoga para adultos",
@@ -4781,7 +4713,7 @@
   "id": "municipal-6145cd53",
   "status": "published",
   "fingerprint": "yoga adultos|2026-10-26|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Hockey para niños y preadolescentes en el Distrito Sudoeste",
@@ -4820,7 +4752,7 @@
   "id": "municipal-5390f53c",
   "status": "published",
   "fingerprint": "hockey ninos preadolescentes distrito sudoeste|2026-10-26|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Voley adolescentes en el distrito sudoeste",
@@ -4859,7 +4791,7 @@
   "id": "municipal-39c6a2ba",
   "status": "published",
   "fingerprint": "voley adolescentes distrito sudoeste|2026-10-26|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Ajedrez para las infancias",
@@ -4897,7 +4829,7 @@
   "id": "municipal-a294ccd9",
   "status": "published",
   "fingerprint": "ajedrez infancias|2026-10-26|biblioteca",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Odisea, de Homero a Christopher Nolan",
@@ -4931,7 +4863,7 @@
   "id": "municipal-02bc6f4a",
   "status": "published",
   "fingerprint": "odisea homero christopher nolan|2026-10-26|biblioteca",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Animadores Juveniles en el Distrito Sudoeste",
@@ -4970,7 +4902,7 @@
   "id": "municipal-51b7acc1",
   "status": "published",
   "fingerprint": "animadores juveniles distrito sudoeste|2026-10-26|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Ajedrez: nivel intermedio-avanzados",
@@ -5004,7 +4936,7 @@
   "id": "municipal-ab357820",
   "status": "published",
   "fingerprint": "ajedrez nivel intermedio avanzados|2026-10-26|biblioteca",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Mis primeros pasos",
@@ -5048,7 +4980,7 @@
   "id": "municipal-819d828b",
   "status": "published",
   "fingerprint": "mis primeros pasos|2026-10-26|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Taller de actuación Cuerpos Crudos en Sala Tandava",
@@ -5087,7 +5019,7 @@
   "id": "municipal-3c7141f7",
   "status": "published",
   "fingerprint": "taller actuacion cuerpos crudos sala tandava|2026-10-26|sala",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Sonic: noche de lunes",
@@ -5097,7 +5029,7 @@
   "address": "Maipú 1070",
   "lat": -32.9503692,
   "lng": -60.6361937,
-  "category": "fiesta",
+  "category": "gastronomia",
   "sourceType": "platform",
   "sourceName": "Sonic",
   "links": [
@@ -5112,12 +5044,12 @@
    "count": 9
   },
   "shortTitle": "Sonic: birra y hamburguesas",
-  "description": "Noche de lunes en Sonic, con patio, birra artesanal y hamburguesas. Las reseñas destacan la música y la buena onda.",
+  "description": "Noche de lunes en Sonic, un bar con patio, birra artesanal y hamburguesas. Las reseñas destacan la buena música y la buena onda de la atención.",
   "barrio": "Centro",
   "id": "platform-4f752f07",
   "status": "published",
   "fingerprint": "sonic lunes|2026-10-26|sonic",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Taller: “Borges, el lector exquisito”",
@@ -5152,7 +5084,7 @@
   "id": "municipal-bf8471b7",
   "status": "published",
   "fingerprint": "taller borges lector exquisito|2026-10-27|biblioteca",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Huerta primavera-verano",
@@ -5188,7 +5120,7 @@
   "id": "municipal-79b75154",
   "status": "published",
   "fingerprint": "huerta primavera verano|2026-10-27|escuela",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Bienestar y actividad física en Puente Gallego",
@@ -5223,7 +5155,7 @@
   "id": "municipal-fbc8a05d",
   "status": "published",
   "fingerprint": "bienestar actividad fisica puente gallego|2026-10-27|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Gimnasia adultos mayores en el sudoeste",
@@ -5266,7 +5198,7 @@
   "id": "municipal-b0e4dd41",
   "status": "published",
   "fingerprint": "gimnasia adultos mayores sudoeste|2026-10-27|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Visitas Guiadas Biblioteca Estrada",
@@ -5301,7 +5233,7 @@
   "id": "municipal-bbf3f2f4",
   "status": "published",
   "fingerprint": "visitas guiadas biblioteca estrada|2026-10-27|biblioteca",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Estaciones de Alfabetización para alumnos de segundo ciclo.",
@@ -5340,7 +5272,7 @@
   "id": "municipal-3c12afc8",
   "status": "published",
   "fingerprint": "estaciones alfabetizacion alumnos segundo ciclo|2026-10-27|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Espacio de vida saludable: Cardio Nutri Dance",
@@ -5375,7 +5307,7 @@
   "id": "municipal-673b8414",
   "status": "published",
   "fingerprint": "espacio vida saludable cardio nutri dance|2026-10-27|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Basquet niños y adolescentes en distrito sudoeste",
@@ -5414,7 +5346,7 @@
   "id": "municipal-1503a120",
   "status": "published",
   "fingerprint": "basquet ninos adolescentes distrito sudoeste|2026-10-27|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Consejo de Niñas y Niños en Casa de Cultura Barrio Alvear",
@@ -5453,7 +5385,7 @@
   "id": "municipal-0abee8c8",
   "status": "published",
   "fingerprint": "consejo ninas ninos casa cultura barrio alvear|2026-10-27|casa",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Fútbol niños y adolescentes en playón Tio Rolo",
@@ -5492,7 +5424,7 @@
   "id": "municipal-792acf3c",
   "status": "published",
   "fingerprint": "futbol ninos adolescentes playon tio rolo|2026-10-27|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Taller de lectura y conversación",
@@ -5527,7 +5459,7 @@
   "id": "municipal-caf6a8b5",
   "status": "published",
   "fingerprint": "taller lectura conversacion|2026-10-27|biblioteca",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Sonic: noche de martes",
@@ -5552,12 +5484,12 @@
    "count": 9
   },
   "shortTitle": "Sonic: birra, hamburguesas y patio",
-  "description": "Noche de martes en Sonic, un bar con patio, birra artesanal, hamburguesas y tragos como el Gin Paff. Las reseñas destacan la buena música, la buena onda de la atención y los precios accesibles.",
+  "description": "Noche de martes en Sonic, un bar con patio, birra artesanal, hamburguesas y tragos como el Gin Paff. Las reseñas destacan la buena música, la atención y los precios accesibles.",
   "barrio": "Centro",
   "id": "platform-34e83dbf",
   "status": "published",
   "fingerprint": "sonic martes|2026-10-27|sonic",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Día Mundial de la Medicina Tradicional en el Sudoeste",
@@ -5592,7 +5524,7 @@
   "id": "municipal-083b3bed",
   "status": "published",
   "fingerprint": "dia mundial medicina tradicional sudoeste|2026-10-28|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Balcones y terrazas verdes",
@@ -5628,7 +5560,7 @@
   "id": "municipal-d9bc6a00",
   "status": "published",
   "fingerprint": "balcones terrazas verdes|2026-10-28|escuela",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Educación financiera para jóvenes",
@@ -5667,7 +5599,7 @@
   "id": "municipal-316f96b0",
   "status": "published",
   "fingerprint": "educacion financiera jovenes|2026-10-28|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Charlas sobre Ermete De Lorenzi en Casa Vanzo Wernicke",
@@ -5702,7 +5634,7 @@
   "id": "municipal-0ea993bd",
   "status": "published",
   "fingerprint": "charlas ermete lorenzi casa vanzo wernicke|2026-10-28|casa",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Conversaciones en la biblioteca: entrevista al fotógrafo Alejandro Lamas",
@@ -5737,7 +5669,7 @@
   "id": "municipal-a532f754",
   "status": "published",
   "fingerprint": "conversaciones biblioteca entrevista fotografo alejandro lamas|2026-10-28|biblioteca",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "JORNADA PROFESIONAL OCT - \"SALUD, SEGURIDAD Y BIENESTAR LABORAL 2026\"",
@@ -5776,7 +5708,7 @@
   "id": "platform-f69f7009",
   "status": "published",
   "fingerprint": "jornada profesional oct salud seguridad bienestar laboral 2026|2026-10-28|instituto",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Taller de uso de celulares para adultos mayores en el Oeste",
@@ -5815,13 +5747,13 @@
   "id": "municipal-b3d1e24c",
   "status": "published",
   "fingerprint": "taller uso celulares adultos mayores oeste|2026-10-28|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "TechCamp Santa Fe de Mentes Transformadoras LAB (jornada 1)",
-  "description": "Tres días de trabajo para PyMEs, cooperativas, startups y organizaciones sobre innovación, IA aplicada, criterios ASG y alianzas. 100% becado con certificación de la UTN, cupo de 30 organizaciones con postulación previa.",
+  "description": "Fechas: 28 oct, 29 oct y 30 oct. Tres días de trabajo para PyMEs, cooperativas, startups y organizaciones sobre innovación, IA aplicada, criterios ASG y alianzas. 100% becado con certificación de la UTN, cupo de 30 organizaciones con postulación previa.",
   "startsAt": "2026-10-28T09:00:00-03:00",
-  "endsAt": "2026-10-28T17:00:00-03:00",
+  "endsAt": "2026-10-30T09:00:00-03:00",
   "venueName": "UTN Sede Rosario",
   "category": "charla",
   "price": {
@@ -5839,7 +5771,7 @@
   ],
   "metrics": {
    "views": 0,
-   "likes": 9
+   "likes": 12
   },
   "lat": -32.9545032,
   "lng": -60.64381900000001,
@@ -5853,7 +5785,7 @@
   "id": "instagram-16f7346c",
   "status": "published",
   "fingerprint": "techcamp santa fe mentes transformadoras lab jornada|2026-10-28|utn",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Taller de literatura experimental: pluma salvaje",
@@ -5887,7 +5819,7 @@
   "id": "municipal-4b7cd900",
   "status": "published",
   "fingerprint": "taller literatura experimental pluma salvaje|2026-10-28|biblioteca",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Entrenamiento y Ensayo para bailarines de tango",
@@ -5926,7 +5858,7 @@
   "id": "municipal-45bc68d0",
   "status": "published",
   "fingerprint": "entrenamiento ensayo bailarines tango|2026-10-28|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Taller de Redes Sociales para Adultos Mayores en el Sudoeste",
@@ -5965,7 +5897,7 @@
   "id": "municipal-14269ba5",
   "status": "published",
   "fingerprint": "taller redes sociales adultos mayores sudoeste|2026-10-28|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Taller de Huerta Ecológica en el CAM",
@@ -5986,7 +5918,7 @@
   "id": "municipal-a27f2455",
   "status": "published",
   "fingerprint": "taller huerta ecologica cam|2026-10-28|planetario",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Coresetería Victoriana Beskope",
@@ -6020,7 +5952,7 @@
   "id": "municipal-665d78f8",
   "status": "published",
   "fingerprint": "coreseteria victoriana beskope|2026-10-28|museo",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Taller de Técnicas de Danza y Composición Instantánea",
@@ -6055,7 +5987,7 @@
   "id": "municipal-1e539d20",
   "status": "published",
   "fingerprint": "taller tecnicas danza composicion instantanea|2026-10-28|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Vamos a conversar sobre cuestiones relativas al trabajo.",
@@ -6081,7 +6013,7 @@
   "id": "platform-6e62ab65",
   "status": "published",
   "fingerprint": "vamos conversar cuestiones relativas trabajo|2026-10-28|cordoba",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Talleres anuales de Tango Danza",
@@ -6120,7 +6052,7 @@
   "id": "municipal-85532623",
   "status": "published",
   "fingerprint": "talleres anuales tango danza|2026-10-28|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "J. S. Bach: Cantatas para Alto y concierto para tres violines y orquesta",
@@ -6161,7 +6093,7 @@
   "id": "municipal-97f35903",
   "status": "published",
   "fingerprint": "bach cantatas alto concierto tres violines orquesta|2026-10-28|teatro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Sonic: noche de miércoles",
@@ -6186,12 +6118,12 @@
    "count": 9
   },
   "shortTitle": "Sonic: birra, hamburguesas y patio",
-  "description": "Noche de miércoles en Sonic, un bar con patio, birra artesanal, hamburguesas y tragos como el Gin Paff. Las reseñas destacan la buena música, la buena onda de la atención y los precios accesibles.",
+  "description": "Noche de miércoles en Sonic, un bar con patio, birra artesanal, hamburguesas y tragos como el Gin Paff. Las reseñas destacan la buena música, la atención y los precios accesibles.",
   "barrio": "Centro",
   "id": "platform-37bceedf",
   "status": "published",
   "fingerprint": "sonic miercoles|2026-10-28|sonic",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Taller \"Aprendé a manejar tu celular\"",
@@ -6230,7 +6162,7 @@
   "id": "municipal-c20074bf",
   "status": "published",
   "fingerprint": "taller aprende manejar tu celular|2026-10-29|biblioteca",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Circuito Interbarrial de teatro “Babilonia”",
@@ -6261,7 +6193,7 @@
   "id": "municipal-628804b1",
   "status": "published",
   "fingerprint": "circuito interbarrial teatro babilonia|2026-10-29|area",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Café Literario",
@@ -6296,7 +6228,7 @@
   "id": "municipal-449613e3",
   "status": "published",
   "fingerprint": "cafe literario|2026-10-29|facultad",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Proyección de Un cabo suelto en Cine Lumière",
@@ -6335,7 +6267,7 @@
   "id": "municipal-b27061c6",
   "status": "published",
   "fingerprint": "proyeccion cabo suelto cine lumiere|2026-10-29|cine",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Ciclo de Teatro +65: Babilonia",
@@ -6374,7 +6306,7 @@
   "id": "municipal-29298dcd",
   "status": "published",
   "fingerprint": "ciclo teatro 65 babilonia|2026-10-29|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Muestra: La Canción del barrio",
@@ -6412,7 +6344,7 @@
   "id": "municipal-c8fceadf",
   "status": "published",
   "fingerprint": "muestra cancion barrio|2026-10-29|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Un Maldito Policía en Cine Lumière",
@@ -6451,7 +6383,7 @@
   "id": "municipal-99c77931",
   "status": "published",
   "fingerprint": "maldito policia cine lumiere|2026-10-29|cine",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Muestra de fin de año de la Escuela de Danzas",
@@ -6490,53 +6422,7 @@
   "id": "municipal-8398695b",
   "status": "published",
   "fingerprint": "muestra fin ano escuela danzas|2026-10-29|teatro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
- },
- {
-  "title": "TechCamp Santa Fe de Mentes Transformadoras LAB (jornada 2)",
-  "description": "Segunda jornada presencial y gratuita sobre IA agéntica aplicada y criterios ASG para organizaciones seleccionadas. Requiere postulación previa.",
-  "startsAt": "2026-10-29T09:00:00-03:00",
-  "endsAt": "2026-10-29T17:00:00-03:00",
-  "venueName": "UTN Sede Rosario",
-  "category": "charla",
-  "price": {
-   "free": true,
-   "currency": "ARS"
-  },
-  "sourceType": "instagram",
-  "sourceName": "@mentestransformadorasok",
-  "sourceUrl": "https://www.instagram.com/p/Dec0cAXJDNw/",
-  "links": [
-   {
-    "label": "Página del evento",
-    "url": "https://www.mentestransformadoras.org"
-   },
-   {
-    "label": "Ver en Instagram",
-    "url": "https://www.instagram.com/p/Dec0cAXJDNw/"
-   },
-   {
-    "label": "Ver en Instagram",
-    "url": "https://www.instagram.com/p/DeKucamlWKI/"
-   }
-  ],
-  "metrics": {
-   "views": 0,
-   "likes": 9
-  },
-  "lat": -32.9545032,
-  "lng": -60.64381900000001,
-  "address": "2000, Zeballos 1341, S2000 Rosario, Santa Fe",
-  "vibe": {
-   "crowd": "organizaciones seleccionadas",
-   "dress": "requiere postulación previa"
-  },
-  "shortTitle": "TechCamp, jornada de IA aplicada",
-  "barrio": "Centro",
-  "id": "instagram-48bb8b7f",
-  "status": "published",
-  "fingerprint": "techcamp santa fe mentes transformadoras lab jornada|2026-10-29|utn",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Literatura para jardines. Lecturas entre amantes de la naturaleza",
@@ -6578,7 +6464,7 @@
   "id": "municipal-87b10615",
   "status": "published",
   "fingerprint": "literatura jardines lecturas amantes naturaleza|2026-10-29|biblioteca",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Taller de literatura con adolescentes en la Biblioteca Argentina",
@@ -6617,7 +6503,7 @@
   "id": "municipal-64540013",
   "status": "published",
   "fingerprint": "taller literatura adolescentes biblioteca argentina|2026-10-29|biblioteca",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Pre Congreso sobre la Democracia Rosario En Común. Día 1",
@@ -6651,7 +6537,7 @@
   "id": "municipal-837490c4",
   "status": "published",
   "fingerprint": "pre congreso democracia rosario comun dia|2026-10-29|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Memorias del Exilio: \"Zurcir voces hasta volverlas familiares\"",
@@ -6701,7 +6587,7 @@
   "id": "municipal-80b7b953",
   "status": "published",
   "fingerprint": "memorias exilio zurcir voces volverlas familiares|2026-10-29|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "¿Querés que te cuente un cuento?",
@@ -6739,7 +6625,7 @@
   "id": "municipal-43acaa93",
   "status": "published",
   "fingerprint": "queres te cuente cuento|2026-10-29|biblioteca",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "ProductTank Rosario 1.0",
@@ -6780,7 +6666,7 @@
   "id": "platform-051077d7",
   "status": "published",
   "fingerprint": "producttank rosario|2026-10-29|tecnoteca",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Capitán: noche de jueves",
@@ -6809,55 +6695,7 @@
   "id": "platform-3699b007",
   "status": "published",
   "fingerprint": "capitan jueves|2026-10-29|capitan",
-  "createdAt": "2026-10-24T15:34:18-03:00"
- },
- {
-  "title": "Macbeth de Verdi (función de abono)",
-  "description": "Función de abono de Macbeth, la ópera de Giuseppe Verdi. Es la primera vez que se presenta en Rosario.",
-  "startsAt": "2026-10-29T20:00:00-03:00",
-  "venueName": "Ballet Ruso de Rosario",
-  "category": "teatro",
-  "sourceType": "instagram",
-  "sourceName": "@balletrusoderosario",
-  "sourceUrl": "https://www.instagram.com/p/DdmrJHKR7RT/",
-  "links": [
-   {
-    "label": "Entradas",
-    "url": "https://www.ticketek.com.ar/macbeth/teatro-el-circulo"
-   },
-   {
-    "label": "Ver en Instagram",
-    "url": "https://www.instagram.com/p/DdmrJHKR7RT/"
-   },
-   {
-    "label": "Ver en Google Maps",
-    "url": "https://maps.google.com/?cid=12119454078212806765&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-   },
-   {
-    "label": "Ver en Instagram",
-    "url": "https://www.instagram.com/p/DdPdQ9yluqA/"
-   }
-  ],
-  "metrics": {
-   "views": 5544,
-   "likes": 698
-  },
-  "lat": -32.944405599999996,
-  "lng": -60.6412624,
-  "address": "Sta Fe 1356, S2000 Rosario, Santa Fe",
-  "rating": {
-   "value": 4.7,
-   "count": 27
-  },
-  "vibe": {
-   "music": "ópera"
-  },
-  "shortTitle": "Macbeth, ópera de Verdi",
-  "barrio": "Centro",
-  "id": "instagram-e928026a",
-  "status": "published",
-  "fingerprint": "macbeth verdi funcion abono|2026-10-29|ballet",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Macbeth",
@@ -6894,7 +6732,55 @@
   "id": "ticketing-3cddcc0a",
   "status": "published",
   "fingerprint": "macbeth|2026-10-29|teatro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
+ },
+ {
+  "title": "Macbeth de Verdi (función de abono)",
+  "description": "Función de abono de Macbeth, la ópera de Giuseppe Verdi. Es la primera vez que se presenta en Rosario.",
+  "startsAt": "2026-10-29T20:00:00-03:00",
+  "venueName": "Ballet Ruso de Rosario",
+  "category": "teatro",
+  "sourceType": "instagram",
+  "sourceName": "@balletrusoderosario",
+  "sourceUrl": "https://www.instagram.com/p/DdmrJHKR7RT/",
+  "links": [
+   {
+    "label": "Entradas",
+    "url": "https://www.ticketek.com.ar/macbeth/teatro-el-circulo"
+   },
+   {
+    "label": "Ver en Instagram",
+    "url": "https://www.instagram.com/p/DdmrJHKR7RT/"
+   },
+   {
+    "label": "Ver en Google Maps",
+    "url": "https://maps.google.com/?cid=12119454078212806765&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+   },
+   {
+    "label": "Ver en Instagram",
+    "url": "https://www.instagram.com/p/DdPdQ9yluqA/"
+   }
+  ],
+  "metrics": {
+   "views": 5544,
+   "likes": 857
+  },
+  "lat": -32.944405599999996,
+  "lng": -60.6412624,
+  "address": "Sta Fe 1356, S2000 Rosario, Santa Fe",
+  "rating": {
+   "value": 4.7,
+   "count": 27
+  },
+  "vibe": {
+   "music": "ópera"
+  },
+  "shortTitle": "Macbeth, ópera de Verdi",
+  "barrio": "Centro",
+  "id": "instagram-e928026a",
+  "status": "published",
+  "fingerprint": "macbeth verdi funcion abono|2026-10-29|ballet",
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Kika: noche de jueves",
@@ -6920,7 +6806,7 @@
    "count": 1500
   },
   "shortTitle": "Kika: espectáculos y tragos",
-  "description": "Noche de jueves en Kika, de 21 a 1, con espectáculos y obras en una sala chica. Según las reseñas no cobran entrada pero hay que hacer una consumición, y el ambiente es tranqui con buena música.",
+  "description": "Noche de jueves en Kika, de 21 a 1, con espectáculos y obras en una sala chica. No cobran entrada pero hay que hacer una consumición, y el ambiente es tranqui.",
   "vibe": {
    "crowd": "ambiente tranqui",
    "dress": "sin entrada, con consumición"
@@ -6929,7 +6815,7 @@
   "id": "platform-9a22e263",
   "status": "published",
   "fingerprint": "kika jueves|2026-10-29|kika",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "La Cautiva: noche de jueves",
@@ -6964,7 +6850,7 @@
   "id": "platform-8a3fb569",
   "status": "published",
   "fingerprint": "cautiva jueves|2026-10-29|la",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "El Filo: noche de jueves",
@@ -6991,11 +6877,14 @@
   },
   "shortTitle": "El Filo: cena y shows junto al río",
   "description": "Noche de jueves en El Filo, un restaurante con mesas al aire libre al lado del río. Las reseñas mencionan comida abundante y actuaciones en vivo.",
+  "vibe": {
+   "music": "actuaciones en vivo"
+  },
   "barrio": "Granadero Baigorria",
   "id": "platform-45658a3e",
   "status": "published",
   "fingerprint": "filo jueves|2026-10-29|el",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Sonic: noche de jueves",
@@ -7005,7 +6894,7 @@
   "address": "Maipú 1070",
   "lat": -32.9503692,
   "lng": -60.6361937,
-  "category": "fiesta",
+  "category": "gastronomia",
   "sourceType": "platform",
   "sourceName": "Sonic",
   "links": [
@@ -7025,7 +6914,7 @@
   "id": "platform-4d5f4ee7",
   "status": "published",
   "fingerprint": "sonic jueves|2026-10-29|sonic",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Piedra y camino. Cantata a la Luna en el CAM",
@@ -7052,55 +6941,7 @@
   "id": "municipal-1259d3a5",
   "status": "published",
   "fingerprint": "piedra camino cantata luna cam|2026-10-29|planetario",
-  "createdAt": "2026-10-24T15:34:18-03:00"
- },
- {
-  "title": "Macbeth, ópera de Verdi en el Teatro El Círculo",
-  "description": "Ópera Macbeth de Verdi basada en Shakespeare, con la soprano María Belén Rivarola como Lady Macbeth.",
-  "startsAt": "2026-10-29T21:00:00-03:00",
-  "venueName": "Teatro Círculo",
-  "address": "Laprida 1223",
-  "category": "teatro",
-  "sourceType": "tiktok",
-  "sourceName": "@vive.rosario.stream",
-  "sourceUrl": "https://www.tiktok.com/@vive.rosario.stream/video/7699213793485770004",
-  "links": [
-   {
-    "label": "Entradas",
-    "url": "https://www.ticketek.com.ar/macbeth/teatro-el-circulo"
-   },
-   {
-    "label": "Ver en TikTok",
-    "url": "https://www.tiktok.com/@vive.rosario.stream/video/7699213793485770004"
-   },
-   {
-    "label": "Sitio del lugar",
-    "url": "http://www.teatroelcirculo.com/"
-   },
-   {
-    "label": "Ver en Google Maps",
-    "url": "https://maps.google.com/?cid=8446882022203684676&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-   }
-  ],
-  "metrics": {
-   "views": 791,
-   "likes": 14
-  },
-  "lat": -32.9525897,
-  "lng": -60.63535479999999,
-  "rating": {
-   "value": 4.7,
-   "count": 9797
-  },
-  "vibe": {
-   "music": "ópera"
-  },
-  "shortTitle": "Macbeth, ópera de Verdi",
-  "barrio": "Centro",
-  "id": "tiktok-b4273a75",
-  "status": "published",
-  "fingerprint": "macbeth opera verdi teatro circulo|2026-10-29|teatro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Jornada de recepción de residuos informáticos",
@@ -7136,7 +6977,7 @@
   "id": "municipal-0273b5af",
   "status": "published",
   "fingerprint": "jornada recepcion residuos informaticos|2026-10-30|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Taller didáctico de carpintería: \"De la madera a la mesa\"",
@@ -7174,7 +7015,7 @@
   "id": "municipal-0767381e",
   "status": "published",
   "fingerprint": "taller didactico carpinteria madera mesa|2026-10-30|mercado",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Propuesta para profesorados: \"Experiencia Imaginada\"",
@@ -7212,7 +7053,7 @@
   "id": "municipal-6f2809e1",
   "status": "published",
   "fingerprint": "propuesta profesorados experiencia imaginada|2026-10-30|biblioteca",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Reconocimiento a Mujeres que educan en el Noroeste",
@@ -7243,7 +7084,7 @@
   "id": "municipal-feb617b2",
   "status": "published",
   "fingerprint": "reconocimiento mujeres educan noroeste|2026-10-30|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "La Biblioteca Argentina en la Noche de Museos Abiertos",
@@ -7278,7 +7119,7 @@
   "id": "municipal-56b479f9",
   "status": "published",
   "fingerprint": "biblioteca argentina museos abiertos|2026-10-30|biblioteca",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Ciclo de Teatro +65: El Club de la Risa",
@@ -7318,7 +7159,7 @@
   "id": "municipal-5b9a5251",
   "status": "published",
   "fingerprint": "ciclo teatro 65 club risa|2026-10-30|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Una casa y tres protagonistas | Noche de Museos Abiertos en Casa Vanzo Wernicke",
@@ -7353,7 +7194,7 @@
   "id": "municipal-1fc0c8f2",
   "status": "published",
   "fingerprint": "casa tres protagonistas museos abiertos casa vanzo wernicke|2026-10-30|casa",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Micelia 360º | Arte, tecnología y creación inmersiva en el Complejo Astronómico",
@@ -7379,7 +7220,7 @@
   "id": "municipal-b76502f5",
   "status": "published",
   "fingerprint": "micelia 360 arte tecnologia creacion inmersiva complejo astronomico|2026-10-30|planetario",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Terror en VHS en Cine Lumière",
@@ -7414,7 +7255,7 @@
   "id": "municipal-6053fe5d",
   "status": "published",
   "fingerprint": "terror vhs cine lumiere|2026-10-30|cine",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "El bingo musical de Veto y Fer",
@@ -7453,7 +7294,7 @@
   "id": "municipal-27c096ec",
   "status": "published",
   "fingerprint": "bingo musical veto fer|2026-10-30|complejo",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Bingo Musical de Veto y Fer",
@@ -7476,45 +7317,7 @@
   "id": "tiktok-3dd02cd2",
   "status": "published",
   "fingerprint": "bingo musical veto fer|2026-10-30|rosario",
-  "createdAt": "2026-10-24T15:34:18-03:00"
- },
- {
-  "title": "TechCamp Santa Fe de Mentes Transformadoras LAB (jornada 3)",
-  "description": "Tercera jornada presencial y gratuita sobre IA agéntica aplicada y criterios ASG para organizaciones seleccionadas. Requiere postulación previa.",
-  "startsAt": "2026-10-30T09:00:00-03:00",
-  "endsAt": "2026-10-30T17:00:00-03:00",
-  "venueName": "UTN Sede Rosario",
-  "category": "charla",
-  "price": {
-   "free": true,
-   "currency": "ARS"
-  },
-  "sourceType": "instagram",
-  "sourceName": "@mentestransformadorasok",
-  "sourceUrl": "https://www.instagram.com/p/Dec0cAXJDNw/",
-  "links": [
-   {
-    "label": "Ver en Instagram",
-    "url": "https://www.instagram.com/p/DeKucamlWKI/"
-   }
-  ],
-  "metrics": {
-   "views": 0,
-   "likes": 9
-  },
-  "lat": -32.9545032,
-  "lng": -60.64381900000001,
-  "address": "2000, Zeballos 1341, S2000 Rosario, Santa Fe",
-  "vibe": {
-   "crowd": "organizaciones seleccionadas",
-   "dress": "requiere postulación previa"
-  },
-  "shortTitle": "TechCamp, jornada sobre IA",
-  "barrio": "Centro",
-  "id": "instagram-ab67b2c5",
-  "status": "published",
-  "fingerprint": "techcamp santa fe mentes transformadoras lab jornada|2026-10-30|utn",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Taller Zurcir voces hasta volverlas familiares (día 2)",
@@ -7552,47 +7355,7 @@
   "id": "instagram-ef9e91c4",
   "status": "published",
   "fingerprint": "taller zurcir voces volverlas familiares dia|2026-10-30|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
- },
- {
-  "title": "Halloween en Show Park",
-  "description": "Parque temático festeja Halloween durante todo octubre en Villa Gobernador Gálvez. Viernes desde las 17 hs.",
-  "startsAt": "2026-10-30T17:00:00-03:00",
-  "venueName": "Show Park (Av. San Martín al 2600, Villa Gobernador Gálvez)",
-  "category": "infantil",
-  "sourceType": "tiktok",
-  "sourceName": "@showpark_2000",
-  "sourceUrl": "https://www.tiktok.com/@showpark_2000/video/7693672512470666548",
-  "metrics": {
-   "views": 1100000,
-   "likes": 21800
-  },
-  "lat": -33.014706499999996,
-  "lng": -60.62207910000001,
-  "address": "Juan Pablo II S/N, S2124 Villa Gdor. Galvez, Santa Fe",
-  "rating": {
-   "value": 4.3,
-   "count": 1925
-  },
-  "links": [
-   {
-    "label": "Sitio del lugar",
-    "url": "http://vggmunicipalidad.gov.ar/"
-   },
-   {
-    "label": "Ver en Google Maps",
-    "url": "https://maps.google.com/?cid=13014451164215509796&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-   }
-  ],
-  "shortTitle": "Halloween, parque temático",
-  "vibe": {
-   "crowd": "familias"
-  },
-  "barrio": "Villa G. Gálvez",
-  "id": "tiktok-9e3488c1",
-  "status": "published",
-  "fingerprint": "halloween park|2026-10-30|show",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Laboratorio de Análisis Cultural: Identidades en tensión. Migraciones, tecnologías y cultura popular en Rosario",
@@ -7612,7 +7375,7 @@
   "id": "municipal-1e84355d",
   "status": "published",
   "fingerprint": "laboratorio analisis cultural identidades tension migraciones tecnologias cultura popular rosario|2026-10-30|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "La Tardecita en The Wine Bar (fecha reprogramada)",
@@ -7645,7 +7408,7 @@
   "id": "instagram-10cf9999",
   "status": "published",
   "fingerprint": "tardecita wine bar fecha reprogramada|2026-10-30|the",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "III Jornada Taller de tesistas en Humanidades y Artes",
@@ -7685,7 +7448,7 @@
   "id": "instagram-8cf15fcb",
   "status": "published",
   "fingerprint": "iii jornada taller tesistas humanidades artes|2026-10-30|facultad",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Noche de los Museos",
@@ -7713,7 +7476,7 @@
   "id": "tiktok-58e41311",
   "status": "published",
   "fingerprint": "museos|2026-10-30|museos",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Pre Congreso sobre la Democracia Rosario En Común. Día 2",
@@ -7747,7 +7510,7 @@
   "id": "municipal-f4bab666",
   "status": "published",
   "fingerprint": "pre congreso democracia rosario comun dia|2026-10-30|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Ciclo de Teatro + 65: Función de Los Disfrazados en el CMD Noroeste",
@@ -7781,7 +7544,7 @@
   "id": "municipal-329ec1ad",
   "status": "published",
   "fingerprint": "ciclo teatro 65 funcion disfrazados cmd noroeste|2026-10-30|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Muestra/talleres Colegas",
@@ -7823,7 +7586,7 @@
   "id": "municipal-30e900b3",
   "status": "published",
   "fingerprint": "muestra talleres colegas|2026-10-30|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Función del CIT: Los Disfrazados",
@@ -7853,7 +7616,43 @@
   "id": "municipal-c4bb49b6",
   "status": "published",
   "fingerprint": "funcion cit disfrazados|2026-10-30|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
+ },
+ {
+  "title": "🌇 SUNSET CRISTAL CLUB/ ZETA CLUB 🌇",
+  "startsAt": "2026-10-30T19:00:00-03:00",
+  "venueName": "Güemes 2607",
+  "address": "Güemes 2607, Rosario",
+  "category": "fiesta",
+  "price": {
+   "free": false,
+   "min": 0,
+   "max": 0,
+   "currency": "ARS"
+  },
+  "sourceType": "ticketing",
+  "sourceName": "Venti",
+  "sourceUrl": "https://venti.live/evento/sunset-cristal-club-zeta-club",
+  "lat": -32.9323859,
+  "lng": -60.6563121,
+  "links": [
+   {
+    "label": "Ver en Google Maps",
+    "url": "https://maps.google.com/?cid=1801122600193881999&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+   }
+  ],
+  "description": "Fiesta sunset de Cristal Club y Zeta Club con entrada sin costo. Pasan música Syxta b2b Vyka, Luciawine y Emanuel Fabbri.",
+  "endsAt": "2026-10-30T23:59:00-03:00",
+  "imageUrl": "https://images.venti.live/user-images/1792623055944-lg.jpg",
+  "vibe": {
+   "music": "sets de DJs"
+  },
+  "shortTitle": "Sunset Cristal Club, fiesta con DJs",
+  "barrio": "Pichincha",
+  "id": "ticketing-4c454943",
+  "status": "published",
+  "fingerprint": "sunset cristal club zeta club|2026-10-30|guemes",
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Inauguración de la muestra Colegas: prácticas colectivas de tejido expandido",
@@ -7906,43 +7705,7 @@
   "id": "instagram-7e4d2998",
   "status": "published",
   "fingerprint": "inauguracion muestra colegas practicas colectivas tejido expandido|2026-10-30|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
- },
- {
-  "title": "🌇 SUNSET CRISTAL CLUB/ ZETA CLUB 🌇",
-  "startsAt": "2026-10-30T19:00:00-03:00",
-  "venueName": "Güemes 2607",
-  "address": "Güemes 2607, Rosario",
-  "category": "fiesta",
-  "price": {
-   "free": false,
-   "min": 0,
-   "max": 0,
-   "currency": "ARS"
-  },
-  "sourceType": "ticketing",
-  "sourceName": "Venti",
-  "sourceUrl": "https://venti.live/evento/sunset-cristal-club-zeta-club",
-  "lat": -32.9323859,
-  "lng": -60.6563121,
-  "links": [
-   {
-    "label": "Ver en Google Maps",
-    "url": "https://maps.google.com/?cid=1801122600193881999&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-   }
-  ],
-  "description": "Fiesta sunset de Cristal Club y Zeta Club con entrada sin costo. Pasan música Syxta b2b Vyka, Luciawine y Emanuel Fabbri.",
-  "endsAt": "2026-10-30T23:59:00-03:00",
-  "imageUrl": "https://images.venti.live/user-images/1792623055944-lg.jpg",
-  "vibe": {
-   "music": "sets de DJs"
-  },
-  "shortTitle": "Sunset Cristal Club, fiesta con DJs",
-  "barrio": "Pichincha",
-  "id": "ticketing-4c454943",
-  "status": "published",
-  "fingerprint": "sunset cristal club zeta club|2026-10-30|guemes",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Capitán: noche de viernes",
@@ -7963,7 +7726,7 @@
   ],
   "recurring": true,
   "shortTitle": "Capitán: shows y DJs",
-  "description": "Noche de viernes en Capitán con shows en vivo y DJs. Abre hasta las 4 de la mañana.",
+  "description": "Noche de viernes en Capitán con shows en vivo y DJs. Abre hasta las 4.",
   "vibe": {
    "music": "shows en vivo y DJs"
   },
@@ -7971,7 +7734,7 @@
   "id": "platform-e7722a0d",
   "status": "published",
   "fingerprint": "capitan viernes|2026-10-30|capitan",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Ciclo de Teatro +65: Función de Historias Nuestras en el marco de La Noche de Las Peatonales",
@@ -8009,7 +7772,7 @@
   "id": "municipal-9eb769c0",
   "status": "published",
   "fingerprint": "ciclo teatro 65 funcion historias nuestras marco peatonales|2026-10-30|biblioteca",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "COMO MIRAR FIJO AL SOL",
@@ -8047,7 +7810,7 @@
   "id": "ticketing-ec47deab",
   "status": "published",
   "fingerprint": "como mirar fijo sol|2026-10-30|casona",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Turbio Especial Halloween: Terror en el Shopping",
@@ -8083,7 +7846,7 @@
   "id": "platform-e46505a7",
   "status": "published",
   "fingerprint": "turbio especial halloween terror shopping|2026-10-30|pres",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Show independiente en Teatro Ciudad de las Artes",
@@ -8103,7 +7866,7 @@
   "id": "tiktok-76695a5c",
   "status": "published",
   "fingerprint": "independiente teatro ciudad artes|2026-10-30|teatro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Efraín Colombo – Y la Vida Va (Invitados: Duito)",
@@ -8126,14 +7889,14 @@
    }
   ],
   "metrics": {
-   "views": 500,
-   "likes": 25
+   "views": 929,
+   "likes": 40
   },
   "shortTitle": "Efraín Colombo, Y la Vida Va",
   "id": "tiktok-a75acea1",
   "status": "published",
   "fingerprint": "efrain colombo vida va invitados duito|2026-10-30|teatro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Furia: noche de viernes",
@@ -8159,7 +7922,7 @@
    "count": 464
   },
   "shortTitle": "Furia: bar y boliche",
-  "description": "Bar para tomar tragos que cerca de la 1 se convierte en boliche. Suena música con DJ, bastante remixada, y suele ser gratis antes de las 12.",
+  "description": "Noche de viernes en Furia, un bar para tomar tragos que cerca de la 1 se convierte en boliche. Suena música con DJ, bastante remixada, y suele ser gratis antes de las 12.",
   "vibe": {
    "music": "DJ con temas remixados",
    "dress": "controlan la vestimenta en la puerta"
@@ -8168,7 +7931,7 @@
   "id": "platform-b74514c7",
   "status": "published",
   "fingerprint": "furia viernes|2026-10-30|furia",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Kika: noche de viernes",
@@ -8194,7 +7957,7 @@
    "count": 1500
   },
   "shortTitle": "Kika: espectáculos y baile",
-  "description": "Bar con espectáculos y obras que los viernes abre de 21 a 5 y se baila después de las 00. No cobran entrada, se pide una consumición.",
+  "description": "Noche de viernes en Kika, un bar con espectáculos y obras, abierto de 21 a 5. Se baila después de las 00 y no cobran entrada, se pide una consumición.",
   "vibe": {
    "crowd": "ambiente tranqui",
    "dress": "sin entrada, con consumición obligatoria"
@@ -8203,7 +7966,7 @@
   "id": "platform-9a205b95",
   "status": "published",
   "fingerprint": "kika viernes|2026-10-30|kika",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "La Cautiva: noche de viernes",
@@ -8228,7 +7991,7 @@
    "count": 750
   },
   "shortTitle": "La Cautiva: cumbia y cuarteto",
-  "description": "Salón para bailar con bandas en vivo y shows variados, abierto el viernes de 21 a 4. Suena sobre todo cumbia y cuarteto, y va público de todas las edades, muchas familias y cumpleaños.",
+  "description": "Noche de viernes en La Cautiva, un salón para bailar con bandas en vivo y shows variados, de 21 a 4. Suena sobre todo cumbia y cuarteto y va público de todas las edades, con familias y cumpleaños.",
   "vibe": {
    "music": "cumbia y cuarteto en vivo",
    "crowd": "familias, jóvenes y mayores",
@@ -8238,7 +8001,7 @@
   "id": "platform-0e511d71",
   "status": "published",
   "fingerprint": "cautiva viernes|2026-10-30|la",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "El Filo: noche de viernes",
@@ -8264,12 +8027,12 @@
    "count": 1178
   },
   "shortTitle": "El Filo: cena con show",
-  "description": "Restaurante junto al río con mesas al aire libre y comida abundante. Algunas noches hay actuaciones en vivo.",
+  "description": "Noche de viernes en El Filo, un restaurante junto al río con mesas al aire libre y comida abundante. Algunas noches hay actuaciones en vivo.",
   "barrio": "Granadero Baigorria",
   "id": "platform-08d76a98",
   "status": "published",
   "fingerprint": "filo viernes|2026-10-30|el",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Sonic: noche de viernes",
@@ -8279,7 +8042,7 @@
   "address": "Maipú 1070",
   "lat": -32.9503692,
   "lng": -60.6361937,
-  "category": "otro",
+  "category": "gastronomia",
   "sourceType": "platform",
   "sourceName": "Sonic",
   "links": [
@@ -8294,12 +8057,12 @@
    "count": 9
   },
   "shortTitle": "Sonic: birra y hamburguesas",
-  "description": "Bar con patio, cerveza artesanal y hamburguesas. Las reseñas destacan la buena música y la onda de la atención.",
+  "description": "Noche de viernes en Sonic, un bar con patio, cerveza artesanal y hamburguesas. Las reseñas destacan la música y la onda de la atención.",
   "barrio": "Centro",
   "id": "platform-558ad85d",
   "status": "published",
   "fingerprint": "sonic viernes|2026-10-30|sonic",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Camilo",
@@ -8333,7 +8096,7 @@
   "id": "ticketing-778a354d",
   "status": "published",
   "fingerprint": "camilo|2026-10-30|metropolitano",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Gatita Pre Halloween: fiesta de disfraces",
@@ -8373,7 +8136,7 @@
   "id": "instagram-4e10a73f",
   "status": "published",
   "fingerprint": "gatita pre halloween disfraces|2026-10-30|congo",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Década: noche de viernes",
@@ -8399,7 +8162,7 @@
    "count": 1233
   },
   "shortTitle": "Década: boliche con bandas",
-  "description": "Boliche popular con música y bandas en vivo, con entrada de alrededor de $6000. Van sobre todo jóvenes, aunque también público más grande.",
+  "description": "Noche de viernes en Década, un boliche popular con música y bandas en vivo, con entrada de alrededor de $6000. Van sobre todo jóvenes, aunque también público más grande.",
   "vibe": {
    "music": "bandas en vivo",
    "crowd": "mayormente jóvenes, también más grandes",
@@ -8409,7 +8172,7 @@
   "id": "platform-ee15cc95",
   "status": "published",
   "fingerprint": "decada viernes|2026-10-30|decada",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "DISCIP",
@@ -8443,7 +8206,7 @@
   "id": "ticketing-6135aea5",
   "status": "published",
   "fingerprint": "discip|2026-10-30|alto",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "MASQUERADE PARTY BY ZETA CLUB🫦",
@@ -8481,7 +8244,7 @@
   "id": "ticketing-25cf7bb4",
   "status": "published",
   "fingerprint": "masquerade party by zeta club|2026-10-30|guemes",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Madame: noche de viernes",
@@ -8515,7 +8278,7 @@
   "id": "platform-b8e42f48",
   "status": "published",
   "fingerprint": "madame viernes|2026-10-31|madame",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Lotus Night Club: noche de viernes",
@@ -8549,7 +8312,7 @@
   "id": "platform-5ed0d276",
   "status": "published",
   "fingerprint": "lotus night club viernes|2026-10-31|lotus",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Bound: noche de viernes",
@@ -8584,7 +8347,7 @@
   "id": "platform-df4285f2",
   "status": "published",
   "fingerprint": "bound viernes|2026-10-31|bound",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Roxy: noche de viernes",
@@ -8610,7 +8373,7 @@
    "count": 355
   },
   "shortTitle": "Roxy: comida y boliche",
-  "description": "Noche de viernes en Roxy, donde se puede comer antes y después sacan las mesas para bailar. Las reseñas hablan de un lugar chico que se llena rápido y ambiente fiestero.",
+  "description": "Noche de viernes en Roxy, donde se puede comer antes y después sacan las mesas para bailar. Es un lugar chico que se llena rápido, con ambiente fiestero.",
   "vibe": {
    "crowd": "grupos de amigos, ambiente fiestero",
    "dress": "hay requisa en la entrada"
@@ -8620,7 +8383,7 @@
   "id": "platform-9d789260",
   "status": "published",
   "fingerprint": "roxy viernes|2026-10-31|roxy",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Switch Club: noche de viernes",
@@ -8650,7 +8413,7 @@
    "count": 162
   },
   "shortTitle": "Switch Club: noche con DJs",
-  "description": "Noche de viernes en Switch Club, boliche con dos barras y pista para bailar con DJs. Las reseñas cuentan que va gente sola y se conoce gente.",
+  "description": "Noche de viernes en Switch Club, boliche con dos barras y pista para bailar con DJs. Según las reseñas va gente sola y se conoce gente.",
   "vibe": {
    "music": "DJs",
    "crowd": "gente que va a bailar, también sola"
@@ -8660,7 +8423,7 @@
   "id": "platform-544d3692",
   "status": "published",
   "fingerprint": "switch club viernes|2026-10-31|switch",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Club de Cuenteras y Cuenteros en la Biblioteca Argentina",
@@ -8701,7 +8464,7 @@
   "id": "municipal-da904b81",
   "status": "published",
   "fingerprint": "club cuenteras cuenteros biblioteca argentina|2026-10-31|biblioteca",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Elaha en Cine Lumière",
@@ -8744,7 +8507,7 @@
   "id": "municipal-79cf550c",
   "status": "published",
   "fingerprint": "elaha cine lumiere|2026-10-31|cine",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Show de stand-up (Gira)",
@@ -8783,7 +8546,7 @@
   "id": "tiktok-caa44673",
   "status": "published",
   "fingerprint": "stand up gira|2026-10-31|rosario",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Show de comedia / teatro (Gira y Especial Navidad 2026)",
@@ -8835,7 +8598,7 @@
   "id": "tiktok-994fd7f9",
   "status": "published",
   "fingerprint": "comedia teatro gira especial navidad 2026|2026-10-31|teatros",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "El Club de la Pelea II en Estadio River Plate",
@@ -8856,7 +8619,7 @@
   "id": "tiktok-624599d3",
   "status": "published",
   "fingerprint": "club pelea ii estadio river plate|2026-10-31|estadio",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "EL RITUAL HALLOWEEN 2026",
@@ -8877,7 +8640,7 @@
   "id": "tiktok-9cde9835",
   "status": "published",
   "fingerprint": "ritual halloween 2026|2026-10-31|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Muestra: Efervescencia cromática. Anomalía de un universo en expansión",
@@ -8912,7 +8675,7 @@
   "id": "municipal-53b162dc",
   "status": "published",
   "fingerprint": "muestra efervescencia cromatica anomalia universo expansion|2026-10-31|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Taller de scrapbooking, merienda y amigas en Amici",
@@ -8957,7 +8720,7 @@
   "id": "instagram-c0e618ed",
   "status": "published",
   "fingerprint": "taller scrapbooking merienda amigas amici|2026-10-31|amici",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Pre Congreso sobre la Democracia Rosario En Común. Día 3",
@@ -8991,7 +8754,7 @@
   "id": "municipal-17111b23",
   "status": "published",
   "fingerprint": "pre congreso democracia rosario comun dia|2026-10-31|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Halloween para chicos con Rosarinitos en Paso del Bosque",
@@ -9033,53 +8796,13 @@
   "id": "tiktok-451ee6cc",
   "status": "published",
   "fingerprint": "halloween chicos rosarinitos paso bosque|2026-10-31|paso",
-  "createdAt": "2026-10-24T15:34:18-03:00"
- },
- {
-  "title": "Halloween en Show Park",
-  "description": "Parque temático festeja Halloween durante todo octubre en Villa Gobernador Gálvez.",
-  "startsAt": "2026-10-31T17:00:00-03:00",
-  "venueName": "Show Park (Av. San Martín al 2600, Villa Gobernador Gálvez)",
-  "category": "infantil",
-  "sourceType": "tiktok",
-  "sourceName": "@showpark_2000",
-  "sourceUrl": "https://www.tiktok.com/@showpark_2000/video/7693672512470666548",
-  "metrics": {
-   "views": 1100000,
-   "likes": 21800
-  },
-  "lat": -33.014706499999996,
-  "lng": -60.62207910000001,
-  "address": "Juan Pablo II S/N, S2124 Villa Gdor. Galvez, Santa Fe",
-  "rating": {
-   "value": 4.3,
-   "count": 1925
-  },
-  "links": [
-   {
-    "label": "Sitio del lugar",
-    "url": "http://vggmunicipalidad.gov.ar/"
-   },
-   {
-    "label": "Ver en Google Maps",
-    "url": "https://maps.google.com/?cid=13014451164215509796&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-   }
-  ],
-  "shortTitle": "Halloween en Show Park, parque temático",
-  "vibe": {
-   "crowd": "familias"
-  },
-  "barrio": "Villa G. Gálvez",
-  "id": "tiktok-8c190e58",
-  "status": "published",
-  "fingerprint": "halloween park|2026-10-31|show",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Seminario de cumbia cruzada para iniciales en Club Excélsior",
-  "description": "Clase del seminario especial de cumbia cruzada desde cero: postura, abrazo, musicalidad y pasos principales. Costo total del seminario $29.000.",
+  "description": "Fechas: 31 oct, 7 nov, 14 nov y 21 nov. Clase del seminario especial de cumbia cruzada desde cero: postura, abrazo, musicalidad y pasos principales. Costo total del seminario $29.000.",
   "startsAt": "2026-10-31T17:30:00-03:00",
-  "endsAt": "2026-10-31T19:00:00-03:00",
+  "endsAt": "2026-11-21T17:30:00-03:00",
   "venueName": "Club Excélsior",
   "address": "Alsina 1860, Rosario",
   "category": "charla",
@@ -9106,8 +8829,8 @@
    }
   ],
   "metrics": {
-   "views": 7642,
-   "likes": 142
+   "views": 10267,
+   "likes": 217
   },
   "lat": -32.9522769,
   "lng": -60.6797947,
@@ -9120,7 +8843,7 @@
   "id": "instagram-c5e280ef",
   "status": "published",
   "fingerprint": "seminario cumbia cruzada iniciales club excelsior|2026-10-31|club",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "III Jornada Taller de tesistas en Humanidades y Artes (día 2)",
@@ -9160,7 +8883,7 @@
   "id": "instagram-cd283248",
   "status": "published",
   "fingerprint": "iii jornada taller tesistas humanidades artes dia|2026-10-31|facultad",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Congreso de Técnicas de Masaje 2026",
@@ -9204,7 +8927,7 @@
   "id": "instagram-1db22575",
   "status": "published",
   "fingerprint": "congreso tecnicas masaje 2026|2026-10-31|hotel",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Festival de Stand Up en el Fontanarrosa",
@@ -9242,7 +8965,7 @@
   "id": "municipal-b89970e0",
   "status": "published",
   "fingerprint": "festival stand up fontanarrosa|2026-10-31|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Capitán: noche de sábado",
@@ -9271,55 +8994,7 @@
   "id": "platform-8d08c978",
   "status": "published",
   "fingerprint": "capitan sabado|2026-10-31|capitan",
-  "createdAt": "2026-10-24T15:34:18-03:00"
- },
- {
-  "title": "Macbeth de Verdi",
-  "description": "Ópera de Giuseppe Verdi, primera vez en Rosario, basada en la tragedia de Shakespeare.",
-  "startsAt": "2026-10-31T20:00:00-03:00",
-  "venueName": "Ballet Ruso de Rosario",
-  "category": "teatro",
-  "sourceType": "instagram",
-  "sourceName": "@balletrusoderosario",
-  "sourceUrl": "https://www.instagram.com/p/DdmrJHKR7RT/",
-  "links": [
-   {
-    "label": "Entradas",
-    "url": "https://www.ticketek.com.ar/macbeth/teatro-el-circulo"
-   },
-   {
-    "label": "Ver en Instagram",
-    "url": "https://www.instagram.com/p/DdmrJHKR7RT/"
-   },
-   {
-    "label": "Ver en Google Maps",
-    "url": "https://maps.google.com/?cid=12119454078212806765&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-   },
-   {
-    "label": "Ver en Instagram",
-    "url": "https://www.instagram.com/p/DdPdQ9yluqA/"
-   }
-  ],
-  "metrics": {
-   "views": 5544,
-   "likes": 698
-  },
-  "lat": -32.944405599999996,
-  "lng": -60.6412624,
-  "address": "Sta Fe 1356, S2000 Rosario, Santa Fe",
-  "rating": {
-   "value": 4.7,
-   "count": 27
-  },
-  "vibe": {
-   "music": "ópera"
-  },
-  "shortTitle": "Macbeth, ópera de Verdi",
-  "barrio": "Centro",
-  "id": "instagram-18b6d56a",
-  "status": "published",
-  "fingerprint": "macbeth verdi|2026-10-31|ballet",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Macbeth",
@@ -9356,7 +9031,7 @@
   "id": "ticketing-b2f9ab29",
   "status": "published",
   "fingerprint": "macbeth|2026-10-31|teatro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Prisma + invitados en García Bar",
@@ -9392,7 +9067,7 @@
   "id": "instagram-19a82ff8",
   "status": "published",
   "fingerprint": "prisma invitados garcia bar|2026-10-31|garcia",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Fiesta de Halloween con Drake Darkness, Victims of Disorder y Remember the Core",
@@ -9425,7 +9100,7 @@
   "id": "instagram-f13ee369",
   "status": "published",
   "fingerprint": "halloween drake darkness victims disorder remember core|2026-10-31|santa",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Furia: noche de sábado",
@@ -9451,7 +9126,7 @@
    "count": 464
   },
   "shortTitle": "Furia: bar y boliche",
-  "description": "Noche de sábado en Furia, bar que se hace boliche cerca de la 1. Suele ser gratis antes de las 12 y después se cobra entrada.",
+  "description": "Noche de sábado en Furia, un bar para tomar tragos que se hace boliche cerca de la 1. Suele ser gratis antes de las 12 y después se cobra entrada.",
   "vibe": {
    "music": "DJ con temas remixados",
    "dress": "controlan la vestimenta; gratis antes de 00"
@@ -9460,7 +9135,7 @@
   "id": "platform-ba9e17d8",
   "status": "published",
   "fingerprint": "furia sabado|2026-10-31|furia",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Kika: noche de sábado",
@@ -9494,7 +9169,7 @@
   "id": "platform-fbc42cea",
   "status": "published",
   "fingerprint": "kika sabado|2026-10-31|kika",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "La Cautiva: noche de sábado",
@@ -9529,7 +9204,7 @@
   "id": "platform-a97beb48",
   "status": "published",
   "fingerprint": "cautiva sabado|2026-10-31|la",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "El Filo: noche de sábado",
@@ -9539,7 +9214,7 @@
   "address": "Costanera y Baigorria",
   "lat": -32.850110900000004,
   "lng": -60.6957542,
-  "category": "fiesta",
+  "category": "gastronomia",
   "sourceType": "platform",
   "sourceName": "El Filo",
   "sourceUrl": "https://instagram.com/lasurfera.beach",
@@ -9556,11 +9231,14 @@
   },
   "shortTitle": "El Filo: cena con show",
   "description": "Noche de sábado en El Filo, restaurante con mesas al aire libre junto al río. Las reseñas mencionan comida abundante y actuaciones en vivo.",
+  "vibe": {
+   "music": "actuaciones en vivo"
+  },
   "barrio": "Granadero Baigorria",
   "id": "platform-3d878f6f",
   "status": "published",
   "fingerprint": "filo sabado|2026-10-31|el",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Sonic: noche de sábado",
@@ -9570,7 +9248,7 @@
   "address": "Maipú 1070",
   "lat": -32.9503692,
   "lng": -60.6361937,
-  "category": "fiesta",
+  "category": "gastronomia",
   "sourceType": "platform",
   "sourceName": "Sonic",
   "links": [
@@ -9590,7 +9268,7 @@
   "id": "platform-3848b6b0",
   "status": "published",
   "fingerprint": "sonic sabado|2026-10-31|sonic",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Un Poco de Ruido",
@@ -9619,37 +9297,15 @@
    }
   ],
   "shortTitle": "Un Poco de Ruido, show en vivo",
-  "description": "Show en vivo de Un Poco de Ruido en el Metropolitano. Es un recital.",
+  "description": "Recital de Un Poco de Ruido en el Metropolitano. Es un show en vivo.",
+  "vibe": {
+   "music": "Un Poco de Ruido en vivo"
+  },
   "barrio": "Macrocentro",
   "id": "ticketing-69bc09a1",
   "status": "published",
   "fingerprint": "poco ruido|2026-10-31|metropolitano",
-  "createdAt": "2026-10-24T15:34:18-03:00"
- },
- {
-  "title": "La Chunga de Mario Vargas Llosa",
-  "description": "¿Qué plan tenes para este sábado en Rosario? ¿Nos vemos en La Chunga? Sábados 3,10,24 y 31/ Domingo 11 a las 21h en San Martin 771.PA",
-  "startsAt": "2026-10-31T21:00:00-03:00",
-  "venueName": "Sala La Morada",
-  "address": "San Martín 771 P.A., Rosario",
-  "category": "teatro",
-  "sourceType": "tiktok",
-  "sourceName": "@leandrogambetta",
-  "sourceUrl": "https://www.tiktok.com/@leandrogambetta/video/7691369765473881351",
-  "links": [
-   {
-    "label": "Ver en TikTok",
-    "url": "https://www.tiktok.com/@leandrogambetta/video/7691369765473881351"
-   }
-  ],
-  "lat": -32.94643265927821,
-  "lng": -60.63665297711152,
-  "shortTitle": "La Chunga, obra de Vargas Llosa",
-  "barrio": "Centro",
-  "id": "tiktok-1e5da0b6",
-  "status": "published",
-  "fingerprint": "chunga mario vargas llosa|2026-10-31|sala",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Conjuro 2026 - Fiesta de Halloween",
@@ -9671,7 +9327,7 @@
   "id": "tiktok-43e9fcf0",
   "status": "published",
   "fingerprint": "conjuro 2026 halloween|2026-10-31|estadio",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Fueye Solo: dúo de bandoneón en La Casa del Tango",
@@ -9716,125 +9372,7 @@
   "id": "instagram-77b731dd",
   "status": "published",
   "fingerprint": "fueye solo duo bandoneon casa tango|2026-10-31|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
- },
- {
-  "title": "Macbeth, ópera de Verdi en el Teatro El Círculo",
-  "description": "Ópera Macbeth de Verdi basada en Shakespeare, con la soprano María Belén Rivarola como Lady Macbeth.",
-  "startsAt": "2026-10-31T21:00:00-03:00",
-  "venueName": "Teatro Círculo",
-  "address": "Laprida 1223",
-  "category": "teatro",
-  "sourceType": "tiktok",
-  "sourceName": "@vive.rosario.stream",
-  "sourceUrl": "https://www.tiktok.com/@vive.rosario.stream/video/7699213793485770004",
-  "links": [
-   {
-    "label": "Sitio del lugar",
-    "url": "http://www.teatroelcirculo.com/"
-   },
-   {
-    "label": "Ver en Google Maps",
-    "url": "https://maps.google.com/?cid=8446882022203684676&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-   }
-  ],
-  "metrics": {
-   "views": 791,
-   "likes": 14
-  },
-  "lat": -32.9525897,
-  "lng": -60.63535479999999,
-  "rating": {
-   "value": 4.7,
-   "count": 9797
-  },
-  "vibe": {
-   "music": "ópera"
-  },
-  "shortTitle": "Macbeth, ópera de Verdi",
-  "barrio": "Centro",
-  "id": "tiktok-d8ffd426",
-  "status": "published",
-  "fingerprint": "macbeth opera verdi teatro circulo|2026-10-31|teatro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
- },
- {
-  "title": "Leandro Gambetta en La Chunga",
-  "description": "Función de Leandro Gambetta en La Chunga. Una propuesta escénica en sala.",
-  "startsAt": "2026-10-31T21:00:00-03:00",
-  "venueName": "La Chunga",
-  "address": "San Martín 771",
-  "lat": -32.94643265927821,
-  "lng": -60.63665297711152,
-  "barrio": "Centro",
-  "category": "teatro",
-  "sourceType": "tiktok",
-  "sourceName": "@leandrogambetta",
-  "sourceUrl": "https://www.tiktok.com/@leandrogambetta/video/7691369765473881351",
-  "metrics": {
-   "views": 208,
-   "likes": 1
-  },
-  "rating": {
-   "value": 4.5,
-   "count": 127
-  },
-  "links": [
-   {
-    "label": "Sitio del lugar",
-    "url": "https://www.instagram.com/la_morada_teatro?igsh=Mzh6MTZybGl5ZDFh"
-   },
-   {
-    "label": "Ver en Google Maps",
-    "url": "https://maps.google.com/?cid=10582950620396991815&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-   }
-  ],
-  "shortTitle": "Leandro Gambetta, función",
-  "id": "tiktok-83b10f55",
-  "status": "published",
-  "fingerprint": "leandro gambetta chunga|2026-10-31|la",
-  "createdAt": "2026-10-24T15:34:18-03:00"
- },
- {
-  "title": "La Chunga en San Martín 771",
-  "description": "Función de La Chunga, la obra de Mario Vargas Llosa. Empieza a las 21 h en San Martín 771.",
-  "startsAt": "2026-10-31T21:00:00-03:00",
-  "venueName": "La Chunga",
-  "address": "San Martín 771",
-  "category": "teatro",
-  "sourceType": "tiktok",
-  "sourceName": "@leandrogambetta",
-  "sourceUrl": "https://www.tiktok.com/@leandrogambetta/video/7691369765473881351",
-  "links": [
-   {
-    "label": "Ver en TikTok",
-    "url": "https://www.tiktok.com/@leandrogambetta/video/7691369765473881351"
-   },
-   {
-    "label": "Sitio del lugar",
-    "url": "https://www.instagram.com/la_morada_teatro?igsh=Mzh6MTZybGl5ZDFh"
-   },
-   {
-    "label": "Ver en Google Maps",
-    "url": "https://maps.google.com/?cid=10582950620396991815&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-   }
-  ],
-  "metrics": {
-   "views": 208,
-   "likes": 1
-  },
-  "lat": -32.9463876,
-  "lng": -60.6365273,
-  "rating": {
-   "value": 4.5,
-   "count": 127
-  },
-  "shortTitle": "La Chunga, obra de Vargas Llosa",
-  "barrio": "Centro",
-  "id": "tiktok-4331e661",
-  "status": "published",
-  "fingerprint": "chunga san martin 771|2026-10-31|la",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "PAAK 2 años: aniversario techno en Switch Club",
@@ -9878,7 +9416,7 @@
   "id": "instagram-fdff497e",
   "status": "published",
   "fingerprint": "paak anos aniversario techno switch club|2026-10-31|switch",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Halloween rock en QSR Bar con tributo a System of a Down",
@@ -9911,7 +9449,7 @@
   "id": "instagram-73ac6a85",
   "status": "published",
   "fingerprint": "halloween rock qsr bar tributo system down|2026-10-31|qsr",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Década: noche de sábado",
@@ -9947,7 +9485,7 @@
   "id": "platform-83fe67ea",
   "status": "published",
   "fingerprint": "decada sabado|2026-10-31|decada",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Rumbavana: noche de sábado",
@@ -9981,7 +9519,7 @@
   "id": "platform-e5a64f70",
   "status": "published",
   "fingerprint": "rumbavana sabado|2026-10-31|rumbavana",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Halloween Burning Man en Club Clandestino con Ema Buezas",
@@ -10022,7 +9560,7 @@
   "id": "instagram-45e29723",
   "status": "published",
   "fingerprint": "halloween burning man club clandestino ema buezas|2026-10-31|club",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Russia: noche de sábado",
@@ -10059,7 +9597,7 @@
   "id": "platform-a8b8ab98",
   "status": "published",
   "fingerprint": "russia sabado|2026-10-31|russia",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "La Morocha: noche de sábado",
@@ -10090,7 +9628,7 @@
   "id": "platform-e5321ba2",
   "status": "published",
   "fingerprint": "morocha sabado|2026-10-31|la",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "JXXXO + TOMI ALMADA / ANIVERSARIO PAAK @ SWITCH",
@@ -10121,17 +9659,21 @@
   ],
   "endsAt": "2026-11-01T06:00:00-03:00",
   "imageUrl": "https://images.venti.live/user-images/1790630055457-lg.jpg",
+  "vibe": {
+   "music": "sets de JXXXO y Tomi Almada",
+   "dress": "entrada $10000"
+  },
   "shortTitle": "Aniversario Paak con JXXXO y Tomi Almada",
-  "description": "Fiesta por el aniversario de Paak con JXXXO y Tomi Almada. Entrada a $10000.",
+  "description": "Fiesta por el aniversario de Paak con JXXXO y Tomi Almada en Switch Club. La entrada cuesta $10000.",
   "barrio": "Pichincha",
   "id": "ticketing-13a87d26",
   "status": "published",
   "fingerprint": "jxxxo tomi almada aniversario paak switch|2026-10-31|switch",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Madame: noche de sábado",
-  "description": "Noche de sábado en Madame, boliche de fiestas temáticas. Suenan fiestas temáticas y las reseñas lo mencionan para festejos y cumpleaños.",
+  "description": "Noche de sábado en Madame, boliche de fiestas temáticas. Las reseñas lo mencionan para festejos y cumpleaños.",
   "startsAt": "2026-11-01T00:00:00-03:00",
   "endsAt": "2026-11-01T06:00:00-03:00",
   "venueName": "Madame",
@@ -10162,7 +9704,7 @@
   "id": "platform-840130aa",
   "status": "published",
   "fingerprint": "madame sabado|2026-11-01|madame",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Lotus Night Club: noche de sábado",
@@ -10196,7 +9738,7 @@
   "id": "platform-0f791bcc",
   "status": "published",
   "fingerprint": "lotus night club sabado|2026-11-01|lotus",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Bound: noche de sábado",
@@ -10232,7 +9774,7 @@
   "id": "platform-71fe6186",
   "status": "published",
   "fingerprint": "bound sabado|2026-11-01|bound",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Roxy: noche de sábado",
@@ -10267,7 +9809,7 @@
   "id": "platform-0bb67c30",
   "status": "published",
   "fingerprint": "roxy sabado|2026-11-01|roxy",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Switch Club: noche de sábado",
@@ -10307,7 +9849,7 @@
   "id": "platform-3e4d8a1e",
   "status": "published",
   "fingerprint": "switch club sabado|2026-11-01|switch",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Pacheco: noche de sábado",
@@ -10341,7 +9883,7 @@
   "id": "platform-58d156ea",
   "status": "published",
   "fingerprint": "pacheco sabado|2026-11-01|pacheco",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Último día de las muestras Libredeuda en el Macro",
@@ -10378,7 +9920,7 @@
   "id": "instagram-a7fd67fb",
   "status": "published",
   "fingerprint": "ultimo dia muestras libredeuda macro|2026-11-01|macro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Capitán: noche de domingo",
@@ -10388,7 +9930,7 @@
   "address": "Mendoza 903",
   "lat": -32.9521708,
   "lng": -60.6367561,
-  "category": "fiesta",
+  "category": "musica",
   "sourceType": "platform",
   "sourceName": "Capitán",
   "links": [
@@ -10407,7 +9949,7 @@
   "id": "platform-1e0e8b3b",
   "status": "published",
   "fingerprint": "capitan domingo|2026-11-01|capitan",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Kika: noche de domingo",
@@ -10417,7 +9959,7 @@
   "address": "Urquiza 1580",
   "lat": -32.9416976,
   "lng": -60.6438649,
-  "category": "fiesta",
+  "category": "teatro",
   "sourceType": "platform",
   "sourceName": "Kika",
   "sourceUrl": "https://www.instagram.com/kika.rosarino/",
@@ -10443,7 +9985,7 @@
   "id": "platform-5e82be37",
   "status": "published",
   "fingerprint": "kika domingo|2026-11-01|kika",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "La Cautiva: noche de domingo",
@@ -10478,7 +10020,7 @@
   "id": "platform-6c917bf7",
   "status": "published",
   "fingerprint": "cautiva domingo|2026-11-01|la",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Sonic: noche de domingo",
@@ -10503,16 +10045,16 @@
    "count": 9
   },
   "shortTitle": "Sonic: birra y hamburguesas",
-  "description": "Noche de domingo en Sonic, bar con patio, cerveza artesanal y hamburguesas. Las reseñas destacan la música y la buena onda.",
+  "description": "Noche de domingo en Sonic, bar con patio, cerveza artesanal y hamburguesas. Las reseñas destacan la buena música y la onda de quienes atienden.",
   "barrio": "Centro",
   "id": "platform-8cd66c0f",
   "status": "published",
   "fingerprint": "sonic domingo|2026-11-01|sonic",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Border, el musical",
-  "description": "Musical con libro y música de Manuel Correa Luna. Entradas en Centro Ticket o link de la bio.",
+  "description": "Fechas: 1 nov y 5 nov. Musical con libro y música de Manuel Correa Luna. Entradas en Centro Ticket o link de la bio.",
   "startsAt": "2026-11-01T21:00:00-03:00",
   "venueName": "Complejo Cultural Atlas",
   "address": "Mitre 645",
@@ -10536,7 +10078,7 @@
   ],
   "metrics": {
    "views": 0,
-   "likes": 143
+   "likes": 286
   },
   "lat": -32.944275499999996,
   "lng": -60.639022700000005,
@@ -10545,11 +10087,12 @@
    "count": 2906
   },
   "barrio": "Centro",
+  "endsAt": "2026-11-05T21:00:00-03:00",
   "shortTitle": "Border, el musical",
   "id": "instagram-290f9f09",
   "status": "published",
   "fingerprint": "border musical|2026-11-01|complejo",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Sonic: noche de lunes",
@@ -10574,12 +10117,12 @@
    "count": 9
   },
   "shortTitle": "Sonic: birra y hamburguesas",
-  "description": "Noche de lunes en Sonic, bar con patio, cerveza artesanal y hamburguesas. Las reseñas destacan la música y la buena onda.",
+  "description": "Noche de lunes en Sonic, bar con patio, cerveza artesanal y hamburguesas. Las reseñas destacan la buena música y la onda de quienes atienden.",
   "barrio": "Centro",
   "id": "platform-e76768dc",
   "status": "published",
   "fingerprint": "sonic lunes|2026-11-02|sonic",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Sonic: noche de martes",
@@ -10604,12 +10147,12 @@
    "count": 9
   },
   "shortTitle": "Sonic: birra y hamburguesas",
-  "description": "Noche de martes en Sonic, bar con patio, cerveza artesanal y hamburguesas. Las reseñas destacan la música y la buena onda.",
+  "description": "Noche de martes en Sonic, bar con patio, cerveza artesanal y hamburguesas. Las reseñas destacan la buena música y la onda de quienes atienden.",
   "barrio": "Centro",
   "id": "platform-9017708c",
   "status": "published",
   "fingerprint": "sonic martes|2026-11-03|sonic",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Dubai cumple 13 años: fiesta aniversario",
@@ -10635,7 +10178,7 @@
   "id": "instagram-b7099018",
   "status": "published",
   "fingerprint": "dubai cumple 13 anos aniversario|2026-11-03|dubai",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Escala Summit",
@@ -10672,7 +10215,7 @@
   "id": "platform-5f0bb499",
   "status": "published",
   "fingerprint": "escala summit|2026-11-04|universidad",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Sonic: noche de miércoles",
@@ -10682,7 +10225,7 @@
   "address": "Maipú 1070",
   "lat": -32.9503692,
   "lng": -60.6361937,
-  "category": "fiesta",
+  "category": "gastronomia",
   "sourceType": "platform",
   "sourceName": "Sonic",
   "links": [
@@ -10697,16 +10240,16 @@
    "count": 9
   },
   "shortTitle": "Sonic: birra y hamburguesas",
-  "description": "Noche de miércoles en Sonic, con patio para tomar birra artesanal y hamburguesas. Las reseñas destacan la buena música y la onda de quienes atienden.",
+  "description": "Noche de miércoles en Sonic, bar con patio, cerveza artesanal y hamburguesas. Las reseñas destacan la buena música y la onda de quienes atienden.",
   "barrio": "Centro",
   "id": "platform-9613dbe0",
   "status": "published",
   "fingerprint": "sonic miercoles|2026-11-04|sonic",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "II Congreso Internacional de Geriatría y Gerontología del Interior (día 1)",
-  "description": "Congreso sobre trabajo y abordaje interdisciplinario de los equipos gerontológicos. Inscripción mediante formulario.",
+  "description": "Fechas: 5 nov y 6 nov. Congreso sobre trabajo y abordaje interdisciplinario de los equipos gerontológicos. Inscripción mediante formulario.",
   "startsAt": "2026-11-05T18:00:00-03:00",
   "venueName": "Círculo Médico de Rosario",
   "category": "charla",
@@ -10734,6 +10277,7 @@
     "url": "https://maps.google.com/?cid=7393168823984926490&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
    }
   ],
+  "endsAt": "2026-11-06T18:00:00-03:00",
   "vibe": {
    "dress": "inscripción por formulario"
   },
@@ -10742,7 +10286,7 @@
   "id": "instagram-f739f8e6",
   "status": "published",
   "fingerprint": "ii congreso internacional geriatria gerontologia interior dia|2026-11-05|circulo",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Capitán: noche de jueves",
@@ -10752,7 +10296,7 @@
   "address": "Mendoza 903",
   "lat": -32.9521708,
   "lng": -60.6367561,
-  "category": "fiesta",
+  "category": "musica",
   "sourceType": "platform",
   "sourceName": "Capitán",
   "links": [
@@ -10763,7 +10307,7 @@
   ],
   "recurring": true,
   "shortTitle": "Capitán: shows en vivo",
-  "description": "Noche de jueves en Capitán con shows. Los jueves la actividad sigue hasta la 1.",
+  "description": "Noche de jueves en Capitán con shows. La actividad sigue hasta la 1.",
   "vibe": {
    "music": "shows en vivo"
   },
@@ -10771,7 +10315,7 @@
   "id": "platform-1fb29bcc",
   "status": "published",
   "fingerprint": "capitan jueves|2026-11-05|capitan",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Kika: noche de jueves",
@@ -10781,7 +10325,7 @@
   "address": "Urquiza 1580",
   "lat": -32.9416976,
   "lng": -60.6438649,
-  "category": "fiesta",
+  "category": "teatro",
   "sourceType": "platform",
   "sourceName": "Kika",
   "sourceUrl": "https://www.instagram.com/kika.rosarino/",
@@ -10797,7 +10341,7 @@
    "count": 1500
   },
   "shortTitle": "Kika: bar con espectáculos",
-  "description": "Noche de jueves en Kika, abierto de 21 a 01. Es un lugar chico con espectáculos y buena música según las reseñas, sin entrada y con consumición.",
+  "description": "Noche de jueves en Kika, lugar chico con espectáculos, abierto de 21 a 01. No se cobra entrada, se pide una consumición y las reseñas destacan la buena música.",
   "vibe": {
    "dress": "sin entrada, con consumición"
   },
@@ -10805,7 +10349,7 @@
   "id": "platform-a1e98b6e",
   "status": "published",
   "fingerprint": "kika jueves|2026-11-05|kika",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "La Cautiva: noche de jueves",
@@ -10840,7 +10384,7 @@
   "id": "platform-d7e3d280",
   "status": "published",
   "fingerprint": "cautiva jueves|2026-11-05|la",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "El Filo: noche de jueves",
@@ -10850,7 +10394,7 @@
   "address": "Costanera y Baigorria",
   "lat": -32.850110900000004,
   "lng": -60.6957542,
-  "category": "fiesta",
+  "category": "gastronomia",
   "sourceType": "platform",
   "sourceName": "El Filo",
   "sourceUrl": "https://instagram.com/lasurfera.beach",
@@ -10866,12 +10410,12 @@
    "count": 1178
   },
   "shortTitle": "El Filo: parrilla y shows",
-  "description": "Noche de jueves en El Filo, con mesas al aire libre junto al río y comida abundante. Las reseñas mencionan shows de humor como el de Damián Albeti.",
+  "description": "Noche de jueves en El Filo, con mesas al aire libre junto al río y comida abundante. Las reseñas mencionan shows de humor, como el de Damián Albeti.",
   "barrio": "Granadero Baigorria",
   "id": "platform-783cf7db",
   "status": "published",
   "fingerprint": "filo jueves|2026-11-05|el",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Sonic: noche de jueves",
@@ -10881,7 +10425,7 @@
   "address": "Maipú 1070",
   "lat": -32.9503692,
   "lng": -60.6361937,
-  "category": "fiesta",
+  "category": "gastronomia",
   "sourceType": "platform",
   "sourceName": "Sonic",
   "links": [
@@ -10896,53 +10440,12 @@
    "count": 9
   },
   "shortTitle": "Sonic: birra y hamburguesas",
-  "description": "Noche de jueves en Sonic, con patio para tomar birra artesanal y hamburguesas. Las reseñas destacan la buena música y la onda de quienes atienden.",
+  "description": "Noche de jueves en Sonic, bar con patio, cerveza artesanal y hamburguesas. Las reseñas destacan la buena música y la onda de quienes atienden.",
   "barrio": "Centro",
   "id": "platform-019f6618",
   "status": "published",
   "fingerprint": "sonic jueves|2026-11-05|sonic",
-  "createdAt": "2026-10-24T15:34:18-03:00"
- },
- {
-  "title": "Border, el musical",
-  "description": "Segunda y última función del musical con libro y música de Manuel Correa Luna y Franco Laguzzi. Entradas en Centro Ticket.",
-  "startsAt": "2026-11-05T21:00:00-03:00",
-  "venueName": "Complejo Cultural Atlas",
-  "address": "Mitre 645",
-  "category": "teatro",
-  "sourceType": "instagram",
-  "sourceName": "@jmproduccionesrosario",
-  "sourceUrl": "https://www.instagram.com/p/DeaiEH8uHqZ/",
-  "links": [
-   {
-    "label": "Sitio del lugar",
-    "url": "http://www.ccatlas.com.ar/"
-   },
-   {
-    "label": "Ver en Google Maps",
-    "url": "https://maps.google.com/?cid=3190349861301234999&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-   },
-   {
-    "label": "Fuente",
-    "url": "https://www.instagram.com/p/DeKRi9kMq3O/"
-   }
-  ],
-  "metrics": {
-   "views": 0,
-   "likes": 143
-  },
-  "lat": -32.944275499999996,
-  "lng": -60.639022700000005,
-  "rating": {
-   "value": 4.4,
-   "count": 2906
-  },
-  "barrio": "Centro",
-  "shortTitle": "Border, el musical",
-  "id": "instagram-2803fd05",
-  "status": "published",
-  "fingerprint": "border musical|2026-11-05|complejo",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Gauchos of the Pampa con Rya y Zapatea Lechuza",
@@ -10975,47 +10478,7 @@
   "id": "instagram-6602238d",
   "status": "published",
   "fingerprint": "gauchos pampa rya zapatea lechuza|2026-11-05|casa",
-  "createdAt": "2026-10-24T15:34:18-03:00"
- },
- {
-  "title": "II Congreso Internacional de Geriatría y Gerontología del Interior (día 2)",
-  "description": "Segunda jornada del congreso sobre trabajo y abordaje interdisciplinario de los equipos gerontológicos. Inscripción mediante formulario.",
-  "startsAt": "2026-11-06T18:00:00-03:00",
-  "venueName": "Círculo Médico de Rosario",
-  "category": "charla",
-  "sourceType": "instagram",
-  "sourceName": "@colegionutricionrosario",
-  "sourceUrl": "https://www.instagram.com/p/Dd6tjzLoC1B/",
-  "metrics": {
-   "views": 0,
-   "likes": 15
-  },
-  "lat": -32.943260099999996,
-  "lng": -60.647423499999995,
-  "address": "Sta Fe 1798, S2000 AUB, Santa Fe",
-  "rating": {
-   "value": 4.7,
-   "count": 6
-  },
-  "links": [
-   {
-    "label": "Sitio del lugar",
-    "url": "http://www.circulomedicorosario.org/"
-   },
-   {
-    "label": "Ver en Google Maps",
-    "url": "https://maps.google.com/?cid=7393168823984926490&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-   }
-  ],
-  "vibe": {
-   "dress": "inscripción por formulario"
-  },
-  "shortTitle": "Congreso de Geriatría, día 2",
-  "barrio": "Centro",
-  "id": "instagram-4481f52f",
-  "status": "published",
-  "fingerprint": "ii congreso internacional geriatria gerontologia interior dia|2026-11-06|circulo",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Fiesta de las Colectividades 2026",
@@ -11056,7 +10519,7 @@
   "id": "instagram-d65c4372",
   "status": "published",
   "fingerprint": "colectividades 2026|2026-11-06|parque",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Capitán: noche de viernes",
@@ -11085,7 +10548,7 @@
   "id": "platform-8a9bcc45",
   "status": "published",
   "fingerprint": "capitan viernes|2026-11-06|capitan",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Julieta Laso presenta Fabriquera en el Lavardén",
@@ -11130,7 +10593,7 @@
   "id": "instagram-f9d5a7bc",
   "status": "published",
   "fingerprint": "julieta laso fabriquera lavarden|2026-11-06|teatro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Furia: noche de viernes",
@@ -11156,7 +10619,7 @@
    "count": 464
   },
   "shortTitle": "Furia: bar y boliche",
-  "description": "Noche de viernes en Furia, bar que se vuelve boliche cerca de la 1. Se toman tragos y se baila con DJ, gratis antes de las 12 y con entrada después.",
+  "description": "Noche de viernes en Furia, bar donde se toman tragos y que cerca de la 1 se vuelve boliche con DJ. Es gratis antes de las 12 y después se cobra entrada.",
   "vibe": {
    "music": "DJ con temas remixados",
    "dress": "control de vestimenta en la puerta"
@@ -11165,7 +10628,7 @@
   "id": "platform-ebed9ce3",
   "status": "published",
   "fingerprint": "furia viernes|2026-11-06|furia",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Kika: noche de viernes",
@@ -11191,7 +10654,7 @@
    "count": 1500
   },
   "shortTitle": "Kika: espectáculos y baile",
-  "description": "Noche de viernes en Kika, de 21 a 05, con espectáculos y baile después de las 00. Sin entrada, se paga una consumición.",
+  "description": "Noche de viernes en Kika, de 21 a 05, con espectáculos y baile después de las 00. No se cobra entrada, se paga una consumición.",
   "vibe": {
    "dress": "sin entrada, con consumición"
   },
@@ -11199,7 +10662,7 @@
   "id": "platform-8daaf385",
   "status": "published",
   "fingerprint": "kika viernes|2026-11-06|kika",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "La Cautiva: noche de viernes",
@@ -11234,7 +10697,7 @@
   "id": "platform-df55d2cd",
   "status": "published",
   "fingerprint": "cautiva viernes|2026-11-06|la",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "El Filo: noche de viernes",
@@ -11244,7 +10707,7 @@
   "address": "Costanera y Baigorria",
   "lat": -32.850110900000004,
   "lng": -60.6957542,
-  "category": "fiesta",
+  "category": "gastronomia",
   "sourceType": "platform",
   "sourceName": "El Filo",
   "sourceUrl": "https://instagram.com/lasurfera.beach",
@@ -11260,12 +10723,12 @@
    "count": 1178
   },
   "shortTitle": "El Filo: parrilla y shows",
-  "description": "Noche de viernes en El Filo, con mesas al aire libre junto al río y comida abundante. Las reseñas mencionan shows de humor como el de Damián Albeti.",
+  "description": "Noche de viernes en El Filo, con mesas al aire libre junto al río y comida abundante. Las reseñas mencionan shows de humor, como el de Damián Albeti.",
   "barrio": "Granadero Baigorria",
   "id": "platform-e7e3fff0",
   "status": "published",
   "fingerprint": "filo viernes|2026-11-06|el",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Sonic: noche de viernes",
@@ -11275,7 +10738,7 @@
   "address": "Maipú 1070",
   "lat": -32.9503692,
   "lng": -60.6361937,
-  "category": "fiesta",
+  "category": "gastronomia",
   "sourceType": "platform",
   "sourceName": "Sonic",
   "links": [
@@ -11290,12 +10753,12 @@
    "count": 9
   },
   "shortTitle": "Sonic: birra y hamburguesas",
-  "description": "Noche de viernes en Sonic, con patio para tomar birra artesanal y hamburguesas. Las reseñas destacan la buena música y la onda de quienes atienden.",
+  "description": "Noche de viernes en Sonic, bar con patio, cerveza artesanal y hamburguesas. Las reseñas destacan la buena música y la onda de quienes atienden.",
   "barrio": "Centro",
   "id": "platform-451993c5",
   "status": "published",
   "fingerprint": "sonic viernes|2026-11-06|sonic",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Ciudad Ganster en Somos Música",
@@ -11335,7 +10798,7 @@
   "id": "instagram-2a920e7d",
   "status": "published",
   "fingerprint": "ciudad ganster somos musica|2026-11-06|somos",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Década: noche de viernes",
@@ -11371,7 +10834,7 @@
   "id": "platform-39552dc5",
   "status": "published",
   "fingerprint": "decada viernes|2026-11-06|decada",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Mathame",
@@ -11405,7 +10868,7 @@
   "id": "ticketing-3c82b207",
   "status": "published",
   "fingerprint": "mathame|2026-11-06|metropolitano",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "FIEBRE FIESTA en TAURA ROSARIO 6/11",
@@ -11445,7 +10908,7 @@
   "id": "ticketing-1d6b0fc7",
   "status": "published",
   "fingerprint": "fiebre taura rosario 11|2026-11-06|taura",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Southern Cowboys, tributo a Pantera en Que Sea Rock Bar",
@@ -11482,11 +10945,11 @@
   "id": "instagram-81a51823",
   "status": "published",
   "fingerprint": "southern cowboys tributo pantera sea rock bar|2026-11-06|que",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Madame: noche de viernes",
-  "description": "Noche de viernes en Madame, boliche de fiestas temáticas. Según reseñas también se usa para festejos y cenas, con barra y comida.",
+  "description": "Noche de viernes en Madame, un boliche de fiestas temáticas. Según las reseñas también se usa para festejos y cenas, con barra y comida.",
   "startsAt": "2026-11-07T00:00:00-03:00",
   "endsAt": "2026-11-07T06:00:00-03:00",
   "venueName": "Madame",
@@ -11516,11 +10979,11 @@
   "id": "platform-b4c78aec",
   "status": "published",
   "fingerprint": "madame viernes|2026-11-07|madame",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Lotus Night Club: noche de viernes",
-  "description": "Noche de viernes en Lotus Night Club, boliche. Suena electrónica y house.",
+  "description": "Noche de viernes en Lotus Night Club, un boliche. Suena electrónica y house.",
   "startsAt": "2026-11-07T00:00:00-03:00",
   "endsAt": "2026-11-07T06:00:00-03:00",
   "venueName": "Lotus Night Club",
@@ -11550,11 +11013,11 @@
   "id": "platform-f1157e42",
   "status": "published",
   "fingerprint": "lotus night club viernes|2026-11-07|lotus",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Bound: noche de viernes",
-  "description": "Noche de viernes en Bound, boliche amplio con tragos. Suena electrónica, house y techno.",
+  "description": "Noche de viernes en Bound, un boliche amplio con tragos. Suena electrónica, house y techno.",
   "startsAt": "2026-11-07T00:00:00-03:00",
   "endsAt": "2026-11-07T06:00:00-03:00",
   "venueName": "Bound",
@@ -11585,7 +11048,7 @@
   "id": "platform-5d9a3412",
   "status": "published",
   "fingerprint": "bound viernes|2026-11-07|bound",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Roxy: noche de viernes",
@@ -11611,7 +11074,7 @@
    "count": 355
   },
   "shortTitle": "Roxy: boliche",
-  "description": "Noche de viernes en Roxy, boliche donde se puede ir a comer antes. El lugar es chico y se llena rápido, con ambiente fiestero.",
+  "description": "Noche de viernes en Roxy, un boliche donde se puede ir a comer antes y después se baila. El lugar es chico y se llena rápido, con ambiente fiestero.",
   "vibe": {
    "crowd": "ambiente fiestero"
   },
@@ -11620,7 +11083,7 @@
   "id": "platform-ba0a7038",
   "status": "published",
   "fingerprint": "roxy viernes|2026-11-07|roxy",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Sunset&Deco",
@@ -11635,13 +11098,13 @@
   "sourceUrl": "https://www.eventbrite.com.ar/e/sunsetdeco-tickets-2002062825806",
   "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1194098499%2F3015046254487%2F1%2Foriginal.20260922-132721?crop=focalpoint&fit=crop&w=512&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=c3d3dd334c67f2101ac453b69073adf8",
   "shortTitle": "Sunset&Deco",
-  "description": "Evento Sunset&Deco en Ibarlucea. No hay más detalles publicados.",
+  "description": "Evento Sunset&Deco en Ibarlucea. No hay más detalles publicados sobre la propuesta.",
   "timeUnknown": true,
   "barrio": "Funes",
   "id": "platform-ee7f9779",
   "status": "published",
   "fingerprint": "sunset deco|2026-11-07|ibarlucea",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Gira por Argentina",
@@ -11664,7 +11127,7 @@
   "id": "tiktok-94637d6b",
   "status": "published",
   "fingerprint": "gira argentina|2026-11-07|rosario",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Conferencia de Jóvenes de Rosario con Samu Robles en vivo",
@@ -11693,7 +11156,7 @@
   "id": "tiktok-e612eeba",
   "status": "published",
   "fingerprint": "conferencia jovenes rosario samu robles|2026-11-07|rosario",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Interstellar por Cápsula Producciones",
@@ -11731,50 +11194,7 @@
   "id": "ticketing-7361f59b",
   "status": "published",
   "fingerprint": "interstellar capsula producciones|2026-11-07|teatro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
- },
- {
-  "title": "Seminario de cumbia cruzada para iniciales en Club Excélsior",
-  "description": "Segundo seminario especial de baile de cumbia desde cero: postura, abrazo, musicalidad y pasos principales. Costo total del seminario $29.000.",
-  "startsAt": "2026-11-07T17:30:00-03:00",
-  "endsAt": "2026-11-07T19:00:00-03:00",
-  "venueName": "Club Excélsior",
-  "address": "Alsina 1860, Rosario",
-  "category": "charla",
-  "price": {
-   "free": false,
-   "min": 29000,
-   "currency": "ARS"
-  },
-  "sourceType": "instagram",
-  "sourceName": "@cumbiacruzadaariel",
-  "sourceUrl": "https://www.instagram.com/p/Dd6n7vyR4Wl/",
-  "links": [
-   {
-    "label": "Ver en TikTok",
-    "url": "https://www.tiktok.com/@cumbiacruzadaariel/video/7691806979026636033"
-   },
-   {
-    "label": "Ver en TikTok",
-    "url": "https://www.tiktok.com/@cumbiacruzadaariel/video/7691280317461679367"
-   }
-  ],
-  "metrics": {
-   "views": 7642,
-   "likes": 142
-  },
-  "lat": -32.9522769,
-  "lng": -60.6797947,
-  "barrio": "Parque",
-  "vibe": {
-   "music": "cumbia",
-   "crowd": "principiantes"
-  },
-  "shortTitle": "Seminario de cumbia para principiantes",
-  "id": "instagram-881b0fab",
-  "status": "published",
-  "fingerprint": "seminario cumbia cruzada iniciales club excelsior|2026-11-07|club",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Capitán: noche de sábado",
@@ -11795,7 +11215,7 @@
   ],
   "recurring": true,
   "shortTitle": "Capitán: shows y DJs",
-  "description": "Noche de sábado en Capitán con shows y DJs. Abre hasta las 4.",
+  "description": "Noche de sábado en Capitán con shows en vivo y DJs. La propuesta sigue hasta las 4.",
   "vibe": {
    "music": "shows y DJs"
   },
@@ -11803,7 +11223,7 @@
   "id": "platform-ad180f90",
   "status": "published",
   "fingerprint": "capitan sabado|2026-11-07|capitan",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Connie Ballarini",
@@ -11838,7 +11258,7 @@
   "id": "ticketing-856a23cd",
   "status": "published",
   "fingerprint": "connie ballarini|2026-11-07|teatro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "La Peña de Demi Carabajal",
@@ -11876,7 +11296,7 @@
   "id": "ticketing-d8a3d463",
   "status": "published",
   "fingerprint": "pena demi carabajal|2026-11-07|asociacion",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "LOLA SANCHEZ",
@@ -11911,7 +11331,7 @@
   "id": "ticketing-c26791ff",
   "status": "published",
   "fingerprint": "lola sanchez|2026-11-07|casona",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "El Viaje De Chihiro por Cápsula Producciones",
@@ -11949,7 +11369,7 @@
   "id": "ticketing-b53e459d",
   "status": "published",
   "fingerprint": "viaje chihiro capsula producciones|2026-11-07|teatro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Furia: noche de sábado",
@@ -11975,7 +11395,7 @@
    "count": 464
   },
   "shortTitle": "Furia: bar y boliche",
-  "description": "Noche de sábado en Furia, bar que se hace boliche cerca de la 1. Suele ser gratis antes de las 12 y después se cobra entrada.",
+  "description": "Noche de sábado en Furia, un bar de tragos que se hace boliche cerca de la 1. Suele ser gratis antes de las 12 y después se cobra entrada.",
   "vibe": {
    "dress": "controlan la vestimenta en puerta"
   },
@@ -11983,7 +11403,7 @@
   "id": "platform-8be5e66c",
   "status": "published",
   "fingerprint": "furia sabado|2026-11-07|furia",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Kika: noche de sábado",
@@ -12009,7 +11429,7 @@
    "count": 1500
   },
   "shortTitle": "Kika: bar con espectáculos",
-  "description": "Noche de sábado en Kika, bar con espectáculos que abre de 21 a 5. Se baila después de las 00 y no cobran entrada, solo consumición.",
+  "description": "Noche de sábado en Kika, un bar con espectáculos abierto de 21 a 5. Se baila después de las 00 y no cobran entrada, solo consumición.",
   "vibe": {
    "dress": "sin entrada, con consumición"
   },
@@ -12017,7 +11437,7 @@
   "id": "platform-559f1d0a",
   "status": "published",
   "fingerprint": "kika sabado|2026-11-07|kika",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "La Cautiva: noche de sábado",
@@ -12052,7 +11472,7 @@
   "id": "platform-f5d5a48c",
   "status": "published",
   "fingerprint": "cautiva sabado|2026-11-07|la",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "El Filo: noche de sábado",
@@ -12062,7 +11482,7 @@
   "address": "Costanera y Baigorria",
   "lat": -32.850110900000004,
   "lng": -60.6957542,
-  "category": "fiesta",
+  "category": "gastronomia",
   "sourceType": "platform",
   "sourceName": "El Filo",
   "sourceUrl": "https://instagram.com/lasurfera.beach",
@@ -12078,12 +11498,12 @@
    "count": 1178
   },
   "shortTitle": "El Filo: cena y shows",
-  "description": "Noche de sábado en El Filo, con mesas al aire libre junto al río. Según reseñas hay comida abundante y shows de humor.",
+  "description": "Noche de sábado en El Filo, con mesas al aire libre junto al río. Según las reseñas hay comida abundante y shows de humor.",
   "barrio": "Granadero Baigorria",
   "id": "platform-1befe2c7",
   "status": "published",
   "fingerprint": "filo sabado|2026-11-07|el",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Sonic: noche de sábado",
@@ -12093,7 +11513,7 @@
   "address": "Maipú 1070",
   "lat": -32.9503692,
   "lng": -60.6361937,
-  "category": "fiesta",
+  "category": "gastronomia",
   "sourceType": "platform",
   "sourceName": "Sonic",
   "links": [
@@ -12113,7 +11533,7 @@
   "id": "platform-c2a05d20",
   "status": "published",
   "fingerprint": "sonic sabado|2026-11-07|sonic",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Dramer open to close en Capi Club",
@@ -12139,7 +11559,7 @@
   "id": "tiktok-76d08f44",
   "status": "published",
   "fingerprint": "dramer open to close capi club|2026-11-07|capi",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Insectum en Lucero del Paraná",
@@ -12176,7 +11596,7 @@
   "id": "instagram-93e8235d",
   "status": "published",
   "fingerprint": "insectum lucero parana|2026-11-07|lucero",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Década: noche de sábado",
@@ -12202,7 +11622,7 @@
    "count": 1233
   },
   "shortTitle": "Década: boliche con bandas",
-  "description": "Noche de sábado en Década, boliche popular con bandas en vivo. Van jóvenes y también gente más grande, y piden DNI en puerta.",
+  "description": "Noche de sábado en Década, un boliche popular donde según las reseñas siempre hay bandas en vivo. Van jóvenes y también gente más grande, y en la puerta piden DNI.",
   "vibe": {
    "music": "bandas en vivo",
    "crowd": "jóvenes y también mayores",
@@ -12212,11 +11632,11 @@
   "id": "platform-ed93630a",
   "status": "published",
   "fingerprint": "decada sabado|2026-11-07|decada",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Rumbavana: noche de sábado",
-  "description": "Noche de sábado en Rumbavana, con dos pistas, una de salsa y otra de bachata. Se puede ir solo, en pareja o con amigos.",
+  "description": "Noche de sábado en Rumbavana, salsera con dos pistas, una de salsa y otra de bachata. Se puede ir solo, en pareja o con amigos a bailar toda la noche.",
   "startsAt": "2026-11-07T23:00:00-03:00",
   "endsAt": "2026-11-08T05:30:00-03:00",
   "venueName": "Rumbavana",
@@ -12246,7 +11666,7 @@
   "id": "platform-4ce3db2c",
   "status": "published",
   "fingerprint": "rumbavana sabado|2026-11-07|rumbavana",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Juani Favre en Lucero del Paraná",
@@ -12286,7 +11706,7 @@
   "id": "instagram-32a519f8",
   "status": "published",
   "fingerprint": "juani favre lucero parana|2026-11-07|lucero",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Russia: noche de sábado",
@@ -12312,7 +11732,7 @@
    "count": 158
   },
   "shortTitle": "Russia: boliche con DJs",
-  "description": "Noche de sábado en Russia, boliche chico con DJs y barra de tragos. Solo entran mayores de 21.",
+  "description": "Noche de sábado en Russia, un boliche chico con DJs y barra de tragos. Solo entran mayores de 21 y cuando se llena cuesta moverse.",
   "vibe": {
    "music": "DJs, temas para bailar",
    "crowd": "grupos de amigos",
@@ -12323,7 +11743,7 @@
   "id": "platform-b7d50ce4",
   "status": "published",
   "fingerprint": "russia sabado|2026-11-07|russia",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Switch Club: noche de viernes",
@@ -12367,12 +11787,12 @@
    "music": "DJs"
   },
   "shortTitle": "Switch Club: noche para bailar",
-  "description": "Noche de viernes en Switch Club, con dos barras y DJs. Según reseñas la pista es chica y conviene ir hidratado.",
+  "description": "Noche de viernes en Switch Club, un local bailable con dos barras y DJs, con entrada de $10000. La pista es chica y conviene ir hidratado.",
   "barrio": "Pichincha",
   "id": "ticketing-4d7c1af2",
   "status": "published",
   "fingerprint": "switch club viernes|2026-11-07|switch",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "La Morocha: noche de sábado",
@@ -12398,12 +11818,12 @@
    "count": 48
   },
   "shortTitle": "La Morocha: noche de sábado",
-  "description": "Noche de sábado en La Morocha. Según reseñas el lugar también recibe eventos como degustaciones de vinos.",
+  "description": "Noche de sábado en La Morocha, un espacio que según las reseñas también recibe eventos como degustaciones de vinos. Las reseñas destacan el ambiente.",
   "barrio": "Centro",
   "id": "platform-e378618e",
   "status": "published",
   "fingerprint": "morocha sabado|2026-11-07|la",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Madame: noche de sábado",
@@ -12437,7 +11857,7 @@
   "id": "platform-5130a2af",
   "status": "published",
   "fingerprint": "madame sabado|2026-11-08|madame",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Lotus Night Club: noche de sábado",
@@ -12471,7 +11891,7 @@
   "id": "platform-4ccd36a3",
   "status": "published",
   "fingerprint": "lotus night club sabado|2026-11-08|lotus",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Bound: noche de sábado",
@@ -12506,7 +11926,7 @@
   "id": "platform-9d4deeb5",
   "status": "published",
   "fingerprint": "bound sabado|2026-11-08|bound",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Roxy: noche de sábado",
@@ -12532,7 +11952,7 @@
    "count": 355
   },
   "shortTitle": "Roxy: cena y boliche",
-  "description": "Noche de sábado en Roxy, donde se puede comer antes y después sacan las mesas para bailar. Es chico y se llena rápido, con ambiente fiestero.",
+  "description": "Noche de sábado en Roxy, donde se puede comer antes y después sacan las mesas para bailar. Es chico, se llena rápido y tiene ambiente fiestero.",
   "vibe": {
    "crowd": "grupos de amigos",
    "dress": "requisa en la entrada"
@@ -12542,7 +11962,7 @@
   "id": "platform-e3391df5",
   "status": "published",
   "fingerprint": "roxy sabado|2026-11-08|roxy",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Switch Club: noche de sábado",
@@ -12581,7 +12001,7 @@
   "id": "platform-17b038ef",
   "status": "published",
   "fingerprint": "switch club sabado|2026-11-08|switch",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Pacheco: noche de sábado",
@@ -12612,7 +12032,7 @@
   "id": "platform-88683701",
   "status": "published",
   "fingerprint": "pacheco sabado|2026-11-08|pacheco",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "La Reja en Roxy Live",
@@ -12650,7 +12070,7 @@
   "id": "tiktok-1baa89ed",
   "status": "published",
   "fingerprint": "reja roxy|2026-11-08|roxy",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Miss (soporte de ficción) en Lucero del Paraná",
@@ -12687,7 +12107,7 @@
   "id": "instagram-8ec489cb",
   "status": "published",
   "fingerprint": "miss soporte ficcion lucero parana|2026-11-08|lucero",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Ronnie Wood en Rosario",
@@ -12713,8 +12133,8 @@
    }
   ],
   "metrics": {
-   "views": 278,
-   "likes": 7
+   "views": 556,
+   "likes": 19
   },
   "lat": -32.928958099999996,
   "lng": -60.669610899999995,
@@ -12731,7 +12151,7 @@
   "id": "instagram-309448b3",
   "status": "published",
   "fingerprint": "ronnie wood rosario|2026-11-08|metropolitano",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Curso y ConsagraciCn a JesCs por MarCa",
@@ -12754,11 +12174,11 @@
   "id": "tiktok-132e737c",
   "status": "published",
   "fingerprint": "curso consagracicn jescs marca|2026-11-09|online",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Seminario La mala traducción con Mauro Guzmán",
-  "description": "Seminario experimental sobre el cuerpo como traductor de imágenes y conceptos, coordinado por Mauro Guzmán. Primer día.",
+  "description": "Fechas: 10 nov y 11 nov. Seminario experimental sobre el cuerpo como traductor de imágenes y conceptos, coordinado por Mauro Guzmán. Primer día.",
   "startsAt": "2026-11-10T10:00:00-03:00",
   "venueName": "Centro Cultural Parque de España",
   "category": "charla",
@@ -12781,7 +12201,7 @@
   ],
   "metrics": {
    "views": 0,
-   "likes": 108
+   "likes": 141
   },
   "lat": -32.938539399999996,
   "lng": -60.6367438,
@@ -12790,51 +12210,13 @@
    "value": 4.5,
    "count": 22802
   },
-  "endsAt": "2026-11-10T13:00:00-03:00",
+  "endsAt": "2026-11-11T10:00:00-03:00",
   "shortTitle": "La mala traducción, seminario de cuerpo",
   "barrio": "Pichincha",
   "id": "instagram-0d110d57",
   "status": "published",
   "fingerprint": "seminario mala traduccion mauro guzman|2026-11-10|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
- },
- {
-  "title": "Seminario La mala traducción con Mauro Guzmán",
-  "description": "Seminario experimental sobre el cuerpo como traductor de imágenes y conceptos, coordinado por Mauro Guzmán. Segundo día.",
-  "startsAt": "2026-11-11T10:00:00-03:00",
-  "endsAt": "2026-11-11T13:00:00-03:00",
-  "venueName": "Centro Cultural Parque de España",
-  "category": "charla",
-  "sourceType": "instagram",
-  "sourceName": "Centro Cultural Parque de España",
-  "sourceUrl": "https://www.instagram.com/p/DexURBMvJDD/",
-  "links": [
-   {
-    "label": "Sitio del lugar",
-    "url": "http://ccpe.org.ar/"
-   },
-   {
-    "label": "Ver en Google Maps",
-    "url": "https://maps.google.com/?cid=2832022739598847170&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-   }
-  ],
-  "metrics": {
-   "views": 0,
-   "likes": 33
-  },
-  "lat": -32.938539399999996,
-  "lng": -60.6367438,
-  "address": "Sarmiento y el río Sarmiento, S2000 AHQ, Santa Fe",
-  "rating": {
-   "value": 4.5,
-   "count": 22802
-  },
-  "shortTitle": "La mala traducción, seminario de cuerpo",
-  "barrio": "Pichincha",
-  "id": "instagram-53b57c0a",
-  "status": "published",
-  "fingerprint": "seminario mala traduccion mauro guzman|2026-11-11|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Seminario La mala traducción en el CCPE (día 2)",
@@ -12871,7 +12253,7 @@
   "id": "instagram-882feae9",
   "status": "published",
   "fingerprint": "seminario mala traduccion ccpe dia|2026-11-11|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Chapitas, Tormentas y Anomalía en García Bar",
@@ -12890,7 +12272,7 @@
   "sourceUrl": "https://www.instagram.com/p/DeIVg1HOuX3/",
   "metrics": {
    "views": 0,
-   "likes": 88
+   "likes": 169
   },
   "lat": -32.9333152,
   "lng": -60.659414000000005,
@@ -12917,7 +12299,7 @@
   "id": "instagram-014eb58c",
   "status": "published",
   "fingerprint": "chapitas tormentas anomalia garcia bar|2026-11-13|garcia",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Homenaje a Charly García con músicos rosarinos",
@@ -12957,7 +12339,7 @@
   "id": "instagram-10d22386",
   "status": "published",
   "fingerprint": "homenaje charly garcia musicos rosarinos|2026-11-13|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Exámenes de ingreso a la Armada Argentina",
@@ -12997,50 +12379,36 @@
   "id": "tiktok-6cd9fcac",
   "status": "published",
   "fingerprint": "examenes ingreso armada argentina|2026-11-14|terminal",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
-  "title": "Seminario de cumbia cruzada para iniciales en Club Excélsior",
-  "description": "Segundo seminario especial de baile de cumbia desde cero: postura, abrazo, musicalidad y pasos principales. Costo total del seminario $29.000.",
-  "startsAt": "2026-11-14T17:30:00-03:00",
-  "endsAt": "2026-11-14T19:00:00-03:00",
-  "venueName": "Club Excélsior",
-  "address": "Alsina 1860, Rosario",
-  "category": "charla",
+  "title": "SUNSET W/ DAN GHENACIA & JORGE SAVORETTI AT REFUGIO 428",
+  "startsAt": "2026-11-14T18:00:00-03:00",
+  "venueName": "Av. Eudoro Carrasco 2034",
+  "address": "Av. Eudoro Carrasco 2034, Rosario",
+  "category": "fiesta",
   "price": {
    "free": false,
-   "min": 29000,
    "currency": "ARS"
   },
-  "sourceType": "instagram",
-  "sourceName": "@cumbiacruzadaariel",
-  "sourceUrl": "https://www.instagram.com/p/Dd6n7vyR4Wl/",
+  "sourceType": "ticketing",
+  "sourceName": "Venti",
+  "sourceUrl": "https://venti.live/evento/sunset-w-dan-ghenacia-jorge-savoretti-at-refugio-428",
+  "lat": -32.8916134,
+  "lng": -60.685596499999996,
   "links": [
    {
-    "label": "Ver en TikTok",
-    "url": "https://www.tiktok.com/@cumbiacruzadaariel/video/7691806979026636033"
-   },
-   {
-    "label": "Ver en TikTok",
-    "url": "https://www.tiktok.com/@cumbiacruzadaariel/video/7691280317461679367"
+    "label": "Ver en Google Maps",
+    "url": "https://maps.google.com/?cid=9028937602042461660&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
    }
   ],
-  "metrics": {
-   "views": 7642,
-   "likes": 142
-  },
-  "lat": -32.9522769,
-  "lng": -60.6797947,
-  "barrio": "Parque",
-  "vibe": {
-   "music": "cumbia",
-   "crowd": "principiantes"
-  },
-  "shortTitle": "Seminario de cumbia para iniciales",
-  "id": "instagram-07c2459b",
+  "shortTitle": "Sunset con Dan Ghenacia y Jorge",
+  "description": "Sunset en Refugio 428 con los DJs Dan Ghenacia y Jorge Savoretti. Evento con entrada paga.",
+  "barrio": "Norte",
+  "id": "ticketing-b01d6d71",
   "status": "published",
-  "fingerprint": "seminario cumbia cruzada iniciales club excelsior|2026-11-14|club",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "fingerprint": "sunset dan ghenacia jorge savoretti refugio 428|2026-11-14|av",
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Sunside: sunset house frente al río",
@@ -13072,36 +12440,7 @@
   "id": "instagram-9e52e334",
   "status": "published",
   "fingerprint": "sunside sunset house frente rio|2026-11-14|refugio",
-  "createdAt": "2026-10-24T15:34:18-03:00"
- },
- {
-  "title": "SUNSET W/ DAN GHENACIA & JORGE SAVORETTI AT REFUGIO 428",
-  "startsAt": "2026-11-14T18:00:00-03:00",
-  "venueName": "Av. Eudoro Carrasco 2034",
-  "address": "Av. Eudoro Carrasco 2034, Rosario",
-  "category": "fiesta",
-  "price": {
-   "free": false,
-   "currency": "ARS"
-  },
-  "sourceType": "ticketing",
-  "sourceName": "Venti",
-  "sourceUrl": "https://venti.live/evento/sunset-w-dan-ghenacia-jorge-savoretti-at-refugio-428",
-  "lat": -32.8916134,
-  "lng": -60.685596499999996,
-  "links": [
-   {
-    "label": "Ver en Google Maps",
-    "url": "https://maps.google.com/?cid=9028937602042461660&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-   }
-  ],
-  "shortTitle": "Sunset con Dan Ghenacia y Jorge",
-  "description": "Sunset en Refugio 428 con los DJs Dan Ghenacia y Jorge Savoretti. Evento con entrada paga.",
-  "barrio": "Norte",
-  "id": "ticketing-b01d6d71",
-  "status": "published",
-  "fingerprint": "sunset dan ghenacia jorge savoretti refugio 428|2026-11-14|av",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Horifest décima edición con The Room",
@@ -13118,7 +12457,7 @@
   "sourceUrl": "https://www.instagram.com/p/DeFqCq9Tq8Z/",
   "metrics": {
    "views": 0,
-   "likes": 233
+   "likes": 629
   },
   "rating": {
    "value": 4.4,
@@ -13138,7 +12477,7 @@
   "id": "instagram-9fdd6432",
   "status": "published",
   "fingerprint": "horifest decima room|2026-11-14|club",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Festival de patín artístico del Centro Asturiano",
@@ -13171,7 +12510,7 @@
   "id": "instagram-aea97b2a",
   "status": "published",
   "fingerprint": "festival patin artistico centro asturiano|2026-11-14|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Horifest en Club Atlético Horizonte",
@@ -13204,7 +12543,7 @@
   "id": "instagram-875389f5",
   "status": "published",
   "fingerprint": "horifest club atletico horizonte|2026-11-14|club",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Forja: Ezequiel Arias y Simón Vuarambon",
@@ -13245,7 +12584,7 @@
   "id": "instagram-cecfbdb7",
   "status": "published",
   "fingerprint": "forja ezequiel arias simon vuarambon|2026-11-14|forja",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "EL CLUB DE LA SERPIENTE, 14 DE NOVIEMBRE - LOTUS, ROSARIO",
@@ -13273,12 +12612,15 @@
    }
   ],
   "shortTitle": "El Club de la Serpiente, fiesta",
-  "description": "Noche de El Club de la Serpiente en Lotus Night Club. Evento con entrada paga.",
+  "description": "Noche de El Club de la Serpiente en Lotus Night Club. Es un evento con entrada paga.",
+  "vibe": {
+   "dress": "entrada paga"
+  },
   "barrio": "Macrocentro",
   "id": "ticketing-352f9c0e",
   "status": "published",
   "fingerprint": "club serpiente 14 noviembre lotus rosario|2026-11-14|lotus",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Exámenes de ingreso a la Armada Argentina (segundo día)",
@@ -13322,7 +12664,7 @@
   "id": "tiktok-a7a079b0",
   "status": "published",
   "fingerprint": "examenes ingreso armada argentina segundo dia|2026-11-15|terminal",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Inauguración del 79 Salón Nacional de Rosario",
@@ -13359,7 +12701,7 @@
   "id": "instagram-efb003c3",
   "status": "published",
   "fingerprint": "inauguracion 79 salon nacional rosario|2026-11-20|macro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "DANNY HOWELLS @ SWTICH CLUB",
@@ -13387,12 +12729,16 @@
    }
   ],
   "shortTitle": "Danny Howells, DJ set",
-  "description": "Noche en Switch Club con el DJ Danny Howells. Evento con entrada paga.",
+  "description": "Noche en Switch Club con el DJ Danny Howells. Es un evento con entrada paga.",
+  "vibe": {
+   "music": "DJ set de Danny Howells",
+   "dress": "entrada paga"
+  },
   "barrio": "Pichincha",
   "id": "ticketing-3fd07fa5",
   "status": "published",
   "fingerprint": "danny howells swtich club|2026-11-20|switch",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Concierto en Buenos Aires, C\u0000f3rdoba y Rosario",
@@ -13415,7 +12761,7 @@
   "id": "tiktok-1b7847c2",
   "status": "published",
   "fingerprint": "concierto buenos aires f3rdoba rosario|2026-11-21|buenos",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Show en ND Teatro",
@@ -13436,50 +12782,7 @@
   "id": "tiktok-de91e18f",
   "status": "published",
   "fingerprint": "nd teatro|2026-11-21|nd",
-  "createdAt": "2026-10-24T15:34:18-03:00"
- },
- {
-  "title": "Seminario de cumbia cruzada para iniciales en Club Excélsior",
-  "description": "Segundo seminario especial de baile de cumbia desde cero: postura, abrazo, musicalidad y pasos principales. Costo total del seminario $29.000.",
-  "startsAt": "2026-11-21T17:30:00-03:00",
-  "endsAt": "2026-11-21T19:00:00-03:00",
-  "venueName": "Club Excélsior",
-  "address": "Alsina 1860, Rosario",
-  "category": "charla",
-  "price": {
-   "free": false,
-   "min": 29000,
-   "currency": "ARS"
-  },
-  "sourceType": "instagram",
-  "sourceName": "@cumbiacruzadaariel",
-  "sourceUrl": "https://www.instagram.com/p/Dd6n7vyR4Wl/",
-  "links": [
-   {
-    "label": "Ver en TikTok",
-    "url": "https://www.tiktok.com/@cumbiacruzadaariel/video/7691806979026636033"
-   },
-   {
-    "label": "Ver en TikTok",
-    "url": "https://www.tiktok.com/@cumbiacruzadaariel/video/7691280317461679367"
-   }
-  ],
-  "metrics": {
-   "views": 7642,
-   "likes": 142
-  },
-  "lat": -32.9522769,
-  "lng": -60.6797947,
-  "barrio": "Parque",
-  "vibe": {
-   "music": "cumbia",
-   "crowd": "principiantes, desde cero"
-  },
-  "shortTitle": "Seminario de cumbia para principiantes",
-  "id": "instagram-c21807cb",
-  "status": "published",
-  "fingerprint": "seminario cumbia cruzada iniciales club excelsior|2026-11-21|club",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "ØOSTIL en Mixmag x Pura Vida",
@@ -13498,7 +12801,7 @@
   "id": "instagram-a734b452",
   "status": "published",
   "fingerprint": "ostil mixmag pura vida|2026-11-21|hotel",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Gusti Rabago y Kelo Ar en Groove Connection",
@@ -13521,7 +12824,7 @@
   "id": "instagram-6b927934",
   "status": "published",
   "fingerprint": "gusti rabago kelo ar groove connection|2026-11-21|groove",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Raresh en Boiler: minimal y house rumano",
@@ -13553,7 +12856,7 @@
   "id": "instagram-a16bc4f3",
   "status": "published",
   "fingerprint": "raresh boiler minimal house rumano|2026-11-22|boiler",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Humor, Emoción y Vibra: stand up en Multiespacio Nicasio",
@@ -13594,7 +12897,7 @@
   "id": "tiktok-ffe92fe1",
   "status": "published",
   "fingerprint": "humor emocion vibra stand up multiespacio nicasio|2026-11-22|multiespacio",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "RARESH + FRANCO CINELLI + MOMO TROSMAN @ COMPLEJO FOREST",
@@ -13627,7 +12930,7 @@
   "id": "ticketing-4a7482d0",
   "status": "published",
   "fingerprint": "raresh franco cinelli momo trosman complejo forest|2026-11-22|complejo",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Benja Torres en el Centro Cultural Güemes",
@@ -13657,8 +12960,8 @@
    }
   ],
   "metrics": {
-   "views": 18200,
-   "likes": 1270
+   "views": 24518,
+   "likes": 1702
   },
   "lat": -32.931649,
   "lng": -60.658896899999995,
@@ -13672,7 +12975,7 @@
   "id": "tiktok-4976698b",
   "status": "published",
   "fingerprint": "benja torres centro cultural guemes|2026-11-23|centro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Quinteto Municipal de Cuerdas con clarinetista invitado",
@@ -13721,7 +13024,7 @@
   "id": "instagram-e0e8da6e",
   "status": "published",
   "fingerprint": "quinteto municipal cuerdas clarinetista invitado|2026-11-27|museo",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Seminario de cumbia cruzada para iniciales en Club Excélsior",
@@ -13750,8 +13053,8 @@
    }
   ],
   "metrics": {
-   "views": 7642,
-   "likes": 142
+   "views": 9875,
+   "likes": 202
   },
   "lat": -32.95225788135659,
   "lng": -60.67963857882892,
@@ -13764,7 +13067,7 @@
   "id": "tiktok-2338330e",
   "status": "published",
   "fingerprint": "seminario cumbia cruzada iniciales club excelsior|2026-11-28|club",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Abel Pintos en el Anfiteatro",
@@ -13805,7 +13108,7 @@
   "id": "instagram-0d18de62",
   "status": "published",
   "fingerprint": "abel pintos anfiteatro|2026-11-28|anfiteatro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Sunset + Night en Rooftop Rosario",
@@ -13839,7 +13142,7 @@
   "id": "instagram-7d9d6612",
   "status": "published",
   "fingerprint": "sunset night rooftop rosario|2026-12-05|rooftop",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Gux Jimenez y Jerry Chiu: Droid9 Showcase",
@@ -13862,7 +13165,7 @@
   "id": "instagram-e8286b6a",
   "status": "published",
   "fingerprint": "gux jimenez jerry chiu droid9 showcase|2026-12-05|groove",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "CLOSING PARTY @ ANDRES KOLLER X AFL",
@@ -13895,7 +13198,7 @@
   "id": "ticketing-06fa09de",
   "status": "published",
   "fingerprint": "closing party andres koller afl|2026-12-12|complejo",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Joa Milo y Neutra en QSR Bar",
@@ -13924,7 +13227,7 @@
   "id": "instagram-e44d8b69",
   "status": "published",
   "fingerprint": "joa milo neutra qsr bar|2026-12-13|qsr",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Fénix: muestra anual 2026 de Studio Flavio Mendoza Rosario",
@@ -13961,7 +13264,7 @@
   "id": "instagram-33e6d0a6",
   "status": "published",
   "fingerprint": "fenix muestra anual 2026 studio flavio mendoza rosario|2026-12-14|teatro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Julián Bellese: show de cierre de año",
@@ -13998,7 +13301,7 @@
   "id": "tiktok-ddd3338a",
   "status": "published",
   "fingerprint": "julian bellese cierre ano|2026-12-19|teatro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Pretemporada Campus de Verano (8ª edición)",
@@ -14031,7 +13334,7 @@
   "id": "tiktok-2b5f9df2",
   "status": "published",
   "fingerprint": "pretemporada campus verano|2026-12-21|campus",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Sektor Fest: muestra de fin de año de Sektor 13",
@@ -14072,7 +13375,7 @@
   "id": "instagram-e2c3e986",
   "status": "published",
   "fingerprint": "sektor fest muestra fin ano sektor 13|2026-12-21|teatro",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Xmax en el Autódromo con Jaydelys, Nacho Scoppa y Victoria Whynot",
@@ -14113,7 +13416,7 @@
   "id": "instagram-16a71a5a",
   "status": "published",
   "fingerprint": "xmax autodromo jaydelys nacho scoppa victoria whynot|2026-12-24|autodromo",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Festival de Navidad en el Autódromo",
@@ -14154,7 +13457,7 @@
   "id": "instagram-612f4f7c",
   "status": "published",
   "fingerprint": "festival navidad autodromo|2026-12-25|autodromo",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Miss Monique en el Autódromo de Rosario",
@@ -14195,7 +13498,7 @@
   "id": "tiktok-759cf9e1",
   "status": "published",
   "fingerprint": "miss monique autodromo rosario|2026-12-26|autodromo",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  },
  {
   "title": "Año Nuevo con Kamilo Sanclemente en Forest Open Air",
@@ -14228,6 +13531,6 @@
   "id": "instagram-007c1ec7",
   "status": "published",
   "fingerprint": "ano nuevo kamilo sanclemente forest open air|2026-12-31|complejo",
-  "createdAt": "2026-10-24T15:34:18-03:00"
+  "createdAt": "2026-10-24T16:03:23-03:00"
  }
 ]
