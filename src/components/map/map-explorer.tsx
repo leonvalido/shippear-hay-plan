@@ -88,6 +88,8 @@ export function MapExplorer() {
     el?.scrollIntoView({ block: "nearest", behavior: "smooth" });
   }, [selectedId]);
 
+  const count = status === "done" ? `${events.length} evento${events.length === 1 ? "" : "s"}` : "Buscando…";
+
   const filters = (
     <div className="space-y-2">
       <label className="sr-only" htmlFor="map-search">
@@ -101,25 +103,33 @@ export function MapExplorer() {
         onChange={(e) => setQuery(e.target.value)}
         className="h-10 bg-background"
       />
-      <FilterChips label="Cuándo" chips={DAY_CHIPS} value={day} onChange={setDay} />
-      <FilterChips label="Categoría" chips={CATEGORY_CHIPS} value={category} onChange={setCategory} />
-      <div role="group" aria-label="Orden" className="flex rounded-lg border p-0.5 text-xs">
-        {(
-          [
-            ["hora", "Por hora"],
-            ["views", "Lo que más se mueve"],
-          ] as const
-        ).map(([v, label]) => (
-          <button
-            key={v}
-            type="button"
-            aria-pressed={sort === v}
-            onClick={() => setSort(v)}
-            className={cn("flex-1 rounded-md px-2 py-1 font-medium transition-colors", sort === v ? "bg-foreground text-background" : "text-muted-foreground hover:bg-accent")}
-          >
-            {label}
-          </button>
-        ))}
+      <div className="-mx-3 flex gap-1.5 overflow-x-auto px-3 pb-1 [scrollbar-width:none]">
+        <FilterChips label="Cuándo" chips={DAY_CHIPS} value={day} onChange={setDay} />
+        <span aria-hidden className="my-1 w-px shrink-0 bg-border" />
+        <FilterChips label="Categoría" chips={CATEGORY_CHIPS} value={category} onChange={setCategory} />
+      </div>
+      <div className="flex items-center justify-between text-xs">
+        <p className="text-muted-foreground" aria-live="polite">
+          {count}
+        </p>
+        <div role="group" aria-label="Orden" className="flex gap-1">
+          {(
+            [
+              ["hora", "Por hora"],
+              ["views", "Lo que más se mueve"],
+            ] as const
+          ).map(([v, label]) => (
+            <button
+              key={v}
+              type="button"
+              aria-pressed={sort === v}
+              onClick={() => setSort(v)}
+              className={cn("rounded-full px-2 py-0.5 font-medium transition-colors", sort === v ? "bg-foreground text-background" : "text-muted-foreground hover:bg-accent")}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -158,7 +168,6 @@ export function MapExplorer() {
     </div>
   );
 
-  const count = status === "done" ? `${events.length} evento${events.length === 1 ? "" : "s"}` : "Buscando…";
 
   return (
     <div className="relative flex flex-col md:flex-row">
@@ -179,12 +188,7 @@ export function MapExplorer() {
 
       {/* Desktop side panel */}
       <aside className="glass hidden h-[calc(100dvh-3.5rem)] w-96 flex-col md:flex" aria-label="Lista de eventos">
-        <div className="space-y-2 border-b p-3">
-          {filters}
-          <p className="text-xs text-muted-foreground" aria-live="polite">
-            {count}
-          </p>
-        </div>
+        <div className="space-y-2 border-b p-3">{filters}</div>
         <div className="relative min-h-0 flex-1 overflow-y-auto p-3">{list}</div>
       </aside>
 
@@ -203,9 +207,7 @@ export function MapExplorer() {
           className="flex w-full flex-col items-center gap-1 pb-1 pt-2"
         >
           <span aria-hidden className="h-1.5 w-10 rounded-full bg-border" />
-          <span className="text-xs text-muted-foreground">
-            {count} · {expanded ? "ver mapa" : "ver lista"}
-          </span>
+          <span className="text-xs text-muted-foreground">{expanded ? "Ver mapa" : "Ver lista"}</span>
         </button>
         <div className="space-y-2 px-3 pb-2">{filters}</div>
         <div className="relative min-h-0 flex-1 overflow-y-auto px-3 pb-4">{list}</div>
