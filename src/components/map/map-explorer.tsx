@@ -36,6 +36,7 @@ import { parsePlan } from "@/components/concierge/plan-stream";
 import { PlanView } from "@/components/concierge/plan-view";
 import { WhatsAppButton } from "@/components/concierge/whatsapp-button";
 import { useStream } from "@/hooks/use-stream";
+import { useLocation } from "@/hooks/use-location";
 import { BarrioStrip } from "./barrio-strip";
 import { ConciergeBar, type Budget } from "./concierge-bar";
 import { TileCache } from "./tile-cache";
@@ -91,33 +92,15 @@ export function MapExplorer({ initialEvents }: { initialEvents?: Event[] }) {
   const [expanded, setExpanded] = useState(false);
   const [embed, setEmbed] = useState(false);
   const [sort, setSort] = useState<"hora" | "views">("hora");
-  const [me, setMe] = useState<LatLng | null>(null);
   /** What the sheet shows: the full list, one venue, or the venues of a cluster that cannot be split. */
   const [mode, setMode] = useState<{ kind: "list" } | { kind: "venue"; venue: Venue } | { kind: "venues"; venues: Venue[] } | { kind: "plan" }>({ kind: "list" });
   const [budget, setBudget] = useState<Budget>(null);
-  const [near, setNear] = useState(false);
-  const [locating, setLocating] = useState(false);
   const [focusBar, setFocusBar] = useState(false);
   const ai = useStream("/api/concierge");
-
-  /** "Cerca mío": ask for the position once; fall back silently. */
-  function requestLocation() {
-    if (me || !("geolocation" in navigator)) return;
-    setLocating(true);
-    navigator.geolocation.getCurrentPosition(
-      (pos) => {
-        setMe({ lat: pos.coords.latitude, lng: pos.coords.longitude });
-        setLocating(false);
-      },
-      () => setLocating(false),
-      { timeout: 8000, maximumAge: 60_000 },
-    );
-  }
-
-  function toggleNear(on: boolean) {
-    setNear(on);
-    if (on) requestLocation();
-  }
+  /** "Cerca mío": position, chip state and the denial message live in the hook. */
+  const loc = useLocation();
+  const me: LatLng | null = loc.point;
+  const near = loc.active;
 
   /** A plan stop was tapped: filter the list to it, highlight its pin and show the map. */
   function showStopOnMap(stop: { title: string; venue: string }) {
@@ -137,21 +120,6 @@ export function MapExplorer({ initialEvents }: { initialEvents?: Event[] }) {
     setExpanded(true);
   }
 
-  // If the user already granted location to this site, pick it up silently (no prompt).
-  useEffect(() => {
-    if (!("permissions" in navigator) || !("geolocation" in navigator)) return;
-    navigator.permissions
-      .query({ name: "geolocation" })
-      .then((p) => {
-        if (p.state !== "granted") return;
-        navigator.geolocation.getCurrentPosition(
-          (pos) => setMe({ lat: pos.coords.latitude, lng: pos.coords.longitude }),
-          () => {},
-          { timeout: 8000, maximumAge: 300_000 },
-        );
-      })
-      .catch(() => {});
-  }, []);
   const listRef = useRef<HTMLDivElement>(null);
   const dragStart = useRef<number | null>(null);
 
@@ -449,7 +417,7 @@ export function MapExplorer({ initialEvents }: { initialEvents?: Event[] }) {
                     {h.events.map((e, i) => (
                       <div key={e.id} className="relative py-1 first:pt-2 last:pb-2">
                         <span aria-hidden className="absolute -left-[16px] top-4 size-[7px] rounded-full bg-muted-foreground" />
-                        <EventCardEditorial event={e} index={i} selected={e.id === selectedId} onSelect={selectFromList} showTime={!h.unknown && formatTime(e.startsAt) !== `${h.hour}:${h.minutes}`} />
+                        <EventCardEditorial event={e} index={i} selected={e.id === selectedId} onSelect={selectFromList} from={near ? me : null} showTime={!h.unknown && formatTime(e.startsAt) !== `${h.hour}:${h.minutes}`} />
                       </div>
                     ))}
                   </div>
@@ -520,7 +488,8 @@ export function MapExplorer({ initialEvents }: { initialEvents?: Event[] }) {
           }}
           fit={status === "done" && mode.kind === "list"}
           explore
-          onLocate={setMe}
+          me={near ? me : null}
+          onLocate={loc.set}
         />
         {!embed && (
           <Link
@@ -537,8 +506,9 @@ export function MapExplorer({ initialEvents }: { initialEvents?: Event[] }) {
           budget={budget}
           onBudget={setBudget}
           near={near}
-          onNear={toggleNear}
-          locating={locating}
+          onNear={loc.toggle}
+          locating={loc.locating}
+          nearError={loc.error}
           busy={ai.status === "loading" || ai.status === "streaming"}
           autoFocus={focusBar}
           onSubmit={askConcierge}

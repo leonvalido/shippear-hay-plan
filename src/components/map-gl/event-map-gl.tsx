@@ -25,6 +25,8 @@ type Props = {
   fit?: boolean;
   /** Show the location button, the zoom control and cluster bubbles. */
   explore?: boolean;
+  /** The viewer's position: drawn as a pulsing dot and brought into view; null hides it. */
+  me?: { lat: number; lng: number } | null;
   /** Called with the viewer's position after the location button succeeds. */
   onLocate?: (pos: { lat: number; lng: number }) => void;
   interactive?: boolean;
@@ -59,6 +61,7 @@ export function EventMap({
   zoom = 13,
   fit = false,
   explore = false,
+  me = null,
   onLocate,
   interactive = true,
   className,
@@ -87,14 +90,12 @@ export function EventMap({
     setLocating(true);
     navigator.geolocation.getCurrentPosition(
       (pos) => {
-        const ll: [number, number] = [pos.coords.longitude, pos.coords.latitude];
-        map.getSource(ME)?.setData({ type: "FeatureCollection", features: [{ type: "Feature", geometry: { type: "Point", coordinates: ll }, properties: {} }] });
-        map.easeTo({ center: ll, zoom: Math.max(map.getZoom(), PIN_ZOOM), duration: 400 });
-        cb.current.onLocate?.({ lat: ll[1], lng: ll[0] });
+        // The parent owns the position: it comes back through the `me` prop, which draws the dot and flies there.
+        cb.current.onLocate?.({ lat: pos.coords.latitude, lng: pos.coords.longitude });
         setLocating(false);
       },
       () => setLocating(false),
-      { timeout: 8000, maximumAge: 60_000 },
+      { enableHighAccuracy: false, timeout: 8000, maximumAge: 60_000 },
     );
   }
 
@@ -199,6 +200,32 @@ export function EventMap({
     for (const v of venues) b.extend([v.lng, v.lat]);
     map.fitBounds(b, { padding: 48, maxZoom: 15, duration: 0 });
   }, [venues, ready, fit]);
+
+  // Viewer position: draw the dot, fly there, and pulse the ring while it is shown.
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!ready || !map) return;
+    const src = map.getSource(ME);
+    if (!me) {
+      src?.setData({ type: "FeatureCollection", features: [] });
+      return;
+    }
+    const ll: [number, number] = [me.lng, me.lat];
+    src?.setData({ type: "FeatureCollection", features: [{ type: "Feature", geometry: { type: "Point", coordinates: ll }, properties: {} }] });
+    map.easeTo({ center: ll, zoom: Math.max(map.getZoom(), PIN_ZOOM), duration: 600 });
+    let raf = 0;
+    const start = performance.now();
+    const tick = (now: number) => {
+      const t = ((now - start) % 1800) / 1800;
+      if (map.getLayer("me-ring")) {
+        map.setPaintProperty("me-ring", "circle-radius", 10 + t * 16);
+        map.setPaintProperty("me-ring", "circle-opacity", 0.55 * (1 - t));
+      }
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [me, ready]);
 
   // Bring the selected venue into view as a pin.
   useEffect(() => {
