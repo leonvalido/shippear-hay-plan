@@ -17,7 +17,7 @@ export const CATEGORY_LABELS: Record<EventCategory, string> = {
   otro: "Otro",
 };
 
-/** Brand category colors (brand/tokens.css), as literals because Leaflet writes them into SVG attributes. */
+/** Brand category colors (brand/tokens.css), as literals because the map converts them to hex for MapLibre paint. */
 export const CATEGORY_COLORS: Record<EventCategory, string> = {
   musica: "oklch(0.52 0.24 330)",
   teatro: "oklch(0.52 0.21 20)",
