@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
+import { Skeleton } from "@/components/ui/skeleton";
 import type { Event } from "@/lib/events/schema";
 import { cn } from "@/lib/utils";
 import { CATEGORY_COLORS, CATEGORY_LABELS, SOCIAL_SOURCES, formatDate, formatDayShort, formatMonthShort, formatPrice, formatTime, formatViews, sourceLabel, walkMinutes, type LatLng } from "./format";
@@ -25,7 +26,7 @@ export function EventCard({ event, selected, onSelect, showDate = true, from, cl
       data-event-id={event.id}
       onClick={() => onSelect?.(event.id)}
       className={cn(
-        "flex gap-3 rounded-xl border bg-card p-3 text-card-foreground shadow-xs transition-colors",
+        "flex gap-3 rounded-xl border bg-card p-3 text-card-foreground shadow-xs transition-[background-color,transform] active:scale-[0.98]",
         onSelect && "cursor-pointer hover:bg-accent/60",
         selected && "border-primary ring-2 ring-primary/40",
         className,
@@ -129,11 +130,11 @@ function SocialBadge({ event }: { event: Event }) {
 export function EventCardSkeleton() {
   return (
     <div className="flex gap-3 rounded-xl border p-3" aria-hidden>
-      <div className="h-16 w-16 shrink-0 animate-pulse rounded-lg bg-accent" />
+      <Skeleton className="h-16 w-16 shrink-0 rounded-lg" />
       <div className="flex-1 space-y-2 py-1">
-        <div className="h-4 w-3/4 animate-pulse rounded bg-accent" />
-        <div className="h-3 w-1/2 animate-pulse rounded bg-accent" />
-        <div className="h-5 w-2/3 animate-pulse rounded bg-accent" />
+        <Skeleton className="h-4 w-3/4" />
+        <Skeleton className="h-3 w-1/2" />
+        <Skeleton className="h-5 w-2/3" />
       </div>
     </div>
   );

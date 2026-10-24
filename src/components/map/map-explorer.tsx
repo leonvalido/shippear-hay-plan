@@ -52,6 +52,21 @@ export function MapExplorer() {
       .catch(() => {});
   }, []);
   const listRef = useRef<HTMLDivElement>(null);
+  const dragStart = useRef<number | null>(null);
+
+  function onHandlePointerDown(e: React.PointerEvent) {
+    dragStart.current = e.clientY;
+    (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+  }
+  function onHandlePointerUp(e: React.PointerEvent) {
+    if (dragStart.current == null) return;
+    const dy = e.clientY - dragStart.current;
+    dragStart.current = null;
+    if (dy < -30) setExpanded(true);
+    else if (dy > 30) setExpanded(false);
+    else return; // a tap: the click handler toggles
+    setTimeout(() => window.dispatchEvent(new Event("resize")), 320);
+  }
 
   useEffect(() => {
     const t = setTimeout(() => setQ(query), 300);
@@ -185,7 +200,7 @@ export function MapExplorer() {
   return (
     <div className="relative flex flex-col md:flex-row">
       {/* Map */}
-      <div className={cn("relative shrink-0 transition-[height]", expanded ? "h-[15dvh]" : "h-[50dvh]", "md:h-[calc(100dvh-3.5rem)] md:flex-1")}>
+      <div className={cn("relative shrink-0 transition-[height] duration-300 ease-out", expanded ? "h-[15dvh]" : "h-[50dvh]", "md:h-[calc(100dvh-3.5rem)] md:flex-1")}>
         <EventMap events={events} selectedId={selectedId} onSelect={setSelectedId} fit={status === "done"} explore onLocate={setMe} />
         <BarrioStrip
           events={events}
@@ -209,7 +224,7 @@ export function MapExplorer() {
       <section
         aria-label="Lista de eventos"
         className={cn(
-          "glass flex min-h-0 flex-col rounded-t-2xl shadow-[0_-4px_24px_rgba(0,0,0,0.25)] md:hidden",
+          "glass flex min-h-0 flex-col rounded-t-2xl shadow-[0_-4px_24px_rgba(0,0,0,0.25)] transition-[height] duration-300 ease-out md:hidden",
           expanded ? "h-[calc(85dvh-3.5rem)]" : "h-[calc(50dvh-3.5rem)]",
         )}
       >
@@ -219,8 +234,11 @@ export function MapExplorer() {
             setExpanded((v) => !v);
             setTimeout(() => window.dispatchEvent(new Event("resize")), 320);
           }}
+          onPointerDown={onHandlePointerDown}
+          onPointerUp={onHandlePointerUp}
+          onPointerCancel={() => (dragStart.current = null)}
           aria-expanded={expanded}
-          className="flex w-full flex-col items-center gap-1 pb-1 pt-2"
+          className="flex w-full touch-none select-none flex-col items-center gap-1 pb-1 pt-2"
         >
           <span aria-hidden className="h-1.5 w-10 rounded-full bg-border" />
           <span className="text-xs text-muted-foreground">{expanded ? "Ver mapa" : "Ver lista"}</span>
