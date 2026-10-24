@@ -22,8 +22,12 @@ export function truncateTitle(title: string, max = MAX_SHORT): string {
   if (clean.length <= max) return clean;
   const cut = clean.slice(0, max + 1);
   const space = cut.lastIndexOf(" ");
-  return (space > max * 0.5 ? cut.slice(0, space) : clean.slice(0, max)).replace(/[\s,:;.\-–—]+$/, "");
+  const words = (space > max * 0.5 ? cut.slice(0, space) : clean.slice(0, max)).replace(/[\s,:;.\-–—]+$/, "").split(" ");
+  while (words.length > 1 && TRAILING.has(words[words.length - 1]!.toLowerCase())) words.pop();
+  return words.join(" ");
 }
+/** Words a truncated title must not end with. */
+const TRAILING = new Set(["a", "al", "con", "de", "del", "el", "en", "la", "las", "lo", "los", "para", "por", "y", "e", "o", "u", "un", "una", "su", "sus", "que"]);
 
 function sanitizeShort(s: string): string {
   return s.replace(/["“”«»']/g, "").replace(/\s+/g, " ").replace(/[.\s]+$/, "").trim();
