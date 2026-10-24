@@ -489,7 +489,7 @@ export function MapExplorer({ initialEvents }: { initialEvents?: Event[] }) {
           busy={ai.status === "loading" || ai.status === "streaming"}
           autoFocus={focusBar}
           onSubmit={askConcierge}
-          className={cn("absolute left-3 right-3 z-[1000] md:top-16 md:mx-auto md:max-w-xl", embed ? "top-3" : "top-14")}
+          className={cn("absolute left-3 right-3 z-[1000] md:top-16 md:mx-auto md:max-w-[880px]", embed ? "top-3" : "top-14")}
         />
         <BarrioStrip
           events={shown}
