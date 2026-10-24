@@ -111,7 +111,7 @@ export function EventMap({ events, selectedId, onSelect, center = ROSARIO_CENTER
                 const n = cluster.getChildCount();
                 const size = n < 10 ? 36 : n < 100 ? 42 : 48;
                 return L.divIcon({
-                  html: `<div class="hp-cluster">${n}</div>`,
+                  html: `<div class="hp-cluster${n >= 10 ? " hp-cluster-big" : ""}">${n}</div>`,
                   className: "",
                   iconSize: [size, size],
                 });
