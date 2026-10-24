@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import type { Event } from "@/lib/events/schema";
 import { cn } from "@/lib/utils";
-import { CATEGORY_COLORS, CATEGORY_LABELS, SOCIAL_SOURCES, formatDate, formatDayShort, formatMonthShort, formatPrice, formatTime, formatViews, sourceLabel, walkMinutes, type LatLng } from "./format";
+import { CATEGORY_COLORS, CATEGORY_LABELS, SOCIAL_SOURCES, displayTitle, formatDayShort, formatMonthShort, formatPrice, formatViews, formatWhen, sourceLabel, timeLabel, walkMinutes, type LatLng } from "./format";
 
 type Props = {
   event: Event;
@@ -46,19 +46,20 @@ export function EventCard({ event, selected, onSelect, showDate = true, from, cl
           <div className="text-center text-[11px] leading-tight">
             {showDate && <div className="font-semibold">{formatDayShort(event.startsAt)}</div>}
             {showDate && <div className="text-muted-foreground">{formatMonthShort(event.startsAt)}</div>}
-            <div className={showDate ? "" : "text-sm font-semibold"}>{formatTime(event.startsAt)}</div>
+            <div className={showDate ? "" : event.timeUnknown ? "text-[10px] text-muted-foreground" : "text-sm font-semibold"}>
+              {event.timeUnknown ? "a confirmar" : timeLabel(event)}
+            </div>
           </div>
         )}
       </div>
       <div className="min-w-0 flex-1 space-y-1">
         <h3 className="line-clamp-2 text-sm font-semibold leading-tight">
           <Link href={`/evento/${event.id}`} className="hover:underline" onClick={(e) => e.stopPropagation()}>
-            {event.title}
+            {displayTitle(event)}
           </Link>
         </h3>
         <p className="truncate text-xs text-muted-foreground">
-          {showDate && event.imageUrl ? `${formatDate(event.startsAt)}, ` : ""}
-          {showDate || event.imageUrl ? `${formatTime(event.startsAt)} · ` : ""}
+          {showDate || event.imageUrl ? `${formatWhen(event)} · ` : ""}
           {event.venueName}
         </p>
         <div className="flex flex-wrap items-center gap-1.5">

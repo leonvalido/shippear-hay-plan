@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { fetchEvent } from "@/app/_lib/api";
-import { CATEGORY_COLORS, CATEGORY_LABELS, formatDateTime, formatPrice, formatTime, sourceLabel } from "@/components/events/format";
+import { CATEGORY_COLORS, CATEGORY_LABELS, displayTitle, formatPrice, formatTime, formatWhen, sourceLabel } from "@/components/events/format";
 import { ShareButton } from "@/components/events/share-button";
 import { EventMap } from "@/components/map/event-map";
 import { Badge } from "@/components/ui/badge";
@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!event) return { title: "Evento" };
   return {
     title: event.title,
-    description: `${formatDateTime(event.startsAt)} · ${event.venueName}`,
+    description: `${formatWhen(event)} · ${event.venueName}`,
     openGraph: { title: event.title, images: event.imageUrl ? [event.imageUrl] : undefined },
   };
 }
@@ -56,10 +56,11 @@ export default async function EventoPage({ params }: Props) {
           </Badge>
           {event.status === "pending" && <Badge variant="warning">pendiente de revisión</Badge>}
         </div>
-        <h1 className="text-2xl font-bold leading-tight tracking-tight sm:text-4xl">{event.title}</h1>
+        <h1 className="text-2xl font-bold leading-tight tracking-tight sm:text-4xl">{displayTitle(event)}</h1>
+        {event.shortTitle && event.shortTitle.trim() !== event.title && <p className="text-base text-muted-foreground">{event.title}</p>}
         <p className="text-lg font-medium">
-          {formatDateTime(event.startsAt)}
-          {event.endsAt && <span className="text-muted-foreground"> – {formatTime(event.endsAt)}</span>}
+          {formatWhen(event)}
+          {!event.timeUnknown && event.endsAt && <span className="text-muted-foreground"> – {formatTime(event.endsAt)}</span>}
         </p>
         <p className="text-muted-foreground">
           {event.venueName}
@@ -79,7 +80,7 @@ export default async function EventoPage({ params }: Props) {
             Cómo llegar
           </a>
         </Button>
-        <ShareButton title={event.title} text={`${formatDateTime(event.startsAt)} · ${event.venueName}`} path={`/evento/${event.id}`} />
+        <ShareButton title={event.title} text={`${formatWhen(event)} · ${event.venueName}`} path={`/evento/${event.id}`} />
         {event.sourceUrl && (
           <Button asChild variant="ghost">
             <a href={event.sourceUrl} target="_blank" rel="noopener noreferrer">

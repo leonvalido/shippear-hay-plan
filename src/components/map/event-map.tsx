@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import type { Event } from "@/lib/events/schema";
 import { ROSARIO_CENTER } from "@/lib/events/schema";
 import { cn } from "@/lib/utils";
-import { CATEGORY_COLORS } from "@/components/events/format";
+import { CATEGORY_COLORS, displayTitle, formatWhen } from "@/components/events/format";
 import { groupByVenue, venueOf, type Venue } from "@/components/events/venues";
 import { loadLeaflet, loadMarkerCluster, type LeafletMap, type LeafletMarker } from "./leaflet";
 
@@ -181,7 +181,7 @@ export function EventMap({
       let m = markers.get(v.key);
       if (!m) {
         m = L.marker([v.lat, v.lng], { icon: iconFor(L, map, v, false, explore), venueKey: v.key, riseOnHover: true });
-        m.bindTooltip(v.name, { direction: "top", offset: [0, -14] });
+        m.bindTooltip(tooltipHtml(v), { direction: "top", offset: [0, -14], className: "hp-tooltip" });
         m.on("click", () => {
           // At city zoom a lone bubble behaves like a cluster: zoom in to pin mode first.
           if (explore && map.getZoom() < PIN_ZOOM) return map.setView(m.getLatLng(), PIN_ZOOM, { animate: false });
@@ -192,6 +192,7 @@ export function EventMap({
       } else {
         m.setLatLng([v.lat, v.lng]);
         m.setIcon(iconFor(L, map, v, v.key === selectedKey, explore));
+        m.setTooltipContent(tooltipHtml(v));
       }
     }
     for (const [key, m] of markers) {
@@ -273,6 +274,17 @@ export function EventMap({
       {error && <div className="absolute inset-0 flex items-center justify-center p-4 text-center text-sm text-muted-foreground">{error}</div>}
     </div>
   );
+}
+
+function escapeHtml(s: string) {
+  return s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c] ?? c);
+}
+
+/** Line 1 short title, line 2 day · time, line 3 venue (+ "N más" when the venue holds several events). */
+function tooltipHtml(v: Venue) {
+  const e = v.events[0];
+  const more = v.events.length > 1 ? ` · +${v.events.length - 1} más` : "";
+  return `<div class="hp-tt"><strong>${escapeHtml(displayTitle(e))}</strong><span>${escapeHtml(formatWhen(e))}</span><span>${escapeHtml(v.name)}${more}</span></div>`;
 }
 
 /* eslint-disable @typescript-eslint/no-explicit-any */

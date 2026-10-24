@@ -79,6 +79,27 @@ export function formatTime(iso: string): string {
   return fmtTime.format(d).replace(/^24/, "00");
 }
 
+type Timed = { startsAt: string; timeUnknown?: boolean };
+type Titled = { title: string; shortTitle?: string };
+
+/** Short title for pins, cards and sheets; the detail page shows both. */
+export function displayTitle(e: Titled): string {
+  return e.shortTitle?.trim() || e.title;
+}
+
+/** "21:00", or "horario a confirmar" when the source had no time. */
+export function timeLabel(e: Timed): string {
+  return e.timeUnknown ? "horario a confirmar" : formatTime(e.startsAt);
+}
+
+/** "Hoy 21:00" · "Mañana 21:00" · "sáb 25 · 21:00" · "sáb 25 · horario a confirmar" */
+export function formatWhen(e: Timed, now = new Date()): string {
+  const day = relativeDayLabel(e.startsAt, now);
+  const t = timeLabel(e);
+  if (day === "Hoy" || day === "Mañana") return `${day} ${t}`;
+  return `${formatDayShort(e.startsAt)} · ${t}`;
+}
+
 /** "sáb 25 oct, 21:00" */
 export function formatDateTime(iso: string): string {
   const date = formatDate(iso);

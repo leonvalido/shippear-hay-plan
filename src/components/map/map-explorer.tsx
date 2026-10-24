@@ -12,8 +12,9 @@ import {
   rosarioDayKey,
   type DayFilter,
   type LatLng,
+  displayTitle,
   formatPrice,
-  formatTime,
+  timeLabel,
   walkMinutes,
 } from "@/components/events/format";
 import { Button } from "@/components/ui/button";
@@ -187,9 +188,11 @@ export function MapExplorer() {
                   href={`/evento/${e.id}`}
                   className="glass flex items-center gap-3 rounded-xl p-3 transition-[background-color,transform] hover:bg-accent/60 active:scale-[0.98]"
                 >
-                  <span className="font-display w-12 shrink-0 text-base font-bold tabular-nums">{formatTime(e.startsAt)}</span>
+                  <span className={cn("font-display shrink-0 tabular-nums", e.timeUnknown ? "w-16 text-[11px] leading-tight text-muted-foreground" : "w-12 text-base font-bold")}>
+                    {e.timeUnknown ? "a confirmar" : timeLabel(e)}
+                  </span>
                   <span className="min-w-0 flex-1">
-                    <span className="block truncate text-sm font-semibold">{e.title}</span>
+                    <span className="block truncate text-sm font-semibold">{displayTitle(e)}</span>
                     <span className="mt-0.5 flex gap-1.5">
                       <Badge variant={e.price?.free ? "success" : "secondary"}>{formatPrice(e.price)}</Badge>
                       <Badge style={{ background: CATEGORY_COLORS[e.category], color: "#fff" }}>{CATEGORY_LABELS[e.category]}</Badge>
