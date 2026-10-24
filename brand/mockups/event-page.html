@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HayPlan · evento, tres opciones</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --background:oklch(0.16 0.02 300);--foreground:oklch(0.97 0.01 300);
+  --card:oklch(0.21 0.025 300);--muted:oklch(0.27 0.03 300);--muted-foreground:oklch(0.72 0.02 300);
+  --primary:oklch(0.72 0.20 320);--primary-foreground:oklch(0.16 0.02 300);
+  --accent:oklch(0.30 0.06 320);--accent-foreground:oklch(0.90 0.08 320);
+  --border:oklch(1 0 0 / 10%);--glass:oklch(0.21 0.025 300 / 78%);
+  --infantil:oklch(0.52 0.13 205);--infantil-light:oklch(0.70 0.13 205);
+  --radius:14px;--font:"Open Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+body{background:#2a2433;font-family:var(--font);color:var(--foreground);padding:0}
+.stage{display:flex;gap:40px;padding:60px 40px 40px;width:max-content}
+.opt{width:390px}
+.opt>h2{font:600 15px/1 var(--font);color:#cfc9d8;height:20px;margin:0 0 16px;letter-spacing:.01em}
+.opt>h2 b{color:#fff;font-weight:800;margin-right:8px}
+.phone{width:390px;height:844px;background:var(--background);border-radius:40px;overflow:hidden;position:relative;box-shadow:0 20px 60px rgb(0 0 0/.5);border:1px solid rgb(255 255 255/.08)}
+.status{position:absolute;top:0;left:0;right:0;height:54px;display:flex;justify-content:space-between;align-items:flex-end;padding:0 28px 8px;font:600 15px var(--font);z-index:6;pointer-events:none}
+.status .island{position:absolute;left:50%;top:11px;transform:translateX(-50%);width:120px;height:35px;border-radius:20px;background:#000}
+.page{position:absolute;inset:0;overflow:hidden}
+.home{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:134px;height:5px;border-radius:3px;background:rgb(255 255 255/.5);z-index:7}
+/* shared */
+.chip{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;font:600 12px/16px var(--font)}
+.chip.cat{background:var(--infantil);color:#fff}
+.chip.ghost{background:rgb(255 255 255/.08);color:var(--muted-foreground)}
+.chip.src{background:rgb(255 255 255/.08);color:var(--foreground)}
+.iconbtn{width:44px;height:44px;border-radius:50%;background:rgb(255 255 255/.08);border:1px solid var(--border);display:grid;place-items:center;color:var(--foreground);flex:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 20px;border-radius:999px;font:700 15px var(--font);background:var(--primary);color:var(--primary-foreground);flex:1}
+.btn.sec{background:rgb(255 255 255/.08);color:var(--foreground);border:1px solid var(--border)}
+h1{font:800 26px/1.15 var(--font);letter-spacing:-.01em}
+p.desc{font:400 15px/1.55 var(--font);color:var(--muted-foreground)}
+.facts{display:flex;flex-direction:column}
+.facts div{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-top:1px solid var(--border);font:400 14px/1.4 var(--font)}
+.facts div:first-child{border-top:0}
+.facts div span{color:var(--muted-foreground);width:88px;flex:none;font-size:13px;padding-top:1px}
+.facts div b{font-weight:600}
+.map{position:relative;border-radius:18px;overflow:hidden;background:#141020;border:1px solid var(--border)}
+.map svg{display:block;width:100%;height:100%}
+.map .pinlbl{position:absolute;left:12px;bottom:12px;background:var(--glass);backdrop-filter:blur(16px);border:1px solid var(--border);border-radius:12px;padding:8px 12px;font:600 12px/1.3 var(--font)}
+.map .pinlbl small{display:block;font-weight:400;color:var(--muted-foreground)}
+.sect{font:700 13px/1 var(--font);letter-spacing:.06em;text-transform:uppercase;color:var(--muted-foreground);margin-bottom:12px}
+.more{display:flex;gap:12px;overflow:hidden}
+.more article{flex:none;width:200px;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:12px}
+.more article small{display:block;font:600 12px var(--font);color:var(--primary);margin-bottom:4px}
+.more article b{display:block;font:600 14px/1.3 var(--font)}
+.more article em{display:block;font:400 12px var(--font);color:var(--muted-foreground);font-style:normal;margin-top:4px}
+.actions{position:absolute;left:0;right:0;bottom:0;padding:12px 16px 34px;background:var(--glass);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid var(--border);display:flex;gap:10px;align-items:center;z-index:5}
+.hero-grad{background:linear-gradient(160deg,oklch(0.62 0.14 205) 0%,oklch(0.45 0.13 215) 55%,oklch(0.22 0.05 280) 100%)}
+/* option 1 */
+.o1 .hero{height:360px;position:relative;padding:0 20px 20px;display:flex;flex-direction:column;justify-content:flex-end}
+.o1 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgb(0 0 0/.15) 0%,transparent 35%,rgb(15 11 21/.55) 70%,var(--background) 100%)}
+.o1 .hero>*{position:relative;z-index:1}
+.o1 .hero .balloon{position:absolute;right:28px;top:96px;z-index:1;opacity:.95}
+.o1 .nav{position:absolute;top:60px;left:16px;right:16px;display:flex;justify-content:space-between;z-index:2}
+.o1 .hero .day{font:700 14px var(--font);color:#fff;margin-bottom:8px;display:flex;gap:8px;align-items:center}
+.o1 .hero .day .dot{width:6px;height:6px;border-radius:50%;background:var(--primary)}
+.o1 .hero h1{color:#fff;font-size:28px;text-shadow:0 2px 12px rgb(0 0 0/.35)}
+.o1 .body{padding:16px 20px 120px;display:flex;flex-direction:column;gap:22px}
+.o1 .chips{display:flex;gap:8px;flex-wrap:wrap}
+.o1 .map{height:150px}
+/* option 2 */
+.o2 .page{padding:60px 14px 0}
+.o2 .top{display:flex;justify-content:space-between;align-items:center;padding:0 2px 12px}
+.o2 .ticket{background:var(--card);border-radius:24px;border:1px solid var(--border);overflow:hidden;position:relative}
+.o2 .stub{padding:20px 20px 18px}
+.o2 .stub .chips{display:flex;gap:8px;margin-bottom:12px}
+.o2 h1{font-size:24px;margin-bottom:16px}
+.o2 .big{display:flex;align-items:flex-end;gap:20px}
+.o2 .big .d{font:800 44px/1 var(--font);letter-spacing:-.02em}
+.o2 .big .d small{display:block;font:600 13px/1 var(--font);color:var(--muted-foreground);margin-bottom:8px;letter-spacing:.06em;text-transform:uppercase}
+.o2 .big .t{font:700 22px/1 var(--font);color:var(--primary);padding-bottom:6px}
+.o2 .perf{position:relative;height:24px;background:var(--card)}
+.o2 .perf::before{content:"";position:absolute;left:14px;right:14px;top:50%;border-top:2px dashed rgb(255 255 255/.18)}
+.o2 .perf i{position:absolute;top:0;width:24px;height:24px;border-radius:50%;background:var(--background);border:1px solid var(--border)}
+.o2 .perf i.l{left:-13px}.o2 .perf i.r{right:-13px}
+.o2 .venue{padding:16px 20px 20px;display:flex;flex-direction:column;gap:14px}
+.o2 .venue .row{display:flex;gap:12px;align-items:center}
+.o2 .venue .row b{display:block;font:700 15px/1.3 var(--font)}
+.o2 .venue .row small{display:block;font:400 13px var(--font);color:var(--muted-foreground)}
+.o2 .venue .walk{margin-left:auto;text-align:right;font:600 12px/1.3 var(--font);color:var(--accent-foreground);background:var(--accent);padding:6px 10px;border-radius:10px;flex:none}
+.o2 .map{height:120px;border-radius:14px}
+.o2 .after{padding:18px 6px 120px;display:flex;flex-direction:column;gap:18px}
+/* option 3 */
+.o3 .page{padding:60px 0 0}
+.o3 .top{display:flex;justify-content:space-between;align-items:center;padding:0 16px 10px}
+.o3 .cover{height:170px;margin:0 20px;border-radius:20px;display:grid;place-items:center;position:relative;overflow:hidden}
+.o3 .body{padding:16px 20px 120px;display:flex;flex-direction:column;gap:18px}
+.o3 .meta{display:flex;gap:8px;align-items:center;font:600 12px var(--font);color:var(--muted-foreground)}
+.o3 .meta .catdot{width:8px;height:8px;border-radius:50%;background:var(--infantil)}
+.o3 .meta .sep{opacity:.5}
+.o3 h1{font-size:28px}
+.o3 .when{display:flex;align-items:center;gap:10px;font:700 18px var(--font)}
+.o3 .when .pill{font:700 13px var(--font);color:var(--primary);background:var(--accent);padding:4px 10px;border-radius:999px}
+.o3 .map{height:190px;border-radius:22px}
+.o3 .acts{display:flex;gap:10px;align-items:center}
+</style>
+</head>
+<body>
+<div class="stage">
+
+<!-- ===== Opción 1 ===== -->
+<section class="opt o1">
+  <h2><b>Opción 1</b>Editorial hero · imagen a sangre, título encima, acciones fijas abajo</h2>
+  <div class="phone">
+    <div class="status"><span>19:42</span><span class="island"></span><span>●●●</span></div>
+    <div class="page">
+      <div class="nav"><div class="iconbtn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></div><div class="iconbtn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21l-8-5-8 5V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2z"/></svg></div></div>
+      <div class="hero hero-grad">
+        <svg class="balloon" width="120" height="150" viewBox="0 0 120 150" fill="none"><ellipse cx="60" cy="56" rx="44" ry="52" fill="#fff" fill-opacity=".92"/><ellipse cx="44" cy="36" rx="12" ry="18" fill="#fff"/><path d="M54 108l6 8 6-8z" fill="#fff" fill-opacity=".92"/><path d="M60 116c-10 10 10 18 0 30" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg>
+        <div class="day"><span class="dot"></span>Hoy · 17:00</div>
+        <h1>Halloween en Show Park, parque temático</h1>
+      </div>
+      <div class="body">
+        <div class="chips"><span class="chip cat">Infantil</span><span class="chip src"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M16 2c.4 2.6 2 4.3 4.5 4.6V10c-1.7 0-3.2-.5-4.5-1.4V15a6 6 0 1 1-6-6v3.5a2.5 2.5 0 1 0 2.5 2.5V2z"/></svg>@showpark_2000 · 1,1 M vistas</span></div>
+        <p class="desc">Parque temático festeja Halloween durante todo octubre en Villa Gobernador Gálvez.</p>
+        <div class="facts">
+          <div><span>Cuándo</span><b>Hoy, viernes 24 · 17:00</b></div>
+          <div><span>Dónde</span><b>Show Park<br><em style="font-style:normal;font-weight:400;color:var(--muted-foreground)">Av. San Martín al 2600, Villa Gobernador Gálvez</em></b></div>
+          <div><span>Fuente</span><b>TikTok · @showpark_2000</b></div>
+        </div>
+        <div class="map"><svg viewBox="0 0 350 150" preserveAspectRatio="xMidYMid slice"><rect width="350" height="150" fill="#141020"/><g stroke="#2a2438" stroke-width="2"><path d="M0 40H350M0 80H350M0 120H350M60 0V150M140 0V150M220 0V150M300 0V150"/></g><path d="M0 80H350" stroke="#3b2340" stroke-width="5"/><g transform="translate(175,70)"><path fill="var(--infantil)" stroke="#fff" stroke-width="2" d="M0 -22c-8 0-14 6-14 14 0 10 14 22 14 22s14-12 14-22c0-8-6-14-14-14z"/><text fill="#fff" y="-5" text-anchor="middle" font-size="10" font-weight="700" font-family="Open Sans">I</text></g></svg><div class="pinlbl">Show Park<small>Av. San Martín al 2600</small></div></div>
+        <div><div class="sect">Más en este lugar</div><div class="more"><article><small>Sáb 25 · 17:00</small><b>Halloween en Show Park</b><em>Infantil · Show Park</em></article><article><small>Dom 26 · 17:00</small><b>Halloween en Show Park</b><em>Infantil · Show Park</em></article></div></div>
+      </div>
+      <div class="actions"><a class="btn">Ver en TikTok</a><a class="btn sec">Cómo llegar</a><div class="iconbtn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13"/></svg></div></div>
+    </div>
+    <div class="home"></div>
+  </div>
+</section>
+
+<!-- ===== Opción 2 ===== -->
+<section class="opt o2">
+  <h2><b>Opción 2</b>Ticket · la página es una entrada, con troquel y mini mapa</h2>
+  <div class="phone">
+    <div class="status"><span>19:42</span><span class="island"></span><span>●●●</span></div>
+    <div class="page">
+      <div class="top"><div class="iconbtn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></div><div class="iconbtn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21l-8-5-8 5V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2z"/></svg></div></div>
+      <div class="ticket">
+        <div class="stub">
+          <div class="chips"><span class="chip cat">Infantil</span><span class="chip ghost">TikTok · 1,1 M vistas</span></div>
+          <h1>Halloween en Show Park, parque temático</h1>
+          <div class="big"><div class="d"><small>Hoy</small>Vie 24</div><div class="t">17:00</div></div>
+        </div>
+        <div class="perf"><i class="l"></i><i class="r"></i></div>
+        <div class="venue">
+          <div class="row"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-7.5 7-12a7 7 0 1 0-14 0c0 4.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg><div><b>Show Park</b><small>Av. San Martín al 2600, Villa Gobernador Gálvez</small></div><div class="walk">25 min<br>en auto</div></div>
+          <div class="map"><svg viewBox="0 0 330 120" preserveAspectRatio="xMidYMid slice"><rect width="330" height="120" fill="#141020"/><g stroke="#2a2438" stroke-width="2"><path d="M0 30H330M0 70H330M0 110H330M60 0V120M140 0V120M220 0V120M300 0V120"/></g><path d="M0 70H330" stroke="#3b2340" stroke-width="5"/><g transform="translate(165,62)"><path fill="var(--infantil)" stroke="#fff" stroke-width="2" d="M0 -22c-8 0-14 6-14 14 0 10 14 22 14 22s14-12 14-22c0-8-6-14-14-14z"/><text fill="#fff" y="-5" text-anchor="middle" font-size="10" font-weight="700" font-family="Open Sans">I</text></g></svg></div>
+        </div>
+      </div>
+      <div class="after">
+        <p class="desc">Parque temático festeja Halloween durante todo octubre en Villa Gobernador Gálvez.</p>
+        <div class="facts">
+          <div><span>Fuente</span><b>TikTok · @showpark_2000</b></div>
+          <div><span>Categoría</span><b>Infantil</b></div>
+        </div>
+      </div>
+      <div class="actions"><a class="btn">Ver en TikTok</a><a class="btn sec">Cómo llegar</a><div class="iconbtn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13"/></svg></div></div>
+    </div>
+    <div class="home"></div>
+  </div>
+</section>
+
+<!-- ===== Opción 3 ===== -->
+<section class="opt o3">
+  <h2><b>Opción 3</b>Hoja limpia · estructura actual con jerarquía fija</h2>
+  <div class="phone">
+    <div class="status"><span>19:42</span><span class="island"></span><span>●●●</span></div>
+    <div class="page">
+      <div class="top"><div class="iconbtn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></div><div class="iconbtn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21l-8-5-8 5V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2z"/></svg></div></div>
+      <div class="cover hero-grad"><svg width="90" height="112" viewBox="0 0 120 150" fill="none"><ellipse cx="60" cy="56" rx="44" ry="52" fill="#fff" fill-opacity=".92"/><ellipse cx="44" cy="36" rx="12" ry="18" fill="#fff"/><path d="M54 108l6 8 6-8z" fill="#fff" fill-opacity=".92"/><path d="M60 116c-10 10 10 18 0 30" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+      <div class="body">
+        <div class="meta"><span class="catdot"></span>Infantil<span class="sep">·</span>TikTok @showpark_2000<span class="sep">·</span>1,1 M vistas</div>
+        <h1>Halloween en Show Park, parque temático</h1>
+        <div class="when"><span class="pill">Hoy</span>Viernes 24 · 17:00</div>
+        <div class="acts"><a class="btn">Ver en TikTok</a><div class="iconbtn" title="Cómo llegar"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l19-9-9 19-2-8z"/></svg></div><div class="iconbtn" title="Compartir"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13"/></svg></div></div>
+        <p class="desc">Parque temático festeja Halloween durante todo octubre en Villa Gobernador Gálvez.</p>
+        <div class="map"><svg viewBox="0 0 350 190" preserveAspectRatio="xMidYMid slice"><rect width="350" height="190" fill="#141020"/><g stroke="#2a2438" stroke-width="2"><path d="M0 40H350M0 95H350M0 150H350M60 0V190M140 0V190M220 0V190M300 0V190"/></g><path d="M0 95H350" stroke="#3b2340" stroke-width="5"/><g transform="translate(175,90)"><path fill="var(--infantil)" stroke="#fff" stroke-width="2" d="M0 -22c-8 0-14 6-14 14 0 10 14 22 14 22s14-12 14-22c0-8-6-14-14-14z"/><text fill="#fff" y="-5" text-anchor="middle" font-size="10" font-weight="700" font-family="Open Sans">I</text></g></svg><div class="pinlbl">Show Park<small>Av. San Martín al 2600, Villa Gobernador Gálvez</small></div></div>
+        <div class="facts">
+          <div><span>Dónde</span><b>Show Park, Av. San Martín al 2600</b></div>
+          <div><span>Fuente</span><b>TikTok · @showpark_2000</b></div>
+        </div>
+      </div>
+    </div>
+    <div class="home"></div>
+  </div>
+</section>
+
+</div>
+</body>
+</html>
