@@ -284,7 +284,7 @@ function escapeHtml(s: string) {
 function tooltipHtml(v: Venue) {
   const e = v.events[0];
   const more = v.events.length > 1 ? ` · +${v.events.length - 1} más` : "";
-  return `<div class="hp-tt"><strong>${escapeHtml(displayTitle(e))}</strong><span>${escapeHtml(formatWhen(e))}</span><span>${escapeHtml(v.name)}${more}</span></div>`;
+  return `<div class="hp-tt"><em>${escapeHtml(formatWhen(e))}</em><strong>${escapeHtml(displayTitle(e))}</strong><span>${escapeHtml(v.name)}${more}</span></div>`;
 }
 
 /* eslint-disable @typescript-eslint/no-explicit-any */

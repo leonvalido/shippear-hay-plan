@@ -82,9 +82,22 @@ export function formatTime(iso: string): string {
 type Timed = { startsAt: string; timeUnknown?: boolean };
 type Titled = { title: string; shortTitle?: string };
 
+const SMALL_WORDS = new Set(["de", "del", "la", "las", "el", "los", "y", "e", "o", "u", "en", "a", "con", "por", "para", "al"]);
+
+/** Sources sometimes shout. If a title is ALL CAPS, title-case it; otherwise leave it alone. */
+export function humanizeTitle(s: string): string {
+  const letters = s.replace(/[^\p{L}]/gu, "");
+  if (letters.length < 4 || letters !== letters.toLocaleUpperCase("es-AR")) return s;
+  return s
+    .toLocaleLowerCase("es-AR")
+    .split(/(\s+)/)
+    .map((w, i) => (i > 0 && SMALL_WORDS.has(w) ? w : w.charAt(0).toLocaleUpperCase("es-AR") + w.slice(1)))
+    .join("");
+}
+
 /** Short title for pins, cards and sheets; the detail page shows both. */
 export function displayTitle(e: Titled): string {
-  return e.shortTitle?.trim() || e.title;
+  return humanizeTitle(e.shortTitle?.trim() || e.title);
 }
 
 /** "21:00", or "horario a confirmar" when the source had no time. */
