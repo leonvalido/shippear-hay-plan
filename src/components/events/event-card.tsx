@@ -32,12 +32,15 @@ export function EventCard({ event, selected, onSelect, showDate = true, from, cl
       )}
     >
       <div
-        className="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-muted"
-        style={{ borderLeft: `4px solid ${color}` }}
+        className="relative flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-muted"
+        style={event.imageUrl ? { background: color } : { borderLeft: `4px solid ${color}` }}
       >
         {event.imageUrl ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={event.imageUrl} alt="" className="h-full w-full object-cover" loading="lazy" />
+          <>
+            <CategoryIcon category={event.category} className="absolute size-7 text-white/80" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={event.imageUrl} alt="" className="relative h-full w-full object-cover" loading="lazy" />
+          </>
         ) : (
           <div className="text-center text-[11px] leading-tight">
             {showDate && <div className="font-semibold">{formatDayShort(event.startsAt)}</div>}
@@ -83,6 +86,27 @@ export function EventCard({ event, selected, onSelect, showDate = true, from, cl
         </div>
       </div>
     </article>
+  );
+}
+
+/** Simple line icons per category; shown behind images while they load. */
+function CategoryIcon({ category, className }: { category: Event["category"]; className?: string }) {
+  const paths: Record<Event["category"], string> = {
+    musica: "M9 18V5l12-2v13M9 18a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm12-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0z",
+    teatro: "M4 4h16v6a8 8 0 0 1-16 0zM8 8h.01M16 8h.01M9 13a4 4 0 0 0 6 0",
+    fiesta: "M5 21l5-14 9 9zM14 4l1 2M18 2l-1 3M20 8l-3 1",
+    feria: "M3 9l2-5h14l2 5M3 9v11h18V9M3 9h18M9 20v-6h6v6",
+    deporte: "M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM2 12h20M12 2c3 3 3 17 0 20M12 2c-3 3-3 17 0 20",
+    cultura: "M4 19V5a2 2 0 0 1 2-2h14v16H6a2 2 0 0 0-2 2zM4 19a2 2 0 0 0 2 2h14",
+    gastronomia: "M7 2v20M4 2v6a3 3 0 0 0 6 0V2M17 2a4 4 0 0 0-4 4v6h4v10",
+    infantil: "M12 3l2.5 5 5.5.8-4 3.9.9 5.5-4.9-2.6-4.9 2.6.9-5.5-4-3.9 5.5-.8z",
+    charla: "M4 4h16v11H8l-4 4z",
+    otro: "M12 3v18M3 12h18",
+  };
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <path d={paths[category]} />
+    </svg>
   );
 }
 
