@@ -183,3 +183,16 @@
 @media (prefers-reduced-motion: reduce) {
   .hero-glow { animation: none; }
 }
+
+/* Plan stops stagger in */
+@keyframes stop-reveal {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.stop-reveal {
+  opacity: 0;
+  animation: stop-reveal 0.35s ease-out forwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .stop-reveal { opacity: 1; animation: none; }
+}

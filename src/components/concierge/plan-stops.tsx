@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import { CATEGORY_COLORS } from "@/components/events/format";
+import type { EventCategory } from "@/lib/events/schema";
 
 export type Stop = { time: string; title: string; venue: string; price?: string };
 
@@ -19,18 +21,33 @@ export function parseStops(text: string): Stop[] {
   return stops;
 }
 
+/** Best-effort category from the words in the line, for the dot color. */
+function guessCategory(s: string): EventCategory {
+  const t = s.toLowerCase();
+  if (/recital|banda|concierto|dj|jazz|rock|cumbia|música|musica/.test(t)) return "musica";
+  if (/fiesta|boliche|after|party/.test(t)) return "fiesta";
+  if (/feria|mercado/.test(t)) return "feria";
+  if (/teatro|obra|stand ?up|función|funcion/.test(t)) return "teatro";
+  if (/partido|fútbol|futbol|carrera|maratón|maraton/.test(t)) return "deporte";
+  if (/museo|muestra|cine|charla|libro|expo/.test(t)) return "cultura";
+  if (/bar|cerveza|comida|gastro|vino/.test(t)) return "gastronomia";
+  if (/niñ|nin|infantil|familia/.test(t)) return "infantil";
+  return "otro";
+}
+
 /** Tappable cards for each stop of the plan; "Ver en el mapa" searches the title on /mapa. */
 export function PlanStops({ stops }: { stops: Stop[] }) {
   if (stops.length === 0) return null;
   return (
     <ol className="space-y-2" aria-label="Paradas del plan">
       {stops.map((s, i) => (
-        <li key={`${s.time}-${i}`}>
+        <li key={`${s.time}-${i}`} className="stop-reveal" style={{ animationDelay: `${i * 100}ms` }}>
           <Link
             href={`/mapa?q=${encodeURIComponent(s.title)}`}
-            className="glass flex items-center gap-3 rounded-xl p-3 transition-colors hover:bg-accent/60"
+            className="glass flex items-center gap-3 rounded-xl p-3 transition-[background-color,transform] hover:bg-accent/60 active:scale-[0.98]"
           >
-            <span className="font-display w-14 shrink-0 text-lg font-bold tabular-nums">{s.time}</span>
+            <span aria-hidden className="size-2.5 shrink-0 rounded-full" style={{ background: CATEGORY_COLORS[guessCategory(`${s.title} ${s.venue}`)] }} />
+            <span className="font-display w-12 shrink-0 text-lg font-bold tabular-nums">{s.time}</span>
             <span className="min-w-0 flex-1">
               <span className="block truncate text-sm font-semibold">{s.title}</span>
               <span className="block truncate text-xs text-muted-foreground">
@@ -38,7 +55,9 @@ export function PlanStops({ stops }: { stops: Stop[] }) {
                 {s.price && ` · ${s.price}`}
               </span>
             </span>
-            <span className="shrink-0 text-xs font-medium text-primary">Ver en el mapa</span>
+            <span className="shrink-0 text-xs font-medium text-primary">
+              Ver en el mapa <span aria-hidden>→</span>
+            </span>
           </Link>
         </li>
       ))}
