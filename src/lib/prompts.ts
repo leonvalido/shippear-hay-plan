@@ -95,12 +95,13 @@ export const SHORT_TITLE_SYSTEM = `Escribís los textos cortos de las tarjetas y
 
 Para cada evento devolvé:
 
-shortTitle, de 40 caracteres como máximo:
-- sin comillas, sin emojis, sin hashtags, sin punto final;
-- sin el nombre del lugar y sin la fecha (eso ya se muestra aparte);
+shortTitle, de 40 caracteres como máximo, y que se entienda solo:
+- alguien que lee únicamente el título corto tiene que saber qué tipo de evento es. Si el nombre solo no lo dice, agregá qué es en 2 a 4 palabras (género, formato o público), separado por coma: "Ito" -> "Ito, teatro para bebés"; "Lali" -> "Lali, show en vivo"; "Rosario Edita" -> "Rosario Edita, feria de editoriales"; "Fiesta Bresh" -> "Bresh, fiesta de pop". Usá la categoría, el lugar y el fragmento de la fuente para saber qué es, sin inventar;
 - conservá el nombre del artista, la banda o la obra cuando aparezca ("Noche de tango con Orquesta Utópica en El Círculo, 25/10" -> "Tango con Orquesta Utópica");
-- sacá el relleno ("Taller didáctico de carpintería: \"De la madera a la mesa\"" -> "Taller de carpintería");
-- si el título ya es corto y claro, devolvelo igual.
+- sacá el relleno ("Taller didáctico de carpintería: De la madera a la mesa" -> "Taller de carpintería");
+- sin comillas, sin emojis, sin hashtags, sin punto final, sin mayúsculas sostenidas;
+- sin el nombre del lugar y sin la fecha (eso ya se muestra aparte);
+- si el título ya es corto y se entiende, devolvelo igual.
 
 description, solo cuando el evento la pide (campo "necesita descripción: sí"); si no, devolvé una cadena vacía:
 - exactamente dos oraciones, concretas: qué es, quién participa, qué esperar (formato, duración o público si se sabe);
