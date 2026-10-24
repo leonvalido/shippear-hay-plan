@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { DAY_LABELS, type DayFilter } from "@/components/events/format";
+import { useSpeech } from "@/components/concierge/use-speech";
 import { cn } from "@/lib/utils";
 
 export type Budget = 0 | 10000 | 30000 | null;
@@ -29,55 +30,25 @@ type Props = {
   className?: string;
 };
 
-/* Minimal typing for the Web Speech API. */
-type Recognition = { lang: string; interimResults: boolean; maxAlternatives: number; start: () => void; stop: () => void; abort: () => void; onresult: ((e: { results: ArrayLike<ArrayLike<{ transcript: string }>> }) => void) | null; onend: (() => void) | null; onerror: (() => void) | null };
-type RecognitionCtor = new () => Recognition;
-function speechCtor(): RecognitionCtor | null {
-  if (typeof window === "undefined") return null;
-  const w = window as unknown as { SpeechRecognition?: RecognitionCtor; webkitSpeechRecognition?: RecognitionCtor };
-  return w.SpeechRecognition ?? w.webkitSpeechRecognition ?? null;
-}
-
 /** The concierge, floating over the map: a glowing glass card with the question and the filters. */
 export function ConciergeBar({ day, onDay, budget, onBudget, near, onNear, locating, busy, autoFocus, onSubmit, className }: Props) {
   const [text, setText] = useState("");
-  const [canSpeak, setCanSpeak] = useState(false);
-  const [listening, setListening] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
-  const recRef = useRef<Recognition | null>(null);
+  const speech = useSpeech({
+    onText: (t) => setText(t),
+    onFinal: (t) => {
+      if (t.trim()) onSubmit(t.trim());
+    },
+  });
 
   useEffect(() => {
-    setCanSpeak(speechCtor() !== null);
     if (autoFocus) inputRef.current?.focus();
-    return () => recRef.current?.abort();
   }, [autoFocus]);
 
   function submit(e?: FormEvent) {
     e?.preventDefault();
     if (busy) return;
     onSubmit(text.trim());
-  }
-
-  function speak() {
-    if (listening) return recRef.current?.stop();
-    const Ctor = speechCtor();
-    if (!Ctor) return;
-    const rec = new Ctor();
-    rec.lang = "es-AR";
-    rec.interimResults = false;
-    rec.maxAlternatives = 1;
-    rec.onresult = (ev) => {
-      const t = ev.results[0]?.[0]?.transcript?.trim();
-      if (t) {
-        setText(t);
-        onSubmit(t);
-      }
-    };
-    rec.onend = () => setListening(false);
-    rec.onerror = () => setListening(false);
-    recRef.current = rec;
-    setListening(true);
-    rec.start();
   }
 
   return (
@@ -89,17 +60,17 @@ export function ConciergeBar({ day, onDay, budget, onBudget, near, onNear, locat
           value={text}
           onChange={(e) => setText(e.target.value)}
           maxLength={200}
-          placeholder="¿Qué hacés hoy? Contame…"
+          placeholder={speech.listening ? "Escuchando…" : "¿Qué hacés hoy? Contame…"}
           aria-label="Contale al concierge qué tenés ganas de hacer"
           className="h-full min-w-0 flex-1 bg-transparent text-[15px] text-foreground outline-none placeholder:text-muted-foreground"
         />
-        {canSpeak && (
+        {speech.supported && (
           <button
             type="button"
-            onClick={speak}
-            aria-pressed={listening}
-            aria-label={listening ? "Dejar de escuchar" : "Decirlo por voz"}
-            className={cn("tap flex size-9 shrink-0 items-center justify-center rounded-full text-muted-foreground hover:bg-white/8", listening && "animate-pulse text-primary")}
+            onClick={speech.toggle}
+            aria-pressed={speech.listening}
+            aria-label={speech.listening ? "Dejar de escuchar" : "Decirlo por voz"}
+            className={cn("tap flex size-9 shrink-0 items-center justify-center rounded-full text-muted-foreground hover:bg-white/8", speech.listening && "animate-pulse bg-primary/20 text-primary")}
           >
             <svg viewBox="0 0 24 24" className="size-[18px]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden>
               <rect x="9" y="3" width="6" height="11" rx="3" />
@@ -123,6 +94,11 @@ export function ConciergeBar({ day, onDay, budget, onBudget, near, onNear, locat
         </button>
       </div>
 
+      {speech.error && (
+        <p role="alert" className="mt-2 rounded-lg bg-destructive/15 px-3 py-1.5 text-[13px] text-foreground">
+          {speech.error}
+        </p>
+      )}
       <div className="mt-2 flex gap-1.5 overflow-x-auto overscroll-x-contain px-1 pb-0.5 [scrollbar-width:none] [touch-action:pan-x] [mask-image:linear-gradient(to_right,black_calc(100%-24px),transparent)] md:flex-wrap md:overflow-visible md:[mask-image:none]">
         <div role="group" aria-label="Cuándo" className="flex shrink-0 gap-1.5">
           {WHEN.map((d) => (
