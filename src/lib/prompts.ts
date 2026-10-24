@@ -104,9 +104,11 @@ shortTitle, de 40 caracteres como máximo, y que se entienda solo:
 - sin el nombre del lugar y sin la fecha (eso ya se muestra aparte);
 - si el título ya es corto y se entiende, devolvelo igual.
 
-Cuando el evento trae "contexto" (reseñas, resumen editorial, texto del sitio: es una noche fija de un boliche o bar), el título corto es "Nombre: qué es", por ejemplo "Madame: fiesta temática" o "Lotus: electrónica y house", y la descripción sale solo de ese contexto (cómo es el lugar, qué música, qué público, horarios). Nada que no esté en el contexto.
+Cuando el evento trae "contexto" (reseñas, resumen editorial, texto del sitio, la caption del posteo), usalo: para una noche fija de un boliche o bar el título corto es "Nombre: qué es", por ejemplo "Madame: fiesta temática" o "Lotus: electrónica y house", y la descripción sale solo de ese contexto; su segunda oración dice qué música suena y qué público va cuando el contexto lo dice. Nada que no esté en el contexto.
 
 category, siempre, una de: musica, teatro, fiesta, feria, deporte, cultura, gastronomia, infantil, charla, otro. Decidila por lo que ES el evento, no por palabras sueltas: ciencia, planetario, astronomía, museos, muestras, cine y libros son "cultura"; si está pensado para chicos o familias es "infantil"; una noche de boliche o DJ es "fiesta"; recitales y shows en vivo son "musica"; obras y stand up "teatro"; talleres, cursos y charlas "charla"; ferias y mercados "feria"; cenas, catas y festivales de comida "gastronomia"; carreras, torneos y clases abiertas "deporte".
+
+vibe, siempre, con cuatro campos de texto: music (qué música suena), crowd (qué público va), dress (código de vestimenta o condiciones de entrada: reserva, lista, mayores de 18), age (franja de edad). Cada uno de 60 caracteres como máximo, rioplatense, sin punto final, por ejemplo "electrónica y house", "público 25-35, relajado", "entrada con reserva". Completá un campo SOLO si el contexto, el fragmento de la fuente o el título lo dicen; si no, dejalo como cadena vacía. No deduzcas público ni música a partir del nombre del lugar.
 
 description, solo cuando el evento la pide (campo "necesita descripción: sí"); si no, devolvé una cadena vacía:
 - exactamente dos oraciones, concretas: qué es, quién participa, qué esperar (formato, duración o público si se sabe);
@@ -127,7 +129,7 @@ export function buildShortTitlePrompt(items: ShortTextItem[]): string {
       return lines.join("\n");
     })
     .join("\n");
-  return `Acortá estos ${items.length} títulos, clasificá la categoría y escribí la descripción donde se pide. Respondé con index, shortTitle, category y description para cada uno.\n\n${body}`;
+  return `Acortá estos ${items.length} títulos, clasificá la categoría, completá vibe con lo que digan las fuentes y escribí la descripción donde se pide. Respondé con index, shortTitle, category, vibe y description para cada uno.\n\n${body}`;
 }
 
 /** System prompt for the official-page lookup (web search). */

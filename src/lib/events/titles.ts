@@ -18,13 +18,25 @@ export const MIN_DESCRIPTION = 80;
 const MAX_DESCRIPTION = 400;
 const BATCH = 40;
 /** Bump when the prompt changes so every title regenerates on the next run. */
-export const TITLE_VERSION = 3;
-export type TitleEntry = { v?: number; shortTitle: string; description?: string; category?: EventCategory };
+export const TITLE_VERSION = 4;
+export type Vibe = NonNullable<RawEvent["vibe"]>;
+export type TitleEntry = { v?: number; shortTitle: string; description?: string; category?: EventCategory; vibe?: Vibe };
 export type TitleCache = Record<string, TitleEntry | string>;
 
+const VibeAnswer = z.object({ music: z.string(), crowd: z.string(), dress: z.string(), age: z.string() });
 const ResultSchema = z.object({
-  titles: z.array(z.object({ index: z.number().int(), shortTitle: z.string(), description: z.string(), category: EventCategory })),
+  titles: z.array(z.object({ index: z.number().int(), shortTitle: z.string(), description: z.string(), category: EventCategory, vibe: VibeAnswer })),
 });
+
+/** Keep only stated, short values; undefined when nothing survives. */
+function cleanVibe(v: z.infer<typeof VibeAnswer>): Vibe | undefined {
+  const out: Vibe = {};
+  for (const k of ["music", "crowd", "dress", "age"] as const) {
+    const t = v[k]?.replace(/\s+/g, " ").trim();
+    if (t && t.length >= 2 && !/^(no|n\/a|desconocido|sin datos?)$/i.test(t)) out[k] = t.slice(0, 60);
+  }
+  return Object.keys(out).length ? out : undefined;
+}
 
 const FOOTER = "\n\nFuentes: ";
 
@@ -85,6 +97,7 @@ export async function fillShortTitles<T extends RawEvent>(events: T[], cache: Ti
     if (hit && !e.shortTitle) e.shortTitle = hit.shortTitle;
     if (hit?.description && needsDescription(e)) applyDescription(e, hit.description);
     if (hit?.category) { e.category = hit.category; confirmed.add(e); }
+    if (hit?.vibe && !e.vibe) e.vibe = hit.vibe;
     if (!e.shortTitle || needsDescription(e) || needsCategory(e)) todo.push(e);
   }
   for (let i = 0; i < todo.length; i += BATCH) {
@@ -95,11 +108,13 @@ export async function fillShortTitles<T extends RawEvent>(events: T[], cache: Ti
       if (!e.shortTitle) e.shortTitle = entry.shortTitle;
       if (entry.description && needsDescription(e)) applyDescription(e, entry.description);
       if (entry.category) { e.category = entry.category; confirmed.add(e); }
+      if (entry.vibe && !e.vibe) e.vibe = entry.vibe;
       cache[fingerprint(e)] = {
         v: TITLE_VERSION,
         shortTitle: e.shortTitle ?? entry.shortTitle,
         ...(entry.description ? { description: entry.description } : {}),
         ...(entry.category ? { category: entry.category } : {}),
+        ...(entry.vibe ? { vibe: entry.vibe } : {}),
       };
     });
     opts.onBatch?.(Math.min(i + BATCH, todo.length), todo.length);
@@ -122,7 +137,7 @@ async function shortTextBatch(batch: RawEvent[]): Promise<(TitleEntry | undefine
     category: e.category,
     price: priceText(e),
     snippet: splitDescription(e.description).body.trim().slice(0, 300) || undefined,
-    context: e.context?.replace(/\s+/g, " ").trim().slice(0, 700) || undefined,
+    context: e.context?.replace(/\s+/g, " ").trim().slice(0, 900) || undefined,
     recurring: !!e.recurring,
     needsDescription: needsDescription(e),
   }));
@@ -130,7 +145,7 @@ async function shortTextBatch(batch: RawEvent[]): Promise<(TitleEntry | undefine
     prompt: buildShortTitlePrompt(items),
     system: SHORT_TITLE_SYSTEM,
     schema: ResultSchema,
-    mock: { titles: items.map((i) => ({ index: i.index, shortTitle: truncateTitle(i.title), description: "", category: i.category as EventCategory })) },
+    mock: { titles: items.map((i) => ({ index: i.index, shortTitle: truncateTitle(i.title), description: "", category: i.category as EventCategory, vibe: { music: "", crowd: "", dress: "", age: "" } })) },
     maxTokens: 16000,
   });
   const out: (TitleEntry | undefined)[] = [];
@@ -140,7 +155,8 @@ async function shortTextBatch(batch: RawEvent[]): Promise<(TitleEntry | undefine
     const clean = sanitizeShort(t.shortTitle);
     const shortTitle = clean.length >= 2 && clean.length <= MAX_SHORT ? clean : truncateTitle(clean.length >= 2 ? clean : e.title);
     const description = cleanDescription(t.description);
-    out[t.index] = { shortTitle, ...(description ? { description } : {}), category: t.category };
+    const vibe = cleanVibe(t.vibe);
+    out[t.index] = { shortTitle, ...(description ? { description } : {}), category: t.category, ...(vibe ? { vibe } : {}) };
   }
   return out;
 }

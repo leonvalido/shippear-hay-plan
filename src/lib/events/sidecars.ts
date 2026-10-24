@@ -1,6 +1,6 @@
 import { z } from "zod";
 import type { RawEvent } from "./schema";
-import { fingerprint, normalizeText } from "./normalize";
+import { addContext, fingerprint, normalizeText } from "./normalize";
 import { applyOfficialLink, hasOfficialLink } from "./officialLinks";
 import { priceUnknown } from "./prices";
 
@@ -71,6 +71,9 @@ export const VenuePlaceSchema = z.object({
   userRatingCount: z.number().nullable().optional(),
   googleMapsUri: z.string().nullable().optional(),
   confidence: z.number().default(0),
+  editorialSummary: z.string().nullable().optional(),
+  reviews: z.array(z.union([z.string(), z.object({ text: z.string().optional() }).loose()])).optional(),
+  primaryType: z.string().nullable().optional(),
 });
 export type VenuePlace = z.infer<typeof VenuePlaceSchema>;
 
@@ -102,6 +105,9 @@ export function applyVenues(events: RawEvent[], index: Map<string, VenuePlace>):
     if (!e.address && v.address) { e.address = v.address; stats.addresses++; }
     if (v.confidence < VENUE_NAME_MATCH) continue; // a doubtful identity must not lend its rating or website
     if (!e.rating && v.rating != null && v.userRatingCount != null) { e.rating = { value: v.rating, count: v.userRatingCount }; stats.ratings++; }
+    addContext(e, "Google Places", v.editorialSummary);
+    const reviews = (v.reviews ?? []).map((r) => (typeof r === "string" ? r : r.text ?? "")).filter(Boolean).slice(0, 3).join(" | ");
+    addContext(e, "reseñas", reviews || undefined);
     const links = [...(e.links ?? [])];
     const has = (url: string) => links.some((l) => l.url === url) || e.sourceUrl === url;
     // "Sitio del lugar" is deliberately not an official-page label: a ticketing/event page found later still goes first
