@@ -1,92 +1,135 @@
 import Link from "next/link";
 import { fetchEvents } from "@/app/_lib/api";
 import { HeroMap } from "@/components/layout/hero-map";
-import { CATEGORY_COLORS, CATEGORY_LABELS } from "@/components/events/format";
-import { dayRange } from "@/components/events/format";
+import { PhoneFrame } from "@/components/layout/phone-frame";
+import { CATEGORY_COLORS, CATEGORY_LABELS, dayRange, displayTitle, formatTime, humanizeTitle, timeLabel } from "@/components/events/format";
 import { Button } from "@/components/ui/button";
+import type { Event } from "@/lib/events/schema";
 
 export const dynamic = "force-dynamic";
 
-const ICONS = {
-  pin: (
-    <>
-      <path d="M12 21s-6-5.2-6-10a6 6 0 1 1 12 0c0 4.8-6 10-6 10z" />
-      <circle cx="12" cy="11" r="2.2" />
-    </>
-  ),
-  chat: <path d="M5 5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7l-4 3.5V17H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z" />,
-  route: (
-    <>
-      <circle cx="6" cy="18" r="2" />
-      <path d="M8 18h6a3 3 0 0 0 0-6h-4a3 3 0 0 1 0-6h7" />
-      <path d="m15 3.5 2.5 2.5L15 8.5" />
-    </>
-  ),
-};
+const PUBLIC_SOURCES = new Set(["municipal", "ticketing", "platform", "press"]);
 
-const STEPS: { icon: keyof typeof ICONS; title: string; desc: string }[] = [
-  { icon: "pin", title: "El mapa de hoy", desc: "Junta en un solo mapa lo que pasa hoy en la agenda municipal, los teatros y los bares de Rosario." },
-  { icon: "chat", title: "El concierge", desc: "Le decís qué tenés ganas de hacer y a qué hora salís, y te contesta con eventos de hoy, con hora, lugar y precio." },
-  { icon: "route", title: "El plan de esta noche", desc: "Elegís el que te gusta, tocás \"Cómo llegar\" y salís." },
-];
+function sourceBase(name?: string) {
+  return (name ?? "").split("·")[0].trim().toLowerCase();
+}
+
+/** Tonight first (from 17:00), then the rest of today, then what comes next. */
+function pickTonight(today: Event[], week: Event[]): { title: string; events: Event[] } {
+  const hour = (e: Event) => Number(formatTime(e.startsAt).slice(0, 2));
+  const evening = today.filter((e) => !e.timeUnknown && hour(e) >= 17);
+  const rest = today.filter((e) => !evening.includes(e));
+  const upcoming = week.filter((e) => !today.some((t) => t.id === e.id));
+  const events = [...evening, ...rest, ...upcoming].slice(0, 6);
+  return { title: evening.length >= 3 ? "Esta noche en Rosario" : "Hoy en Rosario", events };
+}
 
 export default async function Home() {
-  const week = await fetchEvents({ ...dayRange("semana"), limit: "500" } as Record<string, string>);
+  const [week, today] = await Promise.all([
+    fetchEvents({ ...dayRange("semana"), limit: "500" } as Record<string, string>),
+    fetchEvents({ ...dayRange("hoy"), limit: "500" } as Record<string, string>),
+  ]);
   const count = week.length;
+  const tonight = pickTonight(today, week);
+  const publicSources = new Set(week.filter((e) => PUBLIC_SOURCES.has(e.sourceType)).map((e) => sourceBase(e.sourceName)).filter(Boolean)).size;
+  const social = week.filter((e) => e.sourceType === "tiktok" || e.sourceType === "instagram").length;
+  const freeToday = today.filter((e) => e.price?.free).length;
+  const barriosToday = new Set(today.map((e) => e.barrio).filter(Boolean)).size;
+
+  const stats: { n: number; label: string }[] = [
+    { n: publicSources, label: `fuente${publicSources === 1 ? "" : "s"} pública${publicSources === 1 ? "" : "s"} leída${publicSources === 1 ? "" : "s"} por IA` },
+    social > 0 ? { n: social, label: "eventos encontrados en TikTok e Instagram" } : { n: freeToday, label: `plan${freeToday === 1 ? "" : "es"} gratis hoy` },
+    { n: barriosToday, label: `barrio${barriosToday === 1 ? "" : "s"} con planes hoy` },
+  ];
 
   return (
-    <div className="mx-auto w-full max-w-5xl space-y-6 px-4 py-6 sm:space-y-14 sm:py-20">
-      <section className="relative space-y-4 py-6 text-center sm:space-y-6">
+    <div className="w-full">
+      {/* Hero: full-bleed pin field, content in a 1200px container, two columns from 1280px. */}
+      <section className="relative overflow-hidden">
         <HeroMap />
-        <p className="relative text-sm font-medium tracking-wide text-muted-foreground">Shippear #3 · Rosario</p>
-        <p className="glass relative inline-flex items-center gap-2 h-8 rounded-full px-3 text-sm text-muted-foreground" aria-live="polite">
-          <span aria-hidden className="size-2 animate-pulse rounded-full bg-emerald-500" />
-          <strong className="font-semibold text-foreground tabular-nums">{count}</strong> evento{count === 1 ? "" : "s"} esta semana
-        </p>
-        <h1 className="relative mx-auto max-w-3xl font-display text-3xl font-semibold leading-tight text-balance sm:text-6xl">Mirá qué pasa hoy en Rosario.</h1>
-        <p className="relative mx-auto max-w-xl text-base text-muted-foreground">
-          Ves en un mapa los recitales, las ferias, el teatro y las fiestas de hoy, con hora, lugar y precio de la entrada.
-        </p>
-        <ul className="relative flex flex-wrap justify-center gap-2" aria-label="Categorías">
-          {(["musica", "fiesta", "feria"] as const).map((c) => (
-            <li key={c}>
-              <Link
-                href={`/mapa?category=${c}`}
-                className="glass tap inline-flex h-11 items-center gap-2 rounded-full px-4 text-sm font-medium"
-              >
-                <span aria-hidden className="size-2 rounded-full" style={{ background: CATEGORY_COLORS[c] }} />
-                {CATEGORY_LABELS[c]}
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <div className="relative flex flex-col justify-center gap-3 sm:flex-row sm:gap-3">
-          <Button asChild size="lg" className="tap h-12 w-full rounded-full px-8 text-base sm:w-auto">
-            <Link href="/mapa">Abrir el mapa</Link>
-          </Button>
-          <Button asChild size="lg" variant="outline" className="tap h-12 w-full rounded-full px-8 text-base sm:w-auto">
-            <Link href="/hoy">Preguntale al concierge</Link>
-          </Button>
+        <div className="relative mx-auto grid w-full max-w-[1200px] items-center gap-12 px-4 py-12 sm:px-6 sm:py-20 xl:grid-cols-[minmax(0,1fr)_300px] xl:gap-20 xl:py-24">
+          <div className="space-y-5 text-center sm:space-y-6 xl:text-left">
+            <p className="text-sm font-semibold tracking-wide text-muted-foreground">Shippear #3 · Rosario</p>
+            <p className="glass inline-flex h-8 items-center gap-2 rounded-full px-3 text-sm text-muted-foreground" aria-live="polite">
+              <span aria-hidden className="size-2 animate-pulse rounded-full bg-emerald-500" />
+              <strong className="font-semibold text-foreground tabular-nums">{count}</strong> evento{count === 1 ? "" : "s"} esta semana
+            </p>
+            <h1 className="mx-auto max-w-3xl text-4xl font-extrabold leading-[1.05] tracking-[-0.02em] text-balance sm:text-6xl xl:mx-0 xl:text-7xl">
+              Mirá qué pasa hoy en Rosario.
+            </h1>
+            <p className="mx-auto max-w-xl text-base text-muted-foreground sm:text-lg xl:mx-0">
+              Ves en un mapa los recitales, las ferias, el teatro y las fiestas de hoy, con hora, lugar y precio de la entrada.
+            </p>
+            <ul className="flex flex-wrap justify-center gap-2 xl:justify-start" aria-label="Categorías">
+              {(["musica", "fiesta", "feria"] as const).map((c) => (
+                <li key={c}>
+                  <Link href={`/mapa?category=${c}`} className="glass tap inline-flex h-11 items-center gap-2 rounded-full px-4 text-sm font-medium">
+                    <span aria-hidden className="size-2 rounded-full" style={{ background: CATEGORY_COLORS[c] }} />
+                    {CATEGORY_LABELS[c]}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <div className="flex flex-col justify-center gap-3 sm:flex-row xl:justify-start">
+              <Button asChild size="lg" className="tap h-12 w-full rounded-full px-8 text-base font-semibold sm:w-auto">
+                <Link href="/mapa">Abrir el mapa</Link>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="tap h-12 w-full rounded-full px-8 text-base sm:w-auto">
+                <Link href="/hoy">Preguntale al concierge</Link>
+              </Button>
+            </div>
+          </div>
+          <PhoneFrame src="/mapa" className="hidden justify-self-end xl:block" />
         </div>
       </section>
 
-      <section className="grid gap-3 sm:grid-cols-3">
-        {STEPS.map((s) => (
-          <div key={s.title} className="surface p-4">
-            <div className="flex size-8 items-center justify-center rounded-lg bg-primary/15 text-primary" aria-hidden>
-              <svg viewBox="0 0 24 24" className="size-[18px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                {ICONS[s.icon]}
-              </svg>
-            </div>
-            <h2 className="mt-3 text-lg font-semibold">{s.title}</h2>
-            <p className="mt-1 text-base text-muted-foreground">{s.desc}</p>
+      {/* Real content as decoration: tonight's events straight from the API. */}
+      {tonight.events.length > 0 && (
+        <section className="mx-auto w-full max-w-[1200px] px-4 pb-6 pt-2 sm:px-6 sm:pb-12">
+          <div className="mb-4 flex items-end justify-between gap-4">
+            <h2 className="text-2xl font-extrabold tracking-[-0.02em] sm:text-3xl">{tonight.title}</h2>
+            <Link href="/mapa" className="shrink-0 text-sm font-semibold text-primary hover:underline">
+              Ver todo en el mapa →
+            </Link>
           </div>
-        ))}
-      </section>
+          <ul className="-mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 [scrollbar-width:none] sm:mx-0 sm:px-0 xl:grid xl:grid-cols-6 xl:overflow-visible">
+            {tonight.events.map((e) => (
+              <li key={e.id} className="w-[200px] shrink-0 snap-start xl:w-auto">
+                <Link href={`/evento/${e.id}`} className="tap group block overflow-hidden rounded-2xl">
+                  <div
+                    className="relative aspect-[4/5] w-full overflow-hidden"
+                    style={{ background: `linear-gradient(160deg, color-mix(in oklch, ${CATEGORY_COLORS[e.category]} 70%, #000), color-mix(in oklch, ${CATEGORY_COLORS[e.category]} 25%, #000))` }}
+                  >
+                    {e.imageUrl && (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={e.imageUrl} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]" />
+                    )}
+                    <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+                    <div className="absolute inset-x-0 bottom-0 p-3">
+                      <p className="text-[11px] font-bold uppercase tracking-wider text-white/70">{timeLabel(e)}</p>
+                      <p className="no-caps mt-0.5 line-clamp-2 text-[15px] font-bold leading-snug text-white">{displayTitle(e)}</p>
+                      <p className="mt-0.5 truncate text-[12px] text-white/70">{humanizeTitle(e.venueName)}</p>
+                    </div>
+                  </div>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
-      <footer className="pb-2 text-center text-sm text-muted-foreground">
-        <span className="font-display font-semibold text-foreground">¿Qué hacés hoy? Hay plan.</span>
-      </footer>
+      {/* Three statements, real numbers, no card chrome. */}
+      <section className="mx-auto w-full max-w-[1200px] px-4 py-10 sm:px-6 sm:py-16">
+        <ol className="grid gap-8 sm:grid-cols-3 sm:gap-6">
+          {stats.map((s, i) => (
+            <li key={s.label} className="border-t border-white/10 pt-5">
+              <p className="text-xs font-bold tracking-widest text-tertiary">0{i + 1}</p>
+              <p className="mt-3 text-4xl font-extrabold tracking-[-0.02em] tabular-nums sm:text-5xl">{s.n}</p>
+              <p className="mt-1 max-w-[22ch] text-base text-muted-foreground">{s.label}</p>
+            </li>
+          ))}
+        </ol>
+      </section>
     </div>
   );
 }
