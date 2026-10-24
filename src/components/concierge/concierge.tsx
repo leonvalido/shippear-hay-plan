@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useStream } from "@/hooks/use-stream";
+import { MicButton } from "./mic-button";
 import { WhatsAppButton } from "./whatsapp-button";
 import { ROSARIO_CENTER } from "@/lib/events/schema";
 
@@ -58,14 +59,21 @@ export function Concierge() {
     );
   }
 
-  function body() {
+  function body(moodOverride?: string) {
+    const m = (moodOverride ?? mood).trim();
     return {
       when,
       lat: loc?.lat,
       lng: loc?.lng,
       budget: BUDGETS[budgetIdx].value,
-      mood: mood.trim() || undefined,
+      mood: m || undefined,
     };
+  }
+
+  /** Voice input: fill the field and ask right away. */
+  function onVoice(text: string) {
+    setMood(text);
+    ai.run(body(text));
   }
 
   const busy = ai.status === "loading" || ai.status === "streaming";
@@ -107,7 +115,10 @@ export function Concierge() {
           <Label htmlFor="mood">
             Ganas de… <span className="font-normal text-muted-foreground">(opcional)</span>
           </Label>
-          <Input id="mood" maxLength={200} placeholder="Ej: algo tranqui al aire libre, con amigos" value={mood} onChange={(e) => setMood(e.target.value)} />
+          <div className="flex gap-2">
+            <Input id="mood" maxLength={200} placeholder="Ej: algo tranqui al aire libre, con amigos" value={mood} onChange={(e) => setMood(e.target.value)} />
+            <MicButton onResult={onVoice} disabled={busy} />
+          </div>
         </div>
 
         <div className="space-y-1">
