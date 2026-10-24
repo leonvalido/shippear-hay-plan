@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { DAY_LABELS, type DayFilter } from "@/components/events/format";
-import { useSpeech } from "@/components/concierge/use-speech";
+import { useSpeech } from "@/hooks/use-speech";
 import { cn } from "@/lib/utils";
 
 export type Budget = 0 | 10000 | 30000 | null;
@@ -60,7 +60,7 @@ export function ConciergeBar({ day, onDay, budget, onBudget, near, onNear, locat
           value={text}
           onChange={(e) => setText(e.target.value)}
           maxLength={200}
-          placeholder={speech.listening ? "Escuchando…" : "¿Qué hacés hoy? Contame…"}
+          placeholder={speech.listening ? "Escuchando… hablá" : speech.starting ? "Preparando el micrófono…" : "¿Qué hacés hoy? Contame…"}
           aria-label="Contale al concierge qué tenés ganas de hacer"
           className="h-full min-w-0 flex-1 bg-transparent text-[16px] text-foreground outline-none placeholder:text-muted-foreground"
         />
@@ -68,9 +68,14 @@ export function ConciergeBar({ day, onDay, budget, onBudget, near, onNear, locat
           <button
             type="button"
             onClick={speech.toggle}
-            aria-pressed={speech.listening}
-            aria-label={speech.listening ? "Dejar de escuchar" : "Decirlo por voz"}
-            className={cn("tap flex size-9 shrink-0 items-center justify-center rounded-full text-muted-foreground hover:bg-white/8", speech.listening && "animate-pulse bg-primary/20 text-primary")}
+            aria-pressed={speech.active}
+            aria-label={speech.active ? "Dejar de escuchar" : "Decirlo por voz"}
+            aria-busy={speech.starting}
+            className={cn(
+              "tap flex size-9 shrink-0 items-center justify-center rounded-full text-muted-foreground hover:bg-white/8",
+              speech.starting && "bg-white/10 text-foreground",
+              speech.listening && "animate-pulse bg-primary/20 text-primary",
+            )}
           >
             <svg viewBox="0 0 24 24" className="size-[18px]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden>
               <rect x="9" y="3" width="6" height="11" rx="3" />
