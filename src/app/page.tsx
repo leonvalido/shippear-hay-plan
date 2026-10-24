@@ -1,43 +1,54 @@
 import Link from "next/link";
+import { fetchEvents } from "@/app/_lib/api";
+import { dayRange } from "@/components/events/format";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
-// Landing: one headline, one sentence, one CTA, three "how it works" cards.
-// Replace the copy; don't add sections. Judges spend <10 s here.
-export default function Home() {
+export const dynamic = "force-dynamic";
+
+const STEPS = [
+  { icon: "🏛️", title: "Fuentes públicas", desc: "Agenda municipal, ticketeras y prensa, en un solo lugar y actualizadas." },
+  { icon: "📱", title: "Redes sociales", desc: "Lo que se mueve en TikTok e Instagram, leído por Claude y sin duplicados." },
+  { icon: "✨", title: "Recomendaciones", desc: "Decinos cuándo y cuánto querés gastar, y te armamos el plan." },
+];
+
+export default async function Home() {
+  const week = await fetchEvents({ ...dayRange("semana"), limit: "500" } as Record<string, string>);
+  const count = week.length;
+
   return (
-    <div className="space-y-16">
+    <div className="mx-auto w-full max-w-5xl space-y-14 px-4 py-12 sm:py-20">
       <section className="space-y-6 text-center">
-        <p className="text-sm font-medium uppercase tracking-widest text-muted-foreground">
-          {/* TODO: track */}Vertical AI · Shippear #3
+        <p className="inline-flex items-center gap-2 rounded-full border bg-card px-3 py-1 text-sm text-muted-foreground" aria-live="polite">
+          <span aria-hidden className="size-2 animate-pulse rounded-full bg-emerald-500" />
+          <strong className="font-semibold text-foreground tabular-nums">{count}</strong> evento{count === 1 ? "" : "s"} esta semana
         </p>
         <h1 className="mx-auto max-w-3xl text-4xl font-bold tracking-tight sm:text-6xl">
-          {/* TODO: promesa en una línea */}
-          El problema, resuelto en una oración.
+          Todo lo que pasa en Rosario, en un mapa.
         </h1>
         <p className="mx-auto max-w-xl text-lg text-muted-foreground">
-          {/* TODO: para quién y qué cambia */}
-          Para quién es, y qué hace hoy que ayer era imposible.
+          Recitales, ferias, teatro y fiestas de fuentes públicas y redes sociales, con un concierge que te dice qué hacer hoy.
         </p>
-        <div className="flex justify-center gap-3">
-          <Button asChild size="lg">
-            <Link href="/app">Probar la demo</Link>
+        <div className="flex flex-col justify-center gap-3 sm:flex-row">
+          <Button asChild size="lg" className="h-12 px-8 text-base">
+            <Link href="/mapa">Ver el mapa</Link>
+          </Button>
+          <Button asChild size="lg" variant="outline" className="h-12 px-8 text-base">
+            <Link href="/hoy">¿Qué hago hoy?</Link>
           </Button>
         </div>
       </section>
 
       <section className="grid gap-4 sm:grid-cols-3">
-        {[
-          ["1. Entrada", "Qué carga el usuario (texto, foto, datos)."],
-          ["2. IA en el medio", "Qué decide o produce el modelo que un formulario no podría."],
-          ["3. Resultado", "Qué sale, y qué pasa después (se guarda, se envía, se cobra)."],
-        ].map(([title, desc]) => (
-          <Card key={title}>
+        {STEPS.map((s) => (
+          <Card key={s.title} className="gap-3 py-5">
             <CardHeader>
-              <CardTitle>{title}</CardTitle>
-              <CardDescription>{desc}</CardDescription>
+              <div className="text-3xl" aria-hidden>
+                {s.icon}
+              </div>
+              <CardTitle className="pt-1">{s.title}</CardTitle>
+              <CardDescription>{s.desc}</CardDescription>
             </CardHeader>
-            <CardContent />
           </Card>
         ))}
       </section>
