@@ -1,6 +1,6 @@
 import type { Event, EventCategory } from "./schema";
 import { ROSARIO_CENTER } from "./schema";
-import { addDays, parseInstant, startOfRosarioDay } from "./time";
+import { addDays, epochMs, parseInstant, startOfRosarioDay } from "./time";
 
 /** Time windows, ranking and prompt text for the concierge. Pure functions. */
 
@@ -68,6 +68,13 @@ export function matchesIntent(e: Event, intent: Intent, now = new Date()): boole
 export type Window = { from: Date; to: Date; label: string };
 
 const DAY = 86_400_000;
+export const GRACE_MS = 60 * 60_000;
+
+/** Started already but within the grace period. */
+export function alreadyStarted(e: Pick<Event, "startsAt">, now = new Date()): boolean {
+  const ms = epochMs(e.startsAt);
+  return ms < now.getTime() && ms >= now.getTime() - GRACE_MS;
+}
 const DAYS_ES = ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"];
 
 /** "hoy" | "manana"/"mañana" | "finde" | "semana" | ISO date -> [from, to]. */
@@ -78,13 +85,15 @@ export function resolveWindow(when: string, now = new Date(), night = false): Wi
   // a night out runs past midnight: "hoy" and "finde" reach 06:00 of the next calendar day
   const nightEnd = night ? 6 : 4;
   const endOfTonight = new Date(today.getTime() + DAY + nightEnd * 3_600_000);
-  if (w === "" || w === "hoy" || w === "ahora" || w === "esta noche" || w === "hoy a la noche") return { from: now, to: endOfTonight, label: w.includes("noche") ? "esta noche" : "hoy" };
+  // an event that started up to 60 minutes ago is still worth joining ("ya empezó, todavía llegás")
+  const recent = new Date(Math.max(today.getTime(), now.getTime() - GRACE_MS));
+  if (w === "" || w === "hoy" || w === "ahora" || w === "esta noche" || w === "hoy a la noche") return { from: recent, to: endOfTonight, label: w.includes("noche") ? "esta noche" : "hoy" };
   if (w === "manana") return { from: addDays(today, 1), to: addDays(endOfTonight, 1), label: "mañana" };
   if (w === "finde" || w === "fin de semana") {
     const dow = rosarioDow(now); // 0 = domingo
     const daysToFriday = dow === 0 ? -2 : dow === 6 ? -1 : 5 - dow;
     const friday = addDays(today, daysToFriday);
-    const from = daysToFriday <= 0 ? now : new Date(friday.getTime() + 17 * 3_600_000);
+    const from = daysToFriday <= 0 ? recent : new Date(friday.getTime() + 17 * 3_600_000);
     return { from, to: new Date(addDays(friday, 3).getTime() + nightEnd * 3_600_000), label: "el finde" };
   }
   if (w === "semana" || w === "esta semana") return { from: now, to: addDays(today, 7), label: "esta semana" };
@@ -162,6 +171,7 @@ export function buildConciergePrompt(ranked: Ranked[], input: ConciergeInput, wi
         .map(({ event: e, km }, i) => {
           const parts = [`${i + 1}. ${e.shortTitle ?? e.title}`, `lugar: ${e.venueName}${e.barrio ? ` (${e.barrio})` : ""}`, `cuándo: ${whenLabel(e)}`, `precio: ${priceLabel(e)}`, `categoría: ${e.category}`];
           if (km !== undefined) parts.push(`distancia: ${km < 1 ? `${Math.round(km * 1000)} m` : `${km.toFixed(1)} km`}`);
+          if (alreadyStarted(e, now)) parts.push("ya empezó, todavía se llega");
           if (e.rating) parts.push(`puntaje: ${e.rating.value} (${e.rating.count} reseñas)`);
           const vibe = vibeLabel(e);
           if (vibe) parts.push(`onda: ${vibe}`);

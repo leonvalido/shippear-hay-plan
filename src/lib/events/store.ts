@@ -1,7 +1,7 @@
 import { getStore, type SqliteDatabase } from "../db";
 import { EventSchema, RawEventSchema, type Event, type EventsQuery, type RawEvent } from "./schema";
 import { fingerprint, mergeEvents, normalizeText, titleSimilarity } from "./normalize";
-import { addDays, epochMs, isMidnight, parseInstant, toRosarioISO } from "./time";
+import { addDays, epochMs, isMidnight, parseInstant, startOfRosarioDay, toRosarioISO } from "./time";
 import seed from "../../../data/events.json";
 
 /**
@@ -165,7 +165,8 @@ export function parseBbox(s?: string): Resolved["bbox"] | undefined {
 }
 
 function resolve(q: EventsQuery, now = new Date()): Resolved {
-  const from = parseInstant(q.from) ?? now;
+  // default lower bound is the start of today in Rosario: events that already started still count today
+  const from = parseInstant(q.from) ?? startOfRosarioDay(now);
   const to = parseInstant(q.to) ?? addDays(from, 14);
   return {
     fromMs: from.getTime(), toMs: to.getTime(), status: q.status, category: q.category,
@@ -187,7 +188,7 @@ function matches(e: Event, r: Resolved): boolean {
 }
 
 function resolveRange(range: StatsRange, now = new Date()) {
-  const from = parseInstant(range.from) ?? now;
+  const from = parseInstant(range.from) ?? startOfRosarioDay(now);
   const to = parseInstant(range.to) ?? addDays(from, 14);
   return { fromMs: from.getTime(), toMs: to.getTime(), status: range.status ?? "published" };
 }
