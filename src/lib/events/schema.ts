@@ -46,6 +46,8 @@ export const EventSchema = z.object({
   sourceName: z.string().optional(), // "Passline", "Municipalidad de Rosario", "@handle"
   sourceUrl: z.string().url().optional(),
   imageUrl: z.string().url().optional(),
+  /** Extra official links (tickets, organizer, social post) beyond sourceUrl. */
+  links: z.array(z.object({ label: z.string().max(40), url: z.string().url() })).max(6).optional(),
   /** Social-media signal for events that came from TikTok/Instagram captions. */
   metrics: z.object({ views: z.number().nonnegative().optional(), likes: z.number().nonnegative().optional() }).optional(),
   status: EventStatus.default("published"),

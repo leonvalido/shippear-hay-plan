@@ -1,4 +1,7 @@
-/** Small helpers shared by the API routes: JSON errors with status + one-line failure logs (never the payload). */
+/**
+ * Small helpers shared by the API routes: JSON errors with status + one-line failure logs.
+ * Logs carry our own messages and library error text only, never request bodies or user text.
+ */
 
 export function jsonError(route: string, status: number, message: string, detail?: unknown): Response {
   const extra = detail instanceof Error ? detail.message : typeof detail === "string" ? detail : "";
