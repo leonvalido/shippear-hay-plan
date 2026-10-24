@@ -58,6 +58,16 @@ export function MapExplorer() {
     return () => clearTimeout(t);
   }, [query]);
 
+  // Deep link from the concierge: /mapa?q=título
+  useEffect(() => {
+    const initial = new URLSearchParams(window.location.search).get("q");
+    if (initial) {
+      setQuery(initial);
+      setQ(initial);
+      setExpanded(true);
+    }
+  }, []);
+
   const range = useMemo(() => dayRange(day), [day]);
   const { events, status, error, refetch } = useEvents({ ...range, category, q });
 

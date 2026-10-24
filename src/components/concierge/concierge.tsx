@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useStream } from "@/hooks/use-stream";
 import { MicButton } from "./mic-button";
+import { PlanStops, parseStops } from "./plan-stops";
 import { WhatsAppButton } from "./whatsapp-button";
 import { ROSARIO_CENTER } from "@/lib/events/schema";
 
@@ -77,6 +78,7 @@ export function Concierge() {
   }
 
   const busy = ai.status === "loading" || ai.status === "streaming";
+  const stops = ai.status === "done" ? parseStops(ai.text) : [];
 
   return (
     <div className="space-y-6">
@@ -155,6 +157,7 @@ export function Concierge() {
         className="min-h-40"
       />
       )}
+      {stops.length > 0 && <PlanStops stops={stops} />}
       {ai.status === "done" && ai.text.trim() && (
         <div className="flex justify-end">
           <WhatsAppButton text={ai.text} className="w-full sm:w-auto" />
