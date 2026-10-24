@@ -400,8 +400,10 @@ function finalize(events: RawEvent[], now: Date): Event[] {
   for (const e of events) {
     const ms = Date.parse(e.startsAt);
     if (e.timeUnknown === undefined && isMidnight(e.startsAt)) e.timeUnknown = true;
-    // an event today with no known time is still on: compare by date, not by midnight
-    const past = e.timeUnknown ? e.startsAt.slice(0, 10) < today : ms < nowMs;
+    // people may still join something that started earlier today: drop only events dated before
+    // today (Rosario) or whose end was more than 2 hours ago
+    const endMs = e.endsAt ? Date.parse(e.endsAt) : Number.NaN;
+    const past = e.startsAt.slice(0, 10) < today || (!Number.isNaN(endMs) && endMs < nowMs - 2 * 3_600_000);
     if (Number.isNaN(ms) || past) { counts.past++; continue; }
     if (e.lat !== undefined && e.lng !== undefined && !inRosario({ lat: e.lat, lng: e.lng })) { counts.outside++; continue; }
     if (!e.barrio && e.lat !== undefined && e.lng !== undefined) e.barrio = barrioFromCoords(e.lat, e.lng);

@@ -2,7 +2,7 @@ import { z } from "zod";
 import { completeJSON, isMockMode } from "../ai";
 import { CONCIERGE_JSON_SYSTEM, buildConciergeJsonPrompt } from "../prompts";
 import type { Event } from "./schema";
-import { detectIntent, hourLabel, priceLabel, vibeLabel, whenLabel, type ConciergeInput, type Intent, type Ranked, type Window } from "./concierge";
+import { alreadyStarted, detectIntent, hourLabel, priceLabel, vibeLabel, whenLabel, type ConciergeInput, type Intent, type Ranked, type Window } from "./concierge";
 
 /**
  * Structured plan for POST /api/concierge (NDJSON). Claude picks event ids and
@@ -28,6 +28,7 @@ export type PlanStop = {
   price?: string; // absent when the source gave no price (no pill)
   vibe?: string; // "electrónica y house · público 25-35"
   why: string;
+  started?: boolean; // began within the last 60 minutes: "ya empezó, todavía llegás"
   walkMinutes?: number;
   lat?: number;
   lng?: number;
@@ -39,7 +40,7 @@ export type PlanLine = PlanIntro | PlanStop | PlanOutro;
 const WALK_M_PER_MIN = 80;
 export const FOOTER = "Plan armado con HayPlan";
 
-function stopFrom(e: Event, why: string, km?: number, firstDay?: string): PlanStop {
+function stopFrom(e: Event, why: string, km?: number, firstDay?: string, now = new Date()): PlanStop {
   const h = hourLabel(e.startsAt);
   const sameDay = !firstDay || e.startsAt.slice(0, 10) === firstDay;
   const time = e.timeUnknown ? "horario a confirmar" : e.recurring ? `abre a las ${h.slice(-5)}` : sameDay ? h.slice(-5) : `${h.slice(0, 3)} ${h.slice(-5)}`;
@@ -55,6 +56,7 @@ function stopFrom(e: Event, why: string, km?: number, firstDay?: string): PlanSt
     ...(e.price ? { price: priceLabel(e) } : {}),
     ...(vibeLabel(e) ? { vibe: vibeLabel(e) } : {}),
     why: why.trim(),
+    ...(alreadyStarted(e, now) ? { started: true } : {}),
     ...(km !== undefined ? { walkMinutes: Math.max(1, Math.round((km * 1000) / WALK_M_PER_MIN)) } : {}),
     ...(e.lat !== undefined ? { lat: e.lat } : {}),
     ...(e.lng !== undefined ? { lng: e.lng } : {}),
@@ -62,7 +64,7 @@ function stopFrom(e: Event, why: string, km?: number, firstDay?: string): PlanSt
 }
 
 export function shareText(intro: string, stops: PlanStop[], outro: string, mapUrl: string): string {
-  const lines = stops.map((s) => `${s.time} · ${s.shortTitle} · ${s.venueName}${s.price ? ` · ${s.price}` : ""}`);
+  const lines = stops.map((s) => `${s.time} · ${s.shortTitle} · ${s.venueName}${s.price ? ` · ${s.price}` : ""}${s.started ? " · ya empezó, todavía llegás" : ""}`);
   return [intro, "", ...lines, "", outro, `${FOOTER} · ${mapUrl}`].filter((l, i, a) => !(l === "" && a[i - 1] === "")).join("\n");
 }
 
@@ -72,6 +74,7 @@ function candidatesText(ranked: Ranked[]): string {
       const parts = [e.id, e.shortTitle ?? e.title, `${e.venueName}${e.barrio ? ` (${e.barrio})` : ""}`, whenLabel(e), priceLabel(e), e.category];
       if (km !== undefined) parts.push(km < 1 ? `${Math.round(km * 1000)} m` : `${km.toFixed(1)} km`);
       if (e.recurring) parts.push("noche fija");
+      if (alreadyStarted(e)) parts.push("ya empezó, todavía se llega");
       if (e.rating) parts.push(`puntaje ${e.rating.value}`);
       const vibe = vibeLabel(e);
       if (vibe) parts.push(`onda: ${vibe}`);
@@ -118,7 +121,7 @@ export async function buildPlan(ranked: Ranked[], input: ConciergeInput, win: Wi
   }
   chosen.sort((a, b) => a.r.event.startsAt.localeCompare(b.r.event.startsAt));
   const firstDay = chosen[0]?.r.event.startsAt.slice(0, 10);
-  const stops = chosen.map(({ r, why }) => stopFrom(r.event, why, r.km, firstDay));
+  const stops = chosen.map(({ r, why }) => stopFrom(r.event, why, r.km, firstDay, now));
   const intro = plan.intro.trim();
   const outro = plan.outro.trim();
   return [{ type: "intro", text: intro }, ...stops, { type: "outro", text: outro, shareText: shareText(intro, stops, outro, mapUrl) }];

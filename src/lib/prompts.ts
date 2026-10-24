@@ -188,7 +188,7 @@ export function buildConciergeJsonPrompt(candidates: string, when: string, nowLa
     `Presupuesto: ${budget !== undefined ? `hasta $ ${budget.toLocaleString("es-AR")}` : "no dijo"}.`,
     `Ánimo o ganas: ${mood?.trim() || "no dijo"}.`,
     intentLabel ? `Lo que busca, detectado: ${intentLabel}. La lista ya está filtrada a eso: nunca propongas algo de otro tipo, y si la lista está vacía decí que no encontraste eso.` : "",
-    "En cada why, si la parada trae \"onda\" (música, público), nombrala: es lo que la persona quiere saber.",
+    "En cada why, si la parada trae \"onda\" (música, público), nombrala: es lo que la persona quiere saber. Si dice \"ya empezó, todavía se llega\", decilo así en el why.",
     "Devolvé el plan con intro, stops (eventId + why) y outro.",
   ].join("\n");
 }
