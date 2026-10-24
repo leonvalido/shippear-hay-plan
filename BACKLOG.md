@@ -12,6 +12,7 @@ Single registry of features. Production (Vercel) is at HEAD (see git log), Verce
 | Build pipeline (build-events, events.json) | api | done/live | b898d27 |
 | Seed: 396 events, boliches nights, Places ratings, prices | api + datos + analisis | done/live | 698baf7 |
 | Vibe field (music, crowd, dress, age) on nightlife events | api | done/live | 19159d1 |
+| Concierge intent detection, night window, vibe in plan reasons | api | done/live | 894d391 |
 | Claude extraction from social captions | api | done/live | f057917 |
 | Event store on SQLite seeded from events.json | api | done/live | aac242f |
 | Plan de la noche (2-3 stop plan) | api | done/live | 53bac52 |
