@@ -31,12 +31,12 @@ type Props = {
 
 /** Below this zoom everything is a counted bubble; from here on, venue pins. */
 const PIN_ZOOM = 14;
-/** Gran Rosario with a small margin: the map never leaves our area. */
+/** Gran Rosario with ~30 km of margin; the edge is soft (viscosity 0.8) rather than a wall. */
 const AREA: [[number, number], [number, number]] = [
-  [-33.25, -61.05],
-  [-32.6, -60.45],
+  [-33.45, -61.35],
+  [-32.4, -60.15],
 ];
-const MIN_ZOOM = 11;
+const MIN_ZOOM = 10;
 const MAX_ZOOM = 18;
 
 // OSM tiles, darkened with a CSS filter in dark mode (CARTO basemaps now require an API key).
@@ -126,7 +126,7 @@ export function EventMap({
           minZoom: MIN_ZOOM,
           maxZoom: MAX_ZOOM,
           maxBounds: AREA,
-          maxBoundsViscosity: 1,
+          maxBoundsViscosity: 0.8,
           zoomControl: false,
           dragging: interactive,
           scrollWheelZoom: interactive,
@@ -364,25 +364,27 @@ function iconFor(L: any, map: LeafletMap, v: Venue, selected: boolean, explore: 
 }
 
 /** Counted bubble: the same look for clusters and for lone venues at city zoom. Size scales mildly with count. */
+/** Flat 30 px bubble; widens into a pill from three digits. Same look for clusters and lone venues at city zoom. */
 function bubbleIcon(L: any, n: number, selected = false) {
-  const size = 34;
+  const h = 30;
+  const w = n >= 100 ? 42 : h;
   return L.divIcon({
     html: `<div class="hp-cluster${selected ? " hp-cluster-selected" : ""}">${n}</div>`,
     className: "",
-    iconSize: [size, size],
-    iconAnchor: [size / 2, size / 2],
-    tooltipAnchor: [0, -size / 2],
+    iconSize: [w, h],
+    iconAnchor: [w / 2, h / 2],
+    tooltipAnchor: [0, -h / 2],
   });
 }
 
 function pinIcon(L: any, v: Venue, selected: boolean) {
   const n = v.events.length;
-  const size = 22;
+  const size = 26;
   return L.divIcon({
     className: "",
     iconSize: [size, size],
     iconAnchor: [size / 2, size / 2],
     tooltipAnchor: [0, -size / 2],
-    html: `<div class="hp-pin${selected ? " hp-pin-selected" : ""}" style="--c:${CATEGORY_COLORS[v.category]}">${categoryIconHtml(v.category, 12, "#fff")}${n > 1 ? `<span class="hp-pin-count">${n}</span>` : ""}</div>`,
+    html: `<div class="hp-pin${selected ? " hp-pin-selected" : ""}" style="--c:${CATEGORY_COLORS[v.category]}">${categoryIconHtml(v.category, 13, "#fff")}${n > 1 ? `<span class="hp-pin-count">${n}</span>` : ""}</div>`,
   });
 }
