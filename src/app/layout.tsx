@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Suspense } from "react";
 import { Open_Sans } from "next/font/google";
 import Link from "next/link";
 import { Logo } from "@/components/layout/logo";
@@ -29,7 +30,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Link href="/" aria-label="HayPlan, inicio" className="flex h-11 min-w-0 items-center text-foreground">
               <Logo className="h-7 w-auto" />
             </Link>
-            <NavLinks />
+            <Suspense fallback={<span className="h-10" aria-hidden />}>
+              <NavLinks />
+            </Suspense>
           </nav>
         </header>
         <main className="flex min-h-0 min-w-0 w-full flex-1 flex-col">{children}</main>

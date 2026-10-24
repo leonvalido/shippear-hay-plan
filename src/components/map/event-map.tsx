@@ -115,7 +115,7 @@ export function EventMap({
           zoomDelta: 1,
           wheelPxPerZoomLevel: 80,
           inertia: true,
-          zoomControl: interactive,
+          zoomControl: false,
           dragging: interactive,
           scrollWheelZoom: interactive,
           touchZoom: interactive,
@@ -124,6 +124,7 @@ export function EventMap({
           tap: interactive,
         });
         L.tileLayer(TILES, { attribution: ATTR, maxZoom: 19, updateWhenIdle: true, updateWhenZooming: false, keepBuffer: 3 }).addTo(map);
+        if (interactive && explore) L.control.zoom({ position: "bottomleft" }).addTo(map);
         map.on("load", () => map.invalidateSize());
         // Watchdog: if the browser never fires transitionend for a zoom animation (seen on phones: tiles stay
         // scaled and half the map is grey), finish it by hand so tiles for the new zoom load.
@@ -281,7 +282,7 @@ export function EventMap({
           disabled={locating}
           aria-label="Centrar el mapa en mi ubicación"
           title="Mi ubicación"
-          className="glass absolute right-3 top-3 z-[1000] flex size-10 items-center justify-center rounded-full text-foreground shadow-md disabled:opacity-60"
+          className="glass absolute right-3 top-[132px] z-[1000] flex size-10 items-center justify-center rounded-full text-foreground shadow-md disabled:opacity-60 md:top-3"
         >
           <svg viewBox="0 0 24 24" className={cn("size-5", locating && "animate-pulse")} fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
             <circle cx="12" cy="12" r="3" />

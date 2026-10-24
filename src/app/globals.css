@@ -307,3 +307,15 @@
 .leaflet-tooltip.hp-tooltip { background: var(--card); color: var(--foreground); border-radius: 12px; padding: 12px 14px; min-width: 220px; max-width: 280px; }
 .hp-tt-pill { display: inline-block; margin-top: 6px; padding: 4px 10px; border-radius: 9999px; background: var(--primary); color: #fff; font-size: 12px; font-weight: 600; }
 .leaflet-tooltip-top.hp-tooltip::before { border-top-color: var(--card); }
+
+/* Concierge bar glow */
+@keyframes hp-glow {
+  0%, 100% { box-shadow: 0 0 0 1px color-mix(in oklch, var(--primary) 40%, transparent), 0 0 32px color-mix(in oklch, var(--primary) 35%, transparent); }
+  50% { box-shadow: 0 0 0 1px color-mix(in oklch, var(--primary) 50%, transparent), 0 0 48px color-mix(in oklch, var(--primary) 50%, transparent); }
+}
+.hp-glow {
+  animation: hp-glow 4s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hp-glow { animation: none; box-shadow: 0 0 0 1px color-mix(in oklch, var(--primary) 40%, transparent), 0 0 32px color-mix(in oklch, var(--primary) 35%, transparent); }
+}

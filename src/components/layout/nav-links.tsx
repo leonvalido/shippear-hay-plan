@@ -1,21 +1,25 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { cn } from "@/lib/utils";
 
 const LINKS = [
   { href: "/mapa", label: "Mapa" },
-  { href: "/hoy", label: "Qué hago hoy" },
+  { href: "/mapa?concierge=1", label: "Concierge" },
 ] as const;
 
 /** Top navigation; highlights the active section. */
 export function NavLinks() {
   const pathname = usePathname();
+  const params = useSearchParams();
+  const concierge = params.get("concierge") === "1";
   return (
     <ul className="flex shrink-0 items-center gap-1 text-sm">
       {LINKS.map(({ href, label }) => {
-        const active = pathname === href || pathname.startsWith(href + "/");
+        const [path, query] = href.split("?");
+        const onPath = pathname === path || pathname.startsWith(path + "/");
+        const active = query ? onPath && concierge : onPath && !concierge;
         return (
           <li key={href}>
             <Link

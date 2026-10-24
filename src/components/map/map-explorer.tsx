@@ -26,7 +26,12 @@ import { cn } from "@/lib/utils";
 import { type Venue } from "@/components/events/venues";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
+import { AIResult } from "@/components/ai-result";
+import { PlanStops, parseStops } from "@/components/concierge/plan-stops";
+import { WhatsAppButton } from "@/components/concierge/whatsapp-button";
+import { useStream } from "@/hooks/use-stream";
 import { BarrioStrip } from "./barrio-strip";
+import { ConciergeBar, type Budget } from "./concierge-bar";
 import { EventMap } from "./event-map";
 import { FilterChips } from "./filter-chips";
 
@@ -44,7 +49,38 @@ export function MapExplorer() {
   const [sort, setSort] = useState<"hora" | "views">("hora");
   const [me, setMe] = useState<LatLng | null>(null);
   /** What the sheet shows: the full list, one venue, or the venues of a cluster that cannot be split. */
-  const [mode, setMode] = useState<{ kind: "list" } | { kind: "venue"; venue: Venue } | { kind: "venues"; venues: Venue[] }>({ kind: "list" });
+  const [mode, setMode] = useState<{ kind: "list" } | { kind: "venue"; venue: Venue } | { kind: "venues"; venues: Venue[] } | { kind: "plan" }>({ kind: "list" });
+  const [budget, setBudget] = useState<Budget>(null);
+  const [near, setNear] = useState(false);
+  const [locating, setLocating] = useState(false);
+  const [focusBar, setFocusBar] = useState(false);
+  const ai = useStream("/api/concierge");
+
+  /** "Cerca mío": ask for the position once; fall back silently. */
+  function requestLocation() {
+    if (me || !("geolocation" in navigator)) return;
+    setLocating(true);
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        setMe({ lat: pos.coords.latitude, lng: pos.coords.longitude });
+        setLocating(false);
+      },
+      () => setLocating(false),
+      { timeout: 8000, maximumAge: 60_000 },
+    );
+  }
+
+  function toggleNear(on: boolean) {
+    setNear(on);
+    if (on) requestLocation();
+  }
+
+  function askConcierge(text: string) {
+    const when = day ?? "hoy";
+    ai.run({ when, lat: me?.lat, lng: me?.lng, budget: budget ?? undefined, mood: text || undefined });
+    setMode({ kind: "plan" });
+    setExpanded(true);
+  }
 
   // If the user already granted location to this site, pick it up silently (no prompt).
   useEffect(() => {
@@ -88,6 +124,7 @@ export function MapExplorer() {
     const params = new URLSearchParams(window.location.search);
     const cat = params.get("category");
     if (cat && (CATEGORIES as string[]).includes(cat)) setCategory(cat as EventCategory);
+    if (params.get("concierge")) setFocusBar(true);
     const initial = params.get("q");
     if (initial) {
       setQuery(initial);
@@ -99,7 +136,20 @@ export function MapExplorer() {
   const range = useMemo(() => dayRange(day), [day]);
   const { events, status, error, refetch } = useEvents({ ...range, category, q });
 
+  const shown = useMemo(() => {
+    let list = events;
+    if (budget === 0) list = list.filter((e) => e.price?.free);
+    else if (budget != null) list = list.filter((e) => e.price?.free || (e.price?.min ?? e.price?.max ?? 0) <= budget);
+    if (near && me) {
+      list = list
+        .filter((e) => (walkMinutes(me, e) ?? Infinity) <= 40)
+        .sort((a, b) => (walkMinutes(me, a) ?? 0) - (walkMinutes(me, b) ?? 0));
+    }
+    return list;
+  }, [events, budget, near, me]);
+
   const groups = useMemo(() => {
+    const events = shown;
     const map = new Map<string, { label: string; events: typeof events }>();
     if (sort === "views") {
       const byViews = [...events].sort((a, b) => (b.metrics?.views ?? 0) - (a.metrics?.views ?? 0));
@@ -112,7 +162,7 @@ export function MapExplorer() {
       map.set(key, g);
     }
     return [...map.entries()];
-  }, [events, sort]);
+  }, [shown, sort]);
 
   function selectFromList(id: string) {
     setSelectedId(id);
@@ -142,7 +192,7 @@ export function MapExplorer() {
     el?.scrollIntoView({ block: "nearest", behavior: "smooth" });
   }, [selectedId]);
 
-  const count = status === "done" ? `${events.length} evento${events.length === 1 ? "" : "s"}` : "Buscando…";
+  const count = status === "done" ? `${shown.length} evento${shown.length === 1 ? "" : "s"}` : "Buscando…";
 
   const venueGroups = (venue: Venue) => {
     const map = new Map<string, { label: string; events: Venue["events"] }>();
@@ -250,8 +300,6 @@ export function MapExplorer() {
         className="h-10 bg-background"
       />
       <div className="-mx-3 flex gap-1.5 overflow-x-auto px-3 pb-1 [scrollbar-width:none] [mask-image:linear-gradient(to_right,transparent,black_12px,black_calc(100%-24px),transparent)]">
-        <FilterChips label="Cuándo" chips={DAY_CHIPS} value={day} onChange={setDay} />
-        <span aria-hidden className="my-1 w-px shrink-0 bg-border" />
         <FilterChips label="Categoría" chips={CATEGORY_CHIPS} value={category} onChange={setCategory} />
       </div>
       <div className="flex items-center justify-between text-xs">
@@ -298,7 +346,7 @@ export function MapExplorer() {
           </Button>
         </div>
       )}
-      {status === "done" && events.length === 0 && (
+      {status === "done" && shown.length === 0 && (
         <div className="surface p-6 text-center">
           <p className="text-[15px] font-semibold">No hay nada con esos filtros.</p>
           <p className="mt-1 text-[13px] text-muted-foreground">Sacá uno o probá otro día.</p>
@@ -321,14 +369,35 @@ export function MapExplorer() {
   );
 
 
-  const body = mode.kind === "venue" ? venuePanel(mode.venue) : mode.kind === "venues" ? venuesPanel(mode.venues) : list;
+  const stops = ai.status === "done" ? parseStops(ai.text) : [];
+  const planPanel = (
+    <div className="space-y-3">
+      <button type="button" onClick={backToList} className="flex h-11 items-center text-sm text-muted-foreground hover:underline">
+        ← Todos los eventos
+      </button>
+      <AIResult
+        title="Tu plan"
+        status={ai.status}
+        text={ai.text}
+        error={ai.error}
+        mode={ai.mode}
+        onRetry={() => ai.run({ when: day ?? "hoy", lat: me?.lat, lng: me?.lng, budget: budget ?? undefined })}
+        className="min-h-32"
+      />
+      {stops.length > 0 && <PlanStops stops={stops} />}
+      {ai.status === "done" && ai.text.trim() && <WhatsAppButton text={ai.text} className="w-full" />}
+    </div>
+  );
+
+  const body =
+    mode.kind === "venue" ? venuePanel(mode.venue) : mode.kind === "venues" ? venuesPanel(mode.venues) : mode.kind === "plan" ? planPanel : list;
 
   return (
     <div className="relative flex flex-col md:flex-row">
       {/* Map */}
       <div className={cn("relative shrink-0 transition-[height] duration-[320ms] [transition-timing-function:cubic-bezier(0.32,0.72,0,1)]", expanded ? "h-[15dvh]" : "h-[50dvh]", "md:h-[calc(100dvh-3.5rem)] md:flex-1")}>
         <EventMap
-          events={events}
+          events={shown}
           selectedId={selectedId}
           onSelectVenue={openVenue}
           onSelectCluster={(vs) => {
@@ -339,15 +408,28 @@ export function MapExplorer() {
           explore
           onLocate={setMe}
         />
+        <ConciergeBar
+          day={day}
+          onDay={setDay}
+          budget={budget}
+          onBudget={setBudget}
+          near={near}
+          onNear={toggleNear}
+          locating={locating}
+          busy={ai.status === "loading" || ai.status === "streaming"}
+          autoFocus={focusBar}
+          onSubmit={askConcierge}
+          className="absolute left-3 right-3 top-3 z-[1000] md:top-16 md:mx-auto md:max-w-xl"
+        />
         <BarrioStrip
-          events={events}
+          events={shown}
           range={range}
           active={query}
           onPick={(b) => {
             setQuery(b);
             setQ(b);
           }}
-          className="absolute left-14 right-3 top-3 z-[1000] pr-14 [mask-image:linear-gradient(to_right,black_calc(100%-5.5rem),transparent_calc(100%-3rem))]"
+          className="absolute left-14 right-3 top-3 z-[1000] hidden pr-14 [mask-image:linear-gradient(to_right,black_calc(100%-5.5rem),transparent_calc(100%-3rem))] md:flex"
         />
       </div>
 
