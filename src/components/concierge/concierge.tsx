@@ -9,6 +9,8 @@ import { Label } from "@/components/ui/label";
 import { useStream } from "@/hooks/use-stream";
 import { MicButton } from "./mic-button";
 import { PlanStops, parseStops } from "./plan-stops";
+import { parsePlan } from "./plan-stream";
+import { PlanView } from "./plan-view";
 import { WhatsAppButton } from "./whatsapp-button";
 import { ROSARIO_CENTER } from "@/lib/events/schema";
 
@@ -78,7 +80,8 @@ export function Concierge() {
   }
 
   const busy = ai.status === "loading" || ai.status === "streaming";
-  const stops = ai.status === "done" ? parseStops(ai.text) : [];
+  const parsed = parsePlan(ai.text, ai.status === "done");
+  const stops = ai.status === "done" && parsed.mode === "text" ? parseStops(ai.text) : [];
 
   return (
     <div className="space-y-6">
@@ -152,7 +155,13 @@ export function Concierge() {
         </div>
       </section>
 
-      {ai.status !== "idle" && (
+      {ai.status !== "idle" && parsed.mode !== "text" && ai.status !== "error" && (
+        <section className="surface space-y-3 p-4">
+          <h2 className="text-lg font-semibold">Tu plan</h2>
+          <PlanView plan={parsed} status={ai.status} />
+        </section>
+      )}
+      {ai.status !== "idle" && (parsed.mode === "text" || ai.status === "error") && (
       <AIResult
         title="Tu plan"
         status={ai.status}
@@ -165,7 +174,7 @@ export function Concierge() {
       />
       )}
       {stops.length > 0 && <PlanStops stops={stops} />}
-      {ai.status === "done" && ai.text.trim() && (
+      {parsed.mode === "text" && ai.status === "done" && ai.text.trim() && (
         <div className="flex justify-end">
           <WhatsAppButton text={ai.text} className="w-full sm:w-auto" />
         </div>
