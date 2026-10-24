@@ -55,7 +55,7 @@ Copia final, con la forma de `voz.md` y aprobada por el editor el 2026-10-24. Un
 
 ## Logo
 
-Archivos: `logo.svg` (color, marca + wordmark), `logo-mono.svg` (un solo color, usa `currentColor`), `icon.svg` (ícono cuadrado de app, 512×512, esquinas redondeadas).
+Archivos: `logo.svg` (color, marca + wordmark), `logo-mono.svg` (un solo color, usa `currentColor`), `icon.svg` (ícono de app, 512×512, esquinas redondeadas, pin con sombreado metálico en degradé violeta `#e9a3ff → #c94ee6 → #7a1a9a` sobre fondo oscuro), `icon-square.svg` (mismo ícono sin esquinas, para iOS que las recorta solo), `icon-mono.svg` (pin blanco o `currentColor` para la nav). Exportados: `icon-1024.png`, `apple-touch-icon-180.png`, `favicon-64.png`, `favicon-32.png`. Solo degradés y clip-path, sin filtros, para que iOS lo pinte igual.
 
 - El **mark** es un pin de mapa con un destello de cuatro puntas adentro: "acá hay algo". Funciona solo desde 24 px (favicon, pestaña, pin en el mapa).
 - El wordmark es `hayplan` en minúsculas, peso bold, fuente del sistema (`ui-rounded, "SF Pro Rounded", "Segoe UI", Inter, system-ui, sans-serif`). No hay fuente externa que cargar.
